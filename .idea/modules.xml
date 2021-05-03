@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Prova1.iml" filepath="$PROJECT_DIR$/.idea/Prova1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/PySound.iml" filepath="$PROJECT_DIR$/.idea/PySound.iml" />
     </modules>
   </component>
 </project>

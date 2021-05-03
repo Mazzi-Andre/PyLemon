@@ -13,7 +13,7 @@ from multiprocessing import Process
 
 #---------> import delle classi <-------------
 
-from Pittura.pittura import Window
+
 from Player.lettore import MusicPlayer
 
 
