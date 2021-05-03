@@ -1,0 +1,10 @@
+{
+  "Utente1" : {
+    "Nome_utente" : "Andrea",
+    "Password" : "pass123"
+  },
+  "Utente2" : {
+    "Nome_utente" : "Stefano",
+    "Password" : "ciao123"
+  }
+}
