@@ -13,7 +13,6 @@ from multiprocessing import Process
 
 #---------> import delle classi <-------------
 
-
 from Player.lettore import MusicPlayer
 
 
