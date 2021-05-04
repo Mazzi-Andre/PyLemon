@@ -11,3 +11,5 @@ class Ascolto (object):
 
     def crea_playlist(self, playlist):
         print("ciao")
+
+        #ciao
