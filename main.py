@@ -26,4 +26,4 @@ if __name__=='__main__':
 	barThread.start()
 	root.mainloop()
 
-	#commento per andre by andrea
+
