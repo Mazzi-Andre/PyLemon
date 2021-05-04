@@ -25,3 +25,5 @@ if __name__=='__main__':
 	# Start thread, could also use root.after(50, barThread.start()) if desired
 	barThread.start()
 	root.mainloop()
+
+	#commento per andre by andrea
