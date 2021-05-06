@@ -1,7 +1,20 @@
-class EliminazioneAccount(object):
+import os
+import pickle
 
-    def __init__(self, username, password):
+class EliminazioneAccount():
+
+    def __init__(self):
+        super(EliminazioneAccount, self).__init__()
+
         self.username = username
-        self.password = password
 
-    #Qui richiamo lettura database André
+    def selected_profilo(registrazione):
+        if  registrazione.username == username:
+            return true
+        else:
+            return false
+
+    def rimozione_accont(self):
+        self.registrazione.lista_profili.remove(filter(selected_profilo, self))
+
+
