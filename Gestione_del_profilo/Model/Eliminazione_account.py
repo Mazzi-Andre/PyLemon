@@ -1,5 +1,6 @@
 import os
 import pickle
+import Verifica_credenziali
 
 class EliminazioneAccount():
 
@@ -9,14 +10,6 @@ class EliminazioneAccount():
         self.password = password
 
 
-    def verifica(self, username, password):
-        if username == controller_andre.username #controllore_andre.username me lo passerà andre dal pickle
-                if password == controller_andre.password #controllore_andre.password me lo passerà andre da pickle
-                    verifica = True
-                    return verifica
-        verifica = False
-        return verifica
-
     """def rimozione_accont(self, verifica):
         def selected_profilo(self, registrazione, username):
             if verifica is True:
@@ -25,10 +18,12 @@ class EliminazioneAccount():
                 return False
             self.registrazione.lista_profili.remove(list(filter(selected_profilo, self)))"""""
 
+    verifica = Verifica_credenziali.verifica_credenziali
     def rimozione_accont(self, verifica):
         if verifica is True:
-            def selected_profilo(self, registrazione, username):
+            def selected_profilo(registrazione, username):
                 if registrazione.username == username:
                     return True
                 return False
-            self.registrazione.lista_profili.remove(list(filter(selected_profilo, self)))
+            self.registrazione.lista_profili.remove(list(filter(selected_profilo, self))[0])
+        print("Username o password errati.")
