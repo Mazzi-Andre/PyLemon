@@ -14,18 +14,20 @@ c.execute("""CREATE TABLE IF NOT EXISTS Utenti (
             tipo text
             )""")
 
-u1 = Utente('Andre', 'Mazzi', 20, 'anda00', 'prova', 'cicciopierino', 'artista')
+u1 = Utente('Andre', 'Mazzi', 20, 'anda00', 'passtest', 'andremazzi29@gmail.com', 'artista')
 
-c.execute("INSERT INTO Utenti VALUES ('Andre', 'Mazzi', 20, 'anda00', 'prova', 'cicciopierino', 'artista' )")
+c.execute("INSERT INTO Utenti VALUES (u1.nome , 'Mazzi', 20, 'anda00', 'prova', 'cicciopierino', 'artista' )")
+#c.execute("INSERT INTO Utenti VALUES (?,?,?,?,?,?,?,)", (u1.nome, u1.cognome, u1.eta, u1.username,u1.password, u1.email, u1.tipo) )
 #c.execute("INSERT INTO employees VALUES ('Corey', 'pluto', 'Schafer', 50000)")
 
 c.execute("SELECT * FROM Utenti WHERE cognome ='Mazzi'")
 
 result = (c.fetchone())
 prova = result
-print(result[1])
+print(result[2])
 print(prova[1])
 
-#conn.commit()
+print(c.fetchall())
+conn.commit()
 
 conn.close()
