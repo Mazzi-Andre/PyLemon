@@ -22,12 +22,11 @@ class ControllerListaBrani():
             print("fatto")
 
     def Carica_mp3(self, contatoreid, percorsofile):
-        #capire come cazzo si trasferisce un file nella directory desiderata e farlo qui prima del rename
-        shutil.copy(percorsofile, "cartella dove verrà spostato il file")  #percorsofile è una stringa che indica dove si trova il file e sarà del tipo C:\\Desktop\\ciao.mp3
-        x = contatoreid+".mp3"
-        os.rename("nomefilecanzone.mp3", x)
-
-        #da aggiungere try and cath e controlli vari
+        if os.path.isfile(percorsofile):
+            shutil.copy(percorsofile, "cartella dove verrà spostato il file")  #percorsofile è una stringa che indica dove si trova il file e sarà del tipo C:\\Desktop\\ciao.mp3
+            x = contatoreid+".mp3"
+            os.rename("nomefilecanzone.mp3", x)
+        else: print("il file non esiste")
 
         #se si vuole possiasmo aggiungere un modo per criptare i file
 
