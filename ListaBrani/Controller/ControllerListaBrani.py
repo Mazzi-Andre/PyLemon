@@ -1,4 +1,7 @@
 import json
+import os
+import shutil
+from os import path
 
 class ControllerListaBrani():
     def __init__(self, listabrani):
@@ -17,4 +20,14 @@ class ControllerListaBrani():
             jsonFile.write(jsonList)
             jsonFile.close()
             print("fatto")
+
+    def Carica_mp3(self, contatoreid, percorsofile):
+        #capire come cazzo si trasferisce un file nella directory desiderata e farlo qui prima del rename
+        shutil.copy(percorsofile, "cartella dove verrà spostato il file")  #percorsofile è una stringa che indica dove si trova il file e sarà del tipo C:\\Desktop\\ciao.mp3
+        x = contatoreid+".mp3"
+        os.rename("nomefilecanzone.mp3", x)
+
+        #da aggiungere try and cath e controlli vari
+
+        #se si vuole possiasmo aggiungere un modo per criptare i file
 
