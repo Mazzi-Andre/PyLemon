@@ -16,9 +16,6 @@ class ControllerBrano():
     def get_album_brano(self):
         return self.model.album
 
-    def get_genere_brano(self):
-        return self.model.genere
-
     def get_contatore_brano(self):
         return self.model.contatore
 
