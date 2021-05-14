@@ -11,9 +11,9 @@ class Ui_NewUser(object):
         NewUser.resize(550,410)
         NewUser.setStyleSheet("background-color: rgb(40,39,39);")
         self.l_newuser = QtWidgets.QLabel(NewUser)
-        self.l_newuser.setGeometry(QtCore.QRect(180, 10, 181, 31))
-        self.l_newuser.setStyleSheet("font: 24pt \".SF NS Text\";\n"
-                                     "color: rgb(234, 239, 238);\n"
+        self.l_newuser.setGeometry(QtCore.QRect(160, 10, 220, 35))
+        self.l_newuser.setStyleSheet(
+                                     "color: rgb(221, 215, 25);\n"
                                      "")
         self.l_newuser.setAlignment(QtCore.Qt.AlignCenter)
         self.l_newuser.setObjectName("l_newuser")
@@ -95,14 +95,14 @@ class Ui_NewUser(object):
     def retranslateUi(self, NewUser):
         _translate = QtCore.QCoreApplication.translate
         NewUser.setWindowTitle(_translate("NewUser", "Form"))
-        self.l_newuser.setText(_translate("NewUser", "New User"))
-        self.txt_firstname.setPlaceholderText(_translate("NewUser", "Enter your First Name"))
-        self.txt_lastname.setPlaceholderText(_translate("NewUser", "Enter your Last Name"))
-        self.txt_phone.setPlaceholderText(_translate("NewUser", "Enter your Phone Number "))
-        self.txt_email.setPlaceholderText(_translate("NewUser", "Enter Type "))
-        self.txt_username.setPlaceholderText(_translate("NewUser", "Enter Username"))
-        self.lineEdit.setPlaceholderText(_translate("NewUser", "Enter Password"))
-        self.btn_submit.setText(_translate("NewUser", "Submit"))
-        self.Back.setText(_translate("NewUser", "Back"))
+        self.l_newuser.setText(_translate("NewUser", "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600; font-style:italic;\">Nuovo utente</span></p></body></html>"))
+        self.txt_firstname.setPlaceholderText(_translate("NewUser", "Nome"))
+        self.txt_lastname.setPlaceholderText(_translate("NewUser", "Cognome"))
+        self.txt_phone.setPlaceholderText(_translate("NewUser", "Telefono/cellulare"))
+        self.txt_email.setPlaceholderText(_translate("NewUser", "Tipo abbonamento"))
+        self.txt_username.setPlaceholderText(_translate("NewUser", "Username"))
+        self.lineEdit.setPlaceholderText(_translate("NewUser", "Password"))
+        self.btn_submit.setText(_translate("NewUser", "Conferma"))
+        self.Back.setText(_translate("NewUser", "Indietro"))
         self.attenzione.setText(_translate("NewUser",
-                                           "<html><head/><body><p align=\"center\"><span style=\" font-size:8pt;\">Attenzione: nella sezione type è necessario selezionare il tipo di abbonamento(ascoltatore, artista, etichetta)</span></p></body></html>"))
+                                           "<html><head/><body><p align=\"center\"><span style=\" font-size:7pt;\">Attenzione: nella sezione type selezionare il tipo di abbonamento(ascoltatore, artista, etichetta)</span></p></body></html>"))
