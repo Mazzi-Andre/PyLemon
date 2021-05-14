@@ -47,6 +47,8 @@ class MusicPlayer:
     # 		mixer.music.load(self.music_file)
     # 		mixer.music.play()
 
+
+
     def autoPlay(self,pb):
         if self.playing_state == False:
             return
@@ -100,9 +102,12 @@ class MusicPlayer:
     def play(self):
 #    	print("Playing filesssssss:")
         if self.lst.curselection():
+            print(self.lst.curselection())
             if self.lst.get(self.lst.curselection()): # la selezione corrisponde a un elemento della lista!
                 self.lst_pos=self.lst.curselection()
                 self.music_file=self.lst.get(self.lst.curselection())
+                # restituisce il path
+                print(self.lst.get(self.lst.curselection()))
                 mixer.music.load(self.music_file)
                 mixer.music.play()
                 self.playing_state = True
