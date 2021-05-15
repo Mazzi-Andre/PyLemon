@@ -12,7 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QWidget
 
 
-class Ui_Form(object):
+class pubblicazione_inizio(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(430, 330)
@@ -54,9 +54,10 @@ class Ui_Form(object):
         self.label.setText(_translate("Form", "PySound"))
         self.label_2.setText(_translate("Form", "Pubblicazione"))
 
+
 app = QApplication([])
 window = QWidget()
-form = Ui_Form()
+form = pubblicazione_inizio()
 form.setupUi(window)
 window.show()
 app.exec()

@@ -12,7 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QWidget
 
 
-class Ui_Form(object):
+class Caricamento_brano(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(469, 367)
@@ -66,7 +66,7 @@ class Ui_Form(object):
 
 app = QApplication([])
 window = QWidget()
-form = Ui_Form()
+form = Caricamento_brano()
 form.setupUi(window)
 window.show()
 app.exec()
