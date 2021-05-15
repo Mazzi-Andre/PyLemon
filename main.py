@@ -5,6 +5,8 @@ from PyQt5 import QtWidgets
 
 # ---------- We dont Touch --------------------
 from Login.controller.controller_login import Login
+from Pubblicazione.View.Caricamento_brano import Caricamento_brano
+from Pubblicazione.View.pubblicazione_inizio import pubblicazione_inizio
 
 
 class Ui_Discovery(object):
@@ -111,6 +113,18 @@ class Controller:
         self.discovery.switch_window.connect(self.show_login_page)
         self.login.close()
         self.discovery.show()
+
+    def show_bubblicazione_inizio(self):
+        self.pubblicazione = pubblicazione_inizio()
+        self.pubblicazione.switch_window.connect(self.show_caricamento_brano())
+        self.caricamento.close()
+        self.pubblicazione.show()
+
+    def show_caricamento_brano(self):
+        self.caricamento = Caricamento_brano()
+        self.caricamento.switch_window.connect(self.show_bubblicazione_inizio)
+        # self.login.switch_window1.connect(self.show_discovery)
+        self.caricamento.show()
 
 
 def main():
