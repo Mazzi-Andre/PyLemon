@@ -1,3 +1,6 @@
+import sqlite3
+
+
 class ModelRegistrazione:
 
     def __init__(self, nome, cognome, telefono, tipo, username, password):
@@ -7,3 +10,4 @@ class ModelRegistrazione:
         self.tipo = tipo
         self.username = username
         self.password = password
+

@@ -2,6 +2,7 @@ import sqlite3
 
 from PyQt5 import QtWidgets, QtCore
 
+from Registrazione.Model.model_registrazione import ModelRegistrazione
 from Registrazione.view.vista_registrazione import Ui_NewUser
 
 
@@ -13,6 +14,7 @@ class Newuser(QtWidgets.QWidget, Ui_NewUser):
         self.setupUi(self)
         self.btn_Back.clicked.connect(self.back_handler)
         self.btn_submit.clicked.connect(self.btn_submit_handler)
+
 
     """ messaggio pop up per l'aggiunta al database """
     def pop_message(self, text=""):
@@ -31,19 +33,27 @@ class Newuser(QtWidgets.QWidget, Ui_NewUser):
     """ funzione di creazione di un'account """
     def create_db_newuser(self):
 
-        txt_firstname_v = self.txt_firstname.text()
-        txt_lastname_v = self.txt_lastname.text()
-        txt_phone_v = self.txt_phone.text()
-        txt_tipo_v = self.txt_tipo.text()
-        txt_username_v = self.txt_username.text()
-        txt_password_v = self.lineEdit.text()
+        #txt_firstname_v = self.txt_firstname.text()
+        #txt_lastname_v = self.txt_lastname.text()
+        #txt_phone_v = self.txt_phone.text()
+        #txt_tipo_v = self.txt_tipo.text()
+        #txt_username_v = self.txt_username.text()
+        #txt_password_v = self.lineEdit.text()
 
-        if (len(txt_firstname_v) <= 1
-                and len(txt_lastname_v) <= 1 and
-                len(txt_phone_v) <= 9 and
-                len(txt_tipo_v) <= 1 and
-                len(txt_username_v) <= 1 and
-                len(txt_password_v) <= 1):
+        self.model = ModelRegistrazione(self.txt_firstname.text(),
+                                        self.txt_lastname.text(),
+                                        self.txt_phone.text(),
+                                        self.txt_tipo.text(),
+                                        self.txt_username.text(),
+                                        self.lineEdit.text()
+                                        )
+
+        if (len(self.model.nome) <= 1
+                and len(self.model.cognome) <= 1 and
+                len(self.model.telefono) <= 9 and
+                len(self.model.password) <= 1 and
+                len(self.model.username) <= 1 and
+                len(self.model.password) <= 1):
 
             """
             per vedere se tutti i campi sono stati inseriti correttamente 
@@ -75,8 +85,9 @@ class Newuser(QtWidgets.QWidget, Ui_NewUser):
 
                 VALUES 
                 (?,?,?,?,?,?)
-                """, (txt_firstname_v, txt_lastname_v, txt_phone_v, txt_tipo_v, txt_username_v, txt_password_v))
+                """, (self.model.nome, self.model.cognome, self.model.telefono, self.model.tipo, self.model.username, self.model.password))
 
+            #(txt_firstname_v, txt_lastname_v, txt_phone_v, txt_tipo_v, txt_username_v, txt_password_v)
             conn.commit()
             cursor.close()
             conn.close()
