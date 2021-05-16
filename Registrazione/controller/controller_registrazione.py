@@ -14,17 +14,21 @@ class Newuser(QtWidgets.QWidget, Ui_NewUser):
         self.btn_Back.clicked.connect(self.back_handler)
         self.btn_submit.clicked.connect(self.btn_submit_handler)
 
+    """ messaggio pop up per l'aggiunta al database """
     def pop_message(self, text=""):
         msg = QtWidgets.QMessageBox()
         msg.setText("{}".format(text))
         msg.exec_()
 
+    """ funzione per richiamare la funzione del database """
     def btn_submit_handler(self):
         self.create_db_newuser()
 
+    """ funzione per tornare alla schermata di login """
     def back_handler(self):
         self.switch_window.emit()
 
+    """ funzione di creazione di un'account """
     def create_db_newuser(self):
 
         txt_firstname_v = self.txt_firstname.text()
@@ -42,7 +46,7 @@ class Newuser(QtWidgets.QWidget, Ui_NewUser):
                 len(txt_password_v) <= 1):
 
             """
-            Logic to see if users Enter all Feilds Correctly 
+            per vedere se tutti i campi sono stati inseriti correttamente 
             """
             self.pop_message(text="Please Enter All Feilds ")
 
@@ -57,7 +61,7 @@ class Newuser(QtWidgets.QWidget, Ui_NewUser):
                     fname TEXT, 
                     lname TEXT, 
                     Phone TEXT, 
-                    email TEXT,
+                    tipo TEXT,
                     username TEXT, 
                     password TEXT)""")
 
@@ -65,7 +69,7 @@ class Newuser(QtWidgets.QWidget, Ui_NewUser):
                     (fname,
                     lname,
                     Phone,
-                    email,
+                    tipo,
                     username, 
                     password)
 
