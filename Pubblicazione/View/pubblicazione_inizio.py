@@ -55,9 +55,9 @@ class pubblicazione_inizio(object):
         self.label_2.setText(_translate("Form", "Pubblicazione"))
 
 
-app = QApplication([])
-window = QWidget()
-form = pubblicazione_inizio()
-form.setupUi(window)
-window.show()
-app.exec()
+#app = QApplication([])
+#window = QWidget()
+#form = pubblicazione_inizio()
+#form.setupUi(window)
+#window.show()
+#app.exec()
