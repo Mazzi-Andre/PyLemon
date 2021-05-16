@@ -30,7 +30,7 @@ class Newuser(QtWidgets.QWidget, Ui_NewUser):
         txt_firstname_v = self.txt_firstname.text()
         txt_lastname_v = self.txt_lastname.text()
         txt_phone_v = self.txt_phone.text()
-        txt_tipo_v = self.txt_email.text()
+        txt_tipo_v = self.txt_tipo.text()
         txt_username_v = self.txt_username.text()
         txt_password_v = self.lineEdit.text()
 

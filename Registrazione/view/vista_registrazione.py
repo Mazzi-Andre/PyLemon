@@ -44,13 +44,13 @@ class Ui_NewUser(object):
                                      "font: 14pt \"Arial\";")
         self.txt_phone.setObjectName("txt_phone")
 
-        self.txt_email = QtWidgets.QLineEdit(NewUser)
-        self.txt_email.setGeometry(QtCore.QRect(290, 140, 230, 41))
-        self.txt_email.setStyleSheet("background-color: rgb(207, 211, 211);\n"
+        self.txt_tipo = QtWidgets.QLineEdit(NewUser)
+        self.txt_tipo.setGeometry(QtCore.QRect(290, 140, 230, 41))
+        self.txt_tipo.setStyleSheet("background-color: rgb(207, 211, 211);\n"
                                      "border-style:outset;\n"
                                      "border-radius:10px;\n"
                                      "font: 14pt \"Arial\";")
-        self.txt_email.setObjectName("txt_email")
+        self.txt_tipo.setObjectName("txt_email")
 
         self.txt_username = QtWidgets.QLineEdit(NewUser)
         self.txt_username.setGeometry(QtCore.QRect(30, 200, 230, 41))
@@ -99,7 +99,7 @@ class Ui_NewUser(object):
         self.txt_firstname.setPlaceholderText(_translate("NewUser", "Nome"))
         self.txt_lastname.setPlaceholderText(_translate("NewUser", "Cognome"))
         self.txt_phone.setPlaceholderText(_translate("NewUser", "Telefono/cellulare"))
-        self.txt_email.setPlaceholderText(_translate("NewUser", "Tipo abbonamento"))
+        self.txt_tipo.setPlaceholderText(_translate("NewUser", "Tipo abbonamento"))
         self.txt_username.setPlaceholderText(_translate("NewUser", "Username"))
         self.lineEdit.setPlaceholderText(_translate("NewUser", "Password"))
         self.btn_submit.setText(_translate("NewUser", "Conferma"))
