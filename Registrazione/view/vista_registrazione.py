@@ -68,7 +68,7 @@ class Ui_NewUser(object):
         self.lineEdit.setObjectName("lineEdit")
         self.btn_submit = QtWidgets.QPushButton(NewUser)
         self.btn_submit.setGeometry(QtCore.QRect(190, 270, 159, 31))
-        self.btn_submit.setStyleSheet("*{border: 2px solid rgb(73, 199, 41);\n"
+        self.btn_submit.setStyleSheet("*{border: 0.5px solid rgb(73, 199, 41);\n"
                                        "border-radius: 10px;\n"
                                        "font: 14pt \"Arial\";"
                                        "color: 'white';}" +
@@ -80,14 +80,14 @@ class Ui_NewUser(object):
         self.attenzione.setStyleSheet("color: rgb(255, 255, 255);")
         self.attenzione.setObjectName("label")
 
-        self.Back = QtWidgets.QPushButton(NewUser)
-        self.Back.setGeometry(QtCore.QRect(190, 320, 159, 31))
-        self.Back.setStyleSheet("*{border: 2px solid rgb(73, 199, 41);\n"
-                                "border-radius: 10px;\n"
-                                "font: 14pt \"Arial\";"
-                                "color: 'white';}" +
-                                "*:hover{background: rgb(73, 199, 41);}")
-        self.Back.setObjectName("Back")
+        self.btn_Back = QtWidgets.QPushButton(NewUser)
+        self.btn_Back.setGeometry(QtCore.QRect(190, 320, 159, 31))
+        self.btn_Back.setStyleSheet("*{border: 0.5px solid rgb(73, 199, 41);\n"
+                                       "border-radius: 10px;\n"
+                                       "font: 14pt \"Arial\";"
+                                       "color: 'white';}" +
+                                       "*:hover{background: rgb(73, 199, 41);}")
+        self.btn_Back.setObjectName("Back")
 
         self.retranslateUi(NewUser)
         QtCore.QMetaObject.connectSlotsByName(NewUser)
@@ -103,6 +103,6 @@ class Ui_NewUser(object):
         self.txt_username.setPlaceholderText(_translate("NewUser", "Username"))
         self.lineEdit.setPlaceholderText(_translate("NewUser", "Password"))
         self.btn_submit.setText(_translate("NewUser", "Conferma"))
-        self.Back.setText(_translate("NewUser", "Indietro"))
+        self.btn_Back.setText(_translate("NewUser", "Indietro"))
         self.attenzione.setText(_translate("NewUser",
                                            "<html><head/><body><p align=\"center\"><span style=\" font-size:7pt;\">Attenzione: nella sezione type selezionare il tipo di abbonamento(ascoltatore, artista, etichetta)</span></p></body></html>"))

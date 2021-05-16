@@ -11,7 +11,7 @@ class Newuser(QtWidgets.QWidget, Ui_NewUser):
     def __init__(self):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
-        self.Back.clicked.connect(self.back_handler)
+        self.btn_Back.clicked.connect(self.back_handler)
         self.btn_submit.clicked.connect(self.btn_submit_handler)
 
     def pop_message(self, text=""):
