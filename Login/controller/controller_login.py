@@ -51,7 +51,7 @@ class Login(QtWidgets.QWidget, Ui_Outsecure):
 
         if (val):
             self.pop_message(text="Welcome ")
-            
+
             self.switch_window1.emit()
 
         else:
