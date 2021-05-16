@@ -47,7 +47,8 @@ class Ui_Outsecure(object):
                                        "border-radius: 10px;\n"
                                        "font: 14pt \"Arial\";"
                                        "color: 'white';}" +
-                                       "*:hover{background: rgb(73, 199, 41);}")
+                                       "*:hover{background: rgb(73, 199, 41);\n}"
+                                       )
         self.btn_newuser.setObjectName("btn_newuser")
 
         """ funzione del copyright """

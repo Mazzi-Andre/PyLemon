@@ -93,9 +93,11 @@ class Ui_Form(object):
         self.pushButton_4.setGeometry(QtCore.QRect(800, 440, 91, 21))
         self.pushButton_4.setMouseTracking(True)
         self.pushButton_4.setTabletTracking(True)
-        self.pushButton_4.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);\n"
-"border-radius: 10px;")
+        self.pushButton_4.setStyleSheet("*{border: 2px solid rgb(150, 150, 150);"
+                                       "border-radius: 10px;\n"
+                                       "font: 10pt \"Arial\";"
+                                       "color: 'white';}" +
+                                       "*:hover{background: rgb(150, 150, 150);\n}")
         self.pushButton_4.setObjectName("pushButton_4")
         self.scrollArea = QtWidgets.QScrollArea(Form)
         self.scrollArea.setGeometry(QtCore.QRect(660, 10, 231, 241))
@@ -131,9 +133,9 @@ class Ui_Form(object):
         self.pushButton_3.setText(_translate("Form", "Impostazioni"))
         self.pushButton_4.setText(_translate("Form", "Log out"))
 
-#app = QApplication([])
-#window = QWidget()
-#form = Ui_Form()
-#form.setupUi(window)
-#window.show()
-#app.exec()
+app = QApplication([])
+window = QWidget()
+form = Ui_Form()
+form.setupUi(window)
+window.show()
+app.exec()
