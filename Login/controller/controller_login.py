@@ -9,12 +9,15 @@ class Login(QtWidgets.QWidget, Ui_Outsecure):
     switch_window = QtCore.pyqtSignal()
     switch_window1 = QtCore.pyqtSignal()
 
+
     def __init__(self):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
 
         self.btn_newuser.clicked.connect(self.btn_newuser_handler)
         self.btn_Submit.clicked.connect(self.btn_submit_handler)
+
+        self.credenziali=[]
 
     def pop_message(self, text=""):
         msg = QtWidgets.QMessageBox()
@@ -35,6 +38,7 @@ class Login(QtWidgets.QWidget, Ui_Outsecure):
 
                 for x in val:
                     if username in x[0] and password in x[1]:
+                        self.credenziali= x
                         return True
                     else:
                         pass
@@ -47,6 +51,7 @@ class Login(QtWidgets.QWidget, Ui_Outsecure):
 
         if (val):
             self.pop_message(text="Welcome ")
+
             self.switch_window1.emit()
 
         else:
@@ -54,3 +59,6 @@ class Login(QtWidgets.QWidget, Ui_Outsecure):
 
     def btn_newuser_handler(self):
         self.switch_window.emit()
+
+    def return_credenziali(self):
+        return self.credenziali

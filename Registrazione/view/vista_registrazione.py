@@ -44,13 +44,13 @@ class Ui_NewUser(object):
                                      "font: 14pt \"Arial\";")
         self.txt_phone.setObjectName("txt_phone")
 
-        self.txt_email = QtWidgets.QLineEdit(NewUser)
-        self.txt_email.setGeometry(QtCore.QRect(290, 140, 230, 41))
-        self.txt_email.setStyleSheet("background-color: rgb(207, 211, 211);\n"
+        self.txt_tipo = QtWidgets.QLineEdit(NewUser)
+        self.txt_tipo.setGeometry(QtCore.QRect(290, 140, 230, 41))
+        self.txt_tipo.setStyleSheet("background-color: rgb(207, 211, 211);\n"
                                      "border-style:outset;\n"
                                      "border-radius:10px;\n"
                                      "font: 14pt \"Arial\";")
-        self.txt_email.setObjectName("txt_email")
+        self.txt_tipo.setObjectName("txt_email")
 
         self.txt_username = QtWidgets.QLineEdit(NewUser)
         self.txt_username.setGeometry(QtCore.QRect(30, 200, 230, 41))
@@ -68,7 +68,7 @@ class Ui_NewUser(object):
         self.lineEdit.setObjectName("lineEdit")
         self.btn_submit = QtWidgets.QPushButton(NewUser)
         self.btn_submit.setGeometry(QtCore.QRect(190, 270, 159, 31))
-        self.btn_submit.setStyleSheet("*{border: 2px solid rgb(73, 199, 41);\n"
+        self.btn_submit.setStyleSheet("*{border: 0.5px solid rgb(73, 199, 41);\n"
                                        "border-radius: 10px;\n"
                                        "font: 14pt \"Arial\";"
                                        "color: 'white';}" +
@@ -80,14 +80,14 @@ class Ui_NewUser(object):
         self.attenzione.setStyleSheet("color: rgb(255, 255, 255);")
         self.attenzione.setObjectName("label")
 
-        self.Back = QtWidgets.QPushButton(NewUser)
-        self.Back.setGeometry(QtCore.QRect(190, 320, 159, 31))
-        self.Back.setStyleSheet("*{border: 2px solid rgb(73, 199, 41);\n"
-                                "border-radius: 10px;\n"
-                                "font: 14pt \"Arial\";"
-                                "color: 'white';}" +
-                                "*:hover{background: rgb(73, 199, 41);}")
-        self.Back.setObjectName("Back")
+        self.btn_Back = QtWidgets.QPushButton(NewUser)
+        self.btn_Back.setGeometry(QtCore.QRect(190, 320, 159, 31))
+        self.btn_Back.setStyleSheet("*{border: 0.5px solid rgb(73, 199, 41);\n"
+                                       "border-radius: 10px;\n"
+                                       "font: 14pt \"Arial\";"
+                                       "color: 'white';}" +
+                                       "*:hover{background: rgb(73, 199, 41);}")
+        self.btn_Back.setObjectName("Back")
 
         self.retranslateUi(NewUser)
         QtCore.QMetaObject.connectSlotsByName(NewUser)
@@ -99,10 +99,10 @@ class Ui_NewUser(object):
         self.txt_firstname.setPlaceholderText(_translate("NewUser", "Nome"))
         self.txt_lastname.setPlaceholderText(_translate("NewUser", "Cognome"))
         self.txt_phone.setPlaceholderText(_translate("NewUser", "Telefono/cellulare"))
-        self.txt_email.setPlaceholderText(_translate("NewUser", "Tipo abbonamento"))
+        self.txt_tipo.setPlaceholderText(_translate("NewUser", "Tipo abbonamento"))
         self.txt_username.setPlaceholderText(_translate("NewUser", "Username"))
         self.lineEdit.setPlaceholderText(_translate("NewUser", "Password"))
         self.btn_submit.setText(_translate("NewUser", "Conferma"))
-        self.Back.setText(_translate("NewUser", "Indietro"))
+        self.btn_Back.setText(_translate("NewUser", "Indietro"))
         self.attenzione.setText(_translate("NewUser",
                                            "<html><head/><body><p align=\"center\"><span style=\" font-size:7pt;\">Attenzione: nella sezione type selezionare il tipo di abbonamento(ascoltatore, artista, etichetta)</span></p></body></html>"))

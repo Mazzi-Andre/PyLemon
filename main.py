@@ -78,6 +78,7 @@ class Discovery(QtWidgets.QWidget, Ui_Discovery):
         msg.exec_()
 
     def load_data(self):
+
         self.tableWidget.setItem(0, 0, QtWidgets.QTableWidgetItem(str("Sr No")))
         self.tableWidget.setItem(0, 1, QtWidgets.QTableWidgetItem(str(" Ip Address")))
         self.tableWidget.setItem(0, 2, QtWidgets.QTableWidgetItem(str("Mac Address")))
@@ -107,6 +108,12 @@ class Controller:
         self.newuser.switch_window.connect(self.show_login_page)
         self.login.close()
         self.newuser.show()
+
+    def show_discovery(self):
+        self.discovery = Discovery()
+        self.discovery.switch_window.connect(self.show_login_page)
+        self.login.close()
+        self.discovery.show()
 
     def show_discovery(self):
         self.discovery = Discovery()

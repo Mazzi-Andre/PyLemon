@@ -33,7 +33,7 @@ class Ui_Outsecure(object):
         """ pulsante del submit """
         self.btn_Submit = QtWidgets.QPushButton(Outsecure)
         self.btn_Submit.setGeometry(QtCore.QRect(180, 200, 161, 31))
-        self.btn_Submit.setStyleSheet("*{border: 2px solid rgb(73, 199, 41);\n"
+        self.btn_Submit.setStyleSheet("*{border: 0.5px solid rgb(73, 199, 41);\n"
                                        "border-radius: 10px;\n"
                                        "font: 14pt \"Arial\";"
                                        "color: 'white';}" +
@@ -43,11 +43,12 @@ class Ui_Outsecure(object):
         """ pulstante del nuovo utente """
         self.btn_newuser = QtWidgets.QPushButton(Outsecure)
         self.btn_newuser.setGeometry(QtCore.QRect(180, 240, 161, 31))
-        self.btn_newuser.setStyleSheet("*{border: 2px solid rgb(73, 199, 41);\n"
+        self.btn_newuser.setStyleSheet("*{border: 0.5px solid rgb(73, 199, 41);\n"
                                        "border-radius: 10px;\n"
                                        "font: 14pt \"Arial\";"
                                        "color: 'white';}" +
-                                       "*:hover{background: rgb(73, 199, 41);}")
+                                       "*:hover{background: rgb(73, 199, 41);}"
+                                       )
         self.btn_newuser.setObjectName("btn_newuser")
 
         """ funzione del copyright """
