@@ -59,14 +59,16 @@ class Ui_Outsecure(object):
 
         self.txt_username = QtWidgets.QLineEdit(Outsecure)
         self.txt_username.setGeometry(QtCore.QRect(130, 100, 275, 31))
-        self.txt_username.setStyleSheet("background-color: rgb(207, 211, 211);\n"
+        self.txt_username.setStyleSheet("background-color: rgb(150,150,150);\n"
+                                        "color: rgb(255,255,255);\n"
                                         "border-style:outset;\n"
                                         "border-radius:10px;\n"
                                         "font: 14pt \"Arial\";")
         self.txt_username.setObjectName("txt_username")
         self.txt_password = QtWidgets.QLineEdit(Outsecure)
         self.txt_password.setGeometry(QtCore.QRect(130, 150, 271, 31))
-        self.txt_password.setStyleSheet("background-color: rgb(207, 211, 211);\n"
+        self.txt_password.setStyleSheet("background-color: rgb(150,150,150);\n"
+                                        "color: rgb(255,255,255);\n"
                                         "border-style:outset;\n"
                                         "border-radius:10px;\n"
                                         "font: 14pt \"Arial\";")

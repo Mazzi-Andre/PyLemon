@@ -12,7 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QWidget
 
 
-class Ui_Home(object):
+class home_etichetta(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(910, 515)
@@ -41,13 +41,13 @@ class Ui_Home(object):
         self.lineEdit.setText("")
         self.lineEdit.setObjectName("lineEdit")
 
-        self.pushButton = QtWidgets.QPushButton(Form)
-        self.pushButton.setGeometry(QtCore.QRect(450, 110, 111, 61))
-        self.pushButton.setStyleSheet("background-color: rgb(207, 207, 207);\n"
+        self.btn_mostraTutte = QtWidgets.QPushButton(Form)
+        self.btn_mostraTutte.setGeometry(QtCore.QRect(450, 110, 111, 61))
+        self.btn_mostraTutte.setStyleSheet("background-color: rgb(207, 207, 207);\n"
 "border-radius: 20px;\n"
 "color: rgb(0, 0, 0);\n"
 "")
-        self.pushButton.setObjectName("pushButton")
+        self.btn_mostraTutte.setObjectName("pushButton")
         self.line_2 = QtWidgets.QFrame(Form)
         self.line_2.setGeometry(QtCore.QRect(0, 270, 911, 16))
         self.line_2.setMinimumSize(QtCore.QSize(2, 2))
@@ -87,11 +87,11 @@ class Ui_Home(object):
         self.btn_Impostazioni.setGeometry(QtCore.QRect(800, 340, 91, 21))
         self.btn_Impostazioni.setMouseTracking(True)
         self.btn_Impostazioni.setTabletTracking(True)
-        self.btn_Impostazioni.setStyleSheet("*{border: 0.5px solid rgb(150, 150, 150);"
+        self.btn_Impostazioni.setStyleSheet("*{border: 0.5px solid rgb(150, 150, 150);"   #border per i bordi
                                        "border-radius: 10px;\n"
                                        "font: 10pt \"Arial\";"
                                        "color: 'white';}" +
-                                       "*:hover{background: rgb(150, 150, 150);\n}")
+                                       "*:hover{background: rgb(150, 150, 150);\n}") #hover: quando passo con la freccetta sopra al bordo cambia colore
         self.btn_Impostazioni.setObjectName("pushButton_3")
         self.btn_Logout = QtWidgets.QPushButton(Form)
         self.btn_Logout.setGeometry(QtCore.QRect(800, 440, 91, 21))
@@ -132,15 +132,15 @@ class Ui_Home(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Etichetta"))
         self.label.setText(_translate("Form",  "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600; font-style:italic;\">PySound Label</span></p></body></html>"))
-        self.lineEdit.setPlaceholderText(_translate("Form", "  Cerca"))
-        self.pushButton.setText(_translate("Form", "Mostra tutto"))
+        self.lineEdit.setPlaceholderText(_translate("Form", "  Search..."))
+        self.btn_mostraTutte.setText(_translate("Form", "Mostra tutte"))
         self.btn_Pubblica.setText(_translate("Form", "Pubblica"))
         self.btn_Impostazioni.setText(_translate("Form", "Impostazioni"))
         self.btn_Logout.setText(_translate("Form", "Log out"))
 
 app = QApplication([])
 window = QWidget()
-form = Ui_Home()
+form = home_etichetta()
 form.setupUi(window)
 window.show()
 app.exec()

@@ -22,49 +22,55 @@ class Ui_NewUser(object):
         self.txt_firstname = QtWidgets.QLineEdit(NewUser)
         self.txt_firstname.setEnabled(True)
         self.txt_firstname.setGeometry(QtCore.QRect(30, 80, 230, 41))
-        self.txt_firstname.setStyleSheet("background-color: rgb(207, 211, 211);\n"
-                                         "border-style:outset;\n"
-                                         "border-radius:10px;\n"
-                                         "font: 14pt \"Arial\";")
+        self.txt_firstname.setStyleSheet("background-color: rgb(150,150,150);\n"
+                                        "color: rgb(255,255,255);\n"
+                                        "border-style:outset;\n"
+                                        "border-radius:10px;\n"
+                                        "font: 14pt \"Arial\";")
         self.txt_firstname.setText("")
         self.txt_firstname.setObjectName("txt_firstname")
 
         self.txt_lastname = QtWidgets.QLineEdit(NewUser)
         self.txt_lastname.setGeometry(QtCore.QRect(290, 80, 230, 41))
-        self.txt_lastname.setStyleSheet("background-color: rgb(207, 211, 211);\n"
+        self.txt_lastname.setStyleSheet("background-color: rgb(150,150,150);\n"
+                                        "color: rgb(255,255,255);\n"
                                         "border-style:outset;\n"
                                         "border-radius:10px;\n"
                                         "font: 14pt \"Arial\";")
         self.txt_lastname.setObjectName("txt_lastname")
         self.txt_phone = QtWidgets.QLineEdit(NewUser)
         self.txt_phone.setGeometry(QtCore.QRect(30, 140, 230, 41))
-        self.txt_phone.setStyleSheet("background-color: rgb(207, 211, 211);\n"
-                                     "border-style:outset;\n"
-                                     "border-radius:10px;\n"
-                                     "font: 14pt \"Arial\";")
+        self.txt_phone.setStyleSheet("background-color: rgb(150,150,150);\n"
+                                        "color: rgb(255,255,255);\n"
+                                        "border-style:outset;\n"
+                                        "border-radius:10px;\n"
+                                        "font: 14pt \"Arial\";")
         self.txt_phone.setObjectName("txt_phone")
 
         self.txt_tipo = QtWidgets.QLineEdit(NewUser)
         self.txt_tipo.setGeometry(QtCore.QRect(290, 140, 230, 41))
-        self.txt_tipo.setStyleSheet("background-color: rgb(207, 211, 211);\n"
-                                     "border-style:outset;\n"
-                                     "border-radius:10px;\n"
-                                     "font: 14pt \"Arial\";")
+        self.txt_tipo.setStyleSheet("background-color: rgb(150,150,150);\n"
+                                        "color: rgb(255,255,255);\n"
+                                        "border-style:outset;\n"
+                                        "border-radius:10px;\n"
+                                        "font: 14pt \"Arial\";")
         self.txt_tipo.setObjectName("txt_email")
 
         self.txt_username = QtWidgets.QLineEdit(NewUser)
         self.txt_username.setGeometry(QtCore.QRect(30, 200, 230, 41))
-        self.txt_username.setStyleSheet("background-color: rgb(207, 211, 211);\n"
+        self.txt_username.setStyleSheet("background-color: rgb(150,150,150);\n"
+                                        "color: rgb(255,255,255);\n"
                                         "border-style:outset;\n"
                                         "border-radius:10px;\n"
                                         "font: 14pt \"Arial\";")
         self.txt_username.setObjectName("txt_username")
         self.lineEdit = QtWidgets.QLineEdit(NewUser)
         self.lineEdit.setGeometry(QtCore.QRect(290, 200, 230, 41))
-        self.lineEdit.setStyleSheet("background-color: rgb(207, 211, 211);\n"
-                                    "border-style:outset;\n"
-                                    "border-radius:10px;\n"
-                                    "font: 14pt \"Arial\";")
+        self.lineEdit.setStyleSheet("background-color: rgb(150,150,150);\n"
+                                        "color: rgb(255,255,255);\n"
+                                        "border-style:outset;\n"
+                                        "border-radius:10px;\n"
+                                        "font: 14pt \"Arial\";")
         self.lineEdit.setObjectName("lineEdit")
         self.btn_submit = QtWidgets.QPushButton(NewUser)
         self.btn_submit.setGeometry(QtCore.QRect(190, 270, 159, 31))
