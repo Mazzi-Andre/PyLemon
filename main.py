@@ -1,3 +1,5 @@
+import os
+import pathlib
 import sys
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
@@ -19,7 +21,7 @@ class Ui_Discovery(object):
         Form.setStyleSheet("background-color: rgb(11, 11, 11);")
         self.tableWidget = QtWidgets.QTableWidget(Form)
         self.tableWidget.setGeometry(QtCore.QRect(140, 70, 441, 251))
-        self.tableWidget.setStyleSheet("background-color: rgb(189, 193, 193);\n"
+        self.tableWidget.setStyleSheet("background-color: rgb(189, 193, 193);\n" #sfondo
                                        "color: rgb(27, 28, 28);")
         self.tableWidget.setRowCount(10)
         self.tableWidget.setColumnCount(4)
@@ -141,6 +143,6 @@ def main():
     sys.exit(app.exec_())
 
 
-
+#\Data\mp3
 if __name__ == "__main__":
     main()

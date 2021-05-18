@@ -26,7 +26,13 @@ class Ascolto():
         mixer.music.stop()
         self.playState = False
 
-    def prevSong(self, selezione):
-        if selezione and self.playState == True:
-            if
 
+    def volup(self):
+        mixer.music.set_volume(min(1.0,mixer.music.get_volume()+0.1))
+
+    def voldown(self):
+        mixer.music.set_volume(max(0.0,mixer.music.get_volume()-0.1))
+
+
+    #per il prev e next richiami play cambiando path!!!;
+    #controllo posizione etc fai in vista
