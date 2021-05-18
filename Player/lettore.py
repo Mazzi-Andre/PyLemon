@@ -155,7 +155,7 @@ class MusicPlayer:
     def pause(self):
         if not self.playing_state:
             mixer.music.pause()  # pausa se flusso musicale attivo
-            self.playing_state=False
+            self.playing_state = False
         else:
             mixer.music.unpause() # riprendi se flusso musicale prima "pausato"
             self.playing_state = False
