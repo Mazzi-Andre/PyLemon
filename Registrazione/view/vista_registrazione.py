@@ -74,11 +74,11 @@ class Ui_NewUser(object):
         self.lineEdit.setObjectName("lineEdit")
         self.btn_submit = QtWidgets.QPushButton(NewUser)
         self.btn_submit.setGeometry(QtCore.QRect(190, 270, 159, 31))
-        self.btn_submit.setStyleSheet("*{border: 0.5px solid rgb(73, 199, 41);\n"
+        self.btn_submit.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);\n"
                                        "border-radius: 10px;\n"
                                        "font: 14pt \"Arial\";"
                                        "color: 'white';}" +
-                                       "*:hover{background: rgb(73, 199, 41);}")
+                                       "*:hover{background: rgb(221, 215, 25);}")
         self.btn_submit.setObjectName("btn_submit")
 
         self.attenzione = QtWidgets.QLabel(NewUser)
@@ -88,11 +88,11 @@ class Ui_NewUser(object):
 
         self.btn_Back = QtWidgets.QPushButton(NewUser)
         self.btn_Back.setGeometry(QtCore.QRect(190, 320, 159, 31))
-        self.btn_Back.setStyleSheet("*{border: 0.5px solid rgb(73, 199, 41);\n"
+        self.btn_Back.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);\n"
                                        "border-radius: 10px;\n"
                                        "font: 14pt \"Arial\";"
                                        "color: 'white';}" +
-                                       "*:hover{background: rgb(73, 199, 41);}")
+                                       "*:hover{background: rgb(221, 215, 25);}")
         self.btn_Back.setObjectName("Back")
 
         self.retranslateUi(NewUser)
