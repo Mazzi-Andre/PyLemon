@@ -12,6 +12,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QWidget
 
 
+
+
 class home_artista(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
@@ -174,6 +176,8 @@ class home_artista(object):
         self.btn_Impostazioni.setText(_translate("Form", "Impostazioni"))
         self.btn_Logout.setText(_translate("Form", "Log out"))
         self.btn_Pubblica.setText(_translate("Form", "Pubblica"))
+
+
 
 app = QApplication([])
 window = QWidget()
