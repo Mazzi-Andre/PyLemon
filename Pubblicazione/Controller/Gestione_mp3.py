@@ -35,5 +35,8 @@ class Gestione_mp3():
         Object = {"contatore": {"valore": contatoreid}}
         with open("ContatoreBrani.json", "w") as write_file:
             json.dump(Object, write_file)
-        os.remove('C:/Users/Stefano/Desktop/Progetti Python/Progetto Esame/CartellaBrani/'+id+'.mp3')
+        try:
+            os.remove('C:/Users/Stefano/Desktop/Progetti Python/Progetto Esame/CartellaBrani/'+id+'.mp3')
+        except OSError as e:
+            print("il file non esiste!")
 

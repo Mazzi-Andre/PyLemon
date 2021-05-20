@@ -10,6 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QWidget
+from Pubblicazione.Controller.Controller_pubblicazione import Controller_pubblicazione
 
 
 class pubblicazione_inizio(object):

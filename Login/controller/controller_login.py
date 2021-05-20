@@ -53,6 +53,7 @@ class Login(QtWidgets.QWidget, Ui_Outsecure):
             self.pop_message(text="Welcome ")
 
             self.switch_window1.emit()
+            print(self.switch_window1.emit())
 
         else:
             self.pop_message("Invalid username or password ")
