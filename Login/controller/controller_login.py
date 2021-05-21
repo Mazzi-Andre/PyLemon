@@ -3,6 +3,7 @@ import sqlite3
 from PyQt5 import QtWidgets, QtCore
 
 from Login.view.vista_login import Ui_Outsecure
+from Data_Utente.control import  Data_control
 
 
 class Login(QtWidgets.QWidget, Ui_Outsecure):
@@ -17,7 +18,9 @@ class Login(QtWidgets.QWidget, Ui_Outsecure):
         self.btn_newuser.clicked.connect(self.btn_newuser_handler)
         self.btn_Submit.clicked.connect(self.btn_submit_handler)
 
-        self.credenziali=[]
+        self.username =''
+        self.password =''
+
 
     def pop_message(self, text=""):
         msg = QtWidgets.QMessageBox()
@@ -25,6 +28,7 @@ class Login(QtWidgets.QWidget, Ui_Outsecure):
         msg.exec_()
 
     def bool_check_username(self):
+        from Data_Utente.control import Data_control
         if len(self.txt_password.text()) <= 1:
             self.pop_message(text='Enter Valid Username and Password !')
         else:
@@ -35,10 +39,8 @@ class Login(QtWidgets.QWidget, Ui_Outsecure):
             cursor.execute("SELECT username,password FROM credentials")
             val = cursor.fetchall()
             if len(val) >= 1:
-
                 for x in val:
                     if username in x[0] and password in x[1]:
-                        self.credenziali= x
                         return True
                     else:
                         pass
