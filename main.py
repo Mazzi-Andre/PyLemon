@@ -143,6 +143,7 @@ def main():
     sys.exit(app.exec_())
 
 
-#\Data\mp3
 if __name__ == "__main__":
     main()
+
+#ciao
