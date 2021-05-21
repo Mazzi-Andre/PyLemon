@@ -77,31 +77,31 @@ class home_etichetta(object):
         self.btn_Pubblica.setGeometry(QtCore.QRect(800, 390, 91, 21))
         self.btn_Pubblica.setMouseTracking(True)
         self.btn_Pubblica.setTabletTracking(True)
-        self.btn_Pubblica.setStyleSheet("*{border: 0.5px solid rgb(150, 150, 150);"
+        self.btn_Pubblica.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
                                        "border-radius: 10px;\n"
                                        "font: 10pt \"Arial\";"
                                        "color: 'white';}" +
-                                       "*:hover{background: rgb(150, 150, 150);\n}")
+                                       "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_Pubblica.setObjectName("pushButton_2")
         self.btn_Impostazioni = QtWidgets.QPushButton(Form)
         self.btn_Impostazioni.setGeometry(QtCore.QRect(800, 340, 91, 21))
         self.btn_Impostazioni.setMouseTracking(True)
         self.btn_Impostazioni.setTabletTracking(True)
-        self.btn_Impostazioni.setStyleSheet("*{border: 0.5px solid rgb(150, 150, 150);"   #border per i bordi
+        self.btn_Impostazioni.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"   #border per i bordi
                                        "border-radius: 10px;\n"
                                        "font: 10pt \"Arial\";"
                                        "color: 'white';}" +
-                                       "*:hover{background: rgb(150, 150, 150);\n}") #hover: quando passo con la freccetta sopra al bordo cambia colore
+                                       "*:hover{background: rgb(221, 215, 25);\n}") #hover: quando passo con la freccetta sopra al bordo cambia colore
         self.btn_Impostazioni.setObjectName("pushButton_3")
         self.btn_Logout = QtWidgets.QPushButton(Form)
         self.btn_Logout.setGeometry(QtCore.QRect(800, 440, 91, 21))
         self.btn_Logout.setMouseTracking(True)
         self.btn_Logout.setTabletTracking(True)
-        self.btn_Logout.setStyleSheet("*{border: 0.5px solid rgb(150, 150, 150);"
+        self.btn_Logout.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
                                        "border-radius: 10px;\n"
                                        "font: 10pt \"Arial\";"
                                        "color: 'white';}" +
-                                       "*:hover{background: rgb(150, 150, 150);\n}")
+                                       "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_Logout.setObjectName("pushButton_4")
         self.scrollArea = QtWidgets.QScrollArea(Form)
         self.scrollArea.setGeometry(QtCore.QRect(660, 10, 231, 241))

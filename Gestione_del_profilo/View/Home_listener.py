@@ -73,21 +73,21 @@ class home_ascoltatore(object):
         self.btn_Impostazioni.setGeometry(QtCore.QRect(520, 330, 91, 21))
         self.btn_Impostazioni.setMouseTracking(True)
         self.btn_Impostazioni.setTabletTracking(True)
-        self.btn_Impostazioni.setStyleSheet("*{border: 0.5px solid rgb(150, 150, 150);"   #border per i bordi
+        self.btn_Impostazioni.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"   #border per i bordi
                                        "border-radius: 10px;\n"
                                        "font: 10pt \"Arial\";"
                                        "color: 'white';}" +
-                                       "*:hover{background: rgb(150, 150, 150);\n}")
+                                       "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_Impostazioni.setObjectName("pushButton_3")
         self.btn_Logout = QtWidgets.QPushButton(Form)
         self.btn_Logout.setGeometry(QtCore.QRect(520, 420, 91, 21))
         self.btn_Logout.setMouseTracking(True)
         self.btn_Logout.setTabletTracking(True)
-        self.btn_Logout.setStyleSheet("*{border: 0.5px solid rgb(150, 150, 150);"   #border per i bordi
+        self.btn_Logout.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"   #border per i bordi
                                        "border-radius: 10px;\n"
                                        "font: 10pt \"Arial\";"
                                        "color: 'white';}" +
-                                       "*:hover{background: rgb(150, 150, 150);\n}")
+                                       "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_Logout.setObjectName("pushButton_4")
 
         self.retranslateUi(Form)
