@@ -6,7 +6,7 @@ from Login.view.vista_login import Ui_Outsecure
 from Data_Utente.control.Data_control import DataPick
 
 
-class Login(QtWidgets.QWidget, Ui_Outsecure):
+class Login(QtWidgets.QWidget, Ui_Outsecure, DataPick):
     switch_window = QtCore.pyqtSignal()
     switch_window1 = QtCore.pyqtSignal()
 
@@ -53,6 +53,9 @@ class Login(QtWidgets.QWidget, Ui_Outsecure):
 
         if (val):
             self.pop_message(text="Welcome ")
+
+            self.pick.put_data(self.credenziali[0], self.credenziali[1])
+            self.pop_message(text=self.pick.get_data())
 
             self.switch_window1.emit()
 

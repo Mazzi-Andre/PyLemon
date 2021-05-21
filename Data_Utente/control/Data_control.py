@@ -10,11 +10,11 @@ class DataPick(object):
         self.lista=[]
         self.lista.append(self.nome)
         self.lista.append(self.password)
-        with open('../Data/Data.pkl', 'wb') as Dpi:
+        with open('Data.pkl', 'wb') as Dpi:
             pickle.dump(self.lista, Dpi)
 
     def get_data(self):
-        with open('../Data/Data.pkl', 'rb') as Dpi:
+        with open('Data.pkl', 'rb') as Dpi:
             MyData = pickle.load(Dpi)
         return MyData
 
