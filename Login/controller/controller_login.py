@@ -3,6 +3,7 @@ import sqlite3
 from PyQt5 import QtWidgets, QtCore
 
 from Login.view.vista_login import Ui_Outsecure
+from Data_Utente.control.Data_control import DataPick
 
 
 class Login(QtWidgets.QWidget, Ui_Outsecure):
@@ -13,6 +14,7 @@ class Login(QtWidgets.QWidget, Ui_Outsecure):
     def __init__(self):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
+        self.pick= DataPick()
 
         self.btn_newuser.clicked.connect(self.btn_newuser_handler)
         self.btn_Submit.clicked.connect(self.btn_submit_handler)
