@@ -2,7 +2,7 @@ import pickle
 
 class DataPick(object):
 
-    def __init__(self, nome, password):
+    def put_data(self, nome, password):
         self.nome= nome
         self.password = password
         self.lista=[]

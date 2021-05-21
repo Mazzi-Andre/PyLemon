@@ -3,10 +3,10 @@ import sqlite3
 from PyQt5 import QtWidgets, QtCore
 
 from Login.view.vista_login import Ui_Outsecure
-from Data_Utente.control import  Data_control
+from Data_Utente.control.Data_control import  DataPick
 
 
-class Login(QtWidgets.QWidget, Ui_Outsecure):
+class Login(QtWidgets.QWidget, Ui_Outsecure, DataPick):
     switch_window = QtCore.pyqtSignal()
     switch_window1 = QtCore.pyqtSignal()
 
@@ -14,12 +14,10 @@ class Login(QtWidgets.QWidget, Ui_Outsecure):
     def __init__(self):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
+        self.pick = DataPick()
 
         self.btn_newuser.clicked.connect(self.btn_newuser_handler)
         self.btn_Submit.clicked.connect(self.btn_submit_handler)
-
-        self.username =''
-        self.password =''
 
 
     def pop_message(self, text=""):
@@ -34,6 +32,7 @@ class Login(QtWidgets.QWidget, Ui_Outsecure):
         else:
             username = self.txt_username.text()
             password = self.txt_password.text()
+            self.pick.put_data(username,password)
             conn = sqlite3.connect('Data.db')
             cursor = conn.cursor()
             cursor.execute("SELECT username,password FROM credentials")
@@ -53,7 +52,6 @@ class Login(QtWidgets.QWidget, Ui_Outsecure):
 
         if (val):
             self.pop_message(text="Welcome ")
-
             self.switch_window1.emit()
 
         else:
