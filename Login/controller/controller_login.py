@@ -55,7 +55,7 @@ class Login(QtWidgets.QWidget, Ui_Outsecure, DataPick):
             self.pop_message(text="Welcome ")
 
             self.pick.put_data(self.credenziali[0], self.credenziali[1])
-            self.pop_message(text=self.pick.get_data())
+            self.pop_message(text=self.pick.return_credenziali())
 
             self.switch_window1.emit()
 

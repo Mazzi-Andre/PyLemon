@@ -29,3 +29,19 @@ class DataPick(object):
         with conn:
             cursor.execute("""SELECT * FROM credentials WHERE username = :first AND password = :last""",  {'first': nome, 'last': pas })
             return cursor.fetchone()
+
+    """ Funzione per la restituzione delle credenziali dell'account presente in questo momento """
+
+    def return_credenziali(self):
+        MyData = self.get_data()
+        nome = MyData[0]
+        pas = MyData[1]
+        conn = sqlite3.connect('Data.db')
+        cursor = conn.cursor()
+        self.lista= []
+
+        with conn:
+            cursor.execute("""SELECT * FROM credentials WHERE username = :first AND password = :last""",
+                           {'first': nome, 'last': pas})
+            print(cursor.fetchone())
+            return self.lista
