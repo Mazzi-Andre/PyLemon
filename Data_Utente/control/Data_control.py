@@ -43,5 +43,5 @@ class DataPick(object):
         with conn:
             cursor.execute("""SELECT * FROM credentials WHERE username = :first AND password = :last""",
                            {'first': nome, 'last': pas})
-            print(cursor.fetchone())
+            self.lista= cursor.fetchone()
             return self.lista
