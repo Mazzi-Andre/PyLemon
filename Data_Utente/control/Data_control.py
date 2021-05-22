@@ -45,3 +45,15 @@ class DataPick(object):
                            {'first': nome, 'last': pas})
             self.lista= cursor.fetchone()
             return self.lista
+
+    def delete_acount(self):
+        MyData = self.get_data()
+        nome = MyData[0]
+        pas = MyData[1]
+        conn = sqlite3.connect('Data.db')
+        cursor = conn.cursor()
+        self.lista = []
+
+        with conn:
+            cursor.execute("""DELETE * FROM credentials WHERE username = :first AND password = :last""",
+                           {'first': nome, 'last': pas})
