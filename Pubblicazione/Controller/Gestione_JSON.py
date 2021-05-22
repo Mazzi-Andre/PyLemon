@@ -1,29 +1,32 @@
+
 import json
-import os
-from Brani.Model.Brano import Brano
 
 
-class Gestione_JSON():
+class Gestione_JSON(object):
 
     def __init__(self):
-        with open('ListaBrani.json', 'r') as j:
-            self.json_data = json.load(j)
 
+    '''def lettura(self):
+        with open('info_brani.json', 'r') as j:
+            json_data = json.load(j)
+            return json_data'''
+        '''with open('lista_servizi_iniziali') as f:
+            lista_servizi_iniziale = json.load(f)'''
 
     def carica_brano_su_JSON(self, brano):
-        oggettobrano = {"titolo": brano.nome, "artista": brano.artista, "album": brano.album, "id": brano.id, "contatore": brano.contatore }
+        oggettobrano = {"Titolo": brano.nome, "Artista": brano.artista, "Album": brano.album, "id": brano.id, "contatore": brano.contatore }
         if self.json_data != None:
             self.json_data[self.json_data.len + 1] = oggettobrano
-            with open("ListaBrani.json", "w") as write_file:
+            with open("info_brani.json.json", "w") as write_file:
                 json.dump(self.json_data, write_file)
 
         else:
             self.json_data = oggettobrano
-            with open("ListaBrani.json", "w") as write_file:
+            with open("info_brani.json.json", "w") as write_file:
                 json.dump(self.json_data, write_file)
 
 
-    def elimina_brano_su_JSON(self,id):
+    #def elimina_brano_su_JSON(self,id):
 
 
 
@@ -36,3 +39,9 @@ class Gestione_JSON():
                     ID = U[i].get['id']
         else: ID = 0
         return ID
+
+    def get_jsonobject(self):
+        return self.json_data
+
+o=Gestione_JSON()
+print(o.lettura())
