@@ -64,6 +64,7 @@ class Ui_Outsecure(object):
                                         "border-radius:10px;\n"
                                         "font: 14pt \"Arial\";")
         self.txt_username.setObjectName("txt_username")
+
         self.txt_password = QtWidgets.QLineEdit(Outsecure)
         self.txt_password.setGeometry(QtCore.QRect(130, 150, 271, 31))
         self.txt_password.setStyleSheet("background-color: rgb(150,150,150);\n"
