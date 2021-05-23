@@ -1,9 +1,9 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QApplication, QWidget, QSizePolicy
+from PyQt5.QtWidgets import QApplication, QWidget
 
-from Gestione_Ascolto.Contenuti.Controller.ControlloreContenuti import ControlloreContenuti
-from Pubblicazione.Controller.Gestione_JSON import Gestione_JSON
+from Pubblicazione.Controller.Gestione_json import Gestione_json
+
 
 
 class Ui_Player(object):
@@ -71,6 +71,9 @@ class Ui_Player(object):
         self.play.setText("")
         self.play.setObjectName("play")
         self.play.setIcon(QIcon('play.png'))
+
+        #self.play.clicked.connect(self.go_play)
+
         self.pause = QtWidgets.QPushButton(Player)
 
         self.pause.setGeometry(QtCore.QRect(110, 370, 81, 41))
@@ -137,7 +140,7 @@ class Ui_Player(object):
         item.setText(_translate("Player", "Album"))
         item = self.table.horizontalHeaderItem(2)
         item.setText(_translate("Player", "Artista"))
-        self.table.setColumnWidth(0, 167); self.table.setColumnWidth(1, 167) ;self.table.setColumnWidth(2, 167)
+        self.table.setColumnWidth(0, 167); self.table.setColumnWidth(1, 167) ; self.table.setColumnWidth(2, 167)
         self.label.setText(_translate("Player", "Volume"))
         """self.label.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         self.horizontalSlider.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
@@ -149,27 +152,18 @@ class Ui_Player(object):
         self.table.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)"""
 
     def mostra_tutto(self):
-        Libreria = Gestione_JSON()
+        Libreria = Gestione_json()
         lib = Libreria.get_jsonobject()
         riga = 0
         self.table.setRowCount(len(lib))
         for i in lib:
-            self.table.setItem(riga, 0, QtWidgets.QTableWidgetItem(lib["Titolo"]))
-            self.table.setItem(riga, 1, QtWidgets.QTableWidgetItem(lib["Album"]))
-            self.table.setItem(riga, 2, QtWidgets.QTableWidgetItem(lib["Artista"]))
+            self.table.setItem(riga, 0, QtWidgets.QTableWidgetItem(i["Titolo"]))
+            self.table.setItem(riga, 1, QtWidgets.QTableWidgetItem(i["Album"]))
+            self.table.setItem(riga, 2, QtWidgets.QTableWidgetItem(i["Artista"]))
             riga = riga+1
 
-    def prova(self):
-        #_translate = QtCore.QCoreApplication.translate
-        #self.table.setItem(0, 0, self.table.QTableWidgetItem("ciao"))
-        #self.table.item
-        '''item = self.table.horizontalHeaderItem(0)
-        item.setText(_translate("Player", "rrrrrr"))'''
-        self.table.setRowCount(45)
-        self.table.setItem(0,0, QtWidgets.QTableWidgetItem('ciao'))
-        #self.table.setItem(0, 2, self.table.QTableWidgetItem("d"))
 
-    def mostra_search(self, var_search):
+    '''def mostra_search(self, var_search):
         Libreria = ControlloreContenuti()
         lib = Libreria.getLista()
         riga = 0
@@ -194,7 +188,11 @@ class Ui_Player(object):
                 check_riga = True
 
             if check_riga:
-                riga = riga+1
+                riga = riga+1'''
+
+    '''def go_play(self):
+        if self.table.selectedItems():
+            if self.table.selectedItems()'''
 
 
 
@@ -206,7 +204,8 @@ app = QApplication([])
 window = QWidget()
 form = Ui_Player()
 form.setupUi(window)
-#form.mostra_tutto()
+form.mostra_tutto()
 #form.prova()
 window.show()
 app.exec()
+ 

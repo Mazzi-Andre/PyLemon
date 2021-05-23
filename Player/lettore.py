@@ -168,3 +168,6 @@ class MusicPlayer:
     def stop(self):
         mixer.music.stop()
         self.playing_state = False
+
+
+o= MusicPlayer()
