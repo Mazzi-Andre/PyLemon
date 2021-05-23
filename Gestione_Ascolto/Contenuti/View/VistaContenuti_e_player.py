@@ -2,6 +2,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication, QWidget
 
+from Gestione_Ascolto.Ascolto.Controller.ControlloreAscolto import ControlloreAscolto
+from Gestione_Ascolto.Ascolto.Model.Ascolto import Ascolto
 from Pubblicazione.Controller.Gestione_json import Gestione_json
 
 
@@ -72,7 +74,7 @@ class Ui_Player(object):
         self.play.setObjectName("play")
         self.play.setIcon(QIcon('play.png'))
 
-        #self.play.clicked.connect(self.go_play)
+        self.play.clicked.connect(self.go_play)
 
         self.pause = QtWidgets.QPushButton(Player)
 
@@ -190,9 +192,28 @@ class Ui_Player(object):
             if check_riga:
                 riga = riga+1'''
 
-    '''def go_play(self):
+    def go_play(self):
+        Libreria = Gestione_json()
+        lib = Libreria.get_jsonobject()
         if self.table.selectedItems():
-            if self.table.selectedItems()'''
+            print(str(self.table.selectedItems().__str__()))
+            for i in lib:
+                print("ok")
+                riga_selezionata = self.table.row(self.table.selectedItems())
+                print(riga_selezionata)
+                if self.table.selectedItems().__str__() == lib["Titolo"]:
+                    riga_selezionata = self.table.row(self.table.selectedItems())
+                    colonna_selezionata = self.table.column(self.table.selectedItems())
+                    print(riga_selezionata + colonna_selezionata)
+                    album_corrispondente = self.table.item(riga_selezionata, colonna_selezionata + 1).__str__()
+                    controller = ControlloreAscolto()
+                    path = controller.getPath()
+                    listen = Ascolto()
+                    listen.play(path)
+                    break
+
+
+
 
 
 

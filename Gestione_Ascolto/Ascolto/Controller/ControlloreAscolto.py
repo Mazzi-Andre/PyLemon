@@ -1,13 +1,13 @@
 import pathlib
 
 from Gestione_Ascolto.Ascolto.Model.Ascolto import Ascolto
-from Pubblicazione.Controller.Gestione_JSON import Gestione_JSON
+from Pubblicazione.Controller.Gestione_json import Gestione_json
 
 class ControlloreAscolto():
 
     def __init__(self):
-        self.controller = Ascolto()
-        self.g = Gestione_JSON()
+        #self.controller = Ascolto()
+        self.g = Gestione_json()
 
 
     def getPath(self, lst_titolo, lst_album): # che saranno item
