@@ -36,5 +36,16 @@ class controller_ascoltatore(QtWidgets.QWidget, DataPick, home_ascoltatore):
     def btn_MostraTutte_handler(self):
         self.switch_window_2.emit()
 
+    """DA FINIRE"""
+
+    """def bool_search_check(self):
+        if len(self.lineEdit.text()) <= 1:
+            self.pop_message(text='Inserire un titolo valido')
+        else:
+            if classeManu.funz is False
+                self.pop_message(text='Canzone non trovata')"""
+
+
+
 
 

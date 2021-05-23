@@ -23,23 +23,24 @@ class home_ascoltatore(object):
 "font: 30pt \".AppleSystemUIFont\";")
         self.label.setObjectName("label")
 
+        """Btn mostra tutte"""
         self.btn_mostraTutte = QtWidgets.QPushButton(Form)
         self.btn_mostraTutte.setGeometry(QtCore.QRect(460, 130, 111, 61))
-        self.btn_mostraTutte.setStyleSheet("background-color: rgb(207, 207, 207);\n"
+        self.btn_mostraTutte.setStyleSheet("*{background-color: rgb(207, 207, 207);\n"
 "color: rgb(0, 0, 0);\n"
 "border-radius: 20px;\n"
-"color: rgb(0, 0, 0);\n"
-"")
+"color: rgb(0, 0, 0);\n}"
+"*:hover{border: 5px solid rgb(221, 215, 25);\n}")
+
         self.btn_mostraTutte.setObjectName("pushButton")
 
         """Btn search"""
         self.btn_search = QtWidgets.QPushButton(Form)
         self.btn_search.setGeometry(QtCore.QRect(25, 130, 70, 61))
-        self.btn_search.setStyleSheet("background-color: rgb(207, 207, 207);\n"
-                                           "color: rgb(0, 0, 0);\n"
-                                           "border-radius: 20px;\n"
-                                           "color: rgb(0, 0, 0);\n"
-                                           "")
+        self.btn_search.setStyleSheet("*{border: 1px solid rgb(207, 207, 207);"   #border per i bordi
+                                       "border-radius: 20px;\n"
+                                       "color: 'white';}" +
+                                       "*:hover{background: rgb(207, 207, 207);\n}")
         self.btn_search.setObjectName("pushButton_4")
 
         """Linea Search"""
@@ -95,7 +96,7 @@ class home_ascoltatore(object):
                                        "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_Impostazioni.setObjectName("pushButton_3")
         self.btn_Logout = QtWidgets.QPushButton(Form)
-        self.btn_Logout.setGeometry(QtCore.QRect(520, 420, 91, 21))
+        self.btn_Logout.setGeometry(QtCore.QRect(520, 380, 91, 21))
         self.btn_Logout.setMouseTracking(True)
         self.btn_Logout.setTabletTracking(True)
         self.btn_Logout.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"   #border per i bordi
