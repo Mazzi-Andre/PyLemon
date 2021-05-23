@@ -41,6 +41,7 @@ class home_etichetta(object):
         self.lineEdit.setText("")
         self.lineEdit.setObjectName("lineEdit")
 
+        """Btn mostra tutte"""
         self.btn_mostraTutte = QtWidgets.QPushButton(Form)
         self.btn_mostraTutte.setGeometry(QtCore.QRect(450, 110, 111, 61))
         self.btn_mostraTutte.setStyleSheet("background-color: rgb(207, 207, 207);\n"
@@ -48,6 +49,7 @@ class home_etichetta(object):
 "color: rgb(0, 0, 0);\n"
 "")
         self.btn_mostraTutte.setObjectName("pushButton")
+
         self.line_2 = QtWidgets.QFrame(Form)
         self.line_2.setGeometry(QtCore.QRect(0, 270, 911, 16))
         self.line_2.setMinimumSize(QtCore.QSize(2, 2))
