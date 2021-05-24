@@ -28,7 +28,7 @@ class Login(QtWidgets.QWidget, Ui_Outsecure, DataPick):
 
     def bool_check_username(self):
         if len(self.txt_password.text()) <= 1:
-            self.pop_message(text='Enter Valid Username and Password !')
+            self.pop_message(text='Inserire Username e Password validi !')
         else:
             username = self.txt_username.text()
             password = self.txt_password.text()
@@ -45,14 +45,14 @@ class Login(QtWidgets.QWidget, Ui_Outsecure, DataPick):
                     else:
                         pass
             else:
-                self.pop_message(text="No users Found ")
+                self.pop_message(text="Utente non trovato  ")
                 return False
 
     def btn_submit_handler(self):
         val = self.bool_check_username()
 
         if (val):
-            self.pop_message(text="Welcome ")
+            self.pop_message(text="Benvenuto ")
 
             self.pick.put_data(self.credenziali[0], self.credenziali[1])
             self.pop_message(text=self.pick.return_credenziali())
@@ -60,7 +60,7 @@ class Login(QtWidgets.QWidget, Ui_Outsecure, DataPick):
             self.switch_window1.emit()
 
         else:
-            self.pop_message("Invalid username or password ")
+            self.pop_message("Username o password invalidi ")
 
     def btn_newuser_handler(self):
         self.switch_window.emit()
