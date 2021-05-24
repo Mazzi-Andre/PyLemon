@@ -64,9 +64,9 @@ class impostazioni(object):
         self.btn_EditProfilo.setText(_translate("Form", "Edit profilo"))
 
 
-app = QApplication([])
+"""app = QApplication([])
 window = QWidget()
 form = impostazioni()
 form.setupUi(window)
 window.show()
-app.exec()
+app.exec()"""

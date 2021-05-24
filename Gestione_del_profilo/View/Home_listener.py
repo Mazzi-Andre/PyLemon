@@ -120,9 +120,9 @@ class home_ascoltatore(object):
         self.btn_Logout.setText(_translate("Form", "Log out"))
         self.btn_search.setText(_translate("Form", "Cerca"))
 
-app = QApplication([])
+"""app = QApplication([])
 window = QWidget()
 form = home_ascoltatore()
 form.setupUi(window)
 window.show()
-app.exec()
+app.exec()"""

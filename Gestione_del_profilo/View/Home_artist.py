@@ -191,9 +191,9 @@ class home_artista(object):
         self.btn_Pubblica.setText(_translate("Form", "Pubblica"))
         self.btn_search.setText(_translate("Form", "Cerca"))
 
-app = QApplication([])
+"""app = QApplication([])
 window = QWidget()
 form = home_artista()
 form.setupUi(window)
 window.show()
-app.exec()
+app.exec()"""
