@@ -17,22 +17,24 @@ class pubblicazione_inizio(object):
         Form.setObjectName("Form")
         Form.resize(430, 330)
         Form.setStyleSheet("background-color: rgb(40, 39, 39);")
-        self.pushButton = QtWidgets.QPushButton(Form)
-        self.pushButton.setGeometry(QtCore.QRect(140, 140, 151, 31))
-        self.pushButton.setMouseTracking(True)
-        self.pushButton.setTabletTracking(True)
-        self.pushButton.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);\n"
-"border-radius: 10px;")
-        self.pushButton.setObjectName("pushButton")
-        self.pushButton_2 = QtWidgets.QPushButton(Form)
-        self.pushButton_2.setGeometry(QtCore.QRect(140, 200, 151, 31))
-        self.pushButton_2.setMouseTracking(True)
-        self.pushButton_2.setTabletTracking(True)
-        self.pushButton_2.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);\n"
-"border-radius: 10px;")
-        self.pushButton_2.setObjectName("pushButton_2")
+        self.btn_brano = QtWidgets.QPushButton(Form)
+        self.btn_brano.setGeometry(QtCore.QRect(140, 140, 151, 31))
+        self.btn_brano.setMouseTracking(True)
+        self.btn_brano.setTabletTracking(True)
+        self.btn_brano.setStyleSheet("*{border: 1px solid rgb(221, 215, 25);"
+                                       "border-radius: 10px;\n"
+                                       "color: 'white';}" +
+                                       "*:hover{background: rgb(221, 215, 25);\n}")
+        self.btn_brano.setObjectName("pushButton")
+        self.btn_album = QtWidgets.QPushButton(Form)
+        self.btn_album.setGeometry(QtCore.QRect(140, 200, 151, 31))
+        self.btn_album.setMouseTracking(True)
+        self.btn_album.setTabletTracking(True)
+        self.btn_album.setStyleSheet("*{border: 1px solid rgb(221, 215, 25);"
+                                       "border-radius: 10px;\n"
+                                       "color: 'white';}" +
+                                       "*:hover{background: rgb(221, 215, 25);\n}")
+        self.btn_album.setObjectName("pushButton_2")
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(155, 50, 121, 31))
         self.label.setStyleSheet("color: rgb(221, 215, 25);\n"
@@ -49,8 +51,8 @@ class pubblicazione_inizio(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.pushButton.setText(_translate("Form", "Brano"))
-        self.pushButton_2.setText(_translate("Form", "Album"))
+        self.btn_brano.setText(_translate("Form", "Brano"))
+        self.btn_album.setText(_translate("Form", "Album"))
         self.label.setText(_translate("Form", "PySound"))
         self.label_2.setText(_translate("Form", "Pubblicazione"))
 

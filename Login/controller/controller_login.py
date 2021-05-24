@@ -3,9 +3,10 @@ import sqlite3
 from PyQt5 import QtWidgets, QtCore
 
 from Login.view.vista_login import Ui_Outsecure
+from Data_Utente.control.Data_control import DataPick
 
 
-class Login(QtWidgets.QWidget, Ui_Outsecure):
+class Login(QtWidgets.QWidget, Ui_Outsecure, DataPick):
     switch_window = QtCore.pyqtSignal()
     switch_window1 = QtCore.pyqtSignal()
 
@@ -13,6 +14,7 @@ class Login(QtWidgets.QWidget, Ui_Outsecure):
     def __init__(self):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
+        self.pick= DataPick()
 
         self.btn_newuser.clicked.connect(self.btn_newuser_handler)
         self.btn_Submit.clicked.connect(self.btn_submit_handler)
@@ -26,7 +28,7 @@ class Login(QtWidgets.QWidget, Ui_Outsecure):
 
     def bool_check_username(self):
         if len(self.txt_password.text()) <= 1:
-            self.pop_message(text='Enter Valid Username and Password !')
+            self.pop_message(text='Inserire Username e Password validi !')
         else:
             username = self.txt_username.text()
             password = self.txt_password.text()
@@ -43,19 +45,22 @@ class Login(QtWidgets.QWidget, Ui_Outsecure):
                     else:
                         pass
             else:
-                self.pop_message(text="No users Found ")
+                self.pop_message(text="Utente non trovato  ")
                 return False
 
     def btn_submit_handler(self):
         val = self.bool_check_username()
 
         if (val):
-            self.pop_message(text="Welcome ")
+            self.pop_message(text="Benvenuto ")
+
+            self.pick.put_data(self.credenziali[0], self.credenziali[1])
+            self.pop_message(text=self.pick.return_credenziali())
 
             self.switch_window1.emit()
 
         else:
-            self.pop_message("Invalid username or password ")
+            self.pop_message("Username o password invalidi ")
 
     def btn_newuser_handler(self):
         self.switch_window.emit()

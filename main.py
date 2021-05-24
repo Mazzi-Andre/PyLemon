@@ -4,7 +4,11 @@ from PyQt5 import QtWidgets
 
 
 # ---------- We dont Touch --------------------
+from Gestione_del_profilo.Controller.Controller_artista import controller_artista
+from Gestione_del_profilo.Controller.Controller_ascoltatore import controller_ascoltatore
+from Gestione_del_profilo.Controller.Controller_impostazioni import controller_impostazioni
 from Login.controller.controller_login import Login
+from Pubblicazione.Controller.Controller_pubblicazione import controller_pubblicazione_inizio
 from Pubblicazione.View.Caricamento_brano import Caricamento_brano
 from Pubblicazione.View.pubblicazione_inizio import pubblicazione_inizio
 
@@ -99,7 +103,9 @@ class Controller:
     def show_login_page(self):
         self.login = Login()
         self.login.switch_window.connect(self.show_newuser_page)
-        self.login.switch_window1.connect(self.show_discovery)
+        #self.login.switch_window1.connect(self.show_discovery)
+        #self.login.switch_window1.connect(self.show_home_ascoltatore)
+        self.login.switch_window1.connect(self.show_home_artista)
         self.login.show()
 
     def show_newuser_page(self):
@@ -115,23 +121,41 @@ class Controller:
         self.login.close()
         self.discovery.show()
 
-    def show_discovery(self):
-        self.discovery = Discovery()
-        self.discovery.switch_window.connect(self.show_login_page)
+    """Home PySound"""
+    def show_home_ascoltatore(self):
+        self.ascoltatore = controller_ascoltatore()
+        self.ascoltatore.switch_window_1.connect(self.show_impostazioni)
         self.login.close()
-        self.discovery.show()
+        self.ascoltatore.show()
 
-    def show_bubblicazione_inizio(self):
-        self.pubblicazione = pubblicazione_inizio()
-        self.pubblicazione.switch_window.connect(self.show_caricamento_brano())
-        self.caricamento.close()
+    def show_home_artista(self):
+        self.artista = controller_artista()
+        self.artista.switch_window_1.connect(self.show_impostazioni)
+        self.artista.switch_window_3.connect(self.show_pubblicazione_inizio)
+        self.login.close()
+        self.artista.show()
+
+    """Controller pubblicazione"""
+    def show_pubblicazione_inizio(self):
+        self.pubblicazione = controller_pubblicazione_inizio()
+        #self.pubblicazione.switch_window.connect(self.show_caricamento_brano())
+        #self.caricamento.close()
         self.pubblicazione.show()
 
     def show_caricamento_brano(self):
         self.caricamento = Caricamento_brano()
-        self.caricamento.switch_window.connect(self.show_bubblicazione_inizio)
+        self.caricamento.switch_window.connect(self.show_pubblicazione_inizio)
         # self.login.switch_window1.connect(self.show_discovery)
         self.caricamento.show()
+
+    """Controller impostazioni"""
+    def show_impostazioni(self):
+        self.impostazioni = controller_impostazioni()
+        # self.home.switch_window.connect(self.show_login_page)
+        self.impostazioni.show()
+
+
+
 
 
 def main():
@@ -141,9 +165,7 @@ def main():
     sys.exit(app.exec_())
 
 
-
 #\Data\mp3
 if __name__ == "__main__":
     main()
-
 
