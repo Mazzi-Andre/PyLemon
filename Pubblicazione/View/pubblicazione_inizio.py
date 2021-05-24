@@ -21,17 +21,19 @@ class pubblicazione_inizio(object):
         self.btn_brano.setGeometry(QtCore.QRect(140, 140, 151, 31))
         self.btn_brano.setMouseTracking(True)
         self.btn_brano.setTabletTracking(True)
-        self.btn_brano.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);\n"
-"border-radius: 10px;")
+        self.btn_brano.setStyleSheet("*{border: 1px solid rgb(221, 215, 25);"
+                                       "border-radius: 10px;\n"
+                                       "color: 'white';}" +
+                                       "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_brano.setObjectName("pushButton")
         self.btn_album = QtWidgets.QPushButton(Form)
         self.btn_album.setGeometry(QtCore.QRect(140, 200, 151, 31))
         self.btn_album.setMouseTracking(True)
         self.btn_album.setTabletTracking(True)
-        self.btn_album.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);\n"
-"border-radius: 10px;")
+        self.btn_album.setStyleSheet("*{border: 1px solid rgb(221, 215, 25);"
+                                       "border-radius: 10px;\n"
+                                       "color: 'white';}" +
+                                       "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_album.setObjectName("pushButton_2")
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(155, 50, 121, 31))
