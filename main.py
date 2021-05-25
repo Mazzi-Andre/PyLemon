@@ -115,9 +115,9 @@ class Controller:
         self.login = Login()
         self.login.switch_window.connect(self.show_newuser_page)
         #self.login.switch_window1.connect(self.show_discovery)
-        #self.login.switch_window1.connect(self.show_home_ascoltatore)
+        self.login.switch_window1.connect(self.show_home_ascoltatore)
         #self.login.switch_window1.connect(self.show_home_artista)
-        self.login.switch_window1.connect(self.show_home_etichetta)
+        #self.login.switch_window1.connect(self.show_home_etichetta)
         self.login.show()
 
     def show_newuser_page(self):
