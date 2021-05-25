@@ -6,6 +6,7 @@ from PyQt5 import QtWidgets
 
 
 # ---------- We dont Touch --------------------
+from Data_Utente.control.Data_control import DataPick
 from Gestione_del_profilo.Controller.Controller_artista import controller_artista
 from Gestione_del_profilo.Controller.Controller_ascoltatore import controller_ascoltatore
 from Gestione_del_profilo.Controller.Controller_edit_artista import controller_edit_artista
@@ -102,6 +103,7 @@ class Controller:
     def __init__(self):
         self.cont_ascoltatore = False
         self.cont_artista = False
+        self.Data = DataPick()
 
 
     """FINESTRA POP UP"""
@@ -113,11 +115,16 @@ class Controller:
 
     def show_login_page(self):
         self.login = Login()
+
+
         self.login.switch_window.connect(self.show_newuser_page)
-        #self.login.switch_window1.connect(self.show_discovery)
-        #self.login.switch_window1.connect(self.show_home_ascoltatore)
-        #self.login.switch_window1.connect(self.show_home_artista)
-        self.login.switch_window1.connect(self.show_home_etichetta)
+        # self.login.switch_window1.connect(self.show_discovery)
+        if self.Data.controlla_login() == 1:
+            self.login.switch_window1.connect(self.show_home_ascoltatore)
+        if self.Data.controlla_login() == 2:
+            self.login.switch_window1.connect(self.show_home_artista)
+        if self.Data.controlla_login() == 3:
+            self.login.switch_window1.connect(self.show_home_etichetta)
         self.login.show()
 
     def show_newuser_page(self):

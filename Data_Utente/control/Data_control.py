@@ -18,6 +18,7 @@ class DataPick(object):
             MyData = pickle.load(Dpi)
         return MyData
 
+
     """ Funzione per la restituzione delle credenziali dell'account presente in questo momento """
     def return_credenziali(self):
         MyData= self.get_data()
@@ -30,8 +31,8 @@ class DataPick(object):
             cursor.execute("""SELECT * FROM credentials WHERE username = :first AND password = :last""",  {'first': nome, 'last': pas })
             return cursor.fetchone()
 
-    """ Funzione per la restituzione delle credenziali dell'account presente in questo momento """
 
+    """ Funzione per la restituzione delle credenziali dell'account presente in questo momento """
     def return_credenziali(self):
         MyData = self.get_data()
         nome = MyData[0]
@@ -45,6 +46,7 @@ class DataPick(object):
                            {'first': nome, 'last': pas})
             self.lista= cursor.fetchone()
             return self.lista
+
 
     """ DA TESTARE IL FUNZIONAMENTO """
     def delete_acount(self):
@@ -69,3 +71,22 @@ class DataPick(object):
         with conn:
             cursor.execute("""UPDATE credentials  SET tipo = :tipo WHERE username = :first AND password = :last""",
                            {'first': nome, 'last': pas, 'tipo': newtipo})
+
+    def controlla_login(self):
+        MyData = self.return_credenziali()
+        #self.switch(MyData[4])
+        if MyData[4] == "ascoltatore" or MyData[4] == "Ascoltatore":
+            return 1
+        elif MyData[4] == "artista" or MyData[4] == "Artista":
+            return 2
+        elif MyData[4] == "etichetta" or MyData[4] == "Etichetta":
+            return 3
+
+    def switch(argument):
+        switcher = {1: "ascoltatore" "Ascoltatore",
+                    2: "artista" "Artista",
+                    3: "etichetta" "Etichetta"
+                    }
+
+        print
+        switcher.get(argument, "Invalid month")

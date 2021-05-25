@@ -31,64 +31,63 @@ class Newuser(QtWidgets.QWidget, Ui_NewUser):
         self.switch_window.emit()
 
     """ funzione di creazione di un'account """
+
     def create_db_newuser(self):
+        txt_firstname_v = self.txt_firstname.text()
+        txt_lastname_v = self.txt_lastname.text()
+        txt_phone_v = self.txt_phone.text()
+        txt_tipo_v = self.txt_tipo.text()
+        txt_username_v = self.txt_username.text()
+        txt_password_v = self.lineEdit.text()
 
-        #txt_firstname_v = self.txt_firstname.text()
-        #txt_lastname_v = self.txt_lastname.text()
-        #txt_phone_v = self.txt_phone.text()
-        #txt_tipo_v = self.txt_tipo.text()
-        #txt_username_v = self.txt_username.text()
-        #txt_password_v = self.lineEdit.text()
+        bol = self.confronta_stringhe(txt_tipo_v, txt_firstname_v, txt_lastname_v, txt_phone_v, txt_username_v,
+                                      txt_password_v)
 
-        self.model = ModelRegistrazione(self.txt_firstname.text(),
-                                        self.txt_lastname.text(),
-                                        self.txt_phone.text(),
-                                        self.txt_tipo.text(),
-                                        self.txt_username.text(),
-                                        self.lineEdit.text()
-                                        )
-
-        if (len(self.model.nome) <= 1
-                and len(self.model.cognome) <= 1 and
-                len(self.model.telefono) <= 9 and
-                len(self.model.password) <= 1 and
-                len(self.model.username) <= 1 and
-                len(self.model.password) <= 1):
-
-            """
-            per vedere se tutti i campi sono stati inseriti correttamente 
-            """
-            self.pop_message(text="Please Enter All Feilds ")
-
-        else:
+        if bol is True:
 
             conn = sqlite3.connect('Data.db')
             cursor = conn.cursor()
 
             cursor.execute("""
-                    CREATE TABLE IF NOT EXISTS credentials 
-                    (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-                    fname TEXT, 
-                    lname TEXT, 
-                    Phone TEXT, 
-                    tipo TEXT,
-                    username TEXT, 
-                    password TEXT)""")
+                                CREATE TABLE IF NOT EXISTS credentials 
+                                (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                                fname TEXT, 
+                                lname TEXT, 
+                                Phone TEXT, 
+                                tipo TEXT,
+                                username TEXT, 
+                                password TEXT)""")
 
             cursor.execute(""" INSERT INTO credentials 
-                    (fname,
-                    lname,
-                    Phone,
-                    tipo,
-                    username, 
-                    password)
+                                (fname,
+                                lname,
+                                Phone,
+                                tipo,
+                                username, 
+                                password)
 
-                VALUES 
-                (?,?,?,?,?,?)
-                """, (self.model.nome, self.model.cognome, self.model.telefono, self.model.tipo, self.model.username, self.model.password))
+                            VALUES 
+                            (?,?,?,?,?,?)
+                            """,
+                           (txt_firstname_v, txt_lastname_v, txt_phone_v, txt_tipo_v, txt_username_v, txt_password_v))
 
-            #(txt_firstname_v, txt_lastname_v, txt_phone_v, txt_tipo_v, txt_username_v, txt_password_v)
             conn.commit()
             cursor.close()
             conn.close()
             self.pop_message(text="Added to Database ! ")
+
+        else:
+            """
+            Logic to see if users Enter all Feilds Correctly 
+            """
+            self.pop_message(text="Please Enter All Feilds ")
+
+
+    def confronta_stringhe(self, tipo, nome, cognome, telefono, username, password):
+        if len(password) > 1:
+            if len(username) > 1:
+                if len(telefono) > 9:
+                    if tipo == 'Ascoltatore' or tipo == 'ascoltatore' or tipo == 'Artista' or tipo == 'artista' or tipo == 'Etichetta' or tipo == 'etichetta':
+                        if len(cognome) > 1:
+                            if len(nome) > 1:
+                                return True
