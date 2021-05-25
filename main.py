@@ -8,7 +8,9 @@ from PyQt5 import QtWidgets
 # ---------- We dont Touch --------------------
 from Gestione_del_profilo.Controller.Controller_artista import controller_artista
 from Gestione_del_profilo.Controller.Controller_ascoltatore import controller_ascoltatore
+from Gestione_del_profilo.Controller.Controller_edit_ascoltatore import controller_edit_ascoltatore
 from Gestione_del_profilo.Controller.Controller_impostazioni import controller_impostazioni
+from Gestione_del_profilo.Controller.controller_etichetta import controller_etichetta
 from Login.controller.controller_login import Login
 from Pubblicazione.Controller.Controller_pubblicazione import controller_pubblicazione_inizio
 from Pubblicazione.View.Caricamento_brano import Caricamento_brano
@@ -100,14 +102,16 @@ class Discovery(QtWidgets.QWidget, Ui_Discovery):
 class Controller:
 
     def __init__(self):
-        pass
+        self.cont_ascoltatore = False
+        self.cont_artista = False
 
     def show_login_page(self):
         self.login = Login()
         self.login.switch_window.connect(self.show_newuser_page)
         #self.login.switch_window1.connect(self.show_discovery)
         #self.login.switch_window1.connect(self.show_home_ascoltatore)
-        self.login.switch_window1.connect(self.show_home_artista)
+        #self.login.switch_window1.connect(self.show_home_artista)
+        self.login.switch_window1.connect(self.show_home_etichetta)
         self.login.show()
 
     def show_newuser_page(self):
@@ -126,16 +130,23 @@ class Controller:
     """Home PySound"""
     def show_home_ascoltatore(self):
         self.ascoltatore = controller_ascoltatore()
-        self.ascoltatore.switch_window_1.connect(self.show_impostazioni)
+        self.ascoltatore.switch_window_1.connect(self.show_impostazioni_ascoltatore)
         self.login.close()
         self.ascoltatore.show()
 
     def show_home_artista(self):
         self.artista = controller_artista()
-        self.artista.switch_window_1.connect(self.show_impostazioni)
+        self.artista.switch_window_1.connect(self.show_impostazioni_ascoltatore)
         self.artista.switch_window_3.connect(self.show_pubblicazione_inizio)
         self.login.close()
         self.artista.show()
+
+    def show_home_etichetta(self):
+        self.etichetta = controller_etichetta()
+        self.etichetta.switch_window_1.connect(self.show_impostazioni_ascoltatore)
+        self.etichetta.switch_window_3.connect(self.show_pubblicazione_inizio)
+        self.login.close()
+        self.etichetta.show()
 
     """Controller pubblicazione"""
     def show_pubblicazione_inizio(self):
@@ -150,12 +161,44 @@ class Controller:
         # self.login.switch_window1.connect(self.show_discovery)
         self.caricamento.show()
 
-    """Controller impostazioni"""
-    def show_impostazioni(self):
+    """Controller impostazioni ascoltatore"""
+    def show_impostazioni_ascoltatore(self):
         self.impostazioni = controller_impostazioni()
         # self.home.switch_window.connect(self.show_login_page)
+        self.impostazioni.switch_window_1.connect(self.show_edit_ascoltatore)
+
+        if self.cont_ascoltatore is True:
+            self.EditAscoltatore.close()
+            self.cont_ascoltatore = False
+
         self.impostazioni.show()
 
+    def show_edit_ascoltatore(self):
+        self.EditAscoltatore = controller_edit_ascoltatore()
+        self.EditAscoltatore.switch_window_1.connect(self.show_impostazioni_ascoltatore)
+        self.impostazioni.close()
+        self.cont_ascoltatore = True
+        self.EditAscoltatore.show()
+
+    """Controller impostazioni ascoltatore"""
+
+    def show_impostazioni_artista(self):
+        self.impostazioni = controller_impostazioni()
+        # self.home.switch_window.connect(self.show_login_page)
+        self.impostazioni.switch_window_1.connect(self.show_edit_ascoltatore)
+
+        if self.cont_artista is True:
+            self.EditAscoltatore.close()
+            self.cont_artista = False
+
+        self.impostazioni.show()
+
+    def show_edit_artista(self):
+        self.EditArtista = controller_edit_.....()
+        self.EditAscoltatore.switch_window_1.connect(self.show_impostazioni_ascoltatore)
+        self.impostazioni.close()
+        self.cont_artista = True
+        self.EditAscoltatore.show()
 
 
 

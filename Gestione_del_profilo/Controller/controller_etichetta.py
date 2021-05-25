@@ -19,7 +19,7 @@ class controller_etichetta(QtWidgets.QWidget, DataPick, home_etichetta):
         self.btn_Logout.clicked.connect(self.btn_LogOut_handler)
         self.btn_Impostazioni.clicked.connect(self.btn_Impostazioni_handler)
         self.btn_Pubblica.clicked.connect(self.btn_Pubblicazione_handler)
-        self.btn_mostraTutte.clicked.connect(self.btn_MostraTutte_handler())
+        self.btn_mostraTutte.clicked.connect(self.btn_MostraTutte_handler)
 
     """POP UP FINESTRA"""
 
