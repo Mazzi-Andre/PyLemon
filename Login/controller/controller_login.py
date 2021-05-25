@@ -26,7 +26,13 @@ class Login(QtWidgets.QWidget, Ui_Outsecure, DataPick):
         msg.setText("{}".format(text))
         msg.exec_()
 
+    def loading(self):
+        username = self.txt_username.text()
+        password = self.txt_password.text()
+        self.pick.put_data(username, password)
+
     def bool_check_username(self):
+        self.loading()
         if len(self.txt_password.text()) <= 1:
             self.pop_message(text='Inserire Username e Password validi !')
         else:
@@ -40,7 +46,8 @@ class Login(QtWidgets.QWidget, Ui_Outsecure, DataPick):
 
                 for x in val:
                     if username in x[0] and password in x[1]:
-                        self.credenziali= x
+                        #self.credenziali= x
+                        #self.pick.put_data(self.credenziali[0], self.credenziali[1])
                         return True
                     else:
                         pass
@@ -54,7 +61,7 @@ class Login(QtWidgets.QWidget, Ui_Outsecure, DataPick):
         if (val):
             self.pop_message(text="Benvenuto ")
 
-            self.pick.put_data(self.credenziali[0], self.credenziali[1])
+            #self.pick.put_data(self.credenziali[0], self.credenziali[1])
             self.pop_message(text=self.pick.return_credenziali())
 
             self.switch_window1.emit()
