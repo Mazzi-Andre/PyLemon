@@ -2,10 +2,10 @@ from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
 from Data_Utente.control.Data_control import DataPick
+from Gestione_del_profilo.View.Edit_artista import edit_artista
 
-from Gestione_del_profilo.View.Edit_ascoltatore import edit_ascoltatore
 
-class controller_edit_ascoltatore(QtWidgets.QWidget, DataPick, edit_ascoltatore):
+class controller_edit_artista(QtWidgets.QWidget, DataPick, edit_artista):
     switch_window_1 = QtCore.pyqtSignal()
 
     def __init__(self):
@@ -13,9 +13,9 @@ class controller_edit_ascoltatore(QtWidgets.QWidget, DataPick, edit_ascoltatore)
         self.setupUi(self)
         self.pick = DataPick()
 
-        self.btn_Artista.clicked.connect(self.btn_artista_handler)
+        self.btn_Ascoltatore.clicked.connect(self.btn_ascoltatore_handler)
         self.btn_Etichetta.clicked.connect(self.btn_etichetta_handler)
-        self.btn_back.clicked.connect(self.btn_back_handler)
+        self.btn_Back.clicked.connect(self.btn_back_handler)
 
 
 
@@ -28,7 +28,7 @@ class controller_edit_ascoltatore(QtWidgets.QWidget, DataPick, edit_ascoltatore)
 
     """SWITCH FINESTRE"""
 
-    def btn_artista_handler(self):
+    def btn_ascoltatore_handler(self):
         self.pop_message(text="Da fare")
 
     def btn_etichetta_handler(self):
