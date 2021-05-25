@@ -171,7 +171,6 @@ class Ui_Player(object):
             self.table.setItem(riga, 2, QtWidgets.QTableWidgetItem(i["Artista"]))
             riga = riga+1
 
-
     '''def mostra_search(self, var_search):
         Libreria = ControlloreContenuti()
         lib = Libreria.getLista()
