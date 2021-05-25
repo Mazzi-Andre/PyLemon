@@ -1,5 +1,7 @@
 from tkinter import *
 from tkinter import filedialog
+
+
 from pygame import *
 import pygame
 import threading
@@ -169,5 +171,5 @@ class MusicPlayer:
         mixer.music.stop()
         self.playing_state = False
 
-
-o= MusicPlayer()
+i = tk()
+o = MusicPlayer(i)

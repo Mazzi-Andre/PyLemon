@@ -12,5 +12,5 @@ class ControlloreAscolto():
 
     def getPath(self, lst_titolo, lst_album): # che saranno item
         id = self.g.ricerca_id(lst_titolo, lst_album)
-        path = f"{pathlib.Path().parent.absolute()}\Data\mp3\{id}.mp3"
+        path = "Data/mp3/"+str(id)+".mp3"
         return path

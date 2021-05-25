@@ -6,10 +6,11 @@ from Gestione_Ascolto.Ascolto.Controller.ControlloreAscolto import ControlloreAs
 from Gestione_Ascolto.Ascolto.Model.Ascolto import Ascolto
 from Pubblicazione.Controller.Gestione_json import Gestione_json
 
-
-
 class Ui_Player(object):
     def setupUi(self, Player):
+        self.Libreria = Gestione_json()
+        self.listen = Ascolto()
+
         Player.setObjectName("Player")
         Player.resize(501, 471)
         Player.setAutoFillBackground(False)
@@ -87,6 +88,9 @@ class Ui_Player(object):
         self.pause.setText("")
         self.pause.setObjectName("pause")
         self.pause.setIcon(QIcon('pause.png'))
+
+        self.pause.clicked.connect(self.go_pause)
+
         self.stop = QtWidgets.QPushButton(Player)
 
         self.stop.setGeometry(QtCore.QRect(210, 370, 81, 41))
@@ -98,6 +102,9 @@ class Ui_Player(object):
         self.stop.setText("")
         self.stop.setObjectName("stop")
         self.stop.setIcon(QIcon('stop.png'))
+
+        self.stop.clicked.connect(self.go_stop)
+
         self.prev = QtWidgets.QPushButton(Player)
 
         self.prev.setGeometry(QtCore.QRect(310, 370, 81, 41))
@@ -193,24 +200,29 @@ class Ui_Player(object):
                 riga = riga+1'''
 
     def go_play(self):
-        Libreria = Gestione_json()
-        lib = Libreria.get_jsonobject()
+        lib = self.Libreria.get_jsonobject()
         if self.table.selectedItems():
-            print(str(self.table.selectedItems().__str__()))
+            selezione_titolo = self.table.currentItem().text()
             for i in lib:
-                print("ok")
-                riga_selezionata = self.table.row(self.table.selectedItems())
-                print(riga_selezionata)
-                if self.table.selectedItems().__str__() == lib["Titolo"]:
-                    riga_selezionata = self.table.row(self.table.selectedItems())
-                    colonna_selezionata = self.table.column(self.table.selectedItems())
-                    print(riga_selezionata + colonna_selezionata)
-                    album_corrispondente = self.table.item(riga_selezionata, colonna_selezionata + 1).__str__()
+                #print(self.table.currentRow()) ritorna numero riga (si parte d 0)
+                #print(self.table.currentItem().text())
+                if selezione_titolo == i["Titolo"]:
+                    riga_selezionata = self.table.currentRow()
+                    colonna_album = self.table.currentColumn()+1
+                    album_corrispondente = self.table.item(riga_selezionata, colonna_album).text()
                     controller = ControlloreAscolto()
-                    path = controller.getPath()
-                    listen = Ascolto()
-                    listen.play(path)
+                    path = controller.getPath(selezione_titolo, album_corrispondente)
+                    self.listen.play(path)
                     break
+
+    def go_pause(self):
+        self.listen.pause()
+
+    def go_stop(self):
+        self.listen.stop()
+
+
+
 
 
 
