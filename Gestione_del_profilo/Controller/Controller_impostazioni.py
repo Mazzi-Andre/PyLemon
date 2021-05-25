@@ -26,6 +26,7 @@ class controller_impostazioni(QtWidgets.QWidget, DataPick, impostazioni):
         msg.setText("{}".format(text))
         msg.exec_()
 
+
     """SWITCH FINESTRE"""
 
     def btn_elimina_profilo_handler(self):

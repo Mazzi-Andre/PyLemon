@@ -81,10 +81,7 @@ class Discovery(QtWidgets.QWidget, Ui_Discovery):
         self.btn_submit.clicked.connect(self.btn_submit_handler)
         self.btn_back.clicked.connect(self.btn_back_handler)
 
-    def pop_message(self, text=""):
-        msg = QtWidgets.QMessageBox()
-        msg.setText("{}".format(text))
-        msg.exec_()
+
 
     def load_data(self):
 
@@ -105,6 +102,14 @@ class Controller:
     def __init__(self):
         self.cont_ascoltatore = False
         self.cont_artista = False
+
+
+    """FINESTRA POP UP"""
+    def pop_message(self, text=""):
+        msg = QtWidgets.QMessageBox()
+        msg.setText("{}".format(text))
+        msg.exec_()
+
 
     def show_login_page(self):
         self.login = Login()
@@ -128,6 +133,8 @@ class Controller:
         self.login.close()
         self.discovery.show()
 
+    """---------------------------------------------------------------------------------------------"""
+
     """Home PySound"""
     def show_home_ascoltatore(self):
         self.ascoltatore = controller_ascoltatore()
@@ -137,17 +144,20 @@ class Controller:
 
     def show_home_artista(self):
         self.artista = controller_artista()
-        self.artista.switch_window_1.connect(self.show_impostazioni_ascoltatore)
+        self.artista.switch_window_1.connect(self.show_impostazioni_artista)
         self.artista.switch_window_3.connect(self.show_pubblicazione_inizio)
         self.login.close()
         self.artista.show()
 
     def show_home_etichetta(self):
         self.etichetta = controller_etichetta()
-        self.etichetta.switch_window_1.connect(self.show_impostazioni_ascoltatore)
         self.etichetta.switch_window_3.connect(self.show_pubblicazione_inizio)
+        self.etichetta.switch_window_1.connect(self.show_impostazioni_etichetta)
         self.login.close()
         self.etichetta.show()
+
+
+    """---------------------------------------------------------------------------------------------"""
 
     """Controller pubblicazione"""
     def show_pubblicazione_inizio(self):
@@ -161,6 +171,9 @@ class Controller:
         self.caricamento.switch_window.connect(self.show_pubblicazione_inizio)
         # self.login.switch_window1.connect(self.show_discovery)
         self.caricamento.show()
+
+    """---------------------------------------------------------------------------------------------"""
+
 
     """Controller impostazioni ascoltatore"""
     def show_impostazioni_ascoltatore(self):
@@ -181,7 +194,11 @@ class Controller:
         self.cont_ascoltatore = True
         self.EditAscoltatore.show()
 
-    """Controller impostazioni ascoltatore"""
+
+
+
+
+    """Controller impostazioni artista"""
 
     def show_impostazioni_artista(self):
         self.impostazioni_artista = controller_impostazioni()
@@ -189,7 +206,7 @@ class Controller:
         self.impostazioni_artista.switch_window_1.connect(self.show_edit_artista)
 
         if self.cont_artista is True:
-            self.EditAscoltatore.close()
+            self.EditArtista.close()
             self.cont_artista = False
 
         self.impostazioni_artista.show()
@@ -200,6 +217,19 @@ class Controller:
         self.impostazioni_artista.close()
         self.cont_artista = True
         self.EditArtista.show()
+
+
+
+    """Controller impostazioni etichetta"""
+
+    def show_impostazioni_etichetta(self):
+        self.impostazioni_etichetta = controller_impostazioni()
+        self.impostazioni_etichetta.switch_window_1.connect(self.show_edit_etichetta)
+        self.impostazioni_etichetta.show()
+
+
+    def show_edit_etichetta(self):
+        self.pop_message(text="Il suo account non può subire variazioni.")
 
 
 
