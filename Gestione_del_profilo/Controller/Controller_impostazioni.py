@@ -15,7 +15,7 @@ class controller_impostazioni(QtWidgets.QWidget, DataPick, impostazioni):
         self.pick = DataPick()
 
         self.btn_EliminaAccount.clicked.connect(self.btn_elimina_profilo_handler)
-        self.btn_EditProfilo.clicked.connect(self.btn_elimina_profilo_handler)
+        self.btn_EditProfilo.clicked.connect(self.btn_edit_profilo_handler)
 
 
 
@@ -25,6 +25,7 @@ class controller_impostazioni(QtWidgets.QWidget, DataPick, impostazioni):
         msg = QtWidgets.QMessageBox()
         msg.setText("{}".format(text))
         msg.exec_()
+
 
     """SWITCH FINESTRE"""
 

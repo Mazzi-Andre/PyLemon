@@ -65,9 +65,9 @@ class edit_ascoltatore(object):
         self.btn_Etichetta.setText(_translate("Form", "Etichetta"))
         self.btn_Back.setText(_translate("Form", "Back"))
 
-app = QApplication([])
+"""app = QApplication([])
 window = QWidget()
 form = edit_ascoltatore()
 form.setupUi(window)
 window.show()
-app.exec()
+app.exec()"""
