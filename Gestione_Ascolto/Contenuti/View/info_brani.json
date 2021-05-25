@@ -1,0 +1,25 @@
+[
+    {
+      "Titolo": "pocketful of miracles",
+      "Artista": "blu & The 45 King",
+      "Album": "pocketful of miracles",
+      "id": 1,
+      "contatore": 0.0
+    },
+    {
+      "Titolo": "lovely day",
+      "Artista": "bill withers",
+      "Album": "the essential bill withers",
+      "id": 2,
+      "contatore": 0.0
+    },
+    {
+      "Titolo": "africa",
+      "Artista": "toto",
+      "Album": "totoIV",
+      "id": 3,
+      "contatore": 0.0
+    }
+]
+
+
