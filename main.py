@@ -118,12 +118,9 @@ class Controller:
         self.data = DataPick()
         self.login.switch_window.connect(self.show_newuser_page)
         # self.login.switch_window1.connect(self.show_discovery)
-        if self.data.controlla_login() == 1:
-            self.login.switch_window1.connect(self.show_home_ascoltatore)
-        if self.data.controlla_login() == 2:
-            self.login.switch_window1.connect(self.show_home_artista)
-        if self.data.controlla_login() == 3:
-            self.login.switch_window1.connect(self.show_home_etichetta)
+        self.login.switch_window1.connect(self.show_home_ascoltatore)
+        self.login.switch_window2.connect(self.show_home_artista)
+        self.login.switch_window3.connect(self.show_home_etichetta)
         self.login.show()
 
     '''

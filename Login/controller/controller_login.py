@@ -9,6 +9,8 @@ from Data_Utente.control.Data_control import DataPick
 class Login(QtWidgets.QWidget, Ui_Outsecure, DataPick):
     switch_window = QtCore.pyqtSignal()
     switch_window1 = QtCore.pyqtSignal()
+    switch_window2 = QtCore.pyqtSignal()
+    switch_window3= QtCore.pyqtSignal()
 
 
     def __init__(self):
@@ -26,13 +28,13 @@ class Login(QtWidgets.QWidget, Ui_Outsecure, DataPick):
         msg.setText("{}".format(text))
         msg.exec_()
 
+    ''' da sistemare che non funziona '''
     def loading(self):
         username = self.txt_username.text()
         password = self.txt_password.text()
         self.pick.put_data(username, password)
 
     def bool_check_username(self):
-        self.loading()
         if len(self.txt_password.text()) <= 1:
             self.pop_message(text='Inserire Username e Password validi !')
         else:
@@ -46,6 +48,7 @@ class Login(QtWidgets.QWidget, Ui_Outsecure, DataPick):
 
                 for x in val:
                     if username in x[0] and password in x[1]:
+                        self.loading()
                         #self.credenziali= x
                         #self.pick.put_data(self.credenziali[0], self.credenziali[1])
                         return True
@@ -57,14 +60,21 @@ class Login(QtWidgets.QWidget, Ui_Outsecure, DataPick):
 
     def btn_submit_handler(self):
         val = self.bool_check_username()
-
+        costante = 0
         if (val):
             self.pop_message(text="Benvenuto ")
 
             #self.pick.put_data(self.credenziali[0], self.credenziali[1])
             self.pop_message(text=self.pick.return_credenziali())
+            costante= self.pick.controlla_login()
+            self.pop_message(text=costante)
+            if costante == 1:
+                self.switch_window1.emit()
+            if costante == 2:
+                self.switch_window2.emit()
+            if costante == 3:
+                self.switch_window3.emit()
 
-            self.switch_window1.emit()
 
         else:
             self.pop_message("Username o password invalidi ")
