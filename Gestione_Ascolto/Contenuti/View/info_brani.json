@@ -19,6 +19,13 @@
       "Album": "totoIV",
       "id": 3,
       "contatore": 0.0
+    },
+    {
+      "Titolo": "C e chi dice no - live",
+      "Artista": "vasco rossi",
+      "Album": "vasco nonstop live",
+      "id": 4,
+      "contatore": 0.0
     }
 ]
 

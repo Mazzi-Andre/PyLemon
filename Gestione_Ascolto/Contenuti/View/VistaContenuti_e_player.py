@@ -5,11 +5,16 @@ from PyQt5.QtWidgets import QApplication, QWidget
 from Gestione_Ascolto.Ascolto.Controller.ControlloreAscolto import ControlloreAscolto
 from Gestione_Ascolto.Ascolto.Model.Ascolto import Ascolto
 from Pubblicazione.Controller.Gestione_json import Gestione_json
+from Pubblicazione.View.Caricamento_brano import Caricamento_brano
+
 
 class Ui_Player(object):
     def setupUi(self, Player):
-        self.Libreria = Gestione_json()
+
+        #self.Libreria = Gestione_json()
         self.listen = Ascolto()
+        self.controller = ControlloreAscolto()
+        self.canzone =''
 
         Player.setObjectName("Player")
         Player.resize(501, 471)
@@ -115,6 +120,9 @@ class Ui_Player(object):
 "border-radius: 10px;")
         self.prev.setText("")
         self.prev.setObjectName("prev")
+
+        self.prev.clicked.connect(self.go_prev)
+
         self.next = QtWidgets.QPushButton(Player)
 
         self.next.setGeometry(QtCore.QRect(410, 370, 81, 41))
@@ -127,6 +135,9 @@ class Ui_Player(object):
         self.next.setText("")
         self.next.setObjectName("next")
         self.next.setIcon(QIcon('next.png'))
+
+        self.next.clicked.connect(self.go_next)
+
         self.horizontalSlider = QtWidgets.QSlider(Player)
         self.horizontalSlider.setGeometry(QtCore.QRect(70, 440, 80, 16))
         self.horizontalSlider.setOrientation(QtCore.Qt.Horizontal)
@@ -135,6 +146,9 @@ class Ui_Player(object):
         self.label.setGeometry(QtCore.QRect(13, 438, 55, 16))
         self.label.setStyleSheet("QLabel { color : white; }");
         self.label.setObjectName("label")
+
+        '''self.g = QtWidgets.QPushButton(Player)
+        self.g.clicked.connect(self.go_vista)'''
 
         self.retranslateUi(Player)
         QtCore.QMetaObject.connectSlotsByName(Player)
@@ -161,11 +175,12 @@ class Ui_Player(object):
         self.table.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)"""
 
     def mostra_tutto(self):
-        Libreria = Gestione_json()
-        lib = Libreria.get_jsonobject()
+        #Libreria = Gestione_json()
+        self.lib = self.controller.getObject()
+        #lib = Gestione_json.lettura()
         riga = 0
-        self.table.setRowCount(len(lib))
-        for i in lib:
+        self.table.setRowCount(len(self.lib))
+        for i in self.lib:
             self.table.setItem(riga, 0, QtWidgets.QTableWidgetItem(i["Titolo"]))
             self.table.setItem(riga, 1, QtWidgets.QTableWidgetItem(i["Album"]))
             self.table.setItem(riga, 2, QtWidgets.QTableWidgetItem(i["Artista"]))
@@ -199,20 +214,27 @@ class Ui_Player(object):
                 riga = riga+1'''
 
     def go_play(self):
-        lib = self.Libreria.get_jsonobject()
         if self.table.selectedItems():
+            print("denttro")
             selezione_titolo = self.table.currentItem().text()
-            for i in lib:
+            for i in self.lib:
                 #print(self.table.currentRow()) ritorna numero riga (si parte d 0)
                 #print(self.table.currentItem().text())
                 if selezione_titolo == i["Titolo"]:
-                    riga_selezionata = self.table.currentRow()
-                    colonna_album = self.table.currentColumn()+1
-                    album_corrispondente = self.table.item(riga_selezionata, colonna_album).text()
-                    controller = ControlloreAscolto()
-                    path = controller.getPath(selezione_titolo, album_corrispondente)
+                    #riga_selezionata = self.canzone_selezionata()
+                    album_corrispondente = self.table.item(self.canzone_selezionata(), 1).text()
+                    path = self.controller.getPath(selezione_titolo, album_corrispondente)
+                    self.riga_prev = self.canzone_selezionata() - 1
+                    self.riga_next = self.canzone_selezionata() + 1
+
+                    #self.listen.path_riproduzione = path
                     self.listen.play(path)
                     break
+
+    def canzone_selezionata(self):
+        self.canzone = self.table.currentRow()
+        return self.canzone
+
 
     def go_pause(self):
         self.listen.pause()
@@ -221,10 +243,41 @@ class Ui_Player(object):
         self.listen.stop()
 
 
+    def go_prev(self):
+        if self.riga_prev < 0:
+            self.riga_prev = len(self.lib)-1
+            self.riga_next = 0
+        titolo_prev = self.table.item(self.riga_prev, 0).text()
+        album_prev = self.table.item(self.riga_prev, 1).text()
+        path = self.controller.getPath(titolo_prev, album_prev)
+        self.listen.path_selezione = path
+        self.go_play()
+        #self.listen.play(path)
 
 
 
 
+
+    def go_next(self):
+        if self.riga_next > len(self.lib)-1:
+            self.riga_next = 0
+            self.riga_prev = len(self.lib)-1
+        titolo_next = self.table.item(self.riga_next, 0).text()
+        album_next = self.table.item(self.riga_next, 1).text()
+        path = self.controller.getPath(titolo_next, album_next)
+        self.listen.check_next = True
+        self.listen.path_riproduzione = path
+        self.go_play()
+        #self.listen.play(path)
+
+
+    '''def go_vista(self):
+        app1 = QApplication([])
+        window1 = QWidget()
+        form1 = Caricamento_brano()
+        form1.setupUi(window1)
+        window1.show()
+        app1.exec()'''
 
 
 
@@ -240,4 +293,3 @@ form.mostra_tutto()
 #form.prova()
 window.show()
 app.exec()
- 

@@ -5,7 +5,9 @@ class Gestione_json():
 
     def __init__(self):
         with open('info_brani.json', 'r') as j:
+        #with open('info_brani.json', 'r') as j:
             self.json_data = json.load(j)
+
 
     '''def scrittura(self):
         with open("prova.Json", "w") as write_file:
