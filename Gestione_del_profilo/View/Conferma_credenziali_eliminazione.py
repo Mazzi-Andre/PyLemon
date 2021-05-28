@@ -86,9 +86,9 @@ class conferma_credenziali(object):
         self.btn_Back.setText(_translate("Form", "Back"))
         self.btn_Ok.setText(_translate("Form", "Ok"))
 
-app = QApplication([])
+"""app = QApplication([])
 window = QWidget()
 form = conferma_credenziali()
 form.setupUi(window)
 window.show()
-app.exec()
+app.exec()"""

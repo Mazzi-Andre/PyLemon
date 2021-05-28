@@ -15,7 +15,7 @@ class controller_edit_ascoltatore(QtWidgets.QWidget, DataPick, edit_ascoltatore)
 
         self.btn_Artista.clicked.connect(self.btn_artista_handler)
         self.btn_Etichetta.clicked.connect(self.btn_etichetta_handler)
-        self.btn_back.clicked.connect(self.btn_back_handler)
+        self.btn_Back.clicked.connect(self.btn_back_handler)
 
 
 
