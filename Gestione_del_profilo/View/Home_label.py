@@ -24,8 +24,9 @@ class home_etichetta(object):
 "font: 30pt \".AppleSystemUIFont\";")
         self.label.setObjectName("label")
 
+        """Linea Search"""
         self.lineEdit = QtWidgets.QLineEdit(Form)
-        self.lineEdit.setGeometry(QtCore.QRect(30, 110, 401, 61))
+        self.lineEdit.setGeometry(QtCore.QRect(110, 130, 331, 61))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -36,18 +37,31 @@ class home_etichetta(object):
         self.lineEdit.setFont(font)
         self.lineEdit.setTabletTracking(False)
         self.lineEdit.setStyleSheet("background-color: rgb(207, 207, 207);\n"
-"border-radius: 20px;\n"
-"border-color: rgb(133, 133, 133);")
+                                    "border-radius: 20px;\n"
+                                    "border-color: rgb(133, 133, 133);")
         self.lineEdit.setText("")
         self.lineEdit.setObjectName("lineEdit")
 
+        """Btn mostra tutte"""
         self.btn_mostraTutte = QtWidgets.QPushButton(Form)
-        self.btn_mostraTutte.setGeometry(QtCore.QRect(450, 110, 111, 61))
-        self.btn_mostraTutte.setStyleSheet("background-color: rgb(207, 207, 207);\n"
-"border-radius: 20px;\n"
+        self.btn_mostraTutte.setGeometry(QtCore.QRect(460, 130, 111, 61))
+        self.btn_mostraTutte.setStyleSheet("*{background-color: rgb(207, 207, 207);\n"
 "color: rgb(0, 0, 0);\n"
-"")
+"border-radius: 20px;\n"
+"color: rgb(0, 0, 0);\n}"
+"*:hover{border: 5px solid rgb(221, 215, 25);\n}")
+
         self.btn_mostraTutte.setObjectName("pushButton")
+
+        """Btn search"""
+        self.btn_search = QtWidgets.QPushButton(Form)
+        self.btn_search.setGeometry(QtCore.QRect(25, 130, 70, 61))
+        self.btn_search.setStyleSheet("*{border: 1px solid rgb(207, 207, 207);"   #border per i bordi
+                                       "border-radius: 20px;\n"
+                                       "color: 'white';}" +
+                                       "*:hover{background: rgb(207, 207, 207);\n}")
+        self.btn_search.setObjectName("pushButton_4")
+
         self.line_2 = QtWidgets.QFrame(Form)
         self.line_2.setGeometry(QtCore.QRect(0, 270, 911, 16))
         self.line_2.setMinimumSize(QtCore.QSize(2, 2))
@@ -77,31 +91,31 @@ class home_etichetta(object):
         self.btn_Pubblica.setGeometry(QtCore.QRect(800, 390, 91, 21))
         self.btn_Pubblica.setMouseTracking(True)
         self.btn_Pubblica.setTabletTracking(True)
-        self.btn_Pubblica.setStyleSheet("*{border: 0.5px solid rgb(150, 150, 150);"
+        self.btn_Pubblica.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
                                        "border-radius: 10px;\n"
                                        "font: 10pt \"Arial\";"
                                        "color: 'white';}" +
-                                       "*:hover{background: rgb(150, 150, 150);\n}")
+                                       "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_Pubblica.setObjectName("pushButton_2")
         self.btn_Impostazioni = QtWidgets.QPushButton(Form)
         self.btn_Impostazioni.setGeometry(QtCore.QRect(800, 340, 91, 21))
         self.btn_Impostazioni.setMouseTracking(True)
         self.btn_Impostazioni.setTabletTracking(True)
-        self.btn_Impostazioni.setStyleSheet("*{border: 0.5px solid rgb(150, 150, 150);"   #border per i bordi
+        self.btn_Impostazioni.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"   #border per i bordi
                                        "border-radius: 10px;\n"
                                        "font: 10pt \"Arial\";"
                                        "color: 'white';}" +
-                                       "*:hover{background: rgb(150, 150, 150);\n}") #hover: quando passo con la freccetta sopra al bordo cambia colore
+                                       "*:hover{background: rgb(221, 215, 25);\n}") #hover: quando passo con la freccetta sopra al bordo cambia colore
         self.btn_Impostazioni.setObjectName("pushButton_3")
         self.btn_Logout = QtWidgets.QPushButton(Form)
         self.btn_Logout.setGeometry(QtCore.QRect(800, 440, 91, 21))
         self.btn_Logout.setMouseTracking(True)
         self.btn_Logout.setTabletTracking(True)
-        self.btn_Logout.setStyleSheet("*{border: 0.5px solid rgb(150, 150, 150);"
+        self.btn_Logout.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
                                        "border-radius: 10px;\n"
                                        "font: 10pt \"Arial\";"
                                        "color: 'white';}" +
-                                       "*:hover{background: rgb(150, 150, 150);\n}")
+                                       "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_Logout.setObjectName("pushButton_4")
         self.scrollArea = QtWidgets.QScrollArea(Form)
         self.scrollArea.setGeometry(QtCore.QRect(660, 10, 231, 241))
@@ -137,10 +151,11 @@ class home_etichetta(object):
         self.btn_Pubblica.setText(_translate("Form", "Pubblica"))
         self.btn_Impostazioni.setText(_translate("Form", "Impostazioni"))
         self.btn_Logout.setText(_translate("Form", "Log out"))
+        self.btn_search.setText(_translate("Form", "Cerca"))
 
-app = QApplication([])
+"""app = QApplication([])
 window = QWidget()
 form = home_etichetta()
 form.setupUi(window)
 window.show()
-app.exec()
+app.exec()"""

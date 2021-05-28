@@ -4,7 +4,17 @@ from PyQt5 import QtWidgets
 
 
 # ---------- We dont Touch --------------------
+from Data_Utente.control.Data_control import DataPick
+from Gestione_del_profilo.Controller.Controller_artista import controller_artista
+from Gestione_del_profilo.Controller.Controller_ascoltatore import controller_ascoltatore
+from Gestione_del_profilo.Controller.Controller_conferma_credenziali import controller_conferma_credenziali
+from Gestione_del_profilo.Controller.Controller_edit_artista import controller_edit_artista
+from Gestione_del_profilo.Controller.Controller_edit_ascoltatore import controller_edit_ascoltatore
+from Gestione_del_profilo.Controller.Controller_impostazioni import controller_impostazioni
+from Gestione_del_profilo.Controller.Controller_loading import controller_loading
+from Gestione_del_profilo.Controller.controller_etichetta import controller_etichetta
 from Login.controller.controller_login import Login
+from Pubblicazione.Controller.Controller_pubblicazione import controller_pubblicazione_inizio
 from Pubblicazione.View.Caricamento_brano import Caricamento_brano
 from Pubblicazione.View.pubblicazione_inizio import pubblicazione_inizio
 
@@ -72,10 +82,7 @@ class Discovery(QtWidgets.QWidget, Ui_Discovery):
         self.btn_submit.clicked.connect(self.btn_submit_handler)
         self.btn_back.clicked.connect(self.btn_back_handler)
 
-    def pop_message(self, text=""):
-        msg = QtWidgets.QMessageBox()
-        msg.setText("{}".format(text))
-        msg.exec_()
+
 
     def load_data(self):
 
@@ -94,13 +101,38 @@ class Discovery(QtWidgets.QWidget, Ui_Discovery):
 class Controller:
 
     def __init__(self):
-        pass
+        self.cont_ascoltatore = False
+        self.cont_artista = False
+        self.check_conferma_credenziali = False
+
+
+    """FINESTRA POP UP"""
+    def pop_message(self, text=""):
+        msg = QtWidgets.QMessageBox()
+        msg.setText("{}".format(text))
+        msg.exec_()
+
 
     def show_login_page(self):
         self.login = Login()
+        self.data = DataPick()
         self.login.switch_window.connect(self.show_newuser_page)
-        self.login.switch_window1.connect(self.show_discovery)
+        # self.login.switch_window1.connect(self.show_discovery)
+        self.login.switch_window1.connect(self.show_home_ascoltatore)
+        self.login.switch_window2.connect(self.show_home_artista)
+        self.login.switch_window3.connect(self.show_home_etichetta)
         self.login.show()
+
+    '''
+    def loading(self):
+        self.load= controller_loading()
+        if self.load.controlla_login() == 1:
+            self.load.switch_window_1.connect(self.show_home_ascoltatore)
+        if self.load.controlla_login() == 2:
+            self.load.switch_window_2.connect(self.show_home_artista)
+        if self.load.controlla_login() == 3:
+            self.load.switch_window_3.connect(self.show_home_etichetta)
+            '''
 
     def show_newuser_page(self):
 
@@ -115,23 +147,132 @@ class Controller:
         self.login.close()
         self.discovery.show()
 
-    def show_discovery(self):
-        self.discovery = Discovery()
-        self.discovery.switch_window.connect(self.show_login_page)
-        self.login.close()
-        self.discovery.show()
+    """---------------------------------------------------------------------------------------------"""
 
-    def show_bubblicazione_inizio(self):
-        self.pubblicazione = pubblicazione_inizio()
-        self.pubblicazione.switch_window.connect(self.show_caricamento_brano())
-        self.caricamento.close()
+    """Home PySound"""
+    def show_home_ascoltatore(self):
+        self.ascoltatore = controller_ascoltatore()
+        self.ascoltatore.switch_window_1.connect(self.show_impostazioni_ascoltatore)
+        self.login.close()
+        self.ascoltatore.show()
+
+    def show_home_artista(self):
+        self.artista = controller_artista()
+        self.artista.switch_window_1.connect(self.show_impostazioni_artista)
+        self.artista.switch_window_3.connect(self.show_pubblicazione_inizio)
+        self.login.close()
+        self.artista.show()
+
+    def show_home_etichetta(self):
+        self.etichetta = controller_etichetta()
+        self.etichetta.switch_window_3.connect(self.show_pubblicazione_inizio)
+        self.etichetta.switch_window_1.connect(self.show_impostazioni_etichetta)
+        self.login.close()
+        self.etichetta.show()
+
+
+    """---------------------------------------------------------------------------------------------"""
+
+    """Controller pubblicazione"""
+    def show_pubblicazione_inizio(self):
+        self.pubblicazione = controller_pubblicazione_inizio()
+        #self.pubblicazione.switch_window.connect(self.show_caricamento_brano())
+        #self.caricamento.close()
         self.pubblicazione.show()
 
     def show_caricamento_brano(self):
         self.caricamento = Caricamento_brano()
-        self.caricamento.switch_window.connect(self.show_bubblicazione_inizio)
+        self.caricamento.switch_window.connect(self.show_pubblicazione_inizio)
         # self.login.switch_window1.connect(self.show_discovery)
         self.caricamento.show()
+
+    """---------------------------------------------------------------------------------------------"""
+
+
+    """Controller impostazioni ascoltatore"""
+    def show_impostazioni_ascoltatore(self):
+        self.impostazioni_ascoltatore = controller_impostazioni()
+        # self.home.switch_window.connect(self.show_login_page)
+        self.impostazioni_ascoltatore.switch_window_1.connect(self.show_edit_ascoltatore)
+        self.impostazioni_ascoltatore.switch_window.connect(self.show_conferma_credenziali)
+
+        if self.cont_ascoltatore is True:
+            self.EditAscoltatore.close()
+            self.cont_ascoltatore = False
+
+        if self.check_conferma_credenziali is True:
+            self.conferma_credenziali.close()
+            self.check_conferma_credenziali = False
+
+        self.impostazioni_ascoltatore.show()
+
+    def show_edit_ascoltatore(self):
+        self.EditAscoltatore = controller_edit_ascoltatore()
+        self.EditAscoltatore.switch_window_1.connect(self.show_impostazioni_ascoltatore)
+        self.impostazioni_ascoltatore.close()
+        self.cont_ascoltatore = True
+        self.EditAscoltatore.show()
+
+
+
+
+
+    """Controller impostazioni artista"""
+
+    def show_impostazioni_artista(self):
+        self.impostazioni_artista = controller_impostazioni()
+        # self.home.switch_window.connect(self.show_login_page)
+        self.impostazioni_artista.switch_window_1.connect(self.show_edit_artista)
+        self.impostazioni_artista.switch_window.connect(self.show_conferma_credenziali)
+
+        if self.cont_artista is True:
+            self.EditArtista.close()
+            self.cont_artista = False
+
+        if self.check_conferma_credenziali is True:
+            self.conferma_credenziali.close()
+            self.check_conferma_credenziali = False
+
+        self.impostazioni_artista.show()
+
+    def show_edit_artista(self):
+        self.EditArtista = controller_edit_artista()
+        self.EditArtista.switch_window_1.connect(self.show_impostazioni_artista)
+        self.impostazioni_artista.close()
+        self.cont_artista = True
+        self.EditArtista.show()
+
+
+    """Controller impostazioni etichetta"""
+
+    def show_impostazioni_etichetta(self):
+        self.impostazioni_etichetta = controller_impostazioni()
+        self.impostazioni_etichetta.switch_window_1.connect(self.show_edit_etichetta)
+        self.impostazioni_etichetta.switch_window.connect(self.show_conferma_credenziali)
+
+        if self.check_conferma_credenziali is True:
+            self.conferma_credenziali.close()
+            self.check_conferma_credenziali = False
+
+        self.impostazioni_etichetta.show()
+
+
+    def show_edit_etichetta(self):
+        self.pop_message(text="Il suo account non può subire variazioni.")
+
+
+
+    """Controlle conferma eliminazione universale"""
+
+    def show_conferma_credenziali(self):
+        self.conferma_credenziali = controller_conferma_credenziali()
+        self.conferma_credenziali.switch_window_1.connect(self.show_impostazioni_ascoltatore)
+        self.conferma_credenziali.switch_window_2.connect(self.show_impostazioni_artista)
+        self.conferma_credenziali.switch_window_3.connect(self.show_impostazioni_etichetta)
+        self.check_conferma_credenziali = True
+        self.conferma_credenziali.show()
+
+
 
 
 def main():
@@ -139,11 +280,5 @@ def main():
     controller = Controller()
     controller.show_login_page()
     sys.exit(app.exec_())
-
-
-
-#\Data\mp3
-if __name__ == "__main__":
-    main()
 
 

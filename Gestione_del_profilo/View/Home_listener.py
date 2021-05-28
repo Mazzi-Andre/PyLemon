@@ -22,16 +22,30 @@ class home_ascoltatore(object):
         self.label.setStyleSheet("color: rgb(221, 215, 25);\n"
 "font: 30pt \".AppleSystemUIFont\";")
         self.label.setObjectName("label")
+
+        """Btn mostra tutte"""
         self.btn_mostraTutte = QtWidgets.QPushButton(Form)
-        self.btn_mostraTutte.setGeometry(QtCore.QRect(440, 130, 111, 61))
-        self.btn_mostraTutte.setStyleSheet("background-color: rgb(207, 207, 207);\n"
+        self.btn_mostraTutte.setGeometry(QtCore.QRect(460, 130, 111, 61))
+        self.btn_mostraTutte.setStyleSheet("*{background-color: rgb(207, 207, 207);\n"
 "color: rgb(0, 0, 0);\n"
 "border-radius: 20px;\n"
-"color: rgb(0, 0, 0);\n"
-"")
+"color: rgb(0, 0, 0);\n}"
+"*:hover{border: 5px solid rgb(221, 215, 25);\n}")
+
         self.btn_mostraTutte.setObjectName("pushButton")
+
+        """Btn search"""
+        self.btn_search = QtWidgets.QPushButton(Form)
+        self.btn_search.setGeometry(QtCore.QRect(25, 130, 70, 61))
+        self.btn_search.setStyleSheet("*{border: 1px solid rgb(207, 207, 207);"   #border per i bordi
+                                       "border-radius: 20px;\n"
+                                       "color: 'white';}" +
+                                       "*:hover{background: rgb(207, 207, 207);\n}")
+        self.btn_search.setObjectName("pushButton_4")
+
+        """Linea Search"""
         self.lineEdit = QtWidgets.QLineEdit(Form)
-        self.lineEdit.setGeometry(QtCore.QRect(90, 130, 331, 61))
+        self.lineEdit.setGeometry(QtCore.QRect(110, 130, 331, 61))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -46,6 +60,8 @@ class home_ascoltatore(object):
 "border-color: rgb(133, 133, 133);")
         self.lineEdit.setText("")
         self.lineEdit.setObjectName("lineEdit")
+
+
         self.listView_2 = QtWidgets.QListView(Form)
         self.listView_2.setGeometry(QtCore.QRect(250, 280, 231, 211))
         self.listView_2.setStyleSheet("background-color: rgb(207, 207, 207);\n"
@@ -73,21 +89,21 @@ class home_ascoltatore(object):
         self.btn_Impostazioni.setGeometry(QtCore.QRect(520, 330, 91, 21))
         self.btn_Impostazioni.setMouseTracking(True)
         self.btn_Impostazioni.setTabletTracking(True)
-        self.btn_Impostazioni.setStyleSheet("*{border: 0.5px solid rgb(150, 150, 150);"   #border per i bordi
+        self.btn_Impostazioni.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"   #border per i bordi
                                        "border-radius: 10px;\n"
                                        "font: 10pt \"Arial\";"
                                        "color: 'white';}" +
-                                       "*:hover{background: rgb(150, 150, 150);\n}")
+                                       "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_Impostazioni.setObjectName("pushButton_3")
         self.btn_Logout = QtWidgets.QPushButton(Form)
-        self.btn_Logout.setGeometry(QtCore.QRect(520, 420, 91, 21))
+        self.btn_Logout.setGeometry(QtCore.QRect(520, 380, 91, 21))
         self.btn_Logout.setMouseTracking(True)
         self.btn_Logout.setTabletTracking(True)
-        self.btn_Logout.setStyleSheet("*{border: 0.5px solid rgb(150, 150, 150);"   #border per i bordi
+        self.btn_Logout.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"   #border per i bordi
                                        "border-radius: 10px;\n"
                                        "font: 10pt \"Arial\";"
                                        "color: 'white';}" +
-                                       "*:hover{background: rgb(150, 150, 150);\n}")
+                                       "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_Logout.setObjectName("pushButton_4")
 
         self.retranslateUi(Form)
@@ -102,10 +118,11 @@ class home_ascoltatore(object):
         self.btn_mostraTutte.setText(_translate("Form", "Mostra tutte"))
         self.btn_Impostazioni.setText(_translate("Form", "Impostazioni"))
         self.btn_Logout.setText(_translate("Form", "Log out"))
+        self.btn_search.setText(_translate("Form", "Cerca"))
 
-app = QApplication([])
+"""app = QApplication([])
 window = QWidget()
 form = home_ascoltatore()
 form.setupUi(window)
 window.show()
-app.exec()
+app.exec()"""
