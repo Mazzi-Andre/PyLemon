@@ -9,6 +9,7 @@ from PyQt5 import QtWidgets
 from Data_Utente.control.Data_control import DataPick
 from Gestione_del_profilo.Controller.Controller_artista import controller_artista
 from Gestione_del_profilo.Controller.Controller_ascoltatore import controller_ascoltatore
+from Gestione_del_profilo.Controller.Controller_conferma_credenziali import controller_conferma_credenziali
 from Gestione_del_profilo.Controller.Controller_edit_artista import controller_edit_artista
 from Gestione_del_profilo.Controller.Controller_edit_ascoltatore import controller_edit_ascoltatore
 from Gestione_del_profilo.Controller.Controller_impostazioni import controller_impostazioni
@@ -104,6 +105,7 @@ class Controller:
     def __init__(self):
         self.cont_ascoltatore = False
         self.cont_artista = False
+        self.check_conferma_credenziali = False
 
 
     """FINESTRA POP UP"""
@@ -194,10 +196,15 @@ class Controller:
         self.impostazioni_ascoltatore = controller_impostazioni()
         # self.home.switch_window.connect(self.show_login_page)
         self.impostazioni_ascoltatore.switch_window_1.connect(self.show_edit_ascoltatore)
+        self.impostazioni_ascoltatore.switch_window.connect(self.show_conferma_credenziali)
 
         if self.cont_ascoltatore is True:
             self.EditAscoltatore.close()
             self.cont_ascoltatore = False
+
+        if self.check_conferma_credenziali is True:
+            self.conferma_credenziali.close()
+            self.check_conferma_credenziali = False
 
         self.impostazioni_ascoltatore.show()
 
@@ -218,10 +225,15 @@ class Controller:
         self.impostazioni_artista = controller_impostazioni()
         # self.home.switch_window.connect(self.show_login_page)
         self.impostazioni_artista.switch_window_1.connect(self.show_edit_artista)
+        self.impostazioni_artista.switch_window.connect(self.show_conferma_credenziali)
 
         if self.cont_artista is True:
             self.EditArtista.close()
             self.cont_artista = False
+
+        if self.check_conferma_credenziali is True:
+            self.conferma_credenziali.close()
+            self.check_conferma_credenziali = False
 
         self.impostazioni_artista.show()
 
@@ -233,17 +245,34 @@ class Controller:
         self.EditArtista.show()
 
 
-
     """Controller impostazioni etichetta"""
 
     def show_impostazioni_etichetta(self):
         self.impostazioni_etichetta = controller_impostazioni()
         self.impostazioni_etichetta.switch_window_1.connect(self.show_edit_etichetta)
+        self.impostazioni_etichetta.switch_window.connect(self.show_conferma_credenziali)
+
+        if self.check_conferma_credenziali is True:
+            self.conferma_credenziali.close()
+            self.check_conferma_credenziali = False
+
         self.impostazioni_etichetta.show()
 
 
     def show_edit_etichetta(self):
         self.pop_message(text="Il suo account non può subire variazioni.")
+
+
+
+    """Controlle conferma eliminazione universale"""
+
+    def show_conferma_credenziali(self):
+        self.conferma_credenziali = controller_conferma_credenziali()
+        self.conferma_credenziali.switch_window_1.connect(self.show_impostazioni_ascoltatore)
+        self.conferma_credenziali.switch_window_2.connect(self.show_impostazioni_artista)
+        self.conferma_credenziali.switch_window_3.connect(self.show_impostazioni_etichetta)
+        self.check_conferma_credenziali = True
+        self.conferma_credenziali.show()
 
 
 
