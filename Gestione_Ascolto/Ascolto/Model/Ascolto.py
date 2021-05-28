@@ -1,37 +1,55 @@
+import os
 
-from pygame import *
+import pygame
+from pygame import mixer
+#import pygame
 
 class Ascolto():
     def __init__(self):
-        self.music_file = False # non mi dovrebbe servire (path)
-        self.playState = False
-        self.lst_pos = 1
-        self.musicdirs = []
-        mixer.init()
+        self.path_riproduzione = ''
+        #self.playState = False
+        self.check_pause = True
+        self.path_selezione = ''
+        '''self.check_prev = False
+        self.check_next = False'''
+        pygame.init()
 
     def play(self, path): #passo da vistaAscolto o da CobntrolloreAscolto? curseselection()
-        mixer.music.load(path)
-        mixer.music.play()
-        self.playState = True
+        if self.path_selezione != path:
+            self.check_pause = True
+            #self.path_selezione = path
+        if self.check_pause:
+            mixer.init()
+            mixer.music.load(path)
+            mixer.music.set_volume(0.7)
+            self.path_selezione = path
+            mixer.music.play()
+        else:
+            mixer.music.unpause()
+            #self.playState = True
+
+
 
     def pause(self):
-        if not self.palyState:
-            mixer.music.pause()  # pausa se flusso musicale attivo
-            self.playState=False
-        else:
+        #if self.playState:
+        mixer.music.pause()  # pausa se flusso musicale attivo
+            #self.playState = False
+        self.check_pause = False
+        '''else:
             mixer.music.unpause() # riprendi se flusso musicale prima "pausato"
-            self.playState = False
+            self.playState = False'''
 
     def stop(self):
         mixer.music.stop()
-        self.playState = False
+        self.check_pause = True
+        #self.playState = False
 
 
     def volup(self):
-        mixer.music.set_volume(min(1.0,mixer.music.get_volume()+0.1))
+        pygame.mixer.music.set_volume(min(1.0 , pygame.mixer.music.get_volume()+0.1))
 
     def voldown(self):
-        mixer.music.set_volume(max(0.0,mixer.music.get_volume()-0.1))
+        pygame.mixer.music.set_volume(max(0.0 , pygame.mixer.music.get_volume()-0.1))
 
 
     #per il prev e next richiami play cambiando path!!!;

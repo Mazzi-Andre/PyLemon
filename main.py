@@ -1,5 +1,3 @@
-import os
-import pathlib
 import sys
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
@@ -284,7 +282,3 @@ def main():
     sys.exit(app.exec_())
 
 
-if __name__ == "__main__":
-    main()
-
-#ciao
