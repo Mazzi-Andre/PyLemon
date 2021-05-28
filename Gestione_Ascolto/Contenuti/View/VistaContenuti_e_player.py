@@ -175,6 +175,9 @@ class Ui_Player(object):
         self.table.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)"""
 
     def mostra_tutto(self):
+        self.check_prev = False
+        self.check_next = False
+        self.path_locale =''
         #Libreria = Gestione_json()
         self.lib = self.controller.getObject()
         #lib = Gestione_json.lettura()
@@ -214,26 +217,39 @@ class Ui_Player(object):
                 riga = riga+1'''
 
     def go_play(self):
-        if self.table.selectedItems():
-            print("denttro")
+        if self.check_prev and self.path_locale == self.table.currentRow():
+            titolo_prev = self.table.item(self.riga,0).text()
+            album_prev = self.table.item(self.riga, 1).text()
+            path = self.controller.getPath(titolo_prev, album_prev)
+            self.listen.path_riproduzione = path
+            self.listen.play(path)
+
+        elif self.check_next and self.path_locale == self.table.currentRow():
+            titolo_next = self.table.item(self.riga, 0).text()
+            album_next = self.table.item(self.riga, 1).text()
+            path = self.controller.getPath(titolo_next, album_next)
+            self.listen.path_riproduzione = path
+            self.listen.play(path)
+
+        elif self.table.selectedItems():
+            self.path_locale = self.riga = self.table.currentRow()
             selezione_titolo = self.table.currentItem().text()
             for i in self.lib:
                 #print(self.table.currentRow()) ritorna numero riga (si parte d 0)
                 #print(self.table.currentItem().text())
                 if selezione_titolo == i["Titolo"]:
                     #riga_selezionata = self.canzone_selezionata()
-                    album_corrispondente = self.table.item(self.canzone_selezionata(), 1).text()
+                    album_corrispondente = self.table.item(self.riga, 1).text()
                     path = self.controller.getPath(selezione_titolo, album_corrispondente)
-                    self.riga_prev = self.canzone_selezionata() - 1
-                    self.riga_next = self.canzone_selezionata() + 1
-
-                    #self.listen.path_riproduzione = path
+                    '''self.riga_prev = self.canzone_selezionata() - 1
+                    self.riga_next = self.canzone_selezionata() + 1'''
+                    self.listen.path_riproduzione = path
                     self.listen.play(path)
                     break
 
-    def canzone_selezionata(self):
+    '''def canzone_selezionata(self):
         self.canzone = self.table.currentRow()
-        return self.canzone
+        return self.canzone'''
 
 
     def go_pause(self):
@@ -244,30 +260,28 @@ class Ui_Player(object):
 
 
     def go_prev(self):
-        if self.riga_prev < 0:
-            self.riga_prev = len(self.lib)-1
-            self.riga_next = 0
-        titolo_prev = self.table.item(self.riga_prev, 0).text()
-        album_prev = self.table.item(self.riga_prev, 1).text()
-        path = self.controller.getPath(titolo_prev, album_prev)
-        self.listen.path_selezione = path
+        self.riga = self.riga - 1
+        if self.riga < 0:
+            self.riga = len(self.lib)-1
+            #self.riga_next = 0
+        self.check_prev = True
         self.go_play()
-        #self.listen.play(path)
 
 
 
 
 
     def go_next(self):
-        if self.riga_next > len(self.lib)-1:
-            self.riga_next = 0
-            self.riga_prev = len(self.lib)-1
-        titolo_next = self.table.item(self.riga_next, 0).text()
-        album_next = self.table.item(self.riga_next, 1).text()
-        path = self.controller.getPath(titolo_next, album_next)
-        self.listen.check_next = True
-        self.listen.path_riproduzione = path
+        self.riga = self.riga + 1
+        if self.riga > len(self.lib)-1:
+            self.riga = 0
+            # self.riga_next = 0
+        self.check_next = True
         self.go_play()
+        '''if self.riga_next > len(self.lib)-1:
+            self.riga_next = 0
+            self.riga_prev = len(self.lib)-1'''
+
         #self.listen.play(path)
 
 

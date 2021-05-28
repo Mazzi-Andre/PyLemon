@@ -17,6 +17,7 @@ class Ascolto():
     def play(self, path): #passo da vistaAscolto o da CobntrolloreAscolto? curseselection()
         if self.path_selezione != path:
             self.check_pause = True
+            #self.path_selezione = path
         if self.check_pause:
             mixer.init()
             mixer.music.load(path)
