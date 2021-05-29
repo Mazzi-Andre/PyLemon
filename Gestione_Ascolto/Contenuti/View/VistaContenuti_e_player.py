@@ -142,6 +142,10 @@ class Ui_Player(object):
         self.horizontalSlider.setGeometry(QtCore.QRect(70, 440, 80, 16))
         self.horizontalSlider.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSlider.setObjectName("horizontalSlider")
+        self.horizontalSlider.setRange(0,10)
+        self.horizontalSlider.setValue(2)
+        self.horizontalSlider.valueChanged.connect(self.changeValue)
+        #sld.valueChanged.connect(self.changeValue)
         self.label = QtWidgets.QLabel(Player)
         self.label.setGeometry(QtCore.QRect(13, 438, 55, 16))
         self.label.setStyleSheet("QLabel { color : white; }");
@@ -177,7 +181,8 @@ class Ui_Player(object):
     def mostra_tutto(self):
         self.check_prev = False
         self.check_next = False
-        self.path_locale =''
+        self.path_locale = ''
+        self.primo_play = False
         #Libreria = Gestione_json()
         self.lib = self.controller.getObject()
         #lib = Gestione_json.lettura()
@@ -232,6 +237,7 @@ class Ui_Player(object):
             self.listen.play(path)
 
         elif self.table.selectedItems():
+            self.primo_play = True
             self.path_locale = self.riga = self.table.currentRow()
             selezione_titolo = self.table.currentItem().text()
             for i in self.lib:
@@ -244,7 +250,7 @@ class Ui_Player(object):
                     '''self.riga_prev = self.canzone_selezionata() - 1
                     self.riga_next = self.canzone_selezionata() + 1'''
                     self.listen.path_riproduzione = path
-                    self.listen.play(path)
+                    self.listen.play(path,float(self.horizontalSlider.value()/10))
                     break
 
     '''def canzone_selezionata(self):
@@ -260,24 +266,26 @@ class Ui_Player(object):
 
 
     def go_prev(self):
-        self.riga = self.riga - 1
-        if self.riga < 0:
-            self.riga = len(self.lib)-1
+        if self.primo_play:
+            self.riga = self.riga - 1
+            if self.riga < 0:
+                self.riga = len(self.lib)-1
             #self.riga_next = 0
-        self.check_prev = True
-        self.go_play()
+            self.check_prev = True
+            self.go_play()
 
 
 
 
 
     def go_next(self):
-        self.riga = self.riga + 1
-        if self.riga > len(self.lib)-1:
-            self.riga = 0
+        if self.primo_play:
+            self.riga = self.riga + 1
+            if self.riga > len(self.lib)-1:
+                self.riga = 0
             # self.riga_next = 0
-        self.check_next = True
-        self.go_play()
+            self.check_next = True
+            self.go_play()
         '''if self.riga_next > len(self.lib)-1:
             self.riga_next = 0
             self.riga_prev = len(self.lib)-1'''
@@ -293,9 +301,8 @@ class Ui_Player(object):
         window1.show()
         app1.exec()'''
 
-
-
-
+    def changeValue(self,value):
+        self.listen.vol_adjust(value)
 
 
 
