@@ -4,17 +4,16 @@ from PyQt5.QtWidgets import QApplication, QWidget
 
 from Gestione_Ascolto.Ascolto.Controller.ControlloreAscolto import ControlloreAscolto
 from Gestione_Ascolto.Ascolto.Model.Ascolto import Ascolto
-from Pubblicazione.Controller.Gestione_json import Gestione_json
-from Pubblicazione.View.Caricamento_brano import Caricamento_brano
+
 
 
 class Ui_Player(object):
     def setupUi(self, Player):
-
-        #self.Libreria = Gestione_json()
         self.listen = Ascolto()
         self.controller = ControlloreAscolto()
-        self.canzone =''
+        #self.canzone =''
+        self.search = False
+
 
         Player.setObjectName("Player")
         Player.resize(501, 471)
@@ -139,9 +138,10 @@ class Ui_Player(object):
         self.next.clicked.connect(self.go_next)
 
         self.horizontalSlider = QtWidgets.QSlider(Player)
-        self.horizontalSlider.setGeometry(QtCore.QRect(70, 440, 80, 16))
+        self.horizontalSlider.setGeometry(QtCore.QRect(70, 440, 90, 16))
         self.horizontalSlider.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSlider.setObjectName("horizontalSlider")
+        #self.horizontalSlider.setStyleSheet("QSlider::handle:horizontal {background-color: white;}")
         self.horizontalSlider.setRange(0,10)
         self.horizontalSlider.setValue(2)
         self.horizontalSlider.valueChanged.connect(self.changeValue)
@@ -169,23 +169,13 @@ class Ui_Player(object):
         item.setText(_translate("Player", "Artista"))
         self.table.setColumnWidth(0, 167); self.table.setColumnWidth(1, 167) ; self.table.setColumnWidth(2, 167)
         self.label.setText(_translate("Player", "Volume"))
-        """self.label.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        self.horizontalSlider.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        self.next.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        self.prev.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        self.stop.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        self.pause.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        self.play.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        self.table.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)"""
 
     def mostra_tutto(self):
         self.check_prev = False
         self.check_next = False
-        self.path_locale = ''
+        self.riga_locale = ''
         self.primo_play = False
-        #Libreria = Gestione_json()
         self.lib = self.controller.getObject()
-        #lib = Gestione_json.lettura()
         riga = 0
         self.table.setRowCount(len(self.lib))
         for i in self.lib:
@@ -194,72 +184,71 @@ class Ui_Player(object):
             self.table.setItem(riga, 2, QtWidgets.QTableWidgetItem(i["Artista"]))
             riga = riga+1
 
-    '''def mostra_search(self, var_search):
-        Libreria = ControlloreContenuti()
-        lib = Libreria.getLista()
+    def mostra_search(self, var_search):
+        self.check_prev = False
+        self.check_next = False
+        self.riga_locale = ''
+        self.primo_play = False
+        self.lib = self.controller.getObject()
         riga = 0
-        self.table.setRowCount(len(lib))
-        for i in lib:
+        self.table.setRowCount(len(self.lib))
+        for i in self.lib:
             check_riga = False
             if i["Titolo"] == var_search:
-                self.table.setItem(riga, 0, QWidget.QTableWidgetItem(lib["Titolo"]))
-                self.table.setItem(riga, 1, QWidget.QTableWidgetItem(lib["Album"]))
-                self.table.setItem(riga, 2, QWidget.QTableWidgetItem(lib["Artista"]))
+                self.table.setItem(riga, 0, QtWidgets.QTableWidgetItem(i["Titolo"]))
+                self.table.setItem(riga, 1, QtWidgets.QTableWidgetItem(i["Album"]))
+                self.table.setItem(riga, 2, QtWidgets.QTableWidgetItem(i["Artista"]))
                 check_riga = True
 
             if i["Album"] == var_search:
-                self.table.setItem(riga, 0, QWidget.QTableWidgetItem(lib["Titolo"]))
-                self.table.setItem(riga, 1, QWidget.QTableWidgetItem(lib["Album"]))
-                self.table.setItem(riga, 2, QWidget.QTableWidgetItem(lib["Artista"]))
+                self.table.setItem(riga, 0, QtWidgets.QTableWidgetItem(i["Titolo"]))
+                self.table.setItem(riga, 1, QtWidgets.QTableWidgetItem(i["Album"]))
+                self.table.setItem(riga, 2, QtWidgets.QTableWidgetItem(i["Artista"]))
                 check_riga = True
+
             if i["Artista"] == var_search:
-                self.table.setItem(riga, 0, QWidget.QTableWidgetItem(lib["Titolo"]))
-                self.table.setItem(riga, 1, QWidget.QTableWidgetItem(lib["Album"]))
-                self.table.setItem(riga, 2, QWidget.QTableWidgetItem(lib["Artista"]))
+                self.table.setItem(riga, 0, QtWidgets.QTableWidgetItem(i["Titolo"]))
+                self.table.setItem(riga, 1, QtWidgets.QTableWidgetItem(i["Album"]))
+                self.table.setItem(riga, 2, QtWidgets.QTableWidgetItem(i["Artista"]))
                 check_riga = True
 
             if check_riga:
-                riga = riga+1'''
+                riga = riga+1
+
+        self.search = True
+        self.righe_search = riga-1
 
     def go_play(self):
-        if self.check_prev and self.path_locale == self.table.currentRow():
+        if self.check_prev and self.riga_locale == self.table.currentRow():
             titolo_prev = self.table.item(self.riga,0).text()
             album_prev = self.table.item(self.riga, 1).text()
             path = self.controller.getPath(titolo_prev, album_prev)
             self.listen.path_riproduzione = path
-            self.listen.play(path)
+            self.listen.play(path,float(self.horizontalSlider.value()/10))
 
-        elif self.check_next and self.path_locale == self.table.currentRow():
+        elif self.check_next and self.riga_locale == self.table.currentRow():
             titolo_next = self.table.item(self.riga, 0).text()
             album_next = self.table.item(self.riga, 1).text()
             path = self.controller.getPath(titolo_next, album_next)
             self.listen.path_riproduzione = path
-            self.listen.play(path)
+            self.listen.play(path,float(self.horizontalSlider.value()/10))
 
         elif self.table.selectedItems():
             self.primo_play = True
-            self.path_locale = self.riga = self.table.currentRow()
+            self.riga_locale = self.riga = self.table.currentRow()
             selezione_titolo = self.table.currentItem().text()
             for i in self.lib:
-                #print(self.table.currentRow()) ritorna numero riga (si parte d 0)
-                #print(self.table.currentItem().text())
                 if selezione_titolo == i["Titolo"]:
-                    #riga_selezionata = self.canzone_selezionata()
                     album_corrispondente = self.table.item(self.riga, 1).text()
                     path = self.controller.getPath(selezione_titolo, album_corrispondente)
-                    '''self.riga_prev = self.canzone_selezionata() - 1
-                    self.riga_next = self.canzone_selezionata() + 1'''
                     self.listen.path_riproduzione = path
                     self.listen.play(path,float(self.horizontalSlider.value()/10))
                     break
 
-    '''def canzone_selezionata(self):
-        self.canzone = self.table.currentRow()
-        return self.canzone'''
-
 
     def go_pause(self):
         self.listen.pause()
+
 
     def go_stop(self):
         self.listen.stop()
@@ -267,50 +256,49 @@ class Ui_Player(object):
 
     def go_prev(self):
         if self.primo_play:
-            self.riga = self.riga - 1
-            if self.riga < 0:
-                self.riga = len(self.lib)-1
-            #self.riga_next = 0
-            self.check_prev = True
-            self.go_play()
+            if self.search:
+                self.riga = self.riga - 1
 
+                if self.riga < 0:
+                    self.riga = self.righe_search
 
-
+                self.check_prev = True
+                self.go_play()
+            else:
+                self.riga = self.riga - 1
+                if self.riga < 0:
+                    self.riga = len(self.lib)-1
+                self.check_prev = True
+                self.go_play()
 
 
     def go_next(self):
         if self.primo_play:
-            self.riga = self.riga + 1
-            if self.riga > len(self.lib)-1:
-                self.riga = 0
-            # self.riga_next = 0
-            self.check_next = True
-            self.go_play()
-        '''if self.riga_next > len(self.lib)-1:
-            self.riga_next = 0
-            self.riga_prev = len(self.lib)-1'''
+            if self.search:
+                self.riga = self.riga + 1
+                if self.riga > self.righe_search:
+                    self.riga = 0
+                self.check_prev = True
+                self.go_play()
+            else:
+                self.riga = self.riga + 1
+                if self.riga > len(self.lib)-1:
+                    self.riga = 0
+                self.check_next = True
+                self.go_play()
 
-        #self.listen.play(path)
-
-
-    '''def go_vista(self):
-        app1 = QApplication([])
-        window1 = QWidget()
-        form1 = Caricamento_brano()
-        form1.setupUi(window1)
-        window1.show()
-        app1.exec()'''
 
     def changeValue(self,value):
         self.listen.vol_adjust(value)
 
 
 
-app = QApplication([])
+'''app = QApplication([])
 window = QWidget()
 form = Ui_Player()
 form.setupUi(window)
-form.mostra_tutto()
+#form.mostra_tutto()
+form.mostra_search("vasco rossi")
 #form.prova()
 window.show()
-app.exec()
+app.exec()'''
