@@ -29,10 +29,16 @@ class controller_edit_artista(QtWidgets.QWidget, DataPick, edit_artista):
     """SWITCH FINESTRE"""
 
     def btn_ascoltatore_handler(self):
-        self.pop_message(text="Da fare")
+        self.tipo = 'Ascoltatore'
+        self.pick.update_account(self.tipo)
+        self.pop_message(text="Cambiamento effettuato. \nIl programma si chiuderà per la modifica.")
+        self.controller_edit_artista.closeEvent()
 
     def btn_etichetta_handler(self):
-        self.pop_message(text="Da fare")
+        self.tipo = 'Etichetta'
+        self.pick.update_account(self.tipo)
+        self.pop_message(text="Cambiamento effettuato. \nIl programma si chiuderà per la modifica.")
+        self.controller_edit_artista.closeEvent()
 
     def btn_back_handler(self):
         self.switch_window_1.emit()

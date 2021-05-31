@@ -11,8 +11,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QWidget
 
+from Data_Utente.control.Data_control import DataPick
+
 
 class impostazioni(object):
+
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(281, 311)
@@ -59,9 +62,17 @@ class impostazioni(object):
         Form.setWindowTitle(_translate("Form", "Form"))
         self.label.setText(_translate("Form", "PySound"))
         self.label_2.setText(_translate("Form", "Impostazioni"))
-        self.label_3.setText(_translate("Form", "Tipo di account: **tipo**"))
+        self.label_3.setText(_translate("Form", "Tipo di account: " + self.Dati()))
+
         self.btn_EliminaAccount.setText(_translate("Form", "Elimina account"))
         self.btn_EditProfilo.setText(_translate("Form", "Edit profilo"))
+
+
+    def Dati(self):
+        self.pick = DataPick()
+        self.myData = self.pick.return_credenziali()
+        self.tipo = self.myData[4]
+        return self.tipo
 
 
 """app = QApplication([])
