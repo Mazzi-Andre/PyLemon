@@ -50,7 +50,6 @@ class DataPick(object):
 
     """ DA TESTARE IL FUNZIONAMENTO """
     def delete_account(self, nome, pas):
-        MyData = self.get_data()
         conn = sqlite3.connect('Data.db')
         cursor = conn.cursor()
 
@@ -60,9 +59,9 @@ class DataPick(object):
 
     """ DA TESTARE IL FUNZIONAMENTO """
     def update_account(self, newtipo):
-        MyData = self.get_data()
-        nome = MyData[0]
-        pas = MyData[1]
+        MyData = self.return_credenziali()
+        nome = MyData[5]
+        pas = MyData[6]
         conn = sqlite3.connect('Data.db')
         cursor = conn.cursor()
 

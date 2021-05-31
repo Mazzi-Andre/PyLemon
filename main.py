@@ -8,10 +8,10 @@ from Data_Utente.control.Data_control import DataPick
 from Gestione_del_profilo.Controller.Controller_artista import controller_artista
 from Gestione_del_profilo.Controller.Controller_ascoltatore import controller_ascoltatore
 from Gestione_del_profilo.Controller.Controller_conferma_credenziali import controller_conferma_credenziali
+from Gestione_del_profilo.Controller.Controller_conferma_edit import controller_conferma_edit
 from Gestione_del_profilo.Controller.Controller_edit_artista import controller_edit_artista
 from Gestione_del_profilo.Controller.Controller_edit_ascoltatore import controller_edit_ascoltatore
 from Gestione_del_profilo.Controller.Controller_impostazioni import controller_impostazioni
-from Gestione_del_profilo.Controller.Controller_loading import controller_loading
 from Gestione_del_profilo.Controller.controller_etichetta import controller_etichetta
 from Login.controller.controller_login import Login
 from Pubblicazione.Controller.Controller_pubblicazione import controller_pubblicazione_inizio
@@ -104,6 +104,7 @@ class Controller:
         self.cont_ascoltatore = False
         self.cont_artista = False
         self.check_conferma_credenziali = False
+        self.check_conferma_edit = False
 
 
     """FINESTRA POP UP"""
@@ -193,7 +194,7 @@ class Controller:
     def show_impostazioni_ascoltatore(self):
         self.impostazioni_ascoltatore = controller_impostazioni()
         # self.home.switch_window.connect(self.show_login_page)
-        self.impostazioni_ascoltatore.switch_window_1.connect(self.show_edit_ascoltatore)
+        self.impostazioni_ascoltatore.switch_window_1.connect(self.show_conferma_edit)
         self.impostazioni_ascoltatore.switch_window.connect(self.show_conferma_credenziali)
 
         if self.cont_ascoltatore is True:
@@ -204,12 +205,21 @@ class Controller:
             self.conferma_credenziali.close()
             self.check_conferma_credenziali = False
 
+        if self.check_conferma_edit is True:
+            self.conferma_edit.close()
+            self.check_conferma_edit = False
+
         self.impostazioni_ascoltatore.show()
 
     def show_edit_ascoltatore(self):
         self.EditAscoltatore = controller_edit_ascoltatore()
         self.EditAscoltatore.switch_window_1.connect(self.show_impostazioni_ascoltatore)
         self.impostazioni_ascoltatore.close()
+
+        if self.check_conferma_edit is True:
+            self.conferma_edit.close()
+            self.check_conferma_edit = False
+
         self.cont_ascoltatore = True
         self.EditAscoltatore.show()
 
@@ -222,7 +232,7 @@ class Controller:
     def show_impostazioni_artista(self):
         self.impostazioni_artista = controller_impostazioni()
         # self.home.switch_window.connect(self.show_login_page)
-        self.impostazioni_artista.switch_window_1.connect(self.show_edit_artista)
+        self.impostazioni_artista.switch_window_1.connect(self.show_conferma_edit)
         self.impostazioni_artista.switch_window.connect(self.show_conferma_credenziali)
 
         if self.cont_artista is True:
@@ -233,12 +243,21 @@ class Controller:
             self.conferma_credenziali.close()
             self.check_conferma_credenziali = False
 
+        if self.check_conferma_edit is True:
+            self.conferma_edit.close()
+            self.check_conferma_edit = False
+
         self.impostazioni_artista.show()
 
     def show_edit_artista(self):
         self.EditArtista = controller_edit_artista()
         self.EditArtista.switch_window_1.connect(self.show_impostazioni_artista)
         self.impostazioni_artista.close()
+
+        if self.check_conferma_edit is True:
+            self.conferma_edit.close()
+            self.check_conferma_edit = False
+
         self.cont_artista = True
         self.EditArtista.show()
 
@@ -272,6 +291,17 @@ class Controller:
         self.check_conferma_credenziali = True
         self.conferma_credenziali.show()
 
+
+    def show_conferma_edit(self):
+        self.conferma_edit = controller_conferma_edit()
+        self.conferma_edit.switch_window_1.connect(self.show_impostazioni_ascoltatore)
+        self.conferma_edit.switch_window_2.connect(self.show_impostazioni_artista)
+        self.conferma_edit.switch_window_3.connect(self.show_impostazioni_etichetta)
+
+        self.conferma_edit.switch_window_4.connect(self.show_edit_ascoltatore)
+        self.conferma_edit.switch_window_5.connect(self.show_edit_artista)
+        self.check_conferma_edit = True
+        self.conferma_edit.show()
 
 
 

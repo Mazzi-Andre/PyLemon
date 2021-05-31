@@ -23,7 +23,7 @@ class conferma_credenziali(object):
 "font: 30pt \".AppleSystemUIFont\";")
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(Form)
-        self.label_2.setGeometry(QtCore.QRect(70, 70, 201, 20))
+        self.label_2.setGeometry(QtCore.QRect(47, 70, 240, 20))
         self.label_2.setStyleSheet("color: rgb(207, 211, 211);")
         self.label_2.setObjectName("label_2")
         self.label_Username = QtWidgets.QLabel(Form)
@@ -87,7 +87,7 @@ class conferma_credenziali(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.label.setText(_translate("Form", "PySound"))
-        self.label_2.setText(_translate("Form", "Per confermare l\'eliminazione"))
+        self.label_2.setText(_translate("Form", "Per confermare inserire le credenziali"))
         self.label_Username.setText(_translate("Form", "Username:"))
         self.label_Password.setText(_translate("Form", "Password:"))
         self.btn_Back.setText(_translate("Form", "Back"))

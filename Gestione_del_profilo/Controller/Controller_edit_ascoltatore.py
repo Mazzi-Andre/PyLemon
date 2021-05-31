@@ -13,6 +13,10 @@ class controller_edit_ascoltatore(QtWidgets.QWidget, DataPick, edit_ascoltatore)
         self.setupUi(self)
         self.pick = DataPick()
 
+        self.myData = self.pick.return_credenziali()
+
+        #self.username =
+
         self.btn_Artista.clicked.connect(self.btn_artista_handler)
         self.btn_Etichetta.clicked.connect(self.btn_etichetta_handler)
         self.btn_Back.clicked.connect(self.btn_back_handler)
@@ -29,10 +33,16 @@ class controller_edit_ascoltatore(QtWidgets.QWidget, DataPick, edit_ascoltatore)
     """SWITCH FINESTRE"""
 
     def btn_artista_handler(self):
-        self.pop_message(text="Da fare")
+        self.tipo = 'Artista'
+        self.pick.update_account(self.tipo)
+        self.pop_message(text="Cambiamento effettuato. \nIl programma si chiuderà per la modifica.")
+        self.controller_edit_ascoltatore.closeEvent()
 
     def btn_etichetta_handler(self):
-        self.pop_message(text="Da fare")
+        self.tipo = 'Etichetta'
+        self.pick.update_account(self.tipo)
+        self.pop_message(text="Cambiamento effettuato. \nIl programma si chiuderà per la modifica.")
+        self.controller_edit_ascoltatore.closeEvent()
 
     def btn_back_handler(self):
         self.switch_window_1.emit()
