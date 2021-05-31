@@ -15,6 +15,11 @@ class controller_conferma_credenziali(QtWidgets.QWidget, DataPick, conferma_cred
         self.setupUi(self)
         self.pick = DataPick()
 
+        self.myData = self.pick.return_credenziali()
+
+        self.username = self.myData[5]
+        self.password = self.myData[6]
+
         self.btn_Back.clicked.connect(self.btn_back_handler)
         self.btn_Ok.clicked.connect(self.btn_ok_handler)
 
@@ -30,8 +35,24 @@ class controller_conferma_credenziali(QtWidgets.QWidget, DataPick, conferma_cred
 
     """SWITCH FINESTRE"""
 
+    def confronto_credenziali(self):
+        username = self.txt_username.text()
+        password = self.txt_password.text()
+
+        if username == self.username and password == self.password:
+            return True
+        else:
+            return False
+
     def btn_ok_handler(self):
-        self.pop_message(text="Da fare")
+            if self.confronto_credenziali() == True:
+                self.pick.delete_account(self.username, self.password)
+                self.controller_conferma_credenziali.closeEvent()
+            else:
+                self.pop_message(text="Username o password errati.")
+                pass
+
+
 
     def btn_back_handler(self):
 
@@ -43,3 +64,4 @@ class controller_conferma_credenziali(QtWidgets.QWidget, DataPick, conferma_cred
 
         if self.pick.controlla_login() == 3:
             self.switch_window_3.emit()
+

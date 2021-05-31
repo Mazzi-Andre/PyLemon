@@ -32,11 +32,14 @@ class conferma_credenziali(object):
         self.label_Username.setObjectName("label_3")
 
 
-        self.Inserimento_Username = QtWidgets.QPlainTextEdit(Form)
-        self.Inserimento_Username.setGeometry(QtCore.QRect(50, 140, 221, 31))
-        self.Inserimento_Username.setStyleSheet("background-color: rgb(207, 211, 211);\n"
-"border-radius: 3px;")
-        self.Inserimento_Username.setObjectName("plainTextEdit")
+        self.txt_username = QtWidgets.QLineEdit(Form)
+        self.txt_username.setGeometry(QtCore.QRect(50, 140, 221, 31))
+        self.txt_username.setStyleSheet("background-color: rgb(150,150,150);\n"
+                                        "color: rgb(255,255,255);\n"
+                                        "border-style:outset;\n"
+                                        "border-radius:3px;\n"
+                                        "font: 14pt \"Arial\";")
+        self.txt_username.setObjectName("txt_username")
 
 
         self.label_Password = QtWidgets.QLabel(Form)
@@ -45,11 +48,15 @@ class conferma_credenziali(object):
         self.label_Password.setObjectName("label_4")
 
 
-        self.Inserimento_Password = QtWidgets.QPlainTextEdit(Form)
-        self.Inserimento_Password.setGeometry(QtCore.QRect(50, 200, 221, 31))
-        self.Inserimento_Password.setStyleSheet("background-color: rgb(207, 211, 211);\n"
-"border-radius: 3px;")
-        self.Inserimento_Password.setObjectName("plainTextEdit_2")
+
+        self.txt_password = QtWidgets.QLineEdit(Form)
+        self.txt_password.setGeometry(QtCore.QRect(50, 200, 221, 31))
+        self.txt_password.setStyleSheet("background-color: rgb(150,150,150);\n"
+                                        "color: rgb(255,255,255);\n"
+                                        "border-style:outset;\n"
+                                        "border-radius:3px;\n"
+                                        "font: 14pt \"Arial\";")
+        self.txt_password.setObjectName("txt_password")
 
 
         self.btn_Back = QtWidgets.QPushButton(Form)
@@ -85,6 +92,9 @@ class conferma_credenziali(object):
         self.label_Password.setText(_translate("Form", "Password:"))
         self.btn_Back.setText(_translate("Form", "Back"))
         self.btn_Ok.setText(_translate("Form", "Ok"))
+
+        self.txt_username.setPlaceholderText(_translate("Form", ""))
+        self.txt_password.setPlaceholderText(_translate("Form", ""))
 
 """app = QApplication([])
 window = QWidget()
