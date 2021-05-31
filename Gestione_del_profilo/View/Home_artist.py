@@ -185,7 +185,7 @@ class home_artista(object):
         self.label.setText(_translate("Form", "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600; font-style:italic;\">PySound Label</span></p></body></html>"))
         self.lineEdit.setPlaceholderText(_translate("Form", "  Search..."))
         self.label.setText(_translate("Form", "PySound artist"))
-        self.btn_mostraTutte.setText(_translate("Form", "Mostra tutte"))
+        self.btn_mostraTutte.setText(_translate("Form", "Mostra tutto"))
         self.btn_Impostazioni.setText(_translate("Form", "Impostazioni"))
         self.btn_Logout.setText(_translate("Form", "Log out"))
         self.btn_Pubblica.setText(_translate("Form", "Pubblica"))

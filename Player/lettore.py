@@ -162,7 +162,7 @@ class MusicPlayer:
             mixer.music.unpause() # riprendi se flusso musicale prima "pausato"
             self.playing_state = False
     def volup(self):
-        mixer.music.set_volume(min(1.0,mixer.music.get_volume()+0.1))
+        mixer.music.set_volume(min(1.0,mixer.music.get_volume()+0.1)) # onesto perchè massimo è 1 se .get volu,e + 0.1 > di 1 allora crasha! quindi gli mette il minimo tra quei due
         #mixer.music.play()
     def voldown(self):
         mixer.music.set_volume(max(0.0,mixer.music.get_volume()-0.1))

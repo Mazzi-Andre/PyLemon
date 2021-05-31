@@ -14,14 +14,14 @@ class Ascolto():
         self.check_next = False'''
         pygame.init()
 
-    def play(self, path): #passo da vistaAscolto o da CobntrolloreAscolto? curseselection()
+    def play(self, path, volume): #passo da vistaAscolto o da CobntrolloreAscolto? curseselection()
         if self.path_selezione != path:
             self.check_pause = True
             #self.path_selezione = path
         if self.check_pause:
             mixer.init()
             mixer.music.load(path)
-            mixer.music.set_volume(0.7)
+            mixer.music.set_volume(volume)
             self.path_selezione = path
             mixer.music.play()
         else:
@@ -44,12 +44,8 @@ class Ascolto():
         self.check_pause = True
         #self.playState = False
 
-
-    def volup(self):
-        pygame.mixer.music.set_volume(min(1.0 , pygame.mixer.music.get_volume()+0.1))
-
-    def voldown(self):
-        pygame.mixer.music.set_volume(max(0.0 , pygame.mixer.music.get_volume()-0.1))
+    def vol_adjust(self,valore):
+        mixer.music.set_volume(float(valore/10))
 
 
     #per il prev e next richiami play cambiando path!!!;
