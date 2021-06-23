@@ -39,11 +39,15 @@ class Ui_Form(object):
 "color: rgb(0, 0, 0);\n"
 "border-radius: 10px;")
         self.pushButton_2.setObjectName("pushButton_2")
+
+
         self.lineEdit_2 = QtWidgets.QLineEdit(Form)
         self.lineEdit_2.setGeometry(QtCore.QRect(110, 140, 191, 31))
         self.lineEdit_2.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "border-radius: 5px;")
         self.lineEdit_2.setObjectName("lineEdit_2")
+
+
         self.label_4 = QtWidgets.QLabel(Form)
         self.label_4.setGeometry(QtCore.QRect(110, 120, 101, 16))
         self.label_4.setStyleSheet("color: rgb(207, 211, 211);")

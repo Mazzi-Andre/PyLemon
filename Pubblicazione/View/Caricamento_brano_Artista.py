@@ -39,9 +39,10 @@ class Caricamento_brano(object):
         self.pushButton.setGeometry(QtCore.QRect(180, 140, 101, 31))
         self.pushButton.setMouseTracking(True)
         self.pushButton.setTabletTracking(True)
-        self.pushButton.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);\n"
-"border-radius: 10px;")
+        self.pushButton.setStyleSheet("*{border: 1px solid rgb(221, 215, 25);"
+                                       "border-radius: 10px;\n"
+                                       "color: 'white';}" +
+                                       "*:hover{background: rgb(221, 215, 25);\n}")
         self.pushButton.setObjectName("pushButton")
         self.pushButton_2 = QtWidgets.QPushButton(Form)
         self.pushButton_2.setGeometry(QtCore.QRect(190, 310, 81, 21))
