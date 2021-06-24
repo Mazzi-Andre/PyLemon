@@ -38,7 +38,7 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
             self.brano.nome = self.txt_nome_brano.text()
             if self.brano.artista == "":
                 self.brano.artista = self.nome + " " + self.cognome
-            else: self.brano.album #da inserire il nome dell'artista presa dalla schermata prima, nel caso in cui a caricare il brano o album sia un etichetta
+            else: self.brano.artista #da inserire il nome dell'artista presa dalla schermata prima, nel caso in cui a caricare il brano o album sia un etichetta
             if self.brano.album == "":
                 self.brano.album = self.brano.nome
             else: self.brano.album #da inserire il nome dell'album preso dalla schermata fatta da tass
