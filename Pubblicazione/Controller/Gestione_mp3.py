@@ -32,7 +32,6 @@ class Gestione_mp3():
     def Elimina_mp3(self, id):
         U = self.json['contatore']
         contatoreid = U.get["valore"]
-        contatoreid =-1
         Object = {"contatore": {"valore": contatoreid}}
         with open("ContatoreBrani.json", "w") as write_file:
             json.dump(Object, write_file)

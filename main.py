@@ -14,8 +14,8 @@ from Gestione_del_profilo.Controller.Controller_edit_ascoltatore import controll
 from Gestione_del_profilo.Controller.Controller_impostazioni import controller_impostazioni
 from Gestione_del_profilo.Controller.controller_etichetta import controller_etichetta
 from Login.controller.controller_login import Login
-from Pubblicazione.Controller.Controller_pubblicazione import controller_pubblicazione_inizio
-from Pubblicazione.View.Caricamento_brano import Caricamento_brano
+from Pubblicazione.Controller.Controller_pubblicazione_inizio import controller_pubblicazione_inizio
+from Pubblicazione.View.Caricamento_brano_Artista import Caricamento_brano
 from Pubblicazione.View.pubblicazione_inizio import pubblicazione_inizio
 
 
