@@ -14,13 +14,9 @@ from Gestione_del_profilo.Controller.Controller_edit_ascoltatore import controll
 from Gestione_del_profilo.Controller.Controller_impostazioni import controller_impostazioni
 from Gestione_del_profilo.Controller.controller_etichetta import controller_etichetta
 from Login.controller.controller_login import Login
-
-from Pubblicazione.Controller.Controller_pubblicazione import controller_pubblicazione_inizio
-=======
 from Pubblicazione.Controller.Controller_pubblicazione_inizio import controller_pubblicazione_inizio
-
-from Pubblicazione.View.Caricamento_brano_Artista import Caricamento_brano
-from Pubblicazione.View.pubblicazione_inizio import pubblicazione_inizio
+from Pubblicazione.Controller.Controller_Caricamento_Brano_Artista import Controller_Caricamento_Brano_Artista
+from Pubblicazione.Controller.Controller_Richiesta_nBrani import Controller_Richiesta_nBrani
 
 
 class Ui_Discovery(object):
@@ -180,16 +176,24 @@ class Controller:
 
     """Controller pubblicazione"""
     def show_pubblicazione_inizio(self):
-        self.pubblicazione = controller_pubblicazione_inizio()
-        #self.pubblicazione.switch_window.connect(self.show_caricamento_brano())
-        #self.caricamento.close()
-        self.pubblicazione.show()
+        self.pubblicazione_inizio = controller_pubblicazione_inizio()
+        self.pubblicazione_inizio.show()
+        self.pubblicazione_inizio.switch_window_1.connect(self.show_pubblicazione_brano)
+        self.pubblicazione_inizio.switch_window_2.connect(self.show_pubblicazione_album)
 
-    def show_caricamento_brano(self):
-        self.caricamento = Caricamento_brano()
-        self.caricamento.switch_window.connect(self.show_pubblicazione_inizio)
-        # self.login.switch_window1.connect(self.show_discovery)
-        self.caricamento.show()
+
+
+    def show_pubblicazione_brano(self):
+        self.Caricamento_Brano_Artista = Controller_Caricamento_Brano_Artista()
+        self.Caricamento_Brano_Artista.show()
+
+
+
+    def show_pubblicazione_album(self):
+        self.Richiesta_nBrani = Controller_Richiesta_nBrani
+        n = self.Richiesta_nBrani.nBrani
+        for i in n:
+            self.show_pubblicazione_brano()
 
     """---------------------------------------------------------------------------------------------"""
 
