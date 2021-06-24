@@ -95,8 +95,6 @@ class Caricamento_brano(object):
 
         self.pushButton.setText(_translate("Form", "Scegli file"))
         self.pushButton_2.setText(_translate("Form", "Pubblica"))
-        self.btn_scegli_file.setText(_translate("Form", "Scegli file"))
-        self.btn_pubblica.setText(_translate("Form", "Pubblica"))
 
 '''app = QApplication([])
 window = QWidget()
