@@ -5,6 +5,8 @@ from PyQt5 import QtWidgets
 
 # ---------- We dont Touch --------------------
 from Data_Utente.control.Data_control import DataPick
+from Gestione_Ascolto.Contenuti.View.controller_mostra_search import controller_mostra_search
+from Gestione_Ascolto.Contenuti.View.controller_mostra_tutto import controller_mostra_tutto
 from Gestione_del_profilo.Controller.Controller_artista import controller_artista
 from Gestione_del_profilo.Controller.Controller_ascoltatore import controller_ascoltatore
 from Gestione_del_profilo.Controller.Controller_conferma_credenziali import controller_conferma_credenziali
@@ -156,12 +158,14 @@ class Controller:
     def show_home_ascoltatore(self):
         self.ascoltatore = controller_ascoltatore()
         self.ascoltatore.switch_window_1.connect(self.show_impostazioni_ascoltatore)
+        self.ascoltatore.switch_window_2.connect(self.show_mostra_tutto)
         self.login.close()
         self.ascoltatore.show()
 
     def show_home_artista(self):
         self.artista = controller_artista()
         self.artista.switch_window_1.connect(self.show_impostazioni_artista)
+        self.artista.switch_window_2.connect(self.show_mostra_tutto)
         self.artista.switch_window_3.connect(self.show_pubblicazione_inizio)
         self.login.close()
         self.artista.show()
@@ -169,6 +173,7 @@ class Controller:
     def show_home_etichetta(self):
         self.etichetta = controller_etichetta()
         self.etichetta.switch_window_3.connect(self.show_pubblicazione_inizio)
+        self.etichetta.switch_window_2.connect(self.show_mostra_tutto)
         self.etichetta.switch_window_1.connect(self.show_impostazioni_etichetta)
         self.login.close()
         self.etichetta.show()
@@ -304,6 +309,16 @@ class Controller:
         self.conferma_edit.switch_window_5.connect(self.show_edit_artista)
         self.check_conferma_edit = True
         self.conferma_edit.show()
+
+
+    '''----------Player----------'''
+    def show_mostra_tutto(self):
+        self.player = controller_mostra_tutto()
+        self.player.show()
+
+    def show_mostra_search(self):
+        self.search = controller_mostra_search()
+        self.search.show()
 
 
 

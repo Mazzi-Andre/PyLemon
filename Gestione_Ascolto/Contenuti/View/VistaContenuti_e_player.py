@@ -67,7 +67,7 @@ class Ui_Player(object):
         self.play.setText("")
         self.play.setObjectName("play")
         self.play.setIcon(QIcon('play.png'))
-        self.play.clicked.connect(self.go_play)
+
 
         self.pause = QtWidgets.QPushButton(Player)
         self.pause.setGeometry(QtCore.QRect(110, 370, 81, 41))
@@ -78,7 +78,7 @@ class Ui_Player(object):
         self.pause.setText("")
         self.pause.setObjectName("pause")
         self.pause.setIcon(QIcon('pause.png'))
-        self.pause.clicked.connect(self.go_pause)
+
 
         self.stop = QtWidgets.QPushButton(Player)
         self.stop.setGeometry(QtCore.QRect(210, 370, 81, 41))
@@ -89,7 +89,7 @@ class Ui_Player(object):
         self.stop.setText("")
         self.stop.setObjectName("stop")
         self.stop.setIcon(QIcon('stop.png'))
-        self.stop.clicked.connect(self.go_stop)
+
 
         self.prev = QtWidgets.QPushButton(Player)
         self.prev.setGeometry(QtCore.QRect(310, 370, 81, 41))
@@ -99,7 +99,7 @@ class Ui_Player(object):
         self.prev.setStyleSheet("font color:rgb (255,255,0)\n""border-radius: 10px;")
         self.prev.setText("")
         self.prev.setObjectName("prev")
-        self.prev.clicked.connect(self.go_prev)
+
 
         self.next = QtWidgets.QPushButton(Player)
         self.next.setGeometry(QtCore.QRect(410, 370, 81, 41))
@@ -111,7 +111,7 @@ class Ui_Player(object):
         self.next.setText("")
         self.next.setObjectName("next")
         self.next.setIcon(QIcon('next.png'))
-        self.next.clicked.connect(self.go_next)
+
 
         self.horizontalSlider = QtWidgets.QSlider(Player)
         self.horizontalSlider.setGeometry(QtCore.QRect(70, 440, 90, 16))
@@ -120,7 +120,7 @@ class Ui_Player(object):
         #self.horizontalSlider.setStyleSheet("QSlider::handle:horizontal {background-color: white;}")
         self.horizontalSlider.setRange(0,10)
         self.horizontalSlider.setValue(2)
-        self.horizontalSlider.valueChanged.connect(self.changeValue)
+
 
         self.label = QtWidgets.QLabel(Player)
         self.label.setGeometry(QtCore.QRect(13, 438, 55, 16))
@@ -141,6 +141,9 @@ class Ui_Player(object):
         item.setText(_translate("Player", "Artista"))
         self.table.setColumnWidth(0, 167); self.table.setColumnWidth(1, 167) ; self.table.setColumnWidth(2, 167)
         self.label.setText(_translate("Player", "Volume"))
+
+
+class controller_player(Ui_Player):
 
     def mostra_tutto(self):
         self.check_prev = False

@@ -9,6 +9,7 @@ from Gestione_del_profilo.View.Home_listener import home_ascoltatore
 class controller_ascoltatore(QtWidgets.QWidget, DataPick, home_ascoltatore):
     switch_window_1 = QtCore.pyqtSignal()
     switch_window_2 = QtCore.pyqtSignal()
+    switch_window_4 = QtCore.pyqtSignal()
 
     def __init__(self):
         QtWidgets.QWidget.__init__(self)
@@ -18,6 +19,7 @@ class controller_ascoltatore(QtWidgets.QWidget, DataPick, home_ascoltatore):
         self.btn_Impostazioni.clicked.connect(self.btn_Impostazioni_handler)
         self.btn_mostraTutte.clicked.connect(self.btn_MostraTutte_handler)
         self.btn_Logout.clicked.connect(self.btn_LogOut_handler)
+        self.btn_search.clicked.connect(self.btn_MostraSearch_handler)
 
 
     """POP UP FINESTRA"""
@@ -33,6 +35,9 @@ class controller_ascoltatore(QtWidgets.QWidget, DataPick, home_ascoltatore):
 
     def btn_MostraTutte_handler(self):
         self.switch_window_2.emit()
+
+    def btn_MostraSearch_handler(self):
+        self.switch_window_4.emit()
 
     def btn_LogOut_handler(self):
         self.pop_message(text="Arrivederci ! ")
