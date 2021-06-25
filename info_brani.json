@@ -1,1 +1,35 @@
+
 [{"Titolo": "Pocketful Of Miracles", "Artista": "Blu & The 45 King", "Album": "Pocketful Of Miracles", "id": 1, "contatore": 0.0}, {"Titolo": "Lovely Day", "Artista": "Bill Withers", "Album": "The Essential Bill Withers", "id": 2, "contatore": 0.0}, {"Titolo": "Africa", "Artista": "Toto", "Album": "TotoIV", "id": 3, "contatore": 0.0}, {"Titolo": "C E Chi Dice No - Live", "Artista": "Vasco Rossi", "Album": "Vasco Nonstop Live", "id": 4, "contatore": 0.0}, {"Titolo": "backing track", "Artista": "ste ste", "Album": "backing track", "id": 5, "contatore": 0}, {"Titolo": "AC", "Artista": "ste ste", "Album": "AC", "id": 6, "contatore": 0}]
+
+[
+    {
+      "Titolo": "Pocketful Of Miracles",
+      "Artista": "Blu & The 45 King",
+      "Album": "Pocketful Of Miracles",
+      "id": 1,
+      "contatore": 0.0
+    },
+    {
+      "Titolo": "Lovely Day",
+      "Artista": "Bill Withers",
+      "Album": "The Essential Bill Withers",
+      "id": 2,
+      "contatore": 0.0
+    },
+    {
+      "Titolo": "Africa",
+      "Artista": "Toto",
+      "Album": "TotoIV",
+      "id": 3,
+      "contatore": 0.0
+    },
+    {
+      "Titolo": "C E Chi Dice No - Live",
+      "Artista": "Vasco Rossi",
+      "Album": "Vasco Nonstop Live",
+      "id": 4,
+      "contatore": 0.0
+    }
+]
+
+

@@ -9,6 +9,7 @@ class controller_artista(QtWidgets.QWidget, DataPick, home_artista):
     switch_window_1 = QtCore.pyqtSignal()
     switch_window_2 = QtCore.pyqtSignal()
     switch_window_3 = QtCore.pyqtSignal()
+    switch_window_4 = QtCore.pyqtSignal()
 
     def __init__(self):
         QtWidgets.QWidget.__init__(self)
@@ -19,6 +20,7 @@ class controller_artista(QtWidgets.QWidget, DataPick, home_artista):
         self.btn_mostraTutte.clicked.connect(self.btn_MostraTutte_handler)
         self.btn_Logout.clicked.connect(self.btn_LogOut_handler)
         self.btn_Pubblica.clicked.connect(self.btn_Pubblicazione_handler)
+        self.btn_search.clicked.connect(self.btn_MostraSearch_handler)
 
 
     """POP UP FINESTRA"""
@@ -38,6 +40,9 @@ class controller_artista(QtWidgets.QWidget, DataPick, home_artista):
 
     def btn_Pubblicazione_handler(self):
         self.switch_window_3.emit()
+
+    def btn_MostraSearch_handler(self):
+        self.switch_window_4.emit()
 
     def btn_LogOut_handler(self):
         self.pop_message(text="Arrivederci ! ")
