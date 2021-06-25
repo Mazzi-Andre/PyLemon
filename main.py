@@ -159,6 +159,7 @@ class Controller:
         self.ascoltatore = controller_ascoltatore()
         self.ascoltatore.switch_window_1.connect(self.show_impostazioni_ascoltatore)
         self.ascoltatore.switch_window_2.connect(self.show_mostra_tutto)
+        self.ascoltatore.switch_window_4.connect(self.show_mostra_search)
         self.login.close()
         self.ascoltatore.show()
 
@@ -167,6 +168,7 @@ class Controller:
         self.artista.switch_window_1.connect(self.show_impostazioni_artista)
         self.artista.switch_window_2.connect(self.show_mostra_tutto)
         self.artista.switch_window_3.connect(self.show_pubblicazione_inizio)
+        self.artista.switch_window_4.connect(self.show_mostra_search)
         self.login.close()
         self.artista.show()
 
@@ -175,6 +177,7 @@ class Controller:
         self.etichetta.switch_window_3.connect(self.show_pubblicazione_inizio)
         self.etichetta.switch_window_2.connect(self.show_mostra_tutto)
         self.etichetta.switch_window_1.connect(self.show_impostazioni_etichetta)
+        self.etichetta.switch_window_4.connect(self.show_mostra_search)
         self.login.close()
         self.etichetta.show()
 

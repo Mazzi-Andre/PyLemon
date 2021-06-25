@@ -11,7 +11,9 @@ class Ui_Player(object):
         self.listen = Ascolto()
         self.controller = ControlloreAscolto()
         self.search = False
-        Player.setObjectName("Player");Player.resize(501, 471);Player.setAutoFillBackground(False)
+        Player.setObjectName("Player")
+        Player.resize(501, 471)
+        Player.setAutoFillBackground(False)
         Player.setStyleSheet("background-color: rgb(40, 39, 39);\n""\n""")
         self.table = QtWidgets.QTableWidget(Player)
         self.table.setGeometry(QtCore.QRect(0, 0, 501, 351))
@@ -144,6 +146,9 @@ class Ui_Player(object):
 
 
 class controller_player(Ui_Player):
+    def __init__(self):
+        QtWidgets.QWidget.__init__(self)
+        self.setupUi(self)
 
     def mostra_tutto(self):
         self.check_prev = False
