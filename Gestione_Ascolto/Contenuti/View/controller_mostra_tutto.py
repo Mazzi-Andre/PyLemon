@@ -2,6 +2,7 @@ from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
 from Gestione_Ascolto.Contenuti.View.VistaContenuti_e_player import Ui_Player
+from Pubblicazione.Controller.Gestione_json import Gestione_json
 
 
 class controller_mostra_tutto(QtWidgets.QWidget, Ui_Player):
@@ -40,6 +41,8 @@ class controller_mostra_tutto(QtWidgets.QWidget, Ui_Player):
             titolo_prev = self.table.item(self.riga,0).text()
             album_prev = self.table.item(self.riga, 1).text()
             path = self.controller.getPath(titolo_prev, album_prev)
+            g = Gestione_json()
+            g.incremento_conta(titolo_prev, album_prev)
             self.listen.path_riproduzione = path
             self.listen.play(path,float(self.horizontalSlider.value()/10))
 
@@ -47,6 +50,8 @@ class controller_mostra_tutto(QtWidgets.QWidget, Ui_Player):
             titolo_next = self.table.item(self.riga, 0).text()
             album_next = self.table.item(self.riga, 1).text()
             path = self.controller.getPath(titolo_next, album_next)
+            g = Gestione_json()
+            g.incremento_conta(titolo_next, album_next)
             self.listen.path_riproduzione = path
             self.listen.play(path,float(self.horizontalSlider.value()/10))
 
@@ -59,6 +64,8 @@ class controller_mostra_tutto(QtWidgets.QWidget, Ui_Player):
                     album_corrispondente = self.table.item(self.riga, 1).text()
                     path = self.controller.getPath(selezione_titolo, album_corrispondente)
                     self.listen.path_riproduzione = path
+                    g = Gestione_json()
+                    g.incremento_conta(selezione_titolo, album_corrispondente)
                     self.listen.play(path,float(self.horizontalSlider.value()/10))
                     break
 
