@@ -19,12 +19,12 @@ class Gestione_json():
         oggettobrano = {"Titolo": brano.nome, "Artista": brano.artista, "Album": brano.album, "id": brano.id, "contatore": brano.contatore }
         if self.json_data != None:
             self.json_data[self.json_data.len + 1] = oggettobrano
-            with open("info_brani.json.json", "w") as write_file:
+            with open("info_brani.json", "w") as write_file:
                 json.dump(self.json_data, write_file)
 
         else:
             self.json_data = oggettobrano
-            with open("info_brani.json.json", "w") as write_file:
+            with open("info_brani.json", "w") as write_file:
                 json.dump(self.json_data, write_file)
 
     def ricerca_id(self, titolo, album):
@@ -33,6 +33,18 @@ class Gestione_json():
             if (i["Titolo"] == titolo) and (i["Album"] == album):
                 ID = i["id"]
         return ID
+
+    def incremento_conta(self, titolo,album):
+        U = self.json_data
+        posi = 0
+        for i in U:
+            posi += 1
+            if (i["Titolo"] == titolo) and (i["Album"] == album):
+                i["contatore"] += 1.0
+                U[posi-1] = i
+                break
+        with open("info_brani.json", "w") as write_file:
+            json.dump(U, write_file)
 
 
     def get_jsonobject(self):

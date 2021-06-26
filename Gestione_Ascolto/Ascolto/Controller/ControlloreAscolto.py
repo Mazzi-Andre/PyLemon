@@ -7,14 +7,14 @@ class ControlloreAscolto():
 
     def __init__(self):
         #self.controller = Ascolto()
-        self.g = Gestione_json()
+        self.G_json = Gestione_json()
         #self.path = ''
 
 
-    def getPath(self, lst_titolo, lst_album): # che saranno item
-        id = self.g.ricerca_id(lst_titolo, lst_album)
+    def getPath(self, titolo, album): # che saranno item
+        id = self.G_json.ricerca_id(titolo, album)
         path = "Data/mp3/"+str(id)+".mp3"
         return path
 
     def getObject(self):
-        return self.g.get_jsonobject()
+        return self.G_json.get_jsonobject()

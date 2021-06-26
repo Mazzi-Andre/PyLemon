@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import QApplication, QWidget
 
 from Gestione_Ascolto.Ascolto.Controller.ControlloreAscolto import ControlloreAscolto
 from Gestione_Ascolto.Ascolto.Model.Ascolto import Ascolto
+from Pubblicazione.Controller.Gestione_json import Gestione_json
 
 
 class Ui_Player(object):
@@ -197,6 +198,8 @@ class Ui_Player(object):
             album_prev = self.table.item(self.riga, 1).text()
             path = self.controller.getPath(titolo_prev, album_prev)
             self.listen.path_riproduzione = path
+            g = Gestione_json()
+            g.incremento_conta(titolo_prev, album_prev)
             self.listen.play(path,float(self.horizontalSlider.value()/10))
 
         elif self.check_next and self.riga_locale == self.table.currentRow():
@@ -204,6 +207,8 @@ class Ui_Player(object):
             album_next = self.table.item(self.riga, 1).text()
             path = self.controller.getPath(titolo_next, album_next)
             self.listen.path_riproduzione = path
+            g = Gestione_json()
+            g.incremento_conta(titolo_next, album_next)
             self.listen.play(path,float(self.horizontalSlider.value()/10))
 
         elif self.table.selectedItems():
@@ -215,6 +220,8 @@ class Ui_Player(object):
                     album_corrispondente = self.table.item(self.riga, 1).text()
                     path = self.controller.getPath(selezione_titolo, album_corrispondente)
                     self.listen.path_riproduzione = path
+                    g = Gestione_json()
+                    g.incremento_conta(selezione_titolo, album_corrispondente)
                     self.listen.play(path,float(self.horizontalSlider.value()/10))
                     break
 
@@ -266,12 +273,12 @@ class Ui_Player(object):
 
 
 
-'''app = QApplication([])
+"""app = QApplication([])
 window = QWidget()
 form = Ui_Player()
 form.setupUi(window)
-#form.mostra_tutto()
-form.mostra_search("vasco rossi")
+form.mostra_tutto()
+#form.mostra_search("vasco rossi")
 #form.prova()
 window.show()
-app.exec()'''
+app.exec()"""
