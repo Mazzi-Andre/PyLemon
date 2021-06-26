@@ -45,21 +45,21 @@ class home_artista(object):
 
         """Linea Search"""
         self.txt_nome = QtWidgets.QLineEdit(Form)
-        self.lineEdit.setGeometry(QtCore.QRect(110, 130, 331, 61))
+        self.txt_nome.setGeometry(QtCore.QRect(110, 130, 331, 61))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.lineEdit.sizePolicy().hasHeightForWidth())
-        self.lineEdit.setSizePolicy(sizePolicy)
+        sizePolicy.setHeightForWidth(self.txt_nome.sizePolicy().hasHeightForWidth())
+        self.txt_nome.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setPointSize(20)
-        self.lineEdit.setFont(font)
-        self.lineEdit.setTabletTracking(False)
-        self.lineEdit.setStyleSheet("background-color: rgb(207, 207, 207);\n"
+        self.txt_nome.setFont(font)
+        self.txt_nome.setTabletTracking(False)
+        self.txt_nome.setStyleSheet("background-color: rgb(207, 207, 207);\n"
                                     "border-radius: 20px;\n"
                                     "border-color: rgb(133, 133, 133);")
-        self.lineEdit.setText("")
-        self.lineEdit.setObjectName("lineEdit")
+        # self.lineEdit.setText("")
+        self.txt_nome.setObjectName("lineEdit")
 
         self.line = QtWidgets.QFrame(Form)
         self.line.setGeometry(QtCore.QRect(990, 340, 20, 271))
@@ -183,7 +183,7 @@ class home_artista(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.label.setText(_translate("Form", "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600; font-style:italic;\">PySound Label</span></p></body></html>"))
-        self.lineEdit.setPlaceholderText(_translate("Form", "  Search..."))
+        self.txt_nome.setPlaceholderText(_translate("Form", "  Search..."))
         self.label.setText(_translate("Form", "PySound artist"))
         self.btn_mostraTutte.setText(_translate("Form", "Mostra tutto"))
         self.btn_Impostazioni.setText(_translate("Form", "Impostazioni"))

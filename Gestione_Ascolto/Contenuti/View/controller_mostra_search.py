@@ -28,19 +28,7 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player, DataPick, home_asco
         self.next.clicked.connect(self.go_next)
         self.horizontalSlider.valueChanged.connect(self.changeValue)
 
-    '''def mostra_tutto(self):
-        self.check_prev = False
-        self.check_next = False
-        self.riga_locale = ''
-        self.primo_play = False
-        self.lib = self.controller.getObject()
-        riga = 0
-        self.table.setRowCount(len(self.lib))
-        for i in self.lib:
-            self.table.setItem(riga, 0, QtWidgets.QTableWidgetItem(i["Titolo"]))
-            self.table.setItem(riga, 1, QtWidgets.QTableWidgetItem(i["Album"]))
-            self.table.setItem(riga, 2, QtWidgets.QTableWidgetItem(i["Artista"]))
-            riga = riga + 1 '''
+
 
     def mostra_search(self):
         self.var_search = self.Mysong[0]

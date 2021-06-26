@@ -34,40 +34,6 @@ class controller_mostra_tutto(QtWidgets.QWidget, Ui_Player):
             self.table.setItem(riga, 2, QtWidgets.QTableWidgetItem(i["Artista"]))
             riga = riga+1
 
-    '''def mostra_search(self, var_search):
-        self.check_prev = False
-        self.check_next = False
-        self.riga_locale = ''
-        self.primo_play = False
-        self.lib = self.controller.getObject()
-        riga = 0
-        self.table.setRowCount(len(self.lib))
-        var_title = var_search.title()
-        for i in self.lib:
-            check_riga = False
-            if i["Titolo"] == var_title:
-                self.table.setItem(riga, 0, QtWidgets.QTableWidgetItem(i["Titolo"]))
-                self.table.setItem(riga, 1, QtWidgets.QTableWidgetItem(i["Album"]))
-                self.table.setItem(riga, 2, QtWidgets.QTableWidgetItem(i["Artista"]))
-                check_riga = True
-
-            if i["Album"] == var_title:
-                self.table.setItem(riga, 0, QtWidgets.QTableWidgetItem(i["Titolo"]))
-                self.table.setItem(riga, 1, QtWidgets.QTableWidgetItem(i["Album"]))
-                self.table.setItem(riga, 2, QtWidgets.QTableWidgetItem(i["Artista"]))
-                check_riga = True
-
-            if i["Artista"] == var_title:
-                self.table.setItem(riga, 0, QtWidgets.QTableWidgetItem(i["Titolo"]))
-                self.table.setItem(riga, 1, QtWidgets.QTableWidgetItem(i["Album"]))
-                self.table.setItem(riga, 2, QtWidgets.QTableWidgetItem(i["Artista"]))
-                check_riga = True
-
-            if check_riga:
-                riga = riga+1
-
-        self.search = True
-        self.righe_search = riga-1 '''
 
     def go_play(self):
         if self.check_prev and self.riga_locale == self.table.currentRow():
