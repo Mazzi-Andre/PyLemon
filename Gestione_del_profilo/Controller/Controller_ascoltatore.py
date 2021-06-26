@@ -1,3 +1,5 @@
+import pickle
+
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
@@ -19,7 +21,9 @@ class controller_ascoltatore(QtWidgets.QWidget, DataPick, home_ascoltatore):
         self.btn_Impostazioni.clicked.connect(self.btn_Impostazioni_handler)
         self.btn_mostraTutte.clicked.connect(self.btn_MostraTutte_handler)
         self.btn_Logout.clicked.connect(self.btn_LogOut_handler)
+        self.btn_search.clicked.connect(self.put_data)
         self.btn_search.clicked.connect(self.btn_MostraSearch_handler)
+
 
 
     """POP UP FINESTRA"""
@@ -43,8 +47,12 @@ class controller_ascoltatore(QtWidgets.QWidget, DataPick, home_ascoltatore):
         self.pop_message(text="Arrivederci ! ")
         self.controller_ascoltatore.close()
 
-    def nome_canzone(self):
-        return self.txt_nome.text()
+    def put_data(self):
+        self.nome = self.txt_nome.text()
+        self.lista = []
+        self.lista.append(self.nome)
+        with open('Canzone.pkl', 'wb') as Dpi:
+            pickle.dump(self.lista, Dpi)
 
     """DA FINIRE"""
 

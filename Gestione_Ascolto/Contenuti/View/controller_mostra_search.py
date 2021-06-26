@@ -1,3 +1,5 @@
+import pickle
+
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
@@ -15,9 +17,8 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player, DataPick, home_asco
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
         self.pick = DataPick()
-        self.ascoltatore = home_ascoltatore()
-        self.artista = home_artista()
-        self.etichetta = home_etichetta()
+        self.Mysong = self.get_canzone()
+
         self.mostra_search()
 
         self.play.clicked.connect(self.go_play)
@@ -42,7 +43,7 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player, DataPick, home_asco
             riga = riga + 1 '''
 
     def mostra_search(self):
-        self.var_search = self.funcion_search()
+        self.var_search = self.Mysong[0]
         self.check_prev = False
         self.check_next = False
         self.riga_locale = ''
@@ -146,15 +147,10 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player, DataPick, home_asco
         self.listen.vol_adjust(value)
 
 
-    def funcion_search(self):
-        valore = self.pick.controlla_login()
-        if valore == 1:
-            nome = self.ascoltatore.txt_nome.text()
-        if valore == 2:
-            nome = self.artista.lineEdit.text()
-        if valore == 3:
-            nome = self.etichetta.lineEdit.text()
-        return nome
+    def get_canzone(self):
+        with open('Canzone.pkl', 'rb') as Dpi:
+            MyData = pickle.load(Dpi)
+        return MyData
 
 
 

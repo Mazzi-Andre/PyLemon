@@ -44,7 +44,7 @@ class home_artista(object):
         self.btn_search.setObjectName("pushButton_4")
 
         """Linea Search"""
-        self.lineEdit = QtWidgets.QLineEdit(Form)
+        self.txt_nome = QtWidgets.QLineEdit(Form)
         self.lineEdit.setGeometry(QtCore.QRect(110, 130, 331, 61))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
