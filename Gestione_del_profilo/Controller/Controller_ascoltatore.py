@@ -43,6 +43,9 @@ class controller_ascoltatore(QtWidgets.QWidget, DataPick, home_ascoltatore):
         self.pop_message(text="Arrivederci ! ")
         self.controller_ascoltatore.close()
 
+    def nome_canzone(self):
+        return self.txt_nome.text()
+
     """DA FINIRE"""
 
     """def bool_search_check(self):

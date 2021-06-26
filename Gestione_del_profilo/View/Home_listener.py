@@ -44,7 +44,7 @@ class home_ascoltatore(object):
         self.btn_search.setObjectName("pushButton_4")
 
         """Linea Search"""
-        self.lineEdit = QtWidgets.QLineEdit(Form)
+        '''self.lineEdit = QtWidgets.QLineEdit(Form)
         self.lineEdit.setGeometry(QtCore.QRect(110, 130, 331, 61))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -58,8 +58,19 @@ class home_ascoltatore(object):
         self.lineEdit.setStyleSheet("background-color: rgb(207, 207, 207);\n"
 "border-radius: 20px;\n"
 "border-color: rgb(133, 133, 133);")
-        self.lineEdit.setText("")
-        self.lineEdit.setObjectName("lineEdit")
+        #self.lineEdit.setText("")
+        self.lineEdit.setObjectName("lineEdit") '''
+
+
+
+        self.txt_nome = QtWidgets.QLineEdit(Form)
+        self.txt_nome.setGeometry(QtCore.QRect(110, 130, 331, 61))
+        self.txt_nome.setStyleSheet("background-color: rgb(207, 207, 207);\n"
+"                                     border-radius: 20px;\n"
+"                                     border-color: rgb(133, 133, 133);")
+        self.txt_nome.setObjectName("txt_nome")
+
+
 
 
         self.listView_2 = QtWidgets.QListView(Form)
@@ -113,12 +124,14 @@ class home_ascoltatore(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.label.setText(_translate("Form", "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600; font-style:italic;\">PySound Label</span></p></body></html>"))
-        self.lineEdit.setPlaceholderText(_translate("Form", "  Search..."))
+        #self.txt_nome.setPlaceholderText(_translate("Form", "  Search..."))
         self.label.setText(_translate("Form", "PySound listener"))
         self.btn_mostraTutte.setText(_translate("Form", "Mostra tutte"))
         self.btn_Impostazioni.setText(_translate("Form", "Impostazioni"))
         self.btn_Logout.setText(_translate("Form", "Log out"))
         self.btn_search.setText(_translate("Form", "Cerca"))
+
+        self.txt_nome.setPlaceholderText(_translate("Form", "Search..."))
 
 """app = QApplication([])
 window = QWidget()

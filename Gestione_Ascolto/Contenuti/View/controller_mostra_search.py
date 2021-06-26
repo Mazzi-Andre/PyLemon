@@ -1,16 +1,23 @@
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
+from Data_Utente.control.Data_control import DataPick
 from Gestione_Ascolto.Contenuti.View.VistaContenuti_e_player import Ui_Player
+from Gestione_del_profilo.View.Home_artist import home_artista
+from Gestione_del_profilo.View.Home_label import home_etichetta
+from Gestione_del_profilo.View.Home_listener import home_ascoltatore
 
 
-class controller_mostra_search(QtWidgets.QWidget, Ui_Player):
+class controller_mostra_search(QtWidgets.QWidget, Ui_Player, DataPick, home_ascoltatore, home_etichetta, home_artista):
     switch_window_1 = QtCore.pyqtSignal()
 
     def __init__(self):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
-        self.nome = self.txt_username.text()
+        self.pick = DataPick()
+        self.ascoltatore = home_ascoltatore()
+        self.artista = home_artista()
+        self.etichetta = home_etichetta()
         self.mostra_search()
 
         self.play.clicked.connect(self.go_play)
@@ -34,7 +41,8 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player):
             self.table.setItem(riga, 2, QtWidgets.QTableWidgetItem(i["Artista"]))
             riga = riga + 1 '''
 
-    def mostra_search(self, var_search):
+    def mostra_search(self):
+        self.var_search = self.funcion_search()
         self.check_prev = False
         self.check_next = False
         self.riga_locale = ''
@@ -42,7 +50,7 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player):
         self.lib = self.controller.getObject()
         riga = 0
         self.table.setRowCount(len(self.lib))
-        var_title = var_search.title()
+        var_title = self.var_search.title()
         for i in self.lib:
             check_riga = False
             if i["Titolo"] == var_title:
@@ -136,5 +144,17 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player):
 
     def changeValue(self, value):
         self.listen.vol_adjust(value)
+
+
+    def funcion_search(self):
+        valore = self.pick.controlla_login()
+        if valore == 1:
+            nome = self.ascoltatore.txt_nome.text()
+        if valore == 2:
+            nome = self.artista.lineEdit.text()
+        if valore == 3:
+            nome = self.etichetta.lineEdit.text()
+        return nome
+
 
 
