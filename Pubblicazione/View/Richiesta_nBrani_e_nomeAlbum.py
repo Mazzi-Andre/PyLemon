@@ -54,7 +54,7 @@ class Ui_Form(object):
         self.lineEdit_2.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "border-radius: 5px;")
         self.lineEdit_2.setObjectName("lineEdit_2")
-=======
+
         self.btn_ok.setObjectName("pushButton_2")
 
 

@@ -14,16 +14,18 @@ class Gestione_json():
         print("fatto")
         print(self.oggetto)'''  #manteniamo "carica_brano_su_JSON" ?
 
-    def carica_brano_su_JSON(self, brano):
-        oggettobrano = {"Titolo": brano.nome, "Artista": brano.artista, "Album": brano.album, "id": brano.id, "contatore": brano.contatore }
+    def carica_brano_su_JSON(self, nome,artista,album,id,contatore):
+        oggettobrano = {"Titolo": nome, "Artista": artista, "Album": album, "id": id, "contatore": contatore }
         if self.json_data != None:
-            self.json_data[self.json_data.len + 1] = oggettobrano
-            with open("info_brani.json.json", "w") as write_file:
+            i=len(self.json_data)
+
+            self.json_data.append(oggettobrano)
+            with open("info_brani.json", "w") as write_file:
                 json.dump(self.json_data, write_file)
 
         else:
             self.json_data = oggettobrano
-            with open("info_brani.json.json", "w") as write_file:
+            with open("info_brani.json", "w") as write_file:
                 json.dump(self.json_data, write_file)
 
     def ricerca_id(self, titolo, album):
