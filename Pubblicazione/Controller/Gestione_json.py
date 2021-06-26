@@ -7,15 +7,8 @@ class Gestione_json():
         with open('info_brani.json', 'r') as j:
             self.json_data = json.load(j)
 
-
-    '''def scrittura(self):
-        with open("prova.Json", "w") as write_file:
-            json.dump(self.oggetto, write_file)
-        print("fatto")
-        print(self.oggetto)'''  #manteniamo "carica_brano_su_JSON" ?
-
     def carica_brano_su_JSON(self, nome,artista,album,id,contatore):
-        oggettobrano = {"Titolo": nome, "Artista": artista, "Album": album, "id": id, "contatore": contatore }
+        oggettobrano = {"Titolo": nome.title(), "Artista": artista.title(), "Album": album.title(), "id": id, "contatore": contatore }
         if self.json_data != None:
             i=len(self.json_data)
 
@@ -34,6 +27,20 @@ class Gestione_json():
             if (i["Titolo"] == titolo) and (i["Album"] == album):
                 ID = i["id"]
         return ID
+
+
+    def incremento_conta(self, titolo, album):
+        data = self.json_data
+        posi = 0
+        for i in data:
+            posi =posi + 1
+            if (i["Titolo"] == titolo) and (i["Album"] == album):
+                i["contatore"] += 1.0
+                data[posi-1] = i
+                break
+
+        with open("info_brani.json", "w") as write_file:
+            json.dump(data, write_file)
 
 
     def get_jsonobject(self):
