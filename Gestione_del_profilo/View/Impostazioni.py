@@ -38,20 +38,18 @@ class impostazioni(object):
         self.btn_EliminaAccount.setMouseTracking(True)
         self.btn_EliminaAccount.setTabletTracking(True)
         self.btn_EliminaAccount.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
-                                       "border-radius: 10px;\n"
-                                       "font: 10pt \"Arial\";"
-                                       "color: 'white';}" +
-                                       "*:hover{background: rgb(221, 215, 25);\n}")
+                                              "border-radius: 10px;\n"
+                                              "color: 'white';}" +
+                                              "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_EliminaAccount.setObjectName("pushButton")
         self.btn_EditProfilo = QtWidgets.QPushButton(Form)
         self.btn_EditProfilo.setGeometry(QtCore.QRect(80, 240, 121, 31))
         self.btn_EditProfilo.setMouseTracking(True)
         self.btn_EditProfilo.setTabletTracking(True)
         self.btn_EditProfilo.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
-                                       "border-radius: 10px;\n"
-                                       "font: 10pt \"Arial\";"
-                                       "color: 'white';}" +
-                                       "*:hover{background: rgb(221, 215, 25);\n}")
+                                           "border-radius: 10px;\n"
+                                           "color: 'white';}" +
+                                           "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_EditProfilo.setObjectName("pushButton_3")
 
         self.retranslateUi(Form)
