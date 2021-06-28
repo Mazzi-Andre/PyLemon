@@ -64,20 +64,18 @@ class conferma_credenziali(object):
         self.btn_Back.setMouseTracking(True)
         self.btn_Back.setTabletTracking(True)
         self.btn_Back.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
-                                       "border-radius: 10px;\n"
-                                       "font: 10pt \"Arial\";"
-                                       "color: 'white';}" +
-                                       "*:hover{background: rgb(221, 215, 25);\n}")
+                                    "border-radius: 10px;\n"
+                                    "color: 'white';}" +
+                                    "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_Back.setObjectName("pushButton_3")
         self.btn_Ok = QtWidgets.QPushButton(Form)
         self.btn_Ok.setGeometry(QtCore.QRect(170, 260, 81, 21))
         self.btn_Ok.setMouseTracking(True)
         self.btn_Ok.setTabletTracking(True)
         self.btn_Ok.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
-                                       "border-radius: 10px;\n"
-                                       "font: 10pt \"Arial\";"
-                                       "color: 'white';}" +
-                                       "*:hover{background: rgb(221, 215, 25);\n}")
+                                  "border-radius: 10px;\n"
+                                  "color: 'white';}" +
+                                  "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_Ok.setObjectName("pushButton_4")
 
         self.retranslateUi(Form)
