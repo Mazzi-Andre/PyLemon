@@ -108,6 +108,9 @@ class Controller:
         self.cont_artista = False
         self.check_conferma_credenziali = False
         self.check_conferma_edit = False
+        self.verifica_album = False
+        self.Richiesta_nBrani = Controller_Richiesta_nBrani()
+        self.conta_brani = 0
 
 
     """FINESTRA POP UP"""
@@ -193,16 +196,31 @@ class Controller:
 
 
     def show_pubblicazione_brano(self):
-        self.Caricamento_Brano_Artista = Controller_Caricamento_Brano_Artista()
-        self.Caricamento_Brano_Artista.show()
+        if self.verifica_album:
+            self.conta_brani = self.conta_brani + 1
+            self.nome_album = self.Richiesta_nBrani.nome_album
+            self.nBrani = self.Richiesta_nBrani.nBrani
+        else: self.nome_album = None
+        self.Caricamento_Brano_Artista = Controller_Caricamento_Brano_Artista(self.verifica_album, self.nome_album)
+        self.Caricamento_Brano_Artista.switch_window.connect(self.show_pubblicazione_brano)
+        if self.verifica_album is True:
+            if self.conta_brani <= int(self.nBrani):
+                self.Caricamento_Brano_Artista.show()
+        else: self.Caricamento_Brano_Artista.show()
+
 
 
 
     def show_pubblicazione_album(self):
-        self.Richiesta_nBrani = Controller_Richiesta_nBrani
-        n = self.Richiesta_nBrani.nBrani
-        for i in n:
-            self.show_pubblicazione_brano()
+        self.Richiesta_nBrani.show()
+        self.Richiesta_nBrani.switch_window.connect(self.show_pubblicazione_brano)
+        self.verifica_album = True
+
+
+
+
+
+
 
     """---------------------------------------------------------------------------------------------"""
 
