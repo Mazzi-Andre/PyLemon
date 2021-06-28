@@ -61,7 +61,6 @@ class Caricamento_brano(object):
         self.btn_scegli_file.setTabletTracking(True)
         self.btn_scegli_file.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
                                     "border-radius: 10px;\n"
-                                    "font: 10pt \"Arial\";"
                                     "color: 'white';}" +
                                     "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_scegli_file.setObjectName("btn_scegli_file")
@@ -73,7 +72,6 @@ class Caricamento_brano(object):
         self.btn_pubblica.setTabletTracking(True)
         self.btn_pubblica.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
                                         "border-radius: 10px;\n"
-                                        "font: 10pt \"Arial\";"
                                         "color: 'white';}" +
                                         "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_pubblica.setObjectName("btn_pubblica")
@@ -86,7 +84,6 @@ class Caricamento_brano(object):
         self.btn_Back.setTabletTracking(True)
         self.btn_Back.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
                                     "border-radius: 10px;\n"
-                                    "font: 10pt \"Arial\";"
                                     "color: 'white';}" +
                                     "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_Back.setObjectName("btn_back")
