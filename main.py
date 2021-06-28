@@ -120,7 +120,6 @@ class Controller:
         self.check_impostazioni_artista = False
         self.check_edit_artista = False
         self.check_impostazioni_etichetta = False
-        self.check_edit_etichetta = False
         self.check_conferma_credenziali = False
         self.check_conferma_edit = False
         self.check_mostra_tutto = False
@@ -295,7 +294,7 @@ class Controller:
             self.conferma_edit.close()
             self.check_conferma_edit = False
 
-        self.check_impostazioni_ascoltatore = True
+        self.check_impostazioni_artista = True
         self.impostazioni_artista.show()
 
     def show_edit_artista(self):
@@ -321,7 +320,7 @@ class Controller:
         if self.check_conferma_credenziali is True:
             self.conferma_credenziali.close()
             self.check_conferma_credenziali = False
-
+        self.check_impostazioni_etichetta = True
         self.impostazioni_etichetta.show()
 
 
@@ -357,11 +356,30 @@ class Controller:
 
     def show_mostra_tutto(self):
         self.player = controller_mostra_tutto()
+        self.check_mostra_tutto = True
         self.player.show()
 
     def show_mostra_search(self):
         self.search = controller_mostra_search()
+        self.check_mostra_search = True
         self.search.show()
+
+    """Controlle Logout"""
+
+    def show_logout(self):
+        if self.check_login_page is True:
+            self.login.close()
+            self.check_login_page = False
+
+        if self.check_newuser_page is True:
+            self.newuser.close()
+            self.check_newuser_page = False
+
+        if self.check_home_ascoltatore is True:
+            self.show_home_ascoltatore.close()
+            self.check_home_ascoltatore = False
+
+
 
 
 
