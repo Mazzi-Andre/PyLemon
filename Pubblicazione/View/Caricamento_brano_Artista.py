@@ -53,35 +53,45 @@ class Caricamento_brano(object):
                                        "border-radius: 10px;\n"
                                        "color: 'white';}" +
                                        "*:hover{background: rgb(221, 215, 25);\n}")
-        self.pushButton.setObjectName("pushButton")
-        self.pushButton_2 = QtWidgets.QPushButton(Form)
-        self.pushButton_2.setGeometry(QtCore.QRect(190, 310, 81, 21))
-        self.pushButton_2.setMouseTracking(True)
-        self.pushButton_2.setTabletTracking(True)
-        self.pushButton_2.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);\n"
-"border-radius: 10px;")
-        self.pushButton_2.setObjectName("pushButton_2")
 
 
         self.btn_scegli_file = QtWidgets.QPushButton(Form)
         self.btn_scegli_file.setGeometry(QtCore.QRect(180, 140, 101, 31))
         self.btn_scegli_file.setMouseTracking(True)
         self.btn_scegli_file.setTabletTracking(True)
-        self.btn_scegli_file.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);\n"
-"border-radius: 10px;")
+        self.btn_scegli_file.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
+                                    "border-radius: 10px;\n"
+                                    "font: 10pt \"Arial\";"
+                                    "color: 'white';}" +
+                                    "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_scegli_file.setObjectName("btn_scegli_file")
 
 
         self.btn_pubblica = QtWidgets.QPushButton(Form)
-        self.btn_pubblica.setGeometry(QtCore.QRect(190, 310, 81, 21))
+        self.btn_pubblica.setGeometry(QtCore.QRect(130, 310, 81, 21))
         self.btn_pubblica.setMouseTracking(True)
         self.btn_pubblica.setTabletTracking(True)
-        self.btn_pubblica.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);\n"
-"border-radius: 10px;")
+        self.btn_pubblica.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
+                                        "border-radius: 10px;\n"
+                                        "font: 10pt \"Arial\";"
+                                        "color: 'white';}" +
+                                        "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_pubblica.setObjectName("btn_pubblica")
+
+
+
+        self.btn_Back = QtWidgets.QPushButton(Form)
+        self.btn_Back.setGeometry(QtCore.QRect(250, 310, 81, 21))
+        self.btn_Back.setMouseTracking(True)
+        self.btn_Back.setTabletTracking(True)
+        self.btn_Back.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
+                                    "border-radius: 10px;\n"
+                                    "font: 10pt \"Arial\";"
+                                    "color: 'white';}" +
+                                    "*:hover{background: rgb(221, 215, 25);\n}")
+        self.btn_Back.setObjectName("btn_back")
+
+
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -94,15 +104,15 @@ class Caricamento_brano(object):
         self.label_3.setText(_translate("Form", "Nome brano:"))
 
         self.pushButton.setText(_translate("Form", "Scegli file"))
-        self.pushButton_2.setText(_translate("Form", "Pubblica"))
 
         self.btn_scegli_file.setText(_translate("Form", "Scegli file"))
         self.btn_pubblica.setText(_translate("Form", "Pubblica"))
+        self.btn_Back.setText(_translate("Form", "Back"))
 
 
-'''app = QApplication([])
+"""app = QApplication([])
 window = QWidget()
 form = Caricamento_brano()
 form.setupUi(window)
 window.show()
-app.exec()'''
+app.exec()"""
