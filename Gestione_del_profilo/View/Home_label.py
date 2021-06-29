@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication, QWidget
 
 
@@ -56,11 +57,14 @@ class home_etichetta(object):
         """Btn search"""
         self.btn_search = QtWidgets.QPushButton(Form)
         self.btn_search.setGeometry(QtCore.QRect(25, 130, 70, 61))
-        self.btn_search.setStyleSheet("*{border: 1px solid rgb(207, 207, 207);"   #border per i bordi
+        self.btn_search.setStyleSheet("*{border: 1px solid rgb(40, 39, 39);"   #border per i bordi
                                        "border-radius: 20px;\n"
                                        "color: 'white';}" +
-                                       "*:hover{background: rgb(207, 207, 207);\n}")
+                                       "*:hover{background: rgb(130, 130, 130);\n}")
+        self.btn_search.setText("")
         self.btn_search.setObjectName("pushButton_4")
+        self.btn_search.setIcon(QIcon('Lente.png'))
+        self.btn_search.setIconSize(QtCore.QSize(120, 120))
 
         self.line_2 = QtWidgets.QFrame(Form)
         self.line_2.setGeometry(QtCore.QRect(0, 270, 911, 16))
@@ -88,7 +92,7 @@ class home_etichetta(object):
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
         self.btn_Pubblica = QtWidgets.QPushButton(Form)
-        self.btn_Pubblica.setGeometry(QtCore.QRect(800, 390, 91, 21))
+        self.btn_Pubblica.setGeometry(QtCore.QRect(800, 300, 91, 21))
         self.btn_Pubblica.setMouseTracking(True)
         self.btn_Pubblica.setTabletTracking(True)
         self.btn_Pubblica.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
@@ -98,7 +102,7 @@ class home_etichetta(object):
                                        "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_Pubblica.setObjectName("pushButton_2")
         self.btn_Impostazioni = QtWidgets.QPushButton(Form)
-        self.btn_Impostazioni.setGeometry(QtCore.QRect(800, 340, 91, 21))
+        self.btn_Impostazioni.setGeometry(QtCore.QRect(800, 350, 91, 21))
         self.btn_Impostazioni.setMouseTracking(True)
         self.btn_Impostazioni.setTabletTracking(True)
         self.btn_Impostazioni.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"   #border per i bordi
@@ -108,7 +112,7 @@ class home_etichetta(object):
                                        "*:hover{background: rgb(221, 215, 25);\n}") #hover: quando passo con la freccetta sopra al bordo cambia colore
         self.btn_Impostazioni.setObjectName("pushButton_3")
         self.btn_Logout = QtWidgets.QPushButton(Form)
-        self.btn_Logout.setGeometry(QtCore.QRect(800, 440, 91, 21))
+        self.btn_Logout.setGeometry(QtCore.QRect(800, 350, 91, 21))
         self.btn_Logout.setMouseTracking(True)
         self.btn_Logout.setTabletTracking(True)
         self.btn_Logout.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
@@ -138,6 +142,23 @@ class home_etichetta(object):
 "border-radius: 10px;")
         self.listView_2.setObjectName("listView_2")
 
+
+
+        self.btn_limone = QtWidgets.QPushButton(Form)
+        self.btn_limone.setGeometry(QtCore.QRect(820, 435, 55, 50))
+        font = QtGui.QFont()
+        self.btn_limone.setFont(font)
+        self.btn_limone.setStyleSheet("*{border: 0.5px solid rgb(40, 39, 39);"  # border per i bordi
+                                      "border-radius: 25px;\n"
+                                      "font: 10pt \"Arial\";"
+                                      "color: 'white';}")
+        self.btn_limone.setText("")
+        self.btn_limone.setObjectName("btn_limone")
+        self.btn_limone.setIcon(QIcon('Limone.png'))
+        self.btn_limone.setIconSize(QtCore.QSize(75, 75))
+
+
+
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
@@ -145,17 +166,18 @@ class home_etichetta(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Etichetta"))
-        self.label.setText(_translate("Form",  "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600; font-style:italic;\">PySound Label</span></p></body></html>"))
         self.txt_nome.setPlaceholderText(_translate("Form", "  Search..."))
+        self.label.setText(_translate("Form", "PyLemon label"))
         self.btn_mostraTutte.setText(_translate("Form", "Mostra tutte"))
         self.btn_Pubblica.setText(_translate("Form", "Pubblica"))
         self.btn_Impostazioni.setText(_translate("Form", "Impostazioni"))
         self.btn_Logout.setText(_translate("Form", "Log out"))
-        self.btn_search.setText(_translate("Form", "Cerca"))
+        self.btn_search.setText(_translate("Form", ""))
+        self.btn_limone.setText(_translate("Form", ""))
 
-"""app = QApplication([])
+'''app = QApplication([])
 window = QWidget()
 form = home_etichetta()
 form.setupUi(window)
 window.show()
-app.exec()"""
+app.exec()'''

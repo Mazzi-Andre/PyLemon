@@ -22,7 +22,7 @@ class Caricamento_brano_etichetta(object):
         self.label_2.setStyleSheet("color: rgb(207, 211, 211);")
         self.label_2.setObjectName("label_2")
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(172, 30, 131, 41))
+        self.label.setGeometry(QtCore.QRect(170, 30, 131, 41))
         self.label.setStyleSheet("color: rgb(221, 215, 25);\n"
 "font: 30pt \".AppleSystemUIFont\";")
         self.label.setObjectName("label")
@@ -84,16 +84,16 @@ class Caricamento_brano_etichetta(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.label_2.setText(_translate("Form", "Pubblicazione brano"))
-        self.label.setText(_translate("Form", "PySound"))
+        self.label.setText(_translate("Form", "PyLemon"))
         self.btn_Scegli_file.setText(_translate("Form", "Scegli file"))
         self.btn_Pubblica.setText(_translate("Form", "Pubblica"))
         self.btn_Back.setText(_translate("Form", "Back"))
         self.label_3.setText(_translate("Form", "Nome brano:"))
         self.label_4.setText(_translate("Form", "Nome artista:"))
 
-"""app = QApplication([])
+'''app = QApplication([])
 window = QWidget()
 form = Caricamento_brano_etichetta()
 form.setupUi(window)
 window.show()
-app.exec()"""
+app.exec()'''

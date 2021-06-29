@@ -18,7 +18,7 @@ class Caricamento_brano(object):
         Form.resize(469, 367)
         Form.setStyleSheet("background-color: rgb(40, 39, 39);")
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(170, 50, 121, 41))
+        self.label.setGeometry(QtCore.QRect(165, 50, 130, 41))
         self.label.setStyleSheet("color: rgb(221, 215, 25);\n"
 "font: 30pt \".AppleSystemUIFont\";")
         self.label.setObjectName("label")
@@ -96,7 +96,7 @@ class Caricamento_brano(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.label.setText(_translate("Form", "PySound"))
+        self.label.setText(_translate("Form", "PyLemon"))
         self.label_2.setText(_translate("Form", "Pubblicazione brano"))
         self.label_3.setText(_translate("Form", "Nome brano:"))
 
@@ -107,9 +107,9 @@ class Caricamento_brano(object):
         self.btn_Back.setText(_translate("Form", "Back"))
 
 
-"""app = QApplication([])
+'''app = QApplication([])
 window = QWidget()
 form = Caricamento_brano()
 form.setupUi(window)
 window.show()
-app.exec()"""
+app.exec()'''
