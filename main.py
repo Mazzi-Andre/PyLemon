@@ -14,7 +14,6 @@ from Gestione_del_profilo.Controller.Controller_conferma_edit import controller_
 from Gestione_del_profilo.Controller.Controller_edit_artista import controller_edit_artista
 from Gestione_del_profilo.Controller.Controller_edit_ascoltatore import controller_edit_ascoltatore
 from Gestione_del_profilo.Controller.Controller_impostazioni import controller_impostazioni
-from Gestione_del_profilo.Controller.Controller_logout import controller_logout
 from Gestione_del_profilo.Controller.controller_etichetta import controller_etichetta
 from Login.controller.controller_login import Login
 

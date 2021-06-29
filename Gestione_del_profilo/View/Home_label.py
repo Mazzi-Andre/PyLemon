@@ -102,7 +102,7 @@ class home_etichetta(object):
                                        "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_Pubblica.setObjectName("pushButton_2")
         self.btn_Impostazioni = QtWidgets.QPushButton(Form)
-        self.btn_Impostazioni.setGeometry(QtCore.QRect(800, 350, 91, 21))
+        self.btn_Impostazioni.setGeometry(QtCore.QRect(800, 400, 91, 21))
         self.btn_Impostazioni.setMouseTracking(True)
         self.btn_Impostazioni.setTabletTracking(True)
         self.btn_Impostazioni.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"   #border per i bordi
