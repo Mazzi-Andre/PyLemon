@@ -12,6 +12,7 @@ class controller_ascoltatore(QtWidgets.QWidget, DataPick, home_ascoltatore):
     switch_window_1 = QtCore.pyqtSignal()
     switch_window_2 = QtCore.pyqtSignal()
     switch_window_4 = QtCore.pyqtSignal()
+    switch_window_k = QtCore.pyqtSignal()
 
     def __init__(self):
         QtWidgets.QWidget.__init__(self)
@@ -44,8 +45,7 @@ class controller_ascoltatore(QtWidgets.QWidget, DataPick, home_ascoltatore):
         self.switch_window_4.emit()
 
     def btn_LogOut_handler(self):
-        self.pop_message(text="Arrivederci ! ")
-        self.controller_ascoltatore.close()
+        self.switch_window_k.emit()
 
     def put_data(self):
         self.nome = self.txt_nome.text()

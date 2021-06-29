@@ -14,6 +14,7 @@ from Gestione_del_profilo.Controller.Controller_conferma_edit import controller_
 from Gestione_del_profilo.Controller.Controller_edit_artista import controller_edit_artista
 from Gestione_del_profilo.Controller.Controller_edit_ascoltatore import controller_edit_ascoltatore
 from Gestione_del_profilo.Controller.Controller_impostazioni import controller_impostazioni
+from Gestione_del_profilo.Controller.Controller_logout import controller_logout
 from Gestione_del_profilo.Controller.controller_etichetta import controller_etichetta
 from Login.controller.controller_login import Login
 
@@ -183,6 +184,7 @@ class Controller:
         self.ascoltatore.switch_window_1.connect(self.show_impostazioni_ascoltatore)
         self.ascoltatore.switch_window_2.connect(self.show_mostra_tutto)
         self.ascoltatore.switch_window_4.connect(self.show_mostra_search)
+        self.ascoltatore.switch_window_k.connect(self.show_logout)
         if self.check_login_page is True:
             self.login.close()
             self.check_login_page = False
@@ -195,6 +197,7 @@ class Controller:
         self.artista.switch_window_2.connect(self.show_mostra_tutto)
         self.artista.switch_window_3.connect(self.show_pubblicazione_inizio)
         self.artista.switch_window_4.connect(self.show_mostra_search)
+        self.artista.switch_window_k.connect(self.show_logout)
         if self.check_login_page is True:
             self.login.close()
             self.check_login_page = False
@@ -207,6 +210,7 @@ class Controller:
         self.etichetta.switch_window_2.connect(self.show_mostra_tutto)
         self.etichetta.switch_window_1.connect(self.show_impostazioni_etichetta)
         self.etichetta.switch_window_4.connect(self.show_mostra_search)
+        self.etichetta.switch_window_k.connect(self.show_logout)
         if self.check_login_page is True:
             self.login.close()
             self.check_login_page = False
@@ -367,6 +371,8 @@ class Controller:
     """Controlle Logout"""
 
     def show_logout(self):
+        self.pop_message(text="arrivederci")
+
         if self.check_login_page is True:
             self.login.close()
             self.check_login_page = False
@@ -376,9 +382,59 @@ class Controller:
             self.check_newuser_page = False
 
         if self.check_home_ascoltatore is True:
-            self.show_home_ascoltatore.close()
+            self.ascoltatore.close()
             self.check_home_ascoltatore = False
 
+        if self.check_home_artista is True:
+            self.artista.close()
+            self.check_home_artista = False
+
+        if self.check_home_etichetta is True:
+            self.etichetta.close()
+            self.check_home_etichetta = False
+
+        if self.check_home_etichetta is True:
+            self.etichetta.close()
+            self.check_home_etichetta = False
+
+        if self.check_impostazioni_ascoltatore is True:
+            self.impostazioni_ascoltatore.close()
+            self.check_impostazioni_ascoltatore = False
+
+        if self.check_edit_ascoltatore is True:
+            self.EditAscoltatore.close()
+            self.check_edit_ascoltatore = False
+
+        if self.check_impostazioni_artista is True:
+            self.impostazioni_artista.close()
+            self.check_impostazioni_artista = False
+
+        if self.check_edit_artista is True:
+            self.EditArtista.close()
+            self.check_edit_artista = False
+
+        if self.check_impostazioni_etichetta is True:
+            self.impostazioni_etichetta.close()
+            self.check_impostazioni_etichetta = False
+
+        if self.check_conferma_credenziali is True:
+            self.conferma_credenziali.close()
+            self.check_conferma_credenziali= False
+
+        if self.check_conferma_edit is True:
+            self.conferma_edit.close()
+            self.check_conferma_edit = False
+
+        if self.check_mostra_tutto is True:
+            self.player.close()
+            self.check_mostra_tutto = False
+
+        if self.check_mostra_search is True:
+            self.search.close()
+            self.check_mostra_search= False
+
+        if self.check_login_page is False:
+            self.show_login_page()
 
 
 
