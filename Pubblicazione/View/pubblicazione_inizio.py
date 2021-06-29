@@ -36,12 +36,12 @@ class pubblicazione_inizio(object):
                                        "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_album.setObjectName("pushButton_2")
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(155, 50, 121, 31))
+        self.label.setGeometry(QtCore.QRect(155, 50, 130, 34))
         self.label.setStyleSheet("color: rgb(221, 215, 25);\n"
 "font: 30pt \".SF NS Text\";")
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(Form)
-        self.label_2.setGeometry(QtCore.QRect(170, 90, 91, 16))
+        self.label_2.setGeometry(QtCore.QRect(172, 90, 91, 16))
         self.label_2.setObjectName("label_2")
         self.label_2.setStyleSheet("color: rgb(207, 211, 211);\n")
 
@@ -53,13 +53,13 @@ class pubblicazione_inizio(object):
         Form.setWindowTitle(_translate("Form", "Form"))
         self.btn_brano.setText(_translate("Form", "Brano"))
         self.btn_album.setText(_translate("Form", "Album"))
-        self.label.setText(_translate("Form", "PySound"))
+        self.label.setText(_translate("Form", "PyLemon"))
         self.label_2.setText(_translate("Form", "Pubblicazione"))
 
 
-#app = QApplication([])
-#window = QWidget()
-#form = pubblicazione_inizio()
-#form.setupUi(window)
-#window.show()
-#app.exec()
+'''app = QApplication([])
+window = QWidget()
+form = pubblicazione_inizio()
+form.setupUi(window)
+window.show()
+app.exec()'''

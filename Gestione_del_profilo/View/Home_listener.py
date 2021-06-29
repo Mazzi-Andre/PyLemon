@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication, QWidget
 
 
@@ -18,7 +19,7 @@ class home_ascoltatore(object):
         Form.resize(651, 508)
         Form.setStyleSheet("background-color: rgb(40, 39, 39);")
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(10, 20, 381, 41))
+        self.label.setGeometry(QtCore.QRect(18, 20, 381, 41))
         self.label.setStyleSheet("color: rgb(221, 215, 25);\n"
 "font: 30pt \".AppleSystemUIFont\";")
         self.label.setObjectName("label")
@@ -37,11 +38,14 @@ class home_ascoltatore(object):
         """Btn search"""
         self.btn_search = QtWidgets.QPushButton(Form)
         self.btn_search.setGeometry(QtCore.QRect(25, 130, 70, 61))
-        self.btn_search.setStyleSheet("*{border: 1px solid rgb(207, 207, 207);"   #border per i bordi
+        self.btn_search.setStyleSheet("*{border: 1px solid rgb(40, 39, 39);"   #border per i bordi
                                        "border-radius: 20px;\n"
                                        "color: 'white';}" +
-                                       "*:hover{background: rgb(207, 207, 207);\n}")
+                                       "*:hover{background: rgb(130, 130, 130);\n}")
+        self.btn_search.setText("")
         self.btn_search.setObjectName("pushButton_4")
+        self.btn_search.setIcon(QIcon('Lente.png'))
+        self.btn_search.setIconSize(QtCore.QSize(120, 120))
 
         """Linea Search"""
 
@@ -118,25 +122,40 @@ class home_ascoltatore(object):
                                        "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_Logout.setObjectName("pushButton_4")
 
+        self.btn_limone = QtWidgets.QPushButton(Form)
+        self.btn_limone.setGeometry(QtCore.QRect(537, 430, 55, 50))
+        font = QtGui.QFont()
+        self.btn_limone.setFont(font)
+        self.btn_limone.setStyleSheet("*{border: 0.5px solid rgb(40, 39, 39);"   #border per i bordi
+                                       "border-radius: 25px;\n"
+                                       "font: 10pt \"Arial\";"
+                                       "color: 'white';}")
+        self.btn_limone.setText("")
+        self.btn_limone.setObjectName("btn_limone")
+        self.btn_limone.setIcon(QIcon('Limone.png'))
+        self.btn_limone.setIconSize(QtCore.QSize(75, 75))
+
+
+
+
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.label.setText(_translate("Form", "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600; font-style:italic;\">PySound Label</span></p></body></html>"))
-        #self.txt_nome.setPlaceholderText(_translate("Form", "  Search..."))
-        self.label.setText(_translate("Form", "PySound listener"))
+        self.label.setText(_translate("Form", "PyLemon listener"))
         self.btn_mostraTutte.setText(_translate("Form", "Mostra tutte"))
         self.btn_Impostazioni.setText(_translate("Form", "Impostazioni"))
         self.btn_Logout.setText(_translate("Form", "Log out"))
-        self.btn_search.setText(_translate("Form", "Cerca"))
+        self.btn_search.setText(_translate("Form", ""))
+        self.btn_limone.setText(_translate("Form", ""))
 
         self.txt_nome.setPlaceholderText(_translate("Form", "  Search..."))
 
-"""app = QApplication([])
+'''app = QApplication([])
 window = QWidget()
 form = home_ascoltatore()
 form.setupUi(window)
 window.show()
-app.exec()"""
+app.exec()'''
