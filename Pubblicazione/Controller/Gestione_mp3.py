@@ -10,7 +10,7 @@ class Gestione_mp3():
             self.json_contatore = json.load(j)
 
 
-    # percorsofile è una stringa che indica dove si trova il file e sarà del tipo C:\\Desktop\\ciao.mp3
+
     def Carica_mp3(self, percorsofile):
         contatoreid = self.json_contatore["contatore_id"]
         if os.path.isfile(percorsofile):

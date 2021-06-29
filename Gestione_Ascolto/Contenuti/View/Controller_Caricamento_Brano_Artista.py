@@ -7,15 +7,15 @@ from PyQt5.QtWidgets import QApplication, QWidget, QComboBox, QPushButton, QFile
 
 from Pubblicazione.View.Caricamento_brano_Artista import Caricamento_brano
 from Data_Utente.control.Data_control import DataPick
-from Brani.Model.Brano import Brano
-from Brani.Controller.ControllerBrano import ControllerBrano
+
 from Pubblicazione.Controller.Gestione_json import Gestione_json
 from Pubblicazione.Controller.Gestione_mp3 import Gestione_mp3
 from Pubblicazione.Controller.Controller_Richiesta_nBrani import Controller_Richiesta_nBrani
 
 class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano):
+    switch_window = QtCore.pyqtSignal()
 
-    def __init__(self):
+    def __init__(self,verifica_album, nome_album):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
         self.pick = DataPick()
@@ -23,7 +23,8 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
         self.nomeartista = self.myData[1]
         self.cognomeartista = self.myData[2]
 
-        self.album = Controller_Richiesta_nBrani
+        self.verifica_album = verifica_album
+        self.nome_album = nome_album
 
         self.btn_scegli_file.clicked.connect(self.btn_scegli_file_handler)
         self.btn_pubblica.clicked.connect(self.btn_pubblica_handler)
@@ -43,18 +44,19 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
             J = Gestione_json()
             G.Carica_mp3(newfile2)
             nome = self.txt_nome_brano.text()
-            #self.brano.artista == "":
+            #if self.brano.artista == "":
             artista = self.nomeartista + " " + self.cognomeartista
-             #da inserire il nome dell'artista presa dalla schermata prima, nel caso in cui a caricare il brano o album sia un etichetta
-            #if self.brano.album == "":
-            album = nome
-            #else: self.brano.album =self.album.nome_album
+            if self.verifica_album == False:
+                album = nome
+            else: album = self.nome_album
             contatore = 0
             id = G.json_contatore["contatore_id"]
             J.carica_brano_su_JSON(nome,artista,album,id,contatore)
             self.pop_message(text="Brano caricato con successo.")
+            if self.verifica_album == True:
+                self.switch_window.emit()
         #else: self.pop_message(text="Indicare il file mp3 da caricare")
-        #da chiudere poi la finestra
+
 
 
 
