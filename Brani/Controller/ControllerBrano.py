@@ -46,7 +46,7 @@ class eliminazione_brani_album:
 
     def eliminazione_album(self, nome_album):
         def selected_album(album):
-            if album.nome_album == nome_album:
+            if album.nBrani == nome_album:
                 return True
             return False
         self.lista_album.remove(list(filter(selected_album, self.lista_album))[0]) #lista_album sarebbe il pickle load cioè la lettura del pickle con dentro gli album
