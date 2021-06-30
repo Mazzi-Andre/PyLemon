@@ -44,7 +44,7 @@ class controller_mostra_tutto(QtWidgets.QWidget, Ui_Player):
             g = Gestione_json()
             g.incremento_conta(titolo_prev, album_prev)
             self.listen.path_riproduzione = path
-            self.listen.play(path,float(self.horizontalSlider.value()/10))
+            self.listen.play(path,float(self.horizontalSlider.value()/10),self.isActiveWindow())
 
         elif self.check_next and self.riga_locale == self.table.currentRow():
             titolo_next = self.table.item(self.riga, 0).text()
