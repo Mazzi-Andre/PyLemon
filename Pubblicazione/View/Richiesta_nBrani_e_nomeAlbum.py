@@ -46,7 +46,7 @@ class Ui_Form(object):
 "color: rgb(0, 0, 0);\n"
 "border-radius: 10px;")
 
-        self.pushButton_2.setObjectName("pushButton_2")
+        self.btn_ok.setObjectName("pushButton_2")
 
 
         self.lineEdit_2 = QtWidgets.QLineEdit(Form)
@@ -55,7 +55,7 @@ class Ui_Form(object):
 "border-radius: 5px;")
         self.lineEdit_2.setObjectName("lineEdit_2")
 
-        self.btn_ok.setObjectName("pushButton_2")
+        #self.btn_ok.setObjectName("pushButton_2")
 
 
         self.txt_nBrani = QtWidgets.QLineEdit(Form)

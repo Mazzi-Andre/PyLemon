@@ -11,11 +11,25 @@ class Controller_Richiesta_nBrani(QtWidgets.QWidget, Ui_Form):
 
         self.btn_ok.clicked.connect(self.btn_ok_handler)
 
-        self.nBrani = self.txt_nBrani.text()
-        self.nome_album = self.txt_nome_album.text()
 
 
     def btn_ok_handler(self):
-
+        self.inizializzazione()
         self.switch_window.emit()
+
+    def inizializzazione(self):
+        self.nBrani =  self.txt_nome_album.text()
+        self.nome_album = self.txt_nBrani.text()
+
+    #def get_nBrani(self):
+        #return self.nBrani
+
+    #def get_nome_album(self):
+        #return self.nome_album
+
+
+
+
+
+
 
