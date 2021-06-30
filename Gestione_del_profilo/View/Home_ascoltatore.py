@@ -19,25 +19,27 @@ class home_ascoltatore(object):
         Form.resize(651, 508)
         Form.setStyleSheet("background-color: rgb(40, 39, 39);")
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(18, 20, 381, 41))
+        self.label.setGeometry(QtCore.QRect(180, 20, 381, 41))
         self.label.setStyleSheet("color: rgb(221, 215, 25);\n"
 "font: 30pt \".AppleSystemUIFont\";")
         self.label.setObjectName("label")
 
         """Btn mostra tutte"""
         self.btn_mostraTutte = QtWidgets.QPushButton(Form)
-        self.btn_mostraTutte.setGeometry(QtCore.QRect(460, 130, 111, 61))
-        self.btn_mostraTutte.setStyleSheet("*{background-color: rgb(207, 207, 207);\n"
-"color: rgb(0, 0, 0);\n"
-"border-radius: 20px;\n"
-"color: rgb(0, 0, 0);\n}"
-"*:hover{border: 5px solid rgb(221, 215, 25);\n}")
+        self.btn_mostraTutte.setGeometry(QtCore.QRect(490, 125, 80, 70))
+        self.btn_mostraTutte.setStyleSheet("*{border: 1px solid rgb(40, 39, 39);"   #border per i bordi
+                                           "border-radius: 20px;\n"
+                                           "color: 'white';}" +
+                                           "*:hover{background: rgb(130, 130, 130);\n}")
 
+        self.btn_mostraTutte.setText("")
         self.btn_mostraTutte.setObjectName("pushButton")
+        self.btn_mostraTutte.setIcon(QIcon('Show_all_icon.png'))
+        self.btn_mostraTutte.setIconSize(QtCore.QSize(60, 60))
 
         """Btn search"""
         self.btn_search = QtWidgets.QPushButton(Form)
-        self.btn_search.setGeometry(QtCore.QRect(25, 130, 70, 61))
+        self.btn_search.setGeometry(QtCore.QRect(55, 130, 70, 61))
         self.btn_search.setStyleSheet("*{border: 1px solid rgb(40, 39, 39);"   #border per i bordi
                                        "border-radius: 20px;\n"
                                        "color: 'white';}" +
@@ -50,7 +52,7 @@ class home_ascoltatore(object):
         """Linea Search"""
 
         self.txt_nome = QtWidgets.QLineEdit(Form)
-        self.txt_nome.setGeometry(QtCore.QRect(110, 130, 331, 61))
+        self.txt_nome.setGeometry(QtCore.QRect(140, 130, 331, 61))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -144,8 +146,8 @@ class home_ascoltatore(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.label.setText(_translate("Form", "PyLemon listener"))
-        self.btn_mostraTutte.setText(_translate("Form", "Mostra tutte"))
+        self.label.setText(_translate("Form", "PyLemon ascoltatore"))
+        self.btn_mostraTutte.setText(_translate("Form", ""))
         self.btn_Impostazioni.setText(_translate("Form", "Impostazioni"))
         self.btn_Logout.setText(_translate("Form", "Log out"))
         self.btn_search.setText(_translate("Form", ""))

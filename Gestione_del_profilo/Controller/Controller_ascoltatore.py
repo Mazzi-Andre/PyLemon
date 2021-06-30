@@ -5,13 +5,14 @@ from PyQt5 import QtWidgets
 
 from Data_Utente.control.Data_control import DataPick
 
-from Gestione_del_profilo.View.Home_listener import home_ascoltatore
+from Gestione_del_profilo.View.Home_ascoltatore import home_ascoltatore
 
 
 class controller_ascoltatore(QtWidgets.QWidget, DataPick, home_ascoltatore):
     switch_window_1 = QtCore.pyqtSignal()
     switch_window_2 = QtCore.pyqtSignal()
     switch_window_4 = QtCore.pyqtSignal()
+    switch_window_5 = QtCore.pyqtSignal()
     switch_window_k = QtCore.pyqtSignal()
 
     def __init__(self):
@@ -24,6 +25,7 @@ class controller_ascoltatore(QtWidgets.QWidget, DataPick, home_ascoltatore):
         self.btn_Logout.clicked.connect(self.btn_LogOut_handler)
         self.btn_search.clicked.connect(self.put_data)
         self.btn_search.clicked.connect(self.btn_MostraSearch_handler)
+        self.btn_limone.clicked.connect(self.btn_limone_handler)
 
 
 
@@ -43,6 +45,9 @@ class controller_ascoltatore(QtWidgets.QWidget, DataPick, home_ascoltatore):
 
     def btn_MostraSearch_handler(self):
         self.switch_window_4.emit()
+
+    def btn_limone_handler(self):
+        self.switch_window_5.emit()
 
     def btn_LogOut_handler(self):
         self.switch_window_k.emit()

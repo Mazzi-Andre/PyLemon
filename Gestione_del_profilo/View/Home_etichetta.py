@@ -45,14 +45,16 @@ class home_etichetta(object):
 
         """Btn mostra tutte"""
         self.btn_mostraTutte = QtWidgets.QPushButton(Form)
-        self.btn_mostraTutte.setGeometry(QtCore.QRect(460, 130, 111, 61))
-        self.btn_mostraTutte.setStyleSheet("*{background-color: rgb(207, 207, 207);\n"
-"color: rgb(0, 0, 0);\n"
-"border-radius: 20px;\n"
-"color: rgb(0, 0, 0);\n}"
-"*:hover{border: 5px solid rgb(221, 215, 25);\n}")
+        self.btn_mostraTutte.setGeometry(QtCore.QRect(460, 130, 90, 61))
+        self.btn_mostraTutte.setStyleSheet("*{border: 1px solid rgb(40, 39, 39);"  # border per i bordi
+                                           "border-radius: 20px;\n"
+                                           "color: 'white';}" +
+                                           "*:hover{background: rgb(130, 130, 130);\n}")
 
+        self.btn_mostraTutte.setText("")
         self.btn_mostraTutte.setObjectName("pushButton")
+        self.btn_mostraTutte.setIcon(QIcon('Show_all_icon.png'))
+        self.btn_mostraTutte.setIconSize(QtCore.QSize(60, 60))
 
         """Btn search"""
         self.btn_search = QtWidgets.QPushButton(Form)
@@ -92,7 +94,7 @@ class home_etichetta(object):
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
         self.btn_Pubblica = QtWidgets.QPushButton(Form)
-        self.btn_Pubblica.setGeometry(QtCore.QRect(800, 300, 91, 21))
+        self.btn_Pubblica.setGeometry(QtCore.QRect(800, 350, 91, 21))
         self.btn_Pubblica.setMouseTracking(True)
         self.btn_Pubblica.setTabletTracking(True)
         self.btn_Pubblica.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
@@ -102,7 +104,7 @@ class home_etichetta(object):
                                        "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_Pubblica.setObjectName("pushButton_2")
         self.btn_Impostazioni = QtWidgets.QPushButton(Form)
-        self.btn_Impostazioni.setGeometry(QtCore.QRect(800, 400, 91, 21))
+        self.btn_Impostazioni.setGeometry(QtCore.QRect(800, 300, 91, 21))
         self.btn_Impostazioni.setMouseTracking(True)
         self.btn_Impostazioni.setTabletTracking(True)
         self.btn_Impostazioni.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"   #border per i bordi
@@ -112,7 +114,7 @@ class home_etichetta(object):
                                        "*:hover{background: rgb(221, 215, 25);\n}") #hover: quando passo con la freccetta sopra al bordo cambia colore
         self.btn_Impostazioni.setObjectName("pushButton_3")
         self.btn_Logout = QtWidgets.QPushButton(Form)
-        self.btn_Logout.setGeometry(QtCore.QRect(800, 350, 91, 21))
+        self.btn_Logout.setGeometry(QtCore.QRect(800, 400, 91, 21))
         self.btn_Logout.setMouseTracking(True)
         self.btn_Logout.setTabletTracking(True)
         self.btn_Logout.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
@@ -167,8 +169,8 @@ class home_etichetta(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Etichetta"))
         self.txt_nome.setPlaceholderText(_translate("Form", "  Search..."))
-        self.label.setText(_translate("Form", "PyLemon label"))
-        self.btn_mostraTutte.setText(_translate("Form", "Mostra tutte"))
+        self.label.setText(_translate("Form", "PyLemon etichetta"))
+        self.btn_mostraTutte.setText(_translate("Form", ""))
         self.btn_Pubblica.setText(_translate("Form", "Pubblica"))
         self.btn_Impostazioni.setText(_translate("Form", "Impostazioni"))
         self.btn_Logout.setText(_translate("Form", "Log out"))
