@@ -102,17 +102,34 @@ class Discovery(QtWidgets.QWidget, Ui_Discovery):
         self.switch_window.emit()
 
 
+
+
+
 class Controller:
 
     def __init__(self):
-        self.cont_ascoltatore = False
-        self.cont_artista = False
+        self.check_login_page = False
+        self.check_newuser_page = False
+        self.check_home_ascoltatore = False
+        self.check_home_artista = False
+        self.check_home_etichetta = False
+        self.check_pubblicazione_inizio = False
+        self.check_pubblicazione_brano = False
+        self.check_pubblicazione_album = False
+        self.check_impostazioni_ascoltatore = False
+        self.check_edit_ascoltatore = False
+        self.check_impostazioni_artista = False
+        self.check_edit_artista = False
+        self.check_impostazioni_etichetta = False
         self.check_conferma_credenziali = False
         self.check_conferma_edit = False
+        self.check_mostra_tutto = False
+        self.check_mostra_search = False
         self.verifica_album = False
         self.Richiesta_nBrani = Controller_Richiesta_nBrani()
         self.conta_brani_artista = 0
         self.conta_brani_etichetta = 0
+        
 
 
     """FINESTRA POP UP"""
@@ -130,6 +147,10 @@ class Controller:
         self.login.switch_window1.connect(self.show_home_ascoltatore)
         self.login.switch_window2.connect(self.show_home_artista)
         self.login.switch_window3.connect(self.show_home_etichetta)
+        if self.check_newuser_page is True:
+            self.newuser.close()
+            self.check_newuser_page = False
+        self.check_login_page = True
         self.login.show()
 
     '''
@@ -144,17 +165,20 @@ class Controller:
             '''
 
     def show_newuser_page(self):
-
         self.newuser = Newuser()
         self.newuser.switch_window.connect(self.show_login_page)
-        self.login.close()
+        if self.check_login_page is True:
+            self.login.close()
+            self.check_login_page = False
+        self.check_newuser_page = True
         self.newuser.show()
 
+    """
     def show_discovery(self):
         self.discovery = Discovery()
         self.discovery.switch_window.connect(self.show_login_page)
         self.login.close()
-        self.discovery.show()
+        self.discovery.show()"""
 
     """---------------------------------------------------------------------------------------------"""
 
@@ -164,7 +188,11 @@ class Controller:
         self.ascoltatore.switch_window_1.connect(self.show_impostazioni_ascoltatore)
         self.ascoltatore.switch_window_2.connect(self.show_mostra_tutto)
         self.ascoltatore.switch_window_4.connect(self.show_mostra_search)
-        self.login.close()
+        self.ascoltatore.switch_window_k.connect(self.show_logout)
+        if self.check_login_page is True:
+            self.login.close()
+            self.check_login_page = False
+        self.check_home_ascoltatore = True
         self.ascoltatore.show()
 
     def show_home_artista(self):
@@ -173,7 +201,11 @@ class Controller:
         self.artista.switch_window_2.connect(self.show_mostra_tutto)
         self.artista.switch_window_3.connect(self.show_pubblicazione_inizio)
         self.artista.switch_window_4.connect(self.show_mostra_search)
-        self.login.close()
+        self.artista.switch_window_k.connect(self.show_logout)
+        if self.check_login_page is True:
+            self.login.close()
+            self.check_login_page = False
+        self.check_home_artista = True
         self.artista.show()
 
     def show_home_etichetta(self):
@@ -184,6 +216,11 @@ class Controller:
         self.etichetta.switch_window_4.connect(self.show_mostra_search)
         self.verifica_etichetta = True
         self.login.close()
+        self.etichetta.switch_window_k.connect(self.show_logout)
+        if self.check_login_page is True:
+            self.login.close()
+            self.check_login_page = False
+        self.check_home_etichetta= True
         self.etichetta.show()
 
 
@@ -254,9 +291,9 @@ class Controller:
         self.impostazioni_ascoltatore.switch_window_1.connect(self.show_conferma_edit)
         self.impostazioni_ascoltatore.switch_window.connect(self.show_conferma_credenziali)
 
-        if self.cont_ascoltatore is True:
+        if self.check_edit_ascoltatore is True:
             self.EditAscoltatore.close()
-            self.cont_ascoltatore = False
+            self.check_edit_ascoltatore = False
 
         if self.check_conferma_credenziali is True:
             self.conferma_credenziali.close()
@@ -265,7 +302,7 @@ class Controller:
         if self.check_conferma_edit is True:
             self.conferma_edit.close()
             self.check_conferma_edit = False
-
+        self.check_impostazioni_ascoltatore = True
         self.impostazioni_ascoltatore.show()
 
     def show_edit_ascoltatore(self):
@@ -277,11 +314,8 @@ class Controller:
             self.conferma_edit.close()
             self.check_conferma_edit = False
 
-        self.cont_ascoltatore = True
+        self.check_edit_ascoltatore = True
         self.EditAscoltatore.show()
-
-
-
 
 
     """Controller impostazioni artista"""
@@ -292,9 +326,9 @@ class Controller:
         self.impostazioni_artista.switch_window_1.connect(self.show_conferma_edit)
         self.impostazioni_artista.switch_window.connect(self.show_conferma_credenziali)
 
-        if self.cont_artista is True:
+        if self.check_edit_artista is True:
             self.EditArtista.close()
-            self.cont_artista = False
+            self.check_edit_artista = False
 
         if self.check_conferma_credenziali is True:
             self.conferma_credenziali.close()
@@ -304,6 +338,7 @@ class Controller:
             self.conferma_edit.close()
             self.check_conferma_edit = False
 
+        self.check_impostazioni_artista = True
         self.impostazioni_artista.show()
 
     def show_edit_artista(self):
@@ -315,7 +350,7 @@ class Controller:
             self.conferma_edit.close()
             self.check_conferma_edit = False
 
-        self.cont_artista = True
+        self.check_edit_artista = True
         self.EditArtista.show()
 
 
@@ -329,7 +364,7 @@ class Controller:
         if self.check_conferma_credenziali is True:
             self.conferma_credenziali.close()
             self.check_conferma_credenziali = False
-
+        self.check_impostazioni_etichetta = True
         self.impostazioni_etichetta.show()
 
 
@@ -361,14 +396,86 @@ class Controller:
         self.conferma_edit.show()
 
 
-    '''----------Player----------'''
+    """Controlle Player e ricerca canzoni"""
+
     def show_mostra_tutto(self):
         self.player = controller_mostra_tutto()
+        self.check_mostra_tutto = True
         self.player.show()
 
     def show_mostra_search(self):
         self.search = controller_mostra_search()
+        self.check_mostra_search = True
         self.search.show()
+
+    """Controlle Logout"""
+
+    def show_logout(self):
+        self.pop_message(text="arrivederci")
+
+        if self.check_login_page is True:
+            self.login.close()
+            self.check_login_page = False
+
+        if self.check_newuser_page is True:
+            self.newuser.close()
+            self.check_newuser_page = False
+
+        if self.check_home_ascoltatore is True:
+            self.ascoltatore.close()
+            self.check_home_ascoltatore = False
+
+        if self.check_home_artista is True:
+            self.artista.close()
+            self.check_home_artista = False
+
+        if self.check_home_etichetta is True:
+            self.etichetta.close()
+            self.check_home_etichetta = False
+
+        if self.check_home_etichetta is True:
+            self.etichetta.close()
+            self.check_home_etichetta = False
+
+        if self.check_impostazioni_ascoltatore is True:
+            self.impostazioni_ascoltatore.close()
+            self.check_impostazioni_ascoltatore = False
+
+        if self.check_edit_ascoltatore is True:
+            self.EditAscoltatore.close()
+            self.check_edit_ascoltatore = False
+
+        if self.check_impostazioni_artista is True:
+            self.impostazioni_artista.close()
+            self.check_impostazioni_artista = False
+
+        if self.check_edit_artista is True:
+            self.EditArtista.close()
+            self.check_edit_artista = False
+
+        if self.check_impostazioni_etichetta is True:
+            self.impostazioni_etichetta.close()
+            self.check_impostazioni_etichetta = False
+
+        if self.check_conferma_credenziali is True:
+            self.conferma_credenziali.close()
+            self.check_conferma_credenziali= False
+
+        if self.check_conferma_edit is True:
+            self.conferma_edit.close()
+            self.check_conferma_edit = False
+
+        if self.check_mostra_tutto is True:
+            self.player.close()
+            self.check_mostra_tutto = False
+
+        if self.check_mostra_search is True:
+            self.search.close()
+            self.check_mostra_search= False
+
+        if self.check_login_page is False:
+            self.show_login_page()
+
 
 
 

@@ -22,7 +22,7 @@ class Caricamento_brano_etichetta(object):
         self.label_2.setStyleSheet("color: rgb(207, 211, 211);")
         self.label_2.setObjectName("label_2")
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(172, 30, 131, 41))
+        self.label.setGeometry(QtCore.QRect(170, 30, 131, 41))
         self.label.setStyleSheet("color: rgb(221, 215, 25);\n"
 "font: 30pt \".AppleSystemUIFont\";")
         self.label.setObjectName("label")
@@ -36,13 +36,28 @@ class Caricamento_brano_etichetta(object):
                                             "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_Scegli_file.setObjectName("pushButton")
         self.btn_Pubblica = QtWidgets.QPushButton(Form)
-        self.btn_Pubblica.setGeometry(QtCore.QRect(190, 280, 81, 21))
+        self.btn_Pubblica.setGeometry(QtCore.QRect(130, 280, 81, 21))
         self.btn_Pubblica.setMouseTracking(True)
         self.btn_Pubblica.setTabletTracking(True)
-        self.btn_Pubblica.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);\n"
-"border-radius: 10px;")
+        self.btn_Pubblica.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
+                                        "border-radius: 10px;\n"
+                                        "color: 'white';}" +
+                                        "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_Pubblica.setObjectName("pushButton_2")
+
+
+        self.btn_Back = QtWidgets.QPushButton(Form)
+        self.btn_Back.setGeometry(QtCore.QRect(250, 280, 81, 21))
+        self.btn_Back.setMouseTracking(True)
+        self.btn_Back.setTabletTracking(True)
+        self.btn_Back.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
+                                    "border-radius: 10px;\n"
+                                    "color: 'white';}" +
+                                    "*:hover{background: rgb(221, 215, 25);\n}")
+        self.btn_Back.setObjectName("btn_back")
+
+
+
         self.lineEdit = QtWidgets.QLineEdit(Form)
         self.lineEdit.setGeometry(QtCore.QRect(30, 190, 181, 31))
         self.lineEdit.setStyleSheet("background-color: rgb(255, 255, 255);\n"
@@ -69,9 +84,10 @@ class Caricamento_brano_etichetta(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.label_2.setText(_translate("Form", "Pubblicazione brano"))
-        self.label.setText(_translate("Form", "PySound"))
+        self.label.setText(_translate("Form", "PyLemon"))
         self.btn_Scegli_file.setText(_translate("Form", "Scegli file"))
         self.btn_Pubblica.setText(_translate("Form", "Pubblica"))
+        self.btn_Back.setText(_translate("Form", "Back"))
         self.label_3.setText(_translate("Form", "Nome brano:"))
         self.label_4.setText(_translate("Form", "Nome artista:"))
 

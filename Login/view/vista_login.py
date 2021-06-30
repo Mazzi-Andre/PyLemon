@@ -25,7 +25,7 @@ class Ui_Outsecure(object):
 
         """Label del titolo"""
         self.l_title = QtWidgets.QLabel(Outsecure)
-        self.l_title.setGeometry(QtCore.QRect(195, 30, 140, 71))
+        self.l_title.setGeometry(QtCore.QRect(220, 30, 140, 71))
         self.l_title.setStyleSheet("color: rgb(221, 215, 25);\n"
                                    "font: 30pt \".SF NS Text\";")
         self.l_title.setObjectName("l_title")
@@ -81,7 +81,8 @@ class Ui_Outsecure(object):
         _translate = QtCore.QCoreApplication.translate
         Outsecure.setWindowTitle(_translate("Outsecure", "Form"))
         self.l_title.setText(_translate("Outsecure",
-                                        "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600; font-style:italic;\">PySound</span></p></body></html>"))
+                                        "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600; font-style:italic;\">PyLemon</span></p></body></html>"))
+        #self.l_title.setText(_translate("Outsecure", "PyLemon"))
         self.btn_Submit.setText(_translate("Outsecure", "Accedi"))
         self.btn_newuser.setText(_translate("Outsecure", "Nuovo utente"))
         # self.l_copyright.setText(_translate("Outsecure", "This software belongs to OutSecure ")) # serve per la scritta del copyright

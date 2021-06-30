@@ -85,7 +85,7 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.label.setText(_translate("Form", "PySound"))
+        self.label.setText(_translate("Form", "PyLemon"))
         self.label_3.setText(_translate("Form", "Inserisci il numero di brani nell\'album:"))
         self.btn_ok.setText(_translate("Form", "Ok"))
         self.label_4.setText(_translate("Form", "Nome album:"))

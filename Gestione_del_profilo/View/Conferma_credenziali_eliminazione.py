@@ -18,7 +18,7 @@ class conferma_credenziali(object):
         Form.resize(322, 311)
         Form.setStyleSheet("background-color: rgb(40, 39, 39);")
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(100, 30, 121, 41))
+        self.label.setGeometry(QtCore.QRect(100, 30, 130, 41))
         self.label.setStyleSheet("color: rgb(221, 215, 25);\n"
 "font: 30pt \".AppleSystemUIFont\";")
         self.label.setObjectName("label")
@@ -64,20 +64,18 @@ class conferma_credenziali(object):
         self.btn_Back.setMouseTracking(True)
         self.btn_Back.setTabletTracking(True)
         self.btn_Back.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
-                                       "border-radius: 10px;\n"
-                                       "font: 10pt \"Arial\";"
-                                       "color: 'white';}" +
-                                       "*:hover{background: rgb(221, 215, 25);\n}")
+                                    "border-radius: 10px;\n"
+                                    "color: 'white';}" +
+                                    "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_Back.setObjectName("pushButton_3")
         self.btn_Ok = QtWidgets.QPushButton(Form)
         self.btn_Ok.setGeometry(QtCore.QRect(170, 260, 81, 21))
         self.btn_Ok.setMouseTracking(True)
         self.btn_Ok.setTabletTracking(True)
         self.btn_Ok.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
-                                       "border-radius: 10px;\n"
-                                       "font: 10pt \"Arial\";"
-                                       "color: 'white';}" +
-                                       "*:hover{background: rgb(221, 215, 25);\n}")
+                                  "border-radius: 10px;\n"
+                                  "color: 'white';}" +
+                                  "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_Ok.setObjectName("pushButton_4")
 
         self.retranslateUi(Form)
@@ -86,7 +84,7 @@ class conferma_credenziali(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.label.setText(_translate("Form", "PySound"))
+        self.label.setText(_translate("Form", "PyLemon"))
         self.label_2.setText(_translate("Form", "Per confermare inserire le credenziali"))
         self.label_Username.setText(_translate("Form", "Username:"))
         self.label_Password.setText(_translate("Form", "Password:"))
@@ -96,9 +94,9 @@ class conferma_credenziali(object):
         self.txt_username.setPlaceholderText(_translate("Form", ""))
         self.txt_password.setPlaceholderText(_translate("Form", ""))
 
-"""app = QApplication([])
+'''app = QApplication([])
 window = QWidget()
 form = conferma_credenziali()
 form.setupUi(window)
 window.show()
-app.exec()"""
+app.exec()'''
