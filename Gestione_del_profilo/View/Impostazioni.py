@@ -30,7 +30,7 @@ class impostazioni(object):
         self.label_2.setStyleSheet("color: rgb(207, 211, 211);")
         self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(Form)
-        self.label_3.setGeometry(QtCore.QRect(50, 120, 191, 16))
+        self.label_3.setGeometry(QtCore.QRect(50, 120, 250, 16))
         self.label_3.setStyleSheet("color: rgb(207, 211, 211);")
         self.label_3.setObjectName("label_3")
         self.btn_EliminaAccount = QtWidgets.QPushButton(Form)

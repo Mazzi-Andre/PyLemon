@@ -11,6 +11,7 @@ from Gestione_del_profilo.Controller.Controller_artista import controller_artist
 from Gestione_del_profilo.Controller.Controller_ascoltatore import controller_ascoltatore
 from Gestione_del_profilo.Controller.Controller_conferma_credenziali import controller_conferma_credenziali
 from Gestione_del_profilo.Controller.Controller_conferma_edit import controller_conferma_edit
+from Gestione_del_profilo.Controller.Controller_easter_egg import controller_easter_egg
 from Gestione_del_profilo.Controller.Controller_edit_artista import controller_edit_artista
 from Gestione_del_profilo.Controller.Controller_edit_ascoltatore import controller_edit_ascoltatore
 from Gestione_del_profilo.Controller.Controller_impostazioni import controller_impostazioni
@@ -190,6 +191,7 @@ class Controller:
         self.ascoltatore.switch_window_1.connect(self.show_impostazioni_ascoltatore)
         self.ascoltatore.switch_window_2.connect(self.show_mostra_tutto)
         self.ascoltatore.switch_window_4.connect(self.show_mostra_search)
+        self.ascoltatore.switch_window_5.connect(self.show_easter_egg)
         self.ascoltatore.switch_window_k.connect(self.show_logout)
         if self.check_login_page is True:
             self.login.close()
@@ -203,6 +205,7 @@ class Controller:
         self.artista.switch_window_2.connect(self.show_mostra_tutto)
         self.artista.switch_window_3.connect(self.show_pubblicazione_inizio)
         self.artista.switch_window_4.connect(self.show_mostra_search)
+        self.artista.switch_window_5.connect(self.show_easter_egg)
         self.artista.switch_window_k.connect(self.show_logout)
         if self.check_login_page is True:
             self.login.close()
@@ -217,6 +220,9 @@ class Controller:
         self.etichetta.switch_window_1.connect(self.show_impostazioni_etichetta)
         self.etichetta.switch_window_4.connect(self.show_mostra_search)
         self.check_verifica_etichetta = True
+        self.etichetta.switch_window_5.connect(self.show_easter_egg)
+
+        self.verifica_etichetta = True
         self.login.close()
         self.etichetta.switch_window_k.connect(self.show_logout)
         if self.check_login_page is True:
@@ -224,6 +230,14 @@ class Controller:
             self.check_login_page = False
         self.check_home_etichetta= True
         self.etichetta.show()
+
+
+    '''-------------------------------------------------------------------'''
+
+    def show_easter_egg(self):
+        self.easter = controller_easter_egg()
+        self.easter.show()
+
 
 
     """---------------------------------------------------------------------------------------------"""
