@@ -18,8 +18,8 @@ class Controller_Richiesta_nBrani(QtWidgets.QWidget, Ui_Form):
         self.switch_window.emit()
 
     def inizializzazione(self):
-        self.nBrani =  self.txt_nome_album.text()
-        self.nome_album = self.txt_nBrani.text()
+        self.nome_album =  self.txt_nome_album.text()
+        self.nBrani = self.txt_nBrani.text()
 
     #def get_nBrani(self):
         #return self.nBrani
