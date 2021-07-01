@@ -5,9 +5,9 @@ from PyQt5 import QtWidgets
 
 from Data_Utente.control.Data_control import DataPick
 from Gestione_Ascolto.Contenuti.View.VistaContenuti_e_player import Ui_Player
-from Gestione_del_profilo.View.Home_artist import home_artista
-from Gestione_del_profilo.View.Home_label import home_etichetta
-from Gestione_del_profilo.View.Home_listener import home_ascoltatore
+from Gestione_del_profilo.View.Home_artista import home_artista
+from Gestione_del_profilo.View.Home_etichetta import home_etichetta
+from Gestione_del_profilo.View.Home_ascoltatore import home_ascoltatore
 
 
 class controller_mostra_search(QtWidgets.QWidget, Ui_Player, DataPick, home_ascoltatore, home_etichetta, home_artista):

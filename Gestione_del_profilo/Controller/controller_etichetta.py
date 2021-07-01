@@ -4,7 +4,7 @@ from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
 from Data_Utente.control.Data_control import DataPick
-from Gestione_del_profilo.View.Home_label import home_etichetta
+from Gestione_del_profilo.View.Home_etichetta import home_etichetta
 
 
 
@@ -13,6 +13,7 @@ class controller_etichetta(QtWidgets.QWidget, DataPick, home_etichetta):
     switch_window_2 = QtCore.pyqtSignal()
     switch_window_3 = QtCore.pyqtSignal()
     switch_window_4 = QtCore.pyqtSignal()
+    switch_window_5 = QtCore.pyqtSignal()
     switch_window_k = QtCore.pyqtSignal()
 
     def __init__(self):
@@ -26,6 +27,7 @@ class controller_etichetta(QtWidgets.QWidget, DataPick, home_etichetta):
         self.btn_mostraTutte.clicked.connect(self.btn_MostraTutte_handler)
         self.btn_search.clicked.connect(self.put_data)
         self.btn_search.clicked.connect(self.btn_MostraSearch_handler)
+        self.btn_limone.clicked.connect(self.btn_limone_handler)
 
     """POP UP FINESTRA"""
 
@@ -47,6 +49,9 @@ class controller_etichetta(QtWidgets.QWidget, DataPick, home_etichetta):
 
     def btn_MostraSearch_handler(self):
         self.switch_window_4.emit()
+
+    def btn_limone_handler(self):
+        self.switch_window_5.emit()
 
     def btn_LogOut_handler(self):
         self.switch_window_k.emit()
