@@ -22,6 +22,8 @@ from Pubblicazione.Controller.Controller_Caricamento_Brano_Etichetta import Cont
 from Pubblicazione.Controller.Controller_pubblicazione_inizio import controller_pubblicazione_inizio
 from Gestione_Ascolto.Contenuti.View.Controller_Caricamento_Brano_Artista import Controller_Caricamento_Brano_Artista
 from Pubblicazione.Controller.Controller_Richiesta_nBrani import Controller_Richiesta_nBrani
+from Pubblicazione.Controller.Gestione_json import Gestione_json
+from Top10.Controller.ControllerTop10 import TopTen
 
 
 class Ui_Discovery(object):
@@ -187,7 +189,8 @@ class Controller:
 
     """Home PySound"""
     def show_home_ascoltatore(self):
-        self.ascoltatore = controller_ascoltatore()
+        Titoli_top = self.statistica_top5()
+        self.ascoltatore = controller_ascoltatore(Titoli_top)
         self.ascoltatore.switch_window_1.connect(self.show_impostazioni_ascoltatore)
         self.ascoltatore.switch_window_2.connect(self.show_mostra_tutto)
         self.ascoltatore.switch_window_4.connect(self.show_mostra_search)
@@ -200,7 +203,8 @@ class Controller:
         self.ascoltatore.show()
 
     def show_home_artista(self):
-        self.artista = controller_artista()
+        Titoli_top = self.statistica_top5()
+        self.artista = controller_artista(Titoli_top)
         self.artista.switch_window_1.connect(self.show_impostazioni_artista)
         self.artista.switch_window_2.connect(self.show_mostra_tutto)
         self.artista.switch_window_3.connect(self.show_pubblicazione_inizio)
@@ -214,7 +218,8 @@ class Controller:
         self.artista.show()
 
     def show_home_etichetta(self):
-        self.etichetta = controller_etichetta()
+        Titoli_top = self.statistica_top5()
+        self.etichetta = controller_etichetta(Titoli_top)
         self.etichetta.switch_window_3.connect(self.show_pubblicazione_inizio)
         self.etichetta.switch_window_2.connect(self.show_mostra_tutto)
         self.etichetta.switch_window_1.connect(self.show_impostazioni_etichetta)
@@ -497,6 +502,19 @@ class Controller:
 
         if self.check_login_page is False:
             self.show_login_page()
+
+    def statistica_top5(self):
+        g = Gestione_json()
+        json_data = g.get_jsonobject()
+        controller_top = TopTen()
+        list = controller_top.json_to_list(json_data)
+        Titoli_top5 = []
+        i = len(list) - 1
+        while i >= 0:
+            posi = list.__getitem__(i)
+            Titoli_top5.append(g.getTitolo_da_Id(posi[0]))
+            i = i - 1
+        return Titoli_top5
 
 
 
