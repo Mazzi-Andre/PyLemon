@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtGui import QIcon
+from PyQt5.QtGui import QIcon, QFont
 from PyQt5.QtWidgets import QApplication, QWidget
 
 
@@ -23,7 +23,6 @@ class home_artista(object):
         self.label.setStyleSheet("color: rgb(221, 215, 25);\n"
 "font: 30pt \".AppleSystemUIFont\";")
         self.label.setObjectName("label")
-
         """Btn mostra tutte"""
         self.btn_mostraTutte = QtWidgets.QPushButton(Form)
         self.btn_mostraTutte.setGeometry(QtCore.QRect(460, 130, 111, 61))
@@ -122,11 +121,55 @@ class home_artista(object):
         self.line_9.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_9.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_9.setObjectName("line_9")
-        self.listView = QtWidgets.QListView(Form)
-        self.listView.setGeometry(QtCore.QRect(20, 290, 191, 211))
-        self.listView.setStyleSheet("background-color: rgb(207, 207, 207);\n"
+
+        self.table = QtWidgets.QTableWidget(Form)
+        self.table.setGeometry(QtCore.QRect(20, 290, 191, 211))
+        self.table.setMinimumSize(QtCore.QSize(3, 0))
+        self.table.setMouseTracking(False)
+        self.table.setStyleSheet("background-color: rgb(207, 207, 207);\n"
 "border-radius: 10px;")
-        self.listView.setObjectName("listView")
+        self.table.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.table.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.table.setLineWidth(0)
+        self.table.setMidLineWidth(0)
+        self.table.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.table.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustIgnored)
+        self.table.setAutoScroll(False)
+        self.table.setEditTriggers(
+        QtWidgets.QAbstractItemView.AnyKeyPressed | QtWidgets.QAbstractItemView.DoubleClicked | QtWidgets.QAbstractItemView.SelectedClicked)
+        self.table.setDragDropOverwriteMode(False)
+        self.table.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
+        self.table.setTextElideMode(QtCore.Qt.ElideMiddle)
+        self.table.setShowGrid(False)
+        self.table.setGridStyle(QtCore.Qt.NoPen)
+        self.table.setObjectName("table")
+        self.table.setColumnCount(3)
+
+        item = QtWidgets.QTableWidgetItem();
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        item.setFont(font)
+        self.table.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        item.setFont(font)
+
+        self.table.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        item.setFont(font)
+
+        self.table.setHorizontalHeaderItem(2, item)
+        self.table.horizontalHeader().setVisible(True)
+        self.table.horizontalHeader().setHighlightSections(True)
+        self.table.verticalHeader().setVisible(True)
+        self.table.verticalHeader().setHighlightSections(True)
+
         self.listView_2 = QtWidgets.QListView(Form)
         self.listView_2.setGeometry(QtCore.QRect(250, 290, 231, 211))
         self.listView_2.setStyleSheet("background-color: rgb(207, 207, 207);\n"
@@ -209,6 +252,12 @@ class home_artista(object):
         self.btn_Pubblica.setText(_translate("Form", "Pubblica"))
         self.btn_search.setText(_translate("Form", ""))
         self.btn_limone.setText(_translate("Form", ""))
+        item = self.table.horizontalHeaderItem(0)
+        item.setText(_translate("Form", "TOP 5 "))
+        font1 = QtGui.QFont().bold()
+        font = QtGui.QFont("Arial", 10, font1)
+        item.setFont(font)
+        self.table.setColumnWidth(0, 191)
 
 """app = QApplication([])
 window = QWidget()

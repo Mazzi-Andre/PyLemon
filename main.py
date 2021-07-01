@@ -2,7 +2,6 @@ import sys
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
-
 # ---------- We dont Touch --------------------
 from Data_Utente.control.Data_control import DataPick
 from Gestione_Ascolto.Contenuti.View.controller_mostra_search import controller_mostra_search
@@ -20,10 +19,11 @@ from Login.controller.controller_login import Login
 from Pubblicazione.Controller.Controller_pubblicazione_inizio import controller_pubblicazione_inizio
 from Gestione_Ascolto.Contenuti.View.Controller_Caricamento_Brano_Artista import Controller_Caricamento_Brano_Artista
 from Pubblicazione.Controller.Controller_Richiesta_nBrani import Controller_Richiesta_nBrani
+from Pubblicazione.Controller.Gestione_json import Gestione_json
+from Top10.Controller.ControllerTop10 import TopTen
 
 
 class Ui_Discovery(object):
-
     """" clesse riguardante l'applicazione """
 
     def setupUi(self, Form):
@@ -32,7 +32,7 @@ class Ui_Discovery(object):
         Form.setStyleSheet("background-color: rgb(11, 11, 11);")
         self.tableWidget = QtWidgets.QTableWidget(Form)
         self.tableWidget.setGeometry(QtCore.QRect(140, 70, 441, 251))
-        self.tableWidget.setStyleSheet("background-color: rgb(189, 193, 193);\n" #sfondo
+        self.tableWidget.setStyleSheet("background-color: rgb(189, 193, 193);\n"  # sfondo
                                        "color: rgb(27, 28, 28);")
         self.tableWidget.setRowCount(10)
         self.tableWidget.setColumnCount(4)
@@ -85,10 +85,7 @@ class Discovery(QtWidgets.QWidget, Ui_Discovery):
         self.btn_submit.clicked.connect(self.btn_submit_handler)
         self.btn_back.clicked.connect(self.btn_back_handler)
 
-
-
     def load_data(self):
-
         self.tableWidget.setItem(0, 0, QtWidgets.QTableWidgetItem(str("Sr No")))
         self.tableWidget.setItem(0, 1, QtWidgets.QTableWidgetItem(str(" Ip Address")))
         self.tableWidget.setItem(0, 2, QtWidgets.QTableWidgetItem(str("Mac Address")))
@@ -99,9 +96,6 @@ class Discovery(QtWidgets.QWidget, Ui_Discovery):
 
     def btn_back_handler(self):
         self.switch_window.emit()
-
-
-
 
 
 class Controller:
@@ -125,20 +119,18 @@ class Controller:
         self.check_mostra_tutto = False
         self.check_mostra_search = False
 
-
-
     """FINESTRA POP UP"""
+
     def pop_message(self, text=""):
         msg = QtWidgets.QMessageBox()
         msg.setText("{}".format(text))
         msg.exec_()
 
-
     def show_login_page(self):
         self.login = Login()
         self.data = DataPick()
         self.login.switch_window.connect(self.show_newuser_page)
-        # self.login.switch_window1.connect(self.show_discovery)
+        #self.login.switch_window1.connect(self.show_discovery)
         self.login.switch_window1.connect(self.show_home_ascoltatore)
         self.login.switch_window2.connect(self.show_home_artista)
         self.login.switch_window3.connect(self.show_home_etichetta)
@@ -177,9 +169,11 @@ class Controller:
 
     """---------------------------------------------------------------------------------------------"""
 
-    """Home PySound"""
+    """Home PyLemon"""
+
     def show_home_ascoltatore(self):
-        self.ascoltatore = controller_ascoltatore()
+        Titoli_top = self.statistica_top5()
+        self.ascoltatore = controller_ascoltatore(Titoli_top)
         self.ascoltatore.switch_window_1.connect(self.show_impostazioni_ascoltatore)
         self.ascoltatore.switch_window_2.connect(self.show_mostra_tutto)
         self.ascoltatore.switch_window_4.connect(self.show_mostra_search)
@@ -191,7 +185,8 @@ class Controller:
         self.ascoltatore.show()
 
     def show_home_artista(self):
-        self.artista = controller_artista()
+        Titoli_top = self.statistica_top5()
+        self.artista = controller_artista(Titoli_top)
         self.artista.switch_window_1.connect(self.show_impostazioni_artista)
         self.artista.switch_window_2.connect(self.show_mostra_tutto)
         self.artista.switch_window_3.connect(self.show_pubblicazione_inizio)
@@ -204,7 +199,8 @@ class Controller:
         self.artista.show()
 
     def show_home_etichetta(self):
-        self.etichetta = controller_etichetta()
+        Titoli_top = self.statistica_top5()
+        self.etichetta = controller_etichetta(Titoli_top)
         self.etichetta.switch_window_3.connect(self.show_pubblicazione_inizio)
         self.etichetta.switch_window_2.connect(self.show_mostra_tutto)
         self.etichetta.switch_window_1.connect(self.show_impostazioni_etichetta)
@@ -213,26 +209,22 @@ class Controller:
         if self.check_login_page is True:
             self.login.close()
             self.check_login_page = False
-        self.check_home_etichetta= True
+        self.check_home_etichetta = True
         self.etichetta.show()
-
 
     """---------------------------------------------------------------------------------------------"""
 
     """Controller pubblicazione"""
+
     def show_pubblicazione_inizio(self):
         self.pubblicazione_inizio = controller_pubblicazione_inizio()
         self.pubblicazione_inizio.show()
         self.pubblicazione_inizio.switch_window_1.connect(self.show_pubblicazione_brano)
         self.pubblicazione_inizio.switch_window_2.connect(self.show_pubblicazione_album)
 
-
-
     def show_pubblicazione_brano(self):
         self.Caricamento_Brano_Artista = Controller_Caricamento_Brano_Artista()
         self.Caricamento_Brano_Artista.show()
-
-
 
     def show_pubblicazione_album(self):
         self.Richiesta_nBrani = Controller_Richiesta_nBrani
@@ -242,8 +234,8 @@ class Controller:
 
     """---------------------------------------------------------------------------------------------"""
 
-
     """Controller impostazioni ascoltatore"""
+
     def show_impostazioni_ascoltatore(self):
         self.impostazioni_ascoltatore = controller_impostazioni()
         # self.home.switch_window.connect(self.show_login_page)
@@ -275,7 +267,6 @@ class Controller:
 
         self.check_edit_ascoltatore = True
         self.EditAscoltatore.show()
-
 
     """Controller impostazioni artista"""
 
@@ -312,7 +303,6 @@ class Controller:
         self.check_edit_artista = True
         self.EditArtista.show()
 
-
     """Controller impostazioni etichetta"""
 
     def show_impostazioni_etichetta(self):
@@ -326,11 +316,8 @@ class Controller:
         self.check_impostazioni_etichetta = True
         self.impostazioni_etichetta.show()
 
-
     def show_edit_etichetta(self):
         self.pop_message(text="Il suo account non può subire variazioni.")
-
-
 
     """Controlle conferma eliminazione universale"""
 
@@ -342,7 +329,6 @@ class Controller:
         self.check_conferma_credenziali = True
         self.conferma_credenziali.show()
 
-
     def show_conferma_edit(self):
         self.conferma_edit = controller_conferma_edit()
         self.conferma_edit.switch_window_1.connect(self.show_impostazioni_ascoltatore)
@@ -353,7 +339,6 @@ class Controller:
         self.conferma_edit.switch_window_5.connect(self.show_edit_artista)
         self.check_conferma_edit = True
         self.conferma_edit.show()
-
 
     """Controlle Player e ricerca canzoni"""
 
@@ -418,7 +403,7 @@ class Controller:
 
         if self.check_conferma_credenziali is True:
             self.conferma_credenziali.close()
-            self.check_conferma_credenziali= False
+            self.check_conferma_credenziali = False
 
         if self.check_conferma_edit is True:
             self.conferma_edit.close()
@@ -430,12 +415,25 @@ class Controller:
 
         if self.check_mostra_search is True:
             self.search.close()
-            self.check_mostra_search= False
+            self.check_mostra_search = False
 
         if self.check_login_page is False:
             self.show_login_page()
 
+    '''Controller statistiche'''
 
+    def statistica_top5(self):
+        g = Gestione_json()
+        json_data = g.get_jsonobject()
+        controller_top = TopTen()
+        list = controller_top.json_to_list(json_data)
+        Titoli_top5 = []
+        i = len(list) - 1
+        while i >= 0:
+            posi = list.__getitem__(i)
+            Titoli_top5.append(g.getTitolo_da_Id(posi[0]))
+            i = i - 1
+        return Titoli_top5
 
 
 def main():
@@ -447,5 +445,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-

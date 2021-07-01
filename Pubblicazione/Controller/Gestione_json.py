@@ -43,6 +43,13 @@ class Gestione_json():
             json.dump(data, write_file)
 
 
+    def getTitolo_da_Id(self, id):
+        titolo =""
+        for i in self.json_data:
+            if i["id"] == float(id):
+                titolo = i["Titolo"]
+        return titolo
+
     def get_jsonobject(self):
         return self.json_data
 

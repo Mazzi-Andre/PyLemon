@@ -16,7 +16,7 @@ class Login(QtWidgets.QWidget, Ui_Outsecure, DataPick):
     def __init__(self):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
-        self.pick= DataPick()
+        self.pick = DataPick()
 
         self.btn_newuser.clicked.connect(self.btn_newuser_handler)
         self.btn_Submit.clicked.connect(self.btn_submit_handler)
