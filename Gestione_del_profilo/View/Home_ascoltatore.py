@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtGui import QIcon
+from PyQt5.QtGui import QIcon, QColor, QBrush
 from PyQt5.QtWidgets import QApplication, QWidget
 
 
@@ -39,7 +39,7 @@ class home_ascoltatore(object):
 
         """Btn search"""
         self.btn_search = QtWidgets.QPushButton(Form)
-        self.btn_search.setGeometry(QtCore.QRect(55, 130, 70, 61))
+        self.btn_search.setGeometry(QtCore.QRect(70, 130, 70, 61))
         self.btn_search.setStyleSheet("*{border: 1px solid rgb(40, 39, 39);"   #border per i bordi
                                        "border-radius: 20px;\n"
                                        "color: 'white';}" +
@@ -52,7 +52,7 @@ class home_ascoltatore(object):
         """Linea Search"""
 
         self.txt_nome = QtWidgets.QLineEdit(Form)
-        self.txt_nome.setGeometry(QtCore.QRect(140, 130, 331, 61))
+        self.txt_nome.setGeometry(QtCore.QRect(155, 130, 320, 61))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -82,8 +82,11 @@ class home_ascoltatore(object):
 
         self.listView_2 = QtWidgets.QListView(Form)
         self.listView_2.setGeometry(QtCore.QRect(250, 280, 231, 211))
-        self.listView_2.setStyleSheet("background-color: rgb(207, 207, 207);\n"
-"border-radius: 10px;")
+        self.listView_2.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"   #border per i bordi
+                                      "background-color: rgb(51, 51, 51);"
+                                      "border-radius: 5px;\n"
+                                      "font: 10pt \"Arial\";"
+                                      "color: 'white';}")
         self.listView_2.setObjectName("listView_2")
         self.line_9 = QtWidgets.QFrame(Form)
         self.line_9.setGeometry(QtCore.QRect(0, 260, 651, 16))
@@ -102,8 +105,20 @@ class home_ascoltatore(object):
         self.table.setGeometry(QtCore.QRect(20, 280, 191, 211))
         self.table.setMinimumSize(QtCore.QSize(3, 0))
         self.table.setMouseTracking(False)
-        self.table.setStyleSheet("background-color: rgb(207, 207, 207);\n"
-                                 "border-radius: 10px;")
+        '''self.table.setStyleSheet("background-color: rgb(207, 207, 207);\n"
+                                 "border-radius: 10px;")'''
+
+        self.table.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"   #border per i bordi
+                                 "background-color: rgb(51, 51, 51);"
+                                 "border-radius: 5px;\n"
+                                 "font: 10pt \"Arial\";"
+                                 "color: 'white';}")
+        #self.table.setStyleSheet("*{gridline-color: black};")
+
+
+        #self.table.setStyleSheet("color: rgb(0, 0, 0);") #colore nero al font
+
+
         self.table.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.table.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.table.setLineWidth(0)
@@ -143,7 +158,7 @@ class home_ascoltatore(object):
         self.table.setHorizontalHeaderItem(2, item)
         self.table.horizontalHeader().setVisible(True)
         self.table.horizontalHeader().setHighlightSections(True)
-        self.table.verticalHeader().setVisible(True)
+        self.table.verticalHeader().setVisible(False)
         self.table.verticalHeader().setHighlightSections(True)
 
 
@@ -151,25 +166,25 @@ class home_ascoltatore(object):
         self.btn_Impostazioni.setGeometry(QtCore.QRect(520, 330, 91, 21))
         self.btn_Impostazioni.setMouseTracking(True)
         self.btn_Impostazioni.setTabletTracking(True)
-        self.btn_Impostazioni.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"   #border per i bordi
-                                       "border-radius: 10px;\n"
-                                       "font: 10pt \"Arial\";"
-                                       "color: 'white';}" +
-                                       "*:hover{background: rgb(221, 215, 25);\n}")
+        self.btn_Impostazioni.setStyleSheet("*{border: 2px solid rgb(18, 110, 60);"   #border per i bordi
+                                        "border-radius: 10px;\n"
+                                        "font: 10pt \"Arial\";"
+                                        "color: 'white';}" +
+                                        "*:hover{background: rgb(18, 110, 60);\n}")
         self.btn_Impostazioni.setObjectName("pushButton_3")
         self.btn_Logout = QtWidgets.QPushButton(Form)
         self.btn_Logout.setGeometry(QtCore.QRect(520, 380, 91, 21))
         self.btn_Logout.setMouseTracking(True)
         self.btn_Logout.setTabletTracking(True)
-        self.btn_Logout.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"   #border per i bordi
-                                       "border-radius: 10px;\n"
-                                       "font: 10pt \"Arial\";"
-                                       "color: 'white';}" +
-                                       "*:hover{background: rgb(221, 215, 25);\n}")
+        self.btn_Logout.setStyleSheet("*{border: 2px solid rgb(18, 110, 60);"   #border per i bordi
+                                        "border-radius: 10px;\n"
+                                        "font: 10pt \"Arial\";"
+                                        "color: 'white';}" +
+                                        "*:hover{background: rgb(18, 110, 60);\n}")
         self.btn_Logout.setObjectName("pushButton_4")
 
         self.btn_limone = QtWidgets.QPushButton(Form)
-        self.btn_limone.setGeometry(QtCore.QRect(537, 430, 55, 50))
+        self.btn_limone.setGeometry(QtCore.QRect(530, 430, 70, 65))
         font = QtGui.QFont()
         self.btn_limone.setFont(font)
         self.btn_limone.setStyleSheet("*{border: 0.5px solid rgb(40, 39, 39);"   #border per i bordi
@@ -179,7 +194,7 @@ class home_ascoltatore(object):
         self.btn_limone.setText("")
         self.btn_limone.setObjectName("btn_limone")
         self.btn_limone.setIcon(QIcon('Limone.png'))
-        self.btn_limone.setIconSize(QtCore.QSize(75, 75))
+        self.btn_limone.setIconSize(QtCore.QSize(100, 100))
 
 
 

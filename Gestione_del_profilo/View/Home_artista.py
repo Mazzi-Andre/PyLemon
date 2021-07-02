@@ -19,14 +19,14 @@ class home_artista(object):
         Form.resize(911, 515)
         Form.setStyleSheet("background-color: rgb(40, 39, 39);")
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(340, 30, 381, 41))
+        self.label.setGeometry(QtCore.QRect(345, 30, 381, 41))
         self.label.setStyleSheet("color: rgb(221, 215, 25);\n"
 "font: 30pt \".AppleSystemUIFont\";")
         self.label.setObjectName("label")
 
         """Btn mostra tutte"""
         self.btn_mostraTutte = QtWidgets.QPushButton(Form)
-        self.btn_mostraTutte.setGeometry(QtCore.QRect(600, 130, 90, 61))
+        self.btn_mostraTutte.setGeometry(QtCore.QRect(665, 130, 90, 61))
         self.btn_mostraTutte.setStyleSheet("*{border: 1px solid rgb(40, 39, 39);"  # border per i bordi
                                            "border-radius: 20px;\n"
                                            "color: 'white';}" +
@@ -51,7 +51,7 @@ class home_artista(object):
 
         """Linea Search"""
         self.txt_nome = QtWidgets.QLineEdit(Form)
-        self.txt_nome.setGeometry(QtCore.QRect(260, 130, 331, 61))
+        self.txt_nome.setGeometry(QtCore.QRect(260, 130, 390, 61))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -129,8 +129,11 @@ class home_artista(object):
         self.table_top.setGeometry(QtCore.QRect(20, 290, 191, 211))
         self.table_top.setMinimumSize(QtCore.QSize(3, 0))
         self.table_top.setMouseTracking(False)
-        self.table_top.setStyleSheet("background-color: rgb(207, 207, 207);\n"
-                                 "border-radius: 10px;")
+        self.table_top.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"   #border per i bordi
+                                     "background-color: rgb(51, 51, 51);"
+                                     "border-radius: 5px;\n"
+                                     "font: 10pt \"Arial\";"
+                                     "color: 'white';}")
         self.table_top.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.table_top.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.table_top.setLineWidth(0)
@@ -170,15 +173,18 @@ class home_artista(object):
         self.table_top.setHorizontalHeaderItem(2, item)
         self.table_top.horizontalHeader().setVisible(True)
         self.table_top.horizontalHeader().setHighlightSections(True)
-        self.table_top.verticalHeader().setVisible(True)
+        self.table_top.verticalHeader().setVisible(False)
         self.table_top.verticalHeader().setHighlightSections(True)
 
         self.table_brani = QtWidgets.QTableWidget(Form)
         self.table_brani.setGeometry(QtCore.QRect(250, 290, 231, 211))
         self.table_brani.setMinimumSize(QtCore.QSize(3, 0))
         self.table_brani.setMouseTracking(False)
-        self.table_brani.setStyleSheet("background-color: rgb(207, 207, 207);\n"
-                                 "border-radius: 10px;")
+        self.table_brani.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"   #border per i bordi
+                                       "background-color: rgb(51, 51, 51);"
+                                       "border-radius: 5px;\n"
+                                       "font: 10pt \"Arial\";"
+                                       "color: 'white';}")
         self.table_brani.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.table_brani.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.table_brani.setLineWidth(0)
@@ -218,7 +224,7 @@ class home_artista(object):
         self.table_brani.setHorizontalHeaderItem(2, item)
         self.table_brani.horizontalHeader().setVisible(True)
         self.table_brani.horizontalHeader().setHighlightSections(True)
-        self.table_brani.verticalHeader().setVisible(True)
+        self.table_brani.verticalHeader().setVisible(False)
         self.table_brani.verticalHeader().setHighlightSections(True)
 
         self.line_10 = QtWidgets.QFrame(Form)
@@ -229,49 +235,52 @@ class home_artista(object):
         self.line_10.setObjectName("line_10")
         self.listView_3 = QtWidgets.QListView(Form)
         self.listView_3.setGeometry(QtCore.QRect(520, 290, 231, 211))
-        self.listView_3.setStyleSheet("background-color: rgb(207, 207, 207);\n"
-"border-radius: 10px;")
+        self.listView_3.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"   #border per i bordi
+                                      "background-color: rgb(51, 51, 51);"
+                                      "border-radius: 5px;\n"
+                                      "font: 10pt \"Arial\";"
+                                      "color: 'white';}")
         self.listView_3.setObjectName("listView_3")
         self.line_11 = QtWidgets.QFrame(Form)
-        self.line_11.setGeometry(QtCore.QRect(490, 290, 20, 231))
+        self.line_11.setGeometry(QtCore.QRect(490, 280, 20, 231))
         self.line_11.setStyleSheet("color: rgb(207, 207, 207);")
         self.line_11.setFrameShape(QtWidgets.QFrame.VLine)
         self.line_11.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_11.setObjectName("line_11")
         self.btn_Impostazioni = QtWidgets.QPushButton(Form)
-        self.btn_Impostazioni.setGeometry(QtCore.QRect(800, 300, 91, 21))
+        self.btn_Impostazioni.setGeometry(QtCore.QRect(780, 300, 91, 21))
         self.btn_Impostazioni.setMouseTracking(True)
         self.btn_Impostazioni.setTabletTracking(True)
-        self.btn_Impostazioni.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"   #border per i bordi
-                                       "border-radius: 10px;\n"
-                                       "font: 10pt \"Arial\";"
-                                       "color: 'white';}" +
-                                       "*:hover{background: rgb(221, 215, 25);\n}") #hover: quando passo con la freccetta sopra al bordo cambia colore
+        self.btn_Impostazioni.setStyleSheet("*{border: 2px solid rgb(18, 110, 60);"   #border per i bordi
+                                            "border-radius: 10px;\n"
+                                            "font: 10pt \"Arial\";"
+                                            "color: 'white';}" +
+                                            "*:hover{background: rgb(18, 110, 60);\n}") #hover: quando passo con la freccetta sopra al bordo cambia colore
         self.btn_Impostazioni.setObjectName("pushButton_3")
         self.btn_Logout = QtWidgets.QPushButton(Form)
-        self.btn_Logout.setGeometry(QtCore.QRect(800, 400, 91, 21))
+        self.btn_Logout.setGeometry(QtCore.QRect(780, 400, 91, 21))
         self.btn_Logout.setMouseTracking(True)
         self.btn_Logout.setTabletTracking(True)
-        self.btn_Logout.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"   #border per i bordi
-                                       "border-radius: 10px;\n"
-                                       "font: 10pt \"Arial\";"
-                                       "color: 'white';}" +
-                                       "*:hover{background: rgb(221, 215, 25);\n}")
+        self.btn_Logout.setStyleSheet("*{border: 2px solid rgb(18, 110, 60);"   #border per i bordi
+                                      "border-radius: 10px;\n"
+                                      "font: 10pt \"Arial\";"
+                                      "color: 'white';}" +
+                                      "*:hover{background: rgb(18, 110, 60);\n}")
         self.btn_Logout.setObjectName("pushButton_4")
         self.btn_Pubblica = QtWidgets.QPushButton(Form)
-        self.btn_Pubblica.setGeometry(QtCore.QRect(800, 350, 91, 21))
+        self.btn_Pubblica.setGeometry(QtCore.QRect(780, 350, 91, 21))
         self.btn_Pubblica.setMouseTracking(True)
         self.btn_Pubblica.setTabletTracking(True)
-        self.btn_Pubblica.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"   #border per i bordi
-                                       "border-radius: 10px;\n"
-                                       "font: 10pt \"Arial\";"
-                                       "color: 'white';}" +
-                                       "*:hover{background: rgb(221, 215, 25);\n}")
+        self.btn_Pubblica.setStyleSheet("*{border: 2px solid rgb(18, 110, 60);"   #border per i bordi
+                                        "border-radius: 10px;\n"
+                                        "font: 10pt \"Arial\";"
+                                        "color: 'white';}" +
+                                        "*:hover{background: rgb(18, 110, 60);\n}")
         self.btn_Pubblica.setObjectName("pushButton_2")
 
 
         self.btn_limone = QtWidgets.QPushButton(Form)
-        self.btn_limone.setGeometry(QtCore.QRect(820, 440, 55, 50))
+        self.btn_limone.setGeometry(QtCore.QRect(790, 440, 70, 65))
         font = QtGui.QFont()
         self.btn_limone.setFont(font)
         self.btn_limone.setStyleSheet("*{border: 0.5px solid rgb(40, 39, 39);"  # border per i bordi
@@ -281,7 +290,7 @@ class home_artista(object):
         self.btn_limone.setText("")
         self.btn_limone.setObjectName("btn_limone")
         self.btn_limone.setIcon(QIcon('Limone.png'))
-        self.btn_limone.setIconSize(QtCore.QSize(75, 75))
+        self.btn_limone.setIconSize(QtCore.QSize(100, 100))
 
 
         self.retranslateUi(Form)
@@ -304,6 +313,7 @@ class home_artista(object):
         font = QtGui.QFont("Arial", 10, font1)
         item.setFont(font)
         self.table_top.setColumnWidth(0, 191)
+
 
         item = self.table_brani.horizontalHeaderItem(0)
         item.setText(_translate("Form", "I TUOI BRANI "))
