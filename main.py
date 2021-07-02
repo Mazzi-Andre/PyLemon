@@ -204,7 +204,8 @@ class Controller:
 
     def show_home_artista(self):
         Titoli_top = self.statistica_top5()
-        self.artista = controller_artista(Titoli_top)
+        Brani_artisti = self.statistica_mie_brani_artista()
+        self.artista = controller_artista(Titoli_top,Brani_artisti)
         self.artista.switch_window_1.connect(self.show_impostazioni_artista)
         self.artista.switch_window_2.connect(self.show_mostra_tutto)
         self.artista.switch_window_3.connect(self.show_pubblicazione_inizio)
@@ -504,17 +505,28 @@ class Controller:
             self.show_login_page()
 
     def statistica_top5(self):
-        g = Gestione_json()
-        json_data = g.get_jsonobject()
+        self.g = Gestione_json()
+        json_data = self.g.get_jsonobject()
         controller_top = TopFive()
         list = controller_top.json_to_list(json_data)
         Titoli_top5 = []
         i = 0
         while i <= len(list) - 1:
             posi = list.__getitem__(i)
-            Titoli_top5.append(g.getTitolo_da_Id(posi[0]))
+            Titoli_top5.append(self.g.getTitolo_da_Id(posi[0]))
             i = i + 1
         return Titoli_top5
+
+
+    def statistica_mie_brani_artista(self):
+        json_data = self.g.get_jsonobject()
+        brani_artista = []
+        nome_artista = self.data.return_credenziali()[1].title()+" "+self.data.return_credenziali()[2].title()
+        for i in json_data:
+            if nome_artista == i["Artista"]:
+                brani_artista.append(i["Titolo"])
+        return brani_artista
+
 
 
 

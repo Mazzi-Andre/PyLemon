@@ -47,11 +47,6 @@ class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_bran
             album = self.nome_album
         contatore = 0
         id = G.json_contatore["contatore_id"]
-        print(nome)
-        print(artista)
-        print(album)
-        print(id)
-        print(contatore)
         J.carica_brano_su_JSON(nome, artista, album, id, contatore)
         self.pop_message(text="Brano caricato con successo.")
         if self.verifica_album == True:
