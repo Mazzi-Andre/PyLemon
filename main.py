@@ -23,7 +23,7 @@ from Pubblicazione.Controller.Controller_pubblicazione_inizio import controller_
 from Gestione_Ascolto.Contenuti.View.Controller_Caricamento_Brano_Artista import Controller_Caricamento_Brano_Artista
 from Pubblicazione.Controller.Controller_Richiesta_nBrani import Controller_Richiesta_nBrani
 from Pubblicazione.Controller.Gestione_json import Gestione_json
-from Top10.Controller.ControllerTop10 import TopTen
+from Top5.Controller.ControllerTop5 import TopFive
 
 
 class Ui_Discovery(object):
@@ -506,14 +506,14 @@ class Controller:
     def statistica_top5(self):
         g = Gestione_json()
         json_data = g.get_jsonobject()
-        controller_top = TopTen()
+        controller_top = TopFive()
         list = controller_top.json_to_list(json_data)
         Titoli_top5 = []
-        i = len(list) - 1
-        while i >= 0:
+        i = 0
+        while i <= len(list) - 1:
             posi = list.__getitem__(i)
             Titoli_top5.append(g.getTitolo_da_Id(posi[0]))
-            i = i - 1
+            i = i + 1
         return Titoli_top5
 
 

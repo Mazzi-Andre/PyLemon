@@ -20,6 +20,8 @@ class controller_mostra_tutto(QtWidgets.QWidget, Ui_Player):
         self.next.clicked.connect(self.go_next)
         self.horizontalSlider.valueChanged.connect(self.changeValue)
 
+    def closeEvent(self, event):
+        self.go_stop()
 
     def mostra_tutto(self):
         self.check_prev = False
