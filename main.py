@@ -109,7 +109,7 @@ class Discovery(QtWidgets.QWidget, Ui_Discovery):
 
 
 
-class Controller:
+class Controller():
 
     def __init__(self):
         self.check_login_page = False
@@ -437,7 +437,7 @@ class Controller:
         json_manage = Gestione_json()
 
         for i in json_manage.get_jsonobject():
-            if i["Titolo"]==MyData[0].title() or i["Album"]==MyData[0].title() or i["Artista"]==MyData[0].title():
+            if i["Titolo"] == MyData[0].title() or i["Album"] == MyData[0].title() or i["Artista"] == MyData[0].title():
                 self.search = controller_mostra_search(MyData)
                 self.check_mostra_search = True
                 var_search = True
