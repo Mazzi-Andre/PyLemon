@@ -71,27 +71,27 @@ class Ui_Player(object):
         self.table.verticalHeader().setHighlightSections(True)
 
         self.play = QtWidgets.QPushButton(Player)
-        self.play.setGeometry(QtCore.QRect(10, 362, 101, 61))
+        self.play.setGeometry(QtCore.QRect(10, 365, 85, 45))
         font = QtGui.QFont()
         font.setFamily("Arial")
         self.play.setFont(font)
-        self.play.setStyleSheet("*{border: 0.5px solid rgb(40, 39, 39);"  
-                                "border-radius: 25px;\n"
-                                "font: 10pt \"Arial\";}")
-        self.play.setIconSize(QtCore.QSize(40, 40))
+        self.play.setStyleSheet("border-radius: 10px;\n"
+                                "color: 'white';}" +
+                                "*:hover{background: rgb(18, 110, 60);\n}")
+        self.play.setIconSize(QtCore.QSize(65, 65))
         self.play.setText("")
         self.play.setObjectName("play")
         self.play.setIcon(QIcon('play.png'))
 
 
         self.pause = QtWidgets.QPushButton(Player)
-        self.pause.setGeometry(QtCore.QRect(110, 370, 81, 41))
+        self.pause.setGeometry(QtCore.QRect(110, 365, 85, 45))
         font = QtGui.QFont()
         font.setFamily("Arial")
         self.pause.setFont(font)
-        self.pause.setStyleSheet("*{border: 0.5px solid rgb(40, 39, 39);"  
-                                 "border-radius: 25px;\n"
-                                 "font: 10pt \"Arial\";}")
+        self.pause.setStyleSheet("border-radius: 10px;\n"
+                                "color: 'white';}" +
+                                "*:hover{background: rgb(18, 110, 60);\n}")
         self.pause.setIconSize(QtCore.QSize(40, 40))
         self.pause.setText("")
         self.pause.setObjectName("pause")
@@ -99,41 +99,41 @@ class Ui_Player(object):
 
 
         self.stop = QtWidgets.QPushButton(Player)
-        self.stop.setGeometry(QtCore.QRect(210, 370, 81, 41))
+        self.stop.setGeometry(QtCore.QRect(210, 365, 85, 45))
         font = QtGui.QFont()
         font.setFamily("Arial")
         self.stop.setFont(font)
-        self.stop.setStyleSheet("*{border: 0.5px solid rgb(40, 39, 39);"  
-                                "border-radius: 25px;\n"
-                                "font: 10pt \"Arial\";}")
-        self.stop.setIconSize(QtCore.QSize(40, 40))
+        self.stop.setStyleSheet("border-radius: 10px;\n"
+                                "color: 'white';}" +
+                                "*:hover{background: rgb(18, 110, 60);\n}")
+        self.stop.setIconSize(QtCore.QSize(85, 85))
         self.stop.setText("")
         self.stop.setObjectName("stop")
         self.stop.setIcon(QIcon('stop.png'))
 
 
         self.prev = QtWidgets.QPushButton(Player)
-        self.prev.setGeometry(QtCore.QRect(310, 365, 91, 51))
+        self.prev.setGeometry(QtCore.QRect(310, 365, 85, 45))
         font = QtGui.QFont()
         font.setFamily("Arial")
         self.prev.setFont(font)
-        self.prev.setStyleSheet("*{border: 0.5px solid rgb(40, 39, 39);"  
-                                "border-radius: 25px;\n"
-                                "font: 10pt \"Arial\";}")
+        self.prev.setStyleSheet("border-radius: 10px;\n"
+                                "color: 'white';}" +
+                                "*:hover{background: rgb(18, 110, 60);\n}")
         self.prev.setIconSize(QtCore.QSize(52, 52))
         self.prev.setText("")
         self.prev.setObjectName("prev")
 
 
         self.next = QtWidgets.QPushButton(Player)
-        self.next.setGeometry(QtCore.QRect(410, 365, 91, 51))
+        self.next.setGeometry(QtCore.QRect(410, 365, 85, 45))
         font = QtGui.QFont()
         font.setFamily("Arial")
         self.prev.setIcon(QIcon('prev.png'))
         self.next.setFont(font)
-        self.next.setStyleSheet("*{border: 0.5px solid rgb(40, 39, 39);"  
-                                "border-radius: 25px;\n"
-                                "font: 10pt \"Arial\";}")
+        self.next.setStyleSheet("border-radius: 10px;\n"
+                                "color: 'white';}" +
+                                "*:hover{background: rgb(18, 110, 60);\n}")
         self.next.setIconSize(QtCore.QSize(52, 52))
         self.next.setText("")
         self.next.setObjectName("next")
