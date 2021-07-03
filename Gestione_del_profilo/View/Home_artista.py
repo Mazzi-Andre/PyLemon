@@ -299,7 +299,7 @@ class home_artista(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.txt_nome.setPlaceholderText(_translate("Form", "  Search..."))
+        self.txt_nome.setPlaceholderText(_translate("Form", " Search..."))
         self.label.setText(_translate("Form", "PyLemon artista"))
         self.btn_mostraTutte.setText(_translate("Form", ""))
         self.btn_Impostazioni.setText(_translate("Form", "Impostazioni"))

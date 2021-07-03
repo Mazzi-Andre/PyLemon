@@ -212,7 +212,7 @@ class home_ascoltatore(object):
         self.btn_search.setText(_translate("Form", ""))
         self.btn_limone.setText(_translate("Form", ""))
 
-        self.txt_nome.setPlaceholderText(_translate("Form", "  Search..."))
+        self.txt_nome.setPlaceholderText(_translate("Form", " Search..."))
         item = self.table.horizontalHeaderItem(0)
         item.setText(_translate("Form", "TOP 5 "))
         font1 = QtGui.QFont().bold()

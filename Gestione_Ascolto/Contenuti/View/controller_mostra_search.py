@@ -73,6 +73,7 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player, DataPick, home_asco
 
     def go_play(self):
         if self.check_prev and self.riga_locale == self.table.currentRow():
+            print(self.riga)
             titolo_prev = self.table.item(self.riga, 0).text()
             album_prev = self.table.item(self.riga, 1).text()
             path = self.controller.getPath(titolo_prev, album_prev)
@@ -87,7 +88,6 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player, DataPick, home_asco
             self.listen.play(path, float(self.horizontalSlider.value() / 10))
 
         elif self.table.selectedItems():
-            self.primo_play = True
             self.riga_locale = self.riga = self.table.currentRow()
             selezione_titolo = self.table.currentItem().text()
             for i in self.lib:
@@ -95,6 +95,7 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player, DataPick, home_asco
                     album_corrispondente = self.table.item(self.riga, 1).text()
                     path = self.controller.getPath(selezione_titolo, album_corrispondente)
                     self.listen.path_riproduzione = path
+                    self.primo_play = True
                     self.listen.play(path, float(self.horizontalSlider.value() / 10))
                     break
 
@@ -107,31 +108,37 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player, DataPick, home_asco
     def go_prev(self):
         if self.primo_play:
             if self.search:
-                self.riga = self.riga - 1
+                if self.riga != self.righe_search:
+                    self.riga = self.riga - 1
 
-                if self.riga < 0:
-                    self.riga = self.righe_search
+                    if self.riga < 0:
+                        self.riga = self.righe_search
 
-                self.check_prev = True
-                self.go_play()
+                    self.check_prev = True
+                    self.search = False
+                    self.go_play()
             else:
                 self.riga = self.riga - 1
                 if self.riga < 0:
-                    self.riga = len(self.lib) - 1
+                    self.riga = self.righe_search
+                    #len(self.lib) - 1
                 self.check_prev = True
                 self.go_play()
 
     def go_next(self):
         if self.primo_play:
             if self.search:
-                self.riga = self.riga + 1
-                if self.riga > self.righe_search:
-                    self.riga = 0
-                self.check_prev = True
-                self.go_play()
+                if self.riga != self.righe_search:
+                    self.riga = self.riga + 1
+                    if self.riga > self.righe_search:
+                        self.riga = 0
+                    self.check_prev = True
+                    self.search = False
+                    self.go_play()
             else:
                 self.riga = self.riga + 1
-                if self.riga > len(self.lib) - 1:
+                #len(self.lib) - 1
+                if self.riga > self.righe_search:
                     self.riga = 0
                 self.check_next = True
                 self.go_play()

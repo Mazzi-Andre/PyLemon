@@ -217,7 +217,7 @@ class home_etichetta(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Etichetta"))
-        self.txt_nome.setPlaceholderText(_translate("Form", "  Search..."))
+        self.txt_nome.setPlaceholderText(_translate("Form", " Search..."))
         self.label.setText(_translate("Form", "PyLemon etichetta"))
         self.btn_mostraTutte.setText(_translate("Form", ""))
         self.btn_Pubblica.setText(_translate("Form", "Pubblica"))

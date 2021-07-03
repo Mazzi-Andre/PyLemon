@@ -58,7 +58,6 @@ class controller_mostra_tutto(QtWidgets.QWidget, Ui_Player):
             self.listen.play(path,float(self.horizontalSlider.value()/10))
 
         elif self.table.selectedItems():
-            self.primo_play = True
             self.riga_locale = self.riga = self.table.currentRow()
             selezione_titolo = self.table.currentItem().text()
             for i in self.lib:
@@ -68,6 +67,7 @@ class controller_mostra_tutto(QtWidgets.QWidget, Ui_Player):
                     self.listen.path_riproduzione = path
                     g = Gestione_json()
                     g.incremento_conta(selezione_titolo, album_corrispondente)
+                    self.primo_play = True
                     self.listen.play(path,float(self.horizontalSlider.value()/10))
                     break
 
