@@ -121,7 +121,6 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player, DataPick, home_asco
                 self.riga = self.riga - 1
                 if self.riga < 0:
                     self.riga = self.righe_search
-                    #len(self.lib) - 1
                 self.check_prev = True
                 self.go_play()
 
@@ -137,7 +136,6 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player, DataPick, home_asco
                     self.go_play()
             else:
                 self.riga = self.riga + 1
-                #len(self.lib) - 1
                 if self.riga > self.righe_search:
                     self.riga = 0
                 self.check_next = True
