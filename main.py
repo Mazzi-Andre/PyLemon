@@ -434,24 +434,27 @@ class Controller():
         with open('Canzone.pkl', 'rb') as Dpi:
             MyData = pickle.load(Dpi)
 
-        json_manage = Gestione_json()
+        if MyData[0]:
+            json_manage = Gestione_json()
 
-        for i in json_manage.get_jsonobject():
-            if i["Titolo"] == MyData[0].title() or i["Album"] == MyData[0].title() or i["Artista"] == MyData[0].title():
-                self.search = controller_mostra_search(MyData)
-                self.check_mostra_search = True
-                var_search = True
-                self.search.show()
-                break
+            for i in json_manage.get_jsonobject():
+                if i["Titolo"] == MyData[0].title() or i["Album"] == MyData[0].title() or i["Artista"] == MyData[0].title():
+                    self.search = controller_mostra_search(MyData)
+                    self.check_mostra_search = True
+                    var_search = True
+                    self.search.show()
+                    break
 
-        if not var_search:
-            self.pop_message(text="Nessuna corrispondenza trovata.")
+        else:   self.pop_message(text="Immetti il nome di un brano, di un album o di un artista.")
+
+        if not var_search and MyData[0]:
+            self.pop_message(text="Non ho trovato nessun risultato.")
 
 
     """Controlle Logout"""
 
     def show_logout(self):
-        self.pop_message(text="arrivederci")
+        self.pop_message(text="Ciao!")
 
         if self.check_verifica_etichetta is True:
             self.check_verifica_etichetta = False
