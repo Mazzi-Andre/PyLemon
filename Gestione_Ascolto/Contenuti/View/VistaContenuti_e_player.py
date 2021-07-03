@@ -13,7 +13,7 @@ class Ui_Player(object):
         self.controller = ControlloreAscolto()
         self.search = False
         Player.setObjectName("Player")
-        Player.resize(501, 471)
+        Player.resize(501, 475)
         Player.setAutoFillBackground(False)
         Player.setStyleSheet("background-color: rgb(40, 39, 39);\n""\n""")
         self.table = QtWidgets.QTableWidget(Player)
@@ -141,7 +141,7 @@ class Ui_Player(object):
 
 
         self.horizontalSlider = QtWidgets.QSlider(Player)
-        self.horizontalSlider.setGeometry(QtCore.QRect(70, 440, 90, 16))
+        self.horizontalSlider.setGeometry(QtCore.QRect(80, 443, 90, 25))
         self.horizontalSlider.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSlider.setObjectName("horizontalSlider")
         #self.horizontalSlider.setStyleSheet("QSlider::handle:horizontal {background-color: white;}")
@@ -149,10 +149,19 @@ class Ui_Player(object):
         self.horizontalSlider.setValue(2)
 
 
-        self.label = QtWidgets.QLabel(Player)
-        self.label.setGeometry(QtCore.QRect(13, 438, 55, 16))
-        self.label.setStyleSheet("QLabel { color : white; }");
-        self.label.setObjectName("label")
+        self.icon_volume = QtWidgets.QPushButton(Player)
+        self.icon_volume.setGeometry(QtCore.QRect(13, 440, 65, 26))
+        font = QtGui.QFont()
+        self.icon_volume.setFont(font)
+        self.icon_volume.setStyleSheet("*{border: 0.5px solid rgb(40, 39, 39);"  # border per i bordi
+                                      "border-radius: 25px;\n"
+                                      "color: 'white';}")
+        self.icon_volume.setText("")
+        self.icon_volume.setObjectName("icon_volume")
+        self.icon_volume.setIcon(QIcon('volume.png'))
+        self.icon_volume.setIconSize(QtCore.QSize(25, 25))
+
+
 
         self.retranslateUi(Player)
         QtCore.QMetaObject.connectSlotsByName(Player)
@@ -169,6 +178,6 @@ class Ui_Player(object):
         self.table.setColumnWidth(0, 167);
         self.table.setColumnWidth(1, 167) ;
         self.table.setColumnWidth(2, 167)
-        self.label.setText(_translate("Player", "Volume"))
+        self.icon_volume.setText(_translate("Player", ""))
 
 
