@@ -20,7 +20,16 @@ class Ui_Player(object):
         self.table.setGeometry(QtCore.QRect(0, 0, 501, 351))
         self.table.setMinimumSize(QtCore.QSize(3, 0))
         self.table.setMouseTracking(False)
-        self.table.setStyleSheet("background-color: rgb(207, 207, 207);\n""")
+
+        #self.table.setStyleSheet("background-color: rgb(207, 207, 207);\n""")
+        self.table.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"   #border per i bordi
+                                 "background-color: rgb(51, 51, 51);"
+                                 "border-radius: 5px;\n"
+                                 "font: 10pt \"Arial\";"
+                                 "color: 'white';}")
+
+
+
         self.table.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.table.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.table.setLineWidth(0)
@@ -58,15 +67,18 @@ class Ui_Player(object):
         self.table.setHorizontalHeaderItem(2, item)
         self.table.horizontalHeader().setVisible(True)
         self.table.horizontalHeader().setHighlightSections(True)
-        self.table.verticalHeader().setVisible(True)
+        self.table.verticalHeader().setVisible(False)
         self.table.verticalHeader().setHighlightSections(True)
 
         self.play = QtWidgets.QPushButton(Player)
-        self.play.setGeometry(QtCore.QRect(10, 370, 81, 41))
+        self.play.setGeometry(QtCore.QRect(10, 362, 101, 61))
         font = QtGui.QFont()
         font.setFamily("Arial")
         self.play.setFont(font)
-        self.play.setStyleSheet("font color : rgb (255, 255, 0)\n""border-radius: 10px;")
+        self.play.setStyleSheet("*{border: 0.5px solid rgb(40, 39, 39);"  
+                                "border-radius: 25px;\n"
+                                "font: 10pt \"Arial\";}")
+        self.play.setIconSize(QtCore.QSize(40, 40))
         self.play.setText("")
         self.play.setObjectName("play")
         self.play.setIcon(QIcon('play.png'))
@@ -77,7 +89,10 @@ class Ui_Player(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         self.pause.setFont(font)
-        self.pause.setStyleSheet("font color:rgb (255,255,0)\n""border-radius: 10px;")
+        self.pause.setStyleSheet("*{border: 0.5px solid rgb(40, 39, 39);"  
+                                 "border-radius: 25px;\n"
+                                 "font: 10pt \"Arial\";}")
+        self.pause.setIconSize(QtCore.QSize(40, 40))
         self.pause.setText("")
         self.pause.setObjectName("pause")
         self.pause.setIcon(QIcon('pause.png'))
@@ -88,29 +103,38 @@ class Ui_Player(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         self.stop.setFont(font)
-        self.stop.setStyleSheet("font color:rgb (255,255,0)\n""border-radius: 10px;")
+        self.stop.setStyleSheet("*{border: 0.5px solid rgb(40, 39, 39);"  
+                                "border-radius: 25px;\n"
+                                "font: 10pt \"Arial\";}")
+        self.stop.setIconSize(QtCore.QSize(40, 40))
         self.stop.setText("")
         self.stop.setObjectName("stop")
         self.stop.setIcon(QIcon('stop.png'))
 
 
         self.prev = QtWidgets.QPushButton(Player)
-        self.prev.setGeometry(QtCore.QRect(310, 370, 81, 41))
+        self.prev.setGeometry(QtCore.QRect(310, 365, 91, 51))
         font = QtGui.QFont()
         font.setFamily("Arial")
         self.prev.setFont(font)
-        self.prev.setStyleSheet("font color:rgb (255,255,0)\n""border-radius: 10px;")
+        self.prev.setStyleSheet("*{border: 0.5px solid rgb(40, 39, 39);"  
+                                "border-radius: 25px;\n"
+                                "font: 10pt \"Arial\";}")
+        self.prev.setIconSize(QtCore.QSize(52, 52))
         self.prev.setText("")
         self.prev.setObjectName("prev")
 
 
         self.next = QtWidgets.QPushButton(Player)
-        self.next.setGeometry(QtCore.QRect(410, 370, 81, 41))
+        self.next.setGeometry(QtCore.QRect(410, 365, 91, 51))
         font = QtGui.QFont()
         font.setFamily("Arial")
         self.prev.setIcon(QIcon('prev.png'))
         self.next.setFont(font)
-        self.next.setStyleSheet("font color:rgb (255,255,0)\n""border-radius: 10px;")
+        self.next.setStyleSheet("*{border: 0.5px solid rgb(40, 39, 39);"  
+                                "border-radius: 25px;\n"
+                                "font: 10pt \"Arial\";}")
+        self.next.setIconSize(QtCore.QSize(52, 52))
         self.next.setText("")
         self.next.setObjectName("next")
         self.next.setIcon(QIcon('next.png'))
