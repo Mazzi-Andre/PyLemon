@@ -1,3 +1,4 @@
+import pickle
 import sys
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
@@ -108,7 +109,7 @@ class Discovery(QtWidgets.QWidget, Ui_Discovery):
 
 
 
-class Controller:
+class Controller():
 
     def __init__(self):
         self.check_login_page = False
@@ -429,9 +430,23 @@ class Controller:
         self.player.show()
 
     def show_mostra_search(self):
-        self.search = controller_mostra_search()
-        self.check_mostra_search = True
-        self.search.show()
+        var_search = False
+        with open('Canzone.pkl', 'rb') as Dpi:
+            MyData = pickle.load(Dpi)
+
+        json_manage = Gestione_json()
+
+        for i in json_manage.get_jsonobject():
+            if i["Titolo"] == MyData[0].title() or i["Album"] == MyData[0].title() or i["Artista"] == MyData[0].title():
+                self.search = controller_mostra_search(MyData)
+                self.check_mostra_search = True
+                var_search = True
+                self.search.show()
+                break
+
+        if not var_search:
+            self.pop_message(text="Nessuna corrispondenza trovata.")
+
 
     """Controlle Logout"""
 

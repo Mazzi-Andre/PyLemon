@@ -13,11 +13,11 @@ from Gestione_del_profilo.View.Home_ascoltatore import home_ascoltatore
 class controller_mostra_search(QtWidgets.QWidget, Ui_Player, DataPick, home_ascoltatore, home_etichetta, home_artista):
     switch_window_1 = QtCore.pyqtSignal()
 
-    def __init__(self):
+    def __init__(self,canzone_ricercata):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
         self.pick = DataPick()
-        self.Mysong = self.get_canzone()
+        self.Mysong = canzone_ricercata
 
         self.mostra_search()
 
@@ -28,6 +28,8 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player, DataPick, home_asco
         self.next.clicked.connect(self.go_next)
         self.horizontalSlider.valueChanged.connect(self.changeValue)
 
+    def closeEvent(self, event):
+        self.go_stop()
 
 
     def mostra_search(self):
@@ -62,6 +64,9 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player, DataPick, home_asco
 
             if check_riga:
                 riga = riga+1
+
+        '''if riga == 0:
+            self.table.setItem(0, 0, QtWidgets.QTableWidgetItem("Nessun risultato"))'''
 
         self.search = True
         self.righe_search = riga-1
@@ -135,10 +140,7 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player, DataPick, home_asco
         self.listen.vol_adjust(value)
 
 
-    def get_canzone(self):
-        with open('Canzone.pkl', 'rb') as Dpi:
-            MyData = pickle.load(Dpi)
-        return MyData
+
 
 
 

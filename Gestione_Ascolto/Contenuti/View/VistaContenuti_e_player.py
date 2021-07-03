@@ -142,7 +142,9 @@ class Ui_Player(object):
         item.setText(_translate("Player", "Album"))
         item = self.table.horizontalHeaderItem(2)
         item.setText(_translate("Player", "Artista"))
-        self.table.setColumnWidth(0, 167); self.table.setColumnWidth(1, 167) ; self.table.setColumnWidth(2, 167)
+        self.table.setColumnWidth(0, 167);
+        self.table.setColumnWidth(1, 167) ;
+        self.table.setColumnWidth(2, 167)
         self.label.setText(_translate("Player", "Volume"))
 
 

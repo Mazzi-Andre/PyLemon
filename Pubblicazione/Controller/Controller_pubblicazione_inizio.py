@@ -31,6 +31,8 @@ class controller_pubblicazione_inizio(QtWidgets.QWidget, pubblicazione_inizio):
     def btn_album_handler(self):
         self.switch_window_2.emit()
 
+    def closeEvent(self, event):
+        self.pop_message(text="Per vedere gli aggiornamenti ne I TUOI BRANI riaccedere.")
 
 
 
