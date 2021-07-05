@@ -34,7 +34,7 @@ class conferma_credenziali(object):
 
         self.txt_username = QtWidgets.QLineEdit(Form)
         self.txt_username.setGeometry(QtCore.QRect(50, 140, 221, 31))
-        self.txt_username.setStyleSheet("background-color: rgb(150,150,150);\n"
+        self.txt_username.setStyleSheet("background-color: rgb(207, 207, 207);\n"
                                         "color: rgb(255,255,255);\n"
                                         "border-style:outset;\n"
                                         "border-radius:3px;\n"
@@ -51,7 +51,7 @@ class conferma_credenziali(object):
 
         self.txt_password = QtWidgets.QLineEdit(Form)
         self.txt_password.setGeometry(QtCore.QRect(50, 200, 221, 31))
-        self.txt_password.setStyleSheet("background-color: rgb(150,150,150);\n"
+        self.txt_password.setStyleSheet("background-color: rgb(207, 207, 207);\n"
                                         "color: rgb(255,255,255);\n"
                                         "border-style:outset;\n"
                                         "border-radius:3px;\n"

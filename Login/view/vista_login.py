@@ -35,7 +35,6 @@ class Ui_Outsecure(object):
         self.btn_Submit.setGeometry(QtCore.QRect(180, 200, 161, 31))
         self.btn_Submit.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);\n"
                                        "border-radius: 10px;\n"
-                                       "font: 14pt \"Arial\";"
                                        "color: 'white';}" +
                                        "*:hover{background: rgb(221, 215, 25);}")
         self.btn_Submit.setObjectName("btn_Submit")
@@ -45,7 +44,6 @@ class Ui_Outsecure(object):
         self.btn_newuser.setGeometry(QtCore.QRect(180, 240, 161, 31))
         self.btn_newuser.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);\n"
                                        "border-radius: 10px;\n"
-                                       "font: 14pt \"Arial\";"
                                        "color: 'white';}" +
                                        "*:hover{background: rgb(221, 215, 25);}")
         self.btn_newuser.setObjectName("btn_newuser")
@@ -58,20 +56,18 @@ class Ui_Outsecure(object):
 
         self.txt_username = QtWidgets.QLineEdit(Outsecure)
         self.txt_username.setGeometry(QtCore.QRect(130, 100, 275, 31))
-        self.txt_username.setStyleSheet("background-color: rgb(150,150,150);\n"
+        self.txt_username.setStyleSheet("background-color: rgb(207, 207, 207);\n"
                                         "color: rgb(255,255,255);\n"
                                         "border-style:outset;\n"
-                                        "border-radius:10px;\n"
-                                        "font: 14pt \"Arial\";")
+                                        "border-radius:10px;\n")
         self.txt_username.setObjectName("txt_username")
 
         self.txt_password = QtWidgets.QLineEdit(Outsecure)
         self.txt_password.setGeometry(QtCore.QRect(130, 150, 271, 31))
-        self.txt_password.setStyleSheet("background-color: rgb(150,150,150);\n"
+        self.txt_password.setStyleSheet("background-color: rgb(207, 207, 207);\n"
                                         "color: rgb(255,255,255);\n"
                                         "border-style:outset;\n"
-                                        "border-radius:10px;\n"
-                                        "font: 14pt \"Arial\";")
+                                        "border-radius:10px;\n")
         self.txt_password.setObjectName("txt_password")
 
         self.retranslateUi(Outsecure)

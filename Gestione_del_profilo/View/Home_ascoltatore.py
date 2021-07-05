@@ -9,7 +9,8 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtGui import QIcon, QColor, QBrush
+from PyQt5.QtCore import QSize, Qt
+from PyQt5.QtGui import QIcon, QColor, QBrush, QMovie
 from PyQt5.QtWidgets import QApplication, QWidget
 
 
@@ -198,6 +199,34 @@ class home_ascoltatore(object):
 
 
 
+        self.label_coming = QtWidgets.QLabel(Form)
+        self.label_coming.setGeometry(QtCore.QRect(338, 305, 100, 30))
+        self.label_coming.setStyleSheet("background-color: rgb(51, 51, 51);"
+                                         "color: rgb(255, 252, 252);\n"
+                                         "font: 15pt \".AppleSystemUIFont\";")
+        self.label_coming.setObjectName("label_coming")
+
+
+
+
+        self.centralwidget = QtWidgets.QWidget(Form)
+        self.centralwidget.setObjectName("centralwidget")
+        self.centralwidget.setGeometry(QtCore.QRect(305, 330, 120, 120))
+        self.centralwidget.setStyleSheet("background-color: rgb(51, 51, 51);"
+                                        "color: rgb(255, 252, 252);\n"
+                                        "font: 15pt \".AppleSystemUIFont\";")
+        self.gif_coming = QtWidgets.QLabel(self.centralwidget)
+        self.gif_coming.setGeometry(QtCore.QRect(10, -15, 300, 300))
+        self.gif_coming.setMinimumSize(QtCore.QSize(150, 150))
+        self.gif_coming.setMaximumSize(QtCore.QSize(150, 150))
+
+        self.gif_coming.setObjectName("gif")
+        self.movie = QMovie("comingsoon.gif")
+        self.movie.setScaledSize(QSize().scaled(100, 100, Qt.KeepAspectRatio))
+        self.gif_coming.setMovie(self.movie)
+        self.movie.start()
+
+
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -211,6 +240,7 @@ class home_ascoltatore(object):
         self.btn_Logout.setText(_translate("Form", "Log out"))
         self.btn_search.setText(_translate("Form", ""))
         self.btn_limone.setText(_translate("Form", ""))
+        self.label_coming.setText(_translate("Form", "Playlist"))
 
         self.txt_nome.setPlaceholderText(_translate("Form", "  Search..."))
         item = self.table.horizontalHeaderItem(0)
