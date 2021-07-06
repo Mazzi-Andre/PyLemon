@@ -57,6 +57,5 @@ class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_bran
             parent=self,
             caption='Select a data file',
             directory=os.getcwd(),
-            filter='Data File (*.mp3)',
-            # initialFilter='Data File (*.mp3)'
+            filter='Data File (*.mp3)',# initialFilter='Data File (*.mp3)'
         )

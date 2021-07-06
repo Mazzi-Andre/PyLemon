@@ -47,7 +47,8 @@ class controller_conferma_credenziali(QtWidgets.QWidget, DataPick, conferma_cred
     def btn_ok_handler(self):
             if self.confronto_credenziali() == True:
                 self.pick.delete_account(self.username, self.password)
-                self.controller_conferma_credenziali.closeEvent()
+                self.pop_message(text="Eliminazione account avvenuta con successo.")
+                #self.controller_conferma_credenziali.closeEvent()
             else:
                 self.pop_message(text="Username o password errati.")
                 pass

@@ -20,7 +20,7 @@ class DataPick(object):
 
 
     """ Funzione per la restituzione delle credenziali dell'account presente in questo momento """
-    def return_credenziali(self):
+    '''def return_credenziali(self):
         MyData= self.get_data()
         nome = MyData[0]
         pas = MyData[1]
@@ -29,7 +29,7 @@ class DataPick(object):
 
         with conn:
             cursor.execute("""SELECT * FROM credentials WHERE username = :first AND password = :last""",  {'first': nome, 'last': pas })
-            return cursor.fetchone()
+            return cursor.fetchone()'''
 
 
     """ Funzione per la restituzione delle credenziali dell'account presente in questo momento """
@@ -45,7 +45,7 @@ class DataPick(object):
             cursor.execute("""SELECT * FROM credentials WHERE username = :first AND password = :last""",
                            {'first': nome, 'last': pas})
             self.lista= cursor.fetchone()
-            return self.lista
+        return self.lista
 
 
     """ DA TESTARE IL FUNZIONAMENTO """
@@ -72,18 +72,12 @@ class DataPick(object):
     def controlla_login(self):
         MyData = self.return_credenziali()
         #self.switch(MyData[4])
-        if MyData[4] == "ascoltatore" or MyData[4] == "Ascoltatore":
+        tipo_utente = MyData[4]
+
+        if tipo_utente == "ascoltatore" or tipo_utente == "Ascoltatore":
             return 1
-        elif MyData[4] == "artista" or MyData[4] == "Artista":
+        elif tipo_utente == "artista" or tipo_utente == "Artista":
             return 2
-        elif MyData[4] == "etichetta" or MyData[4] == "Etichetta":
+        elif tipo_utente == "etichetta" or tipo_utente == "Etichetta":
             return 3
 
-    def switch(argument):
-        switcher = {1: "ascoltatore" "Ascoltatore",
-                    2: "artista" "Artista",
-                    3: "etichetta" "Etichetta"
-                    }
-
-        print
-        switcher.get(argument, "Invalid month")

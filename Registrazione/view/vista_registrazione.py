@@ -111,4 +111,4 @@ class Ui_NewUser(object):
         self.btn_submit.setText(_translate("NewUser", "Conferma"))
         self.btn_Back.setText(_translate("NewUser", "Indietro"))
         self.attenzione.setText(_translate("NewUser",
-                                           "<html><head/><body><p align=\"center\"><span style=\" font-size:7pt;\">Attenzione: nella sezione type selezionare il tipo di abbonamento(ascoltatore, artista, etichetta)</span></p></body></html>"))
+                                           "<html><head/><body><p align=\"center\"><span style=\" font-size:7pt;\">Attenzione: nel campo TYPE immettere il tipo di abbonamento(ascoltatore, artista, etichetta)</span></p></body></html>"))

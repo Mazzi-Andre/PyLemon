@@ -12,6 +12,7 @@ class Gestione_mp3():
 
 
     def Carica_mp3(self, percorsofile):
+        print(percorsofile)
         contatoreid = self.json_contatore["contatore_id"]
         if os.path.isfile(percorsofile):
             shutil.copy(percorsofile, 'Data/mp3')
