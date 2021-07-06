@@ -86,7 +86,7 @@ class Easter_egg(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", ""))
         self.label.setText(_translate("Form", ""))
         self.label_3.setText(_translate("Form", "       LemonCreatori:"))
         self.label_4.setText(_translate("Form", "    André Mazzi"))

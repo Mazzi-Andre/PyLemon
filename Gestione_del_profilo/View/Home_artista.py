@@ -9,7 +9,8 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtGui import QIcon
+from PyQt5.QtCore import QSize, Qt
+from PyQt5.QtGui import QIcon, QMovie
 from PyQt5.QtWidgets import QApplication, QWidget
 
 
@@ -62,6 +63,7 @@ class home_artista(object):
         self.txt_nome.setFont(font)
         self.txt_nome.setTabletTracking(False)
         self.txt_nome.setStyleSheet("background-color: rgb(207, 207, 207);\n"
+                                    "color: rgb(55, 55, 55);\n"
                                     "border-radius: 20px;\n"
                                     "border-color: rgb(133, 133, 133);")
         # self.lineEdit.setText("")
@@ -293,12 +295,40 @@ class home_artista(object):
         self.btn_limone.setIconSize(QtCore.QSize(100, 100))
 
 
+
+        self.label_coming = QtWidgets.QLabel(Form)
+        self.label_coming.setGeometry(QtCore.QRect(609, 305, 100, 30))
+        self.label_coming.setStyleSheet("background-color: rgb(51, 51, 51);"
+                                        "color: rgb(255, 252, 252);\n"
+                                        "font: 15pt \".AppleSystemUIFont\";")
+        self.label_coming.setObjectName("label_coming")
+
+
+        self.centralwidget = QtWidgets.QWidget(Form)
+        self.centralwidget.setObjectName("centralwidget")
+        self.centralwidget.setGeometry(QtCore.QRect(577, 330, 120, 120))
+        self.centralwidget.setStyleSheet("background-color: rgb(51, 51, 51);"
+                                         "color: rgb(255, 252, 252);\n"
+                                         "font: 15pt \".AppleSystemUIFont\";")
+        self.gif_coming = QtWidgets.QLabel(self.centralwidget)
+        self.gif_coming.setGeometry(QtCore.QRect(10, -15, 300, 300))
+        self.gif_coming.setMinimumSize(QtCore.QSize(150, 150))
+        self.gif_coming.setMaximumSize(QtCore.QSize(150, 150))
+
+        self.gif_coming.setObjectName("gif")
+        self.movie = QMovie("comingsoon.gif")
+        self.movie.setScaledSize(QSize().scaled(100, 100, Qt.KeepAspectRatio))
+        self.gif_coming.setMovie(self.movie)
+        self.movie.start()
+
+
+
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", ""))
         self.txt_nome.setPlaceholderText(_translate("Form", "  Search..."))
         self.label.setText(_translate("Form", "PyLemon artista"))
         self.btn_mostraTutte.setText(_translate("Form", ""))
@@ -307,6 +337,8 @@ class home_artista(object):
         self.btn_Pubblica.setText(_translate("Form", "Pubblica"))
         self.btn_search.setText(_translate("Form", ""))
         self.btn_limone.setText(_translate("Form", ""))
+        self.label_coming.setText(_translate("Form", "Playlist"))
+
         item = self.table_top.horizontalHeaderItem(0)
         item.setText(_translate("Form", "TOP 5 "))
         font1 = QtGui.QFont().bold()
@@ -322,9 +354,9 @@ class home_artista(object):
         item.setFont(font)
         self.table_brani.setColumnWidth(0, 231)
 
-"""app = QApplication([])
+'''app = QApplication([])
 window = QWidget()
 form = home_artista()
 form.setupUi(window)
 window.show()
-app.exec()"""
+app.exec()'''

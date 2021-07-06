@@ -27,17 +27,19 @@ class Caricamento_brano(object):
         self.label_2.setStyleSheet("color: rgb(207, 211, 211);")
         self.label_2.setObjectName("label_2")
 
-        self.lineEdit = QtWidgets.QLineEdit(Form)
+        '''self.lineEdit = QtWidgets.QLineEdit(Form)
         self.lineEdit.setGeometry(QtCore.QRect(140, 220, 181, 31))
-        self.lineEdit.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"border-radius: 5px;")
-        self.lineEdit.setObjectName("lineEdit")
+        self.lineEdit.setStyleSheet("background-color: rgb(207, 207, 207);\n"
+                                    "color: rgb(55, 55, 55);\n"
+                                    "border-radius: 5px;")
+        self.lineEdit.setObjectName("lineEdit")'''
 
 
         self.txt_nome_brano = QtWidgets.QLineEdit(Form)
         self.txt_nome_brano.setGeometry(QtCore.QRect(140, 220, 181, 31))
-        self.txt_nome_brano.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"border-radius: 5px;")
+        self.txt_nome_brano.setStyleSheet("background-color: rgb(207, 207, 207);\n"
+                                          "color: rgb(55, 55, 55);\n"
+                                          "border-radius: 5px;")
         self.txt_nome_brano.setObjectName("txt_nome_brano")
 
         self.label_3 = QtWidgets.QLabel(Form)
@@ -59,15 +61,16 @@ class Caricamento_brano(object):
         self.btn_scegli_file.setGeometry(QtCore.QRect(180, 140, 101, 31))
         self.btn_scegli_file.setMouseTracking(True)
         self.btn_scegli_file.setTabletTracking(True)
-        self.btn_scegli_file.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
-                                    "border-radius: 10px;\n"
-                                    "color: 'white';}" +
-                                    "*:hover{background: rgb(221, 215, 25);\n}")
+        self.btn_scegli_file.setStyleSheet("*{background-color: rgb(207, 207, 207);\n"
+                                           "color: rgb(0, 0, 0);\n"
+                                           "border-radius: 10px;\n"
+                                           "color: rgb(0, 0, 0);\n}"
+                                           "*:hover{border: 5px solid rgb(221, 215, 25);\n}")
         self.btn_scegli_file.setObjectName("btn_scegli_file")
 
 
         self.btn_pubblica = QtWidgets.QPushButton(Form)
-        self.btn_pubblica.setGeometry(QtCore.QRect(130, 310, 81, 21))
+        self.btn_pubblica.setGeometry(QtCore.QRect(250, 310, 81, 21))
         self.btn_pubblica.setMouseTracking(True)
         self.btn_pubblica.setTabletTracking(True)
         self.btn_pubblica.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
@@ -79,7 +82,7 @@ class Caricamento_brano(object):
 
 
         self.btn_Back = QtWidgets.QPushButton(Form)
-        self.btn_Back.setGeometry(QtCore.QRect(250, 310, 81, 21))
+        self.btn_Back.setGeometry(QtCore.QRect(130, 310, 81, 21))
         self.btn_Back.setMouseTracking(True)
         self.btn_Back.setTabletTracking(True)
         self.btn_Back.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
@@ -95,7 +98,7 @@ class Caricamento_brano(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", ""))
         self.label.setText(_translate("Form", "PyLemon"))
         self.label_2.setText(_translate("Form", "Pubblicazione brano"))
         self.label_3.setText(_translate("Form", "Nome brano:"))
@@ -104,7 +107,7 @@ class Caricamento_brano(object):
 
         self.btn_scegli_file.setText(_translate("Form", "Scegli file"))
         self.btn_pubblica.setText(_translate("Form", "Pubblica"))
-        self.btn_Back.setText(_translate("Form", "Back"))
+        self.btn_Back.setText(_translate("Form", "Indietro"))
 
 
 '''app = QApplication([])

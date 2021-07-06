@@ -57,7 +57,7 @@ class Ui_Outsecure(object):
         self.txt_username = QtWidgets.QLineEdit(Outsecure)
         self.txt_username.setGeometry(QtCore.QRect(130, 100, 275, 31))
         self.txt_username.setStyleSheet("background-color: rgb(207, 207, 207);\n"
-                                        "color: rgb(255,255,255);\n"
+                                        "color: rgb(55, 55, 55);\n"
                                         "border-style:outset;\n"
                                         "border-radius:10px;\n")
         self.txt_username.setObjectName("txt_username")
@@ -65,7 +65,7 @@ class Ui_Outsecure(object):
         self.txt_password = QtWidgets.QLineEdit(Outsecure)
         self.txt_password.setGeometry(QtCore.QRect(130, 150, 271, 31))
         self.txt_password.setStyleSheet("background-color: rgb(207, 207, 207);\n"
-                                        "color: rgb(255,255,255);\n"
+                                        "color: rgb(55, 55, 55);\n"
                                         "border-style:outset;\n"
                                         "border-radius:10px;\n")
         self.txt_password.setObjectName("txt_password")
@@ -75,7 +75,7 @@ class Ui_Outsecure(object):
 
     def retranslateUi(self, Outsecure):
         _translate = QtCore.QCoreApplication.translate
-        Outsecure.setWindowTitle(_translate("Outsecure", "Form"))
+        Outsecure.setWindowTitle(_translate("Outsecure", ""))
         self.l_title.setText(_translate("Outsecure",
                                         "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600; font-style:italic;\">PyLemon</span></p></body></html>"))
         #self.l_title.setText(_translate("Outsecure", "PyLemon"))

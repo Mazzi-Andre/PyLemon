@@ -50,7 +50,7 @@ class pubblicazione_inizio(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", ""))
         self.btn_brano.setText(_translate("Form", "Brano"))
         self.btn_album.setText(_translate("Form", "Album"))
         self.label.setText(_translate("Form", "PyLemon"))

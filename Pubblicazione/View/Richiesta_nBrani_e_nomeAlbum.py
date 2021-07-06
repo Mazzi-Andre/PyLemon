@@ -19,7 +19,7 @@ class Ui_Form(object):
         Form.setStyleSheet("background-color: rgb(40, 39, 39);")
 
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(145, 20, 121, 41))
+        self.label.setGeometry(QtCore.QRect(145, 20, 130, 41))
         self.label.setStyleSheet("color: rgb(221, 215, 25);\n"
 "font: 30pt \".AppleSystemUIFont\";")
         self.label.setObjectName("label")
@@ -27,8 +27,9 @@ class Ui_Form(object):
 
         self.txt_nome_album = QtWidgets.QLineEdit(Form)
         self.txt_nome_album.setGeometry(QtCore.QRect(300, 210, 51, 21))
-        self.txt_nome_album.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"border-radius: 5px;")
+        self.txt_nome_album.setStyleSheet("background-color: rgb(207, 207, 207);\n"
+                                          "color: rgb(55, 55, 55);\n"
+                                          "border-radius: 5px;")
         self.txt_nome_album.setObjectName("txt_nome_album")
 
 
@@ -39,29 +40,23 @@ class Ui_Form(object):
 
 
         self.btn_ok = QtWidgets.QPushButton(Form)
-        self.btn_ok.setGeometry(QtCore.QRect(170, 280, 71, 21))
+        self.btn_ok.setGeometry(QtCore.QRect(230, 280, 71, 21))
         self.btn_ok.setMouseTracking(True)
         self.btn_ok.setTabletTracking(True)
-        self.btn_ok.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);\n"
-"border-radius: 10px;")
+        self.btn_ok.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
+                                  "border-radius: 10px;\n"
+                                  "color: 'white';}" +
+                                  "*:hover{background: rgb(221, 215, 25);\n}")
 
         self.btn_ok.setObjectName("pushButton_2")
 
 
-        self.lineEdit_2 = QtWidgets.QLineEdit(Form)
-        self.lineEdit_2.setGeometry(QtCore.QRect(110, 140, 191, 31))
-        self.lineEdit_2.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"border-radius: 5px;")
-        self.lineEdit_2.setObjectName("lineEdit_2")
-
-        #self.btn_ok.setObjectName("pushButton_2")
-
 
         self.txt_nBrani = QtWidgets.QLineEdit(Form)
         self.txt_nBrani.setGeometry(QtCore.QRect(110, 140, 191, 31))
-        self.txt_nBrani.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"border-radius: 5px;")
+        self.txt_nBrani.setStyleSheet("background-color: rgb(207, 207, 207);\n"
+                                      "color: rgb(55, 55, 55);\n"
+                                      "border-radius: 5px;")
         self.txt_nBrani.setObjectName("txt_nBrani")
 
 
@@ -78,18 +73,31 @@ class Ui_Form(object):
         self.label_2.setObjectName("label_2")
 
 
+
+        self.btn_Back = QtWidgets.QPushButton(Form)
+        self.btn_Back.setGeometry(QtCore.QRect(120, 280, 71, 21))
+        self.btn_Back.setMouseTracking(True)
+        self.btn_Back.setTabletTracking(True)
+        self.btn_Back.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
+                                    "border-radius: 10px;\n"
+                                    "color: 'white';}" +
+                                    "*:hover{background: rgb(221, 215, 25);\n}")
+        self.btn_Back.setObjectName("btn_back")
+
+
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", ""))
         self.label.setText(_translate("Form", "PyLemon"))
         self.label_3.setText(_translate("Form", "Inserisci il numero di brani nell\'album:"))
         self.btn_ok.setText(_translate("Form", "Ok"))
         self.label_4.setText(_translate("Form", "Nome album:"))
         self.label_2.setText(_translate("Form", "Pubblicazione album"))
+        self.btn_Back.setText(_translate("Form", "Indietro"))
 
 '''app = QApplication([])
 window = QWidget()

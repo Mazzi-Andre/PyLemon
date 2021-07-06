@@ -69,12 +69,12 @@ class edit_artista(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", ""))
         self.label_2.setText(_translate("Form", "Scegli il tuo nuovo LemonAccount"))
         self.btn_Etichetta.setText(_translate("Form", "Etichetta"))
         self.label.setText(_translate("Form", "PyLemon"))
         self.btn_Ascoltatore.setText(_translate("Form", "Ascoltatore"))
-        self.btn_Back.setText(_translate("Form", "Back"))
+        self.btn_Back.setText(_translate("Form", "Indietro"))
 
 '''app = QApplication([])
 window = QWidget()

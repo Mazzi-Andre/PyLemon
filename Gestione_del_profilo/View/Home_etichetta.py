@@ -9,7 +9,8 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtGui import QIcon
+from PyQt5.QtCore import QSize, Qt
+from PyQt5.QtGui import QIcon, QMovie
 from PyQt5.QtWidgets import QApplication, QWidget
 
 
@@ -38,6 +39,7 @@ class home_etichetta(object):
         self.txt_nome.setFont(font)
         self.txt_nome.setTabletTracking(False)
         self.txt_nome.setStyleSheet("background-color: rgb(207, 207, 207);\n"
+                                    "color: rgb(55, 55, 55);\n"
                                     "border-radius: 20px;\n"
                                     "border-color: rgb(133, 133, 133);")
         # self.lineEdit.setText("")
@@ -210,13 +212,69 @@ class home_etichetta(object):
 
 
 
+
+        self.label_coming_playlist = QtWidgets.QLabel(Form)
+        self.label_coming_playlist.setGeometry(QtCore.QRect(585, 305, 100, 30))
+        self.label_coming_playlist.setStyleSheet("background-color: rgb(51, 51, 51);"
+                                        "color: rgb(255, 252, 252);\n"
+                                        "font: 15pt \".AppleSystemUIFont\";")
+        self.label_coming_playlist.setObjectName("label_coming")
+
+
+        self.label_coming_miei_artisti = QtWidgets.QLabel(Form)
+        self.label_coming_miei_artisti.setGeometry(QtCore.QRect(308, 305, 100, 30))
+        self.label_coming_miei_artisti.setStyleSheet("background-color: rgb(51, 51, 51);"
+                                        "color: rgb(255, 252, 252);\n"
+                                        "font: 15pt \".AppleSystemUIFont\";")
+        self.label_coming_miei_artisti.setObjectName("label_coming")
+
+
+        '''-------------------Coming soon GIF--------------------'''
+
+        self.centralwidget_1 = QtWidgets.QWidget(Form)
+        self.centralwidget_1.setObjectName("centralwidget")
+        self.centralwidget_1.setGeometry(QtCore.QRect(285, 330, 120, 120))
+        self.centralwidget_1.setStyleSheet("background-color: rgb(51, 51, 51);"
+                                         "color: rgb(255, 252, 252);\n"
+                                         "font: 15pt \".AppleSystemUIFont\";")
+        self.gif_coming_1 = QtWidgets.QLabel(self.centralwidget_1)
+        self.gif_coming_1.setGeometry(QtCore.QRect(10, -15, 300, 300))
+        self.gif_coming_1.setMinimumSize(QtCore.QSize(150, 150))
+        self.gif_coming_1.setMaximumSize(QtCore.QSize(150, 150))
+
+        self.gif_coming_1.setObjectName("gif")
+        self.movie_1 = QMovie("comingsoon.gif")
+        self.movie_1.setScaledSize(QSize().scaled(100, 100, Qt.KeepAspectRatio))
+        self.gif_coming_1.setMovie(self.movie_1)
+        self.movie_1.start()
+
+
+        self.centralwidget_2 = QtWidgets.QWidget(Form)
+        self.centralwidget_2.setObjectName("centralwidget")
+        self.centralwidget_2.setGeometry(QtCore.QRect(550, 330, 120, 120))
+        self.centralwidget_2.setStyleSheet("background-color: rgb(51, 51, 51);"
+                                         "color: rgb(255, 252, 252);\n"
+                                         "font: 15pt \".AppleSystemUIFont\";")
+        self.gif_coming_2 = QtWidgets.QLabel(self.centralwidget_2)
+        self.gif_coming_2.setGeometry(QtCore.QRect(10, -15, 300, 300))
+        self.gif_coming_2.setMinimumSize(QtCore.QSize(150, 150))
+        self.gif_coming_2.setMaximumSize(QtCore.QSize(150, 150))
+
+        self.gif_coming_2.setObjectName("gif")
+        self.movie_2 = QMovie("comingsoon.gif")
+        self.movie_2.setScaledSize(QSize().scaled(100, 100, Qt.KeepAspectRatio))
+        self.gif_coming_2.setMovie(self.movie_2)
+        self.movie_2.start()
+
+
+
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Etichetta"))
+        Form.setWindowTitle(_translate("Form", ""))
         self.txt_nome.setPlaceholderText(_translate("Form", "  Search..."))
         self.label.setText(_translate("Form", "PyLemon etichetta"))
         self.btn_mostraTutte.setText(_translate("Form", ""))
@@ -225,6 +283,9 @@ class home_etichetta(object):
         self.btn_Logout.setText(_translate("Form", "Log out"))
         self.btn_search.setText(_translate("Form", ""))
         self.btn_limone.setText(_translate("Form", ""))
+        self.label_coming_playlist.setText(_translate("Form", "Playlist"))
+        self.label_coming_miei_artisti.setText(_translate("Form", "I tuoi artisti"))
+
         item = self.table.horizontalHeaderItem(0)
         item.setText(_translate("Form", "TOP 5 "))
         font1 = QtGui.QFont().bold()

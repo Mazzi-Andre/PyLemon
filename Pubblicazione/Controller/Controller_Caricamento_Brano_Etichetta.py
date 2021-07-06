@@ -12,6 +12,7 @@ from Pubblicazione.Controller.Gestione_mp3 import Gestione_mp3
 
 class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_brano_etichetta):
     switch_window = QtCore.pyqtSignal()
+    switch_window_2 = QtCore.pyqtSignal()
 
     def __init__(self,verifica_album,nome_album):
         QtWidgets.QWidget.__init__(self)
@@ -24,6 +25,7 @@ class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_bran
 
         self.btn_Scegli_file.clicked.connect(self.btn_scegli_file_handler)
         self.btn_Pubblica.clicked.connect(self.btn_pubblica_handler)
+        self.btn_Back.clicked.connect(self.btn_back_handler)
 
     def pop_message(self, text=""):
         msg = QtWidgets.QMessageBox()
@@ -60,3 +62,6 @@ class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_bran
             filter='Data File (*.mp3)',
             # initialFilter='Data File (*.mp3)'
         )
+
+    def btn_back_handler(self):
+        self.switch_window_2.emit()

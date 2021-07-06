@@ -168,7 +168,7 @@ class Ui_Player(object):
 
     def retranslateUi(self, Player):
         _translate = QtCore.QCoreApplication.translate
-        Player.setWindowTitle(_translate("Player", "Player"))
+        Player.setWindowTitle(_translate("Player", ""))
         item = self.table.horizontalHeaderItem(0)
         item.setText(_translate("Player", "Titolo"))
         item = self.table.horizontalHeaderItem(1)

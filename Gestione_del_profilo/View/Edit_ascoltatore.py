@@ -65,12 +65,12 @@ class edit_ascoltatore(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", ""))
         self.label.setText(_translate("Form", "PyLemon"))
         self.label_2.setText(_translate("Form", "Scegli il tuo nuovo LemonAccount"))
         self.btn_Artista.setText(_translate("Form", "Artista"))
         self.btn_Etichetta.setText(_translate("Form", "Etichetta"))
-        self.btn_Back.setText(_translate("Form", "Back"))
+        self.btn_Back.setText(_translate("Form", "Indietro"))
 
 '''app = QApplication([])
 window = QWidget()

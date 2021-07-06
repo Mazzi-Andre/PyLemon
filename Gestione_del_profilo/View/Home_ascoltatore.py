@@ -64,20 +64,11 @@ class home_ascoltatore(object):
         self.txt_nome.setFont(font)
         self.txt_nome.setTabletTracking(False)
         self.txt_nome.setStyleSheet("background-color: rgb(207, 207, 207);\n"
-"border-radius: 20px;\n"
-"border-color: rgb(133, 133, 133);")
+                                    "color: rgb(55, 55, 55);\n"
+                                    "border-radius: 20px;\n"
+                                    "border-color: rgb(133, 133, 133);")
         #self.lineEdit.setText("")
         self.txt_nome.setObjectName("lineEdit")
-
-
-        '''
-        self.txt_nome = QtWidgets.QLineEdit(Form)
-        self.txt_nome.setGeometry(QtCore.QRect(110, 130, 331, 61))
-        self.txt_nome.setStyleSheet("background-color: rgb(207, 207, 207);\n"
-"                                     border-radius: 20px;\n"
-"                                     border-color: rgb(133, 133, 133);")
-        self.txt_nome.setObjectName("txt_nome")'''
-
 
 
 
@@ -233,7 +224,7 @@ class home_ascoltatore(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", ""))
         self.label.setText(_translate("Form", "PyLemon ascoltatore"))
         self.btn_mostraTutte.setText(_translate("Form", ""))
         self.btn_Impostazioni.setText(_translate("Form", "Impostazioni"))
