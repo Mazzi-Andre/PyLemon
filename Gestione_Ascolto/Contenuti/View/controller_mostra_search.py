@@ -1,5 +1,3 @@
-import pickle
-
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
@@ -9,7 +7,8 @@ from Gestione_del_profilo.View.Home_artista import home_artista
 from Gestione_del_profilo.View.Home_etichetta import home_etichetta
 from Gestione_del_profilo.View.Home_ascoltatore import home_ascoltatore
 
-
+''' Classe di controllo attività: MOSTRA SEARCH.
+    L'utente dopo essersi interfacciato con la barra di ricerca, vedrà mostrati i risultati associati'''
 class controller_mostra_search(QtWidgets.QWidget, Ui_Player, DataPick, home_ascoltatore, home_etichetta, home_artista):
     switch_window_1 = QtCore.pyqtSignal()
 
@@ -28,10 +27,16 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player, DataPick, home_asco
         self.next.clicked.connect(self.go_next)
         self.horizontalSlider.valueChanged.connect(self.changeValue)
 
+
+    '''Overriding del metodo di QtWidgets.QWidget associato alla finestra di visualizzazione risultati.
+       Alla sua chiusura viene stoppata la riproduzione musicale qualora fosse attiva'''
     def closeEvent(self, event):
         self.go_stop()
 
 
+    '''Metodo che verifica se la ricerca da parte dell'utente produrrà risultati.
+       In tal caso, andrà a riempire gli elementi della tabella utilizzata per la visualizzaione delle voci.
+       Si avranno informazioni relative a titoli di brani, titoli di album e a nomi di artisti.'''
     def mostra_search(self):
         self.var_search = self.Mysong[0]
         self.check_prev = False
@@ -65,14 +70,14 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player, DataPick, home_asco
             if check_riga:
                 riga = riga+1
 
-        '''if riga == 0:
-            self.table.setItem(0, 0, QtWidgets.QTableWidgetItem("Nessun risultato"))'''
-
         self.search = True
         self.righe_search = riga-1
 
+
+    '''Metodo che controlla la riproduzione musicale a seguito dell'interfacciamento dell'utente (pulsante PLAY)'''
     def go_play(self):
         if self.check_prev and self.riga_locale == self.table.currentRow():
+            print(self.riga)
             titolo_prev = self.table.item(self.riga, 0).text()
             album_prev = self.table.item(self.riga, 1).text()
             path = self.controller.getPath(titolo_prev, album_prev)
@@ -87,7 +92,6 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player, DataPick, home_asco
             self.listen.play(path, float(self.horizontalSlider.value() / 10))
 
         elif self.table.selectedItems():
-            self.primo_play = True
             self.riga_locale = self.riga = self.table.currentRow()
             selezione_titolo = self.table.currentItem().text()
             for i in self.lib:
@@ -95,52 +99,56 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player, DataPick, home_asco
                     album_corrispondente = self.table.item(self.riga, 1).text()
                     path = self.controller.getPath(selezione_titolo, album_corrispondente)
                     self.listen.path_riproduzione = path
+                    self.primo_play = True
                     self.listen.play(path, float(self.horizontalSlider.value() / 10))
                     break
 
+    '''Metodo che controlla la pausa del flusso musicale a seguito dell'interfacciamento dell'utente (pulsante PAUSA)'''
     def go_pause(self):
         self.listen.pause()
 
+    '''Metodo che controlla lo stop del flusso musicale a seguito dell'interfacciamento dell'utente (pulsante STOP)'''
     def go_stop(self):
         self.listen.stop()
 
+    '''Metodo che controlla la riproduzione musicale a seguito dell'interfacciamento dell'utente (pulsante PREV)'''
     def go_prev(self):
         if self.primo_play:
             if self.search:
-                self.riga = self.riga - 1
+                if self.riga != self.righe_search:
+                    self.riga = self.riga - 1
 
-                if self.riga < 0:
-                    self.riga = self.righe_search
+                    if self.riga < 0:
+                        self.riga = self.righe_search
 
-                self.check_prev = True
-                self.go_play()
+                    self.check_prev = True
+                    self.search = False
+                    self.go_play()
             else:
                 self.riga = self.riga - 1
                 if self.riga < 0:
-                    self.riga = len(self.lib) - 1
+                    self.riga = self.righe_search
                 self.check_prev = True
                 self.go_play()
 
+    '''Metodo che controlla la riproduzione musicale a seguito dell'interfacciamento dell'utente (pulsante NEXT)'''
     def go_next(self):
         if self.primo_play:
             if self.search:
-                self.riga = self.riga + 1
-                if self.riga > self.righe_search:
-                    self.riga = 0
-                self.check_prev = True
-                self.go_play()
+                if self.riga != self.righe_search:
+                    self.riga = self.riga + 1
+                    if self.riga > self.righe_search:
+                        self.riga = 0
+                    self.check_prev = True
+                    self.search = False
+                    self.go_play()
             else:
                 self.riga = self.riga + 1
-                if self.riga > len(self.lib) - 1:
+                if self.riga > self.righe_search:
                     self.riga = 0
                 self.check_next = True
                 self.go_play()
 
+    '''Metodo che controlla la riproduzione musicale a seguito dell'interfacciamento dell'utente (slider del volume)'''
     def changeValue(self, value):
         self.listen.vol_adjust(value)
-
-
-
-
-
-

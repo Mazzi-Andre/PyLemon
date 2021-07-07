@@ -36,7 +36,7 @@ class Login(QtWidgets.QWidget, Ui_Outsecure, DataPick):
 
     def bool_check_username(self):
         if len(self.txt_password.text()) <= 1:
-            self.pop_message(text='Inserire Username e Password validi !')
+            self.pop_message(text='Inserire Username e Password validi')
         else:
             username = self.txt_username.text()
             password = self.txt_password.text()
@@ -55,7 +55,7 @@ class Login(QtWidgets.QWidget, Ui_Outsecure, DataPick):
                     else:
                         pass
             else:
-                self.pop_message(text="Utente non trovato  ")
+                self.pop_message(text="Utente non trovato ")
                 return False
 
     def btn_submit_handler(self):
@@ -66,7 +66,7 @@ class Login(QtWidgets.QWidget, Ui_Outsecure, DataPick):
 
             #self.pick.put_data(self.credenziali[0], self.credenziali[1])
             self.pop_message(text=self.pick.return_credenziali()) #posizione 4 è artista
-            costante= self.pick.controlla_login()
+            costante = self.pick.controlla_login()
             self.pop_message(text=costante)
             if costante == 1:
                 self.switch_window1.emit()
@@ -82,5 +82,5 @@ class Login(QtWidgets.QWidget, Ui_Outsecure, DataPick):
     def btn_newuser_handler(self):
         self.switch_window.emit()
 
-    def return_credenziali(self):
-        return self.credenziali
+    '''def return_credenziali(self):
+        return self.credenziali'''

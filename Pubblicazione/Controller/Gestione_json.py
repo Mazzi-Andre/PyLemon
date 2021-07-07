@@ -1,16 +1,20 @@
 import json
 
-
+'''Classe responsabile della gestione del file info_brani.json'''
 class Gestione_json():
 
+
+    '''Nel costruttore si esegue la lettura del file memorizzandola nell'attributo json_data'''
     def __init__(self):
         with open('info_brani.json', 'r') as j:
             self.json_data = json.load(j)
 
+
+    '''Metodo che aggiunge coppie chiave-valore all'interno dell'attributo json_data(usato nell'attività di pubblicazione).
+       A questo punto si esegue la sovrascttura del file con i dati aggiornati'''
     def carica_brano_su_JSON(self, nome,artista,album,id,contatore):
         oggettobrano = {"Titolo": nome.title(), "Artista": artista.title(), "Album": album.title(), "id": id, "contatore": contatore }
         if self.json_data != None:
-            i=len(self.json_data)
 
             self.json_data.append(oggettobrano)
             with open("info_brani.json", "w") as write_file:
@@ -21,6 +25,8 @@ class Gestione_json():
             with open("info_brani.json", "w") as write_file:
                 json.dump(self.json_data, write_file)
 
+
+    '''Metodo che ritorna l'id corrispondente di un brano dati titolo e album'''
     def ricerca_id(self, titolo, album):
         U = self.json_data
         for i in U:
@@ -29,6 +35,9 @@ class Gestione_json():
         return ID
 
 
+
+    '''Metodo che incrementa il valore della chiave CONTATORE a seguito di riproduzioni musicali.
+       Sovrascittura del file per il suo aggiornamento'''
     def incremento_conta(self, titolo, album):
         data = self.json_data
         posi = 0
@@ -43,6 +52,9 @@ class Gestione_json():
             json.dump(data, write_file)
 
 
+
+    '''Metodo ritorna l'id corrispondente ad un titolo di un brano.
+       Utilizzato per la statistica I MIEI BRANI'''
     def getTitolo_da_Id(self, id):
         titolo =""
         for i in self.json_data:
@@ -51,6 +63,7 @@ class Gestione_json():
         return titolo
 
 
+
+    '''Metodo che ritorna l'attributo json_data'''
     def get_jsonobject(self):
         return self.json_data
-

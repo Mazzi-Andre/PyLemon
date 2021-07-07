@@ -5,6 +5,8 @@ from Gestione_Ascolto.Contenuti.View.VistaContenuti_e_player import Ui_Player
 from Pubblicazione.Controller.Gestione_json import Gestione_json
 
 
+''' Classe di controllo attività: MOSTRA TUTTO.
+    L'utente dopo essersi interfacciato con il pulsante show all, vedrà mostrate le informazioni musicali disponibili nella piattaforma.'''
 class controller_mostra_tutto(QtWidgets.QWidget, Ui_Player):
     switch_window_1 = QtCore.pyqtSignal()
 
@@ -20,9 +22,13 @@ class controller_mostra_tutto(QtWidgets.QWidget, Ui_Player):
         self.next.clicked.connect(self.go_next)
         self.horizontalSlider.valueChanged.connect(self.changeValue)
 
+    '''Overriding del metodo di QtWidgets.QWidget associato alla finestra di visualizzazione risultati.
+      Alla sua chiusura viene stoppata la riproduzione musicale qualora fosse attiva'''
     def closeEvent(self, event):
         self.go_stop()
 
+    '''Metodo che andrà a riempire gli elementi della tabella utilizzata per la visualizzaione delle informazioni musicali.
+       Si avranno informazioni relative a titoli di brani, titoli di album e a nomi di artisti.'''
     def mostra_tutto(self):
         self.check_prev = False
         self.check_next = False
@@ -37,7 +43,7 @@ class controller_mostra_tutto(QtWidgets.QWidget, Ui_Player):
             self.table.setItem(riga, 2, QtWidgets.QTableWidgetItem(i["Artista"]))
             riga = riga+1
 
-
+    '''Metodo che controlla la riproduzione musicale a seguito dell'interfacciamento dell'utente (pulsante PLAY)'''
     def go_play(self):
         if self.check_prev and self.riga_locale == self.table.currentRow():
             titolo_prev = self.table.item(self.riga,0).text()
@@ -58,7 +64,6 @@ class controller_mostra_tutto(QtWidgets.QWidget, Ui_Player):
             self.listen.play(path,float(self.horizontalSlider.value()/10))
 
         elif self.table.selectedItems():
-            self.primo_play = True
             self.riga_locale = self.riga = self.table.currentRow()
             selezione_titolo = self.table.currentItem().text()
             for i in self.lib:
@@ -68,18 +73,19 @@ class controller_mostra_tutto(QtWidgets.QWidget, Ui_Player):
                     self.listen.path_riproduzione = path
                     g = Gestione_json()
                     g.incremento_conta(selezione_titolo, album_corrispondente)
+                    self.primo_play = True
                     self.listen.play(path,float(self.horizontalSlider.value()/10))
                     break
 
-
+    '''Metodo che controlla la pausa del flusso musicale a seguito dell'interfacciamento dell'utente (pulsante PAUSA)'''
     def go_pause(self):
         self.listen.pause()
 
-
+    '''Metodo che controlla lo stop del flusso musicale a seguito dell'interfacciamento dell'utente (pulsante STOP)'''
     def go_stop(self):
         self.listen.stop()
 
-
+    '''Metodo che controlla la riproduzione musicale a seguito dell'interfacciamento dell'utente (pulsante PREV)'''
     def go_prev(self):
         if self.primo_play:
             if self.search:
@@ -97,7 +103,7 @@ class controller_mostra_tutto(QtWidgets.QWidget, Ui_Player):
                 self.check_prev = True
                 self.go_play()
 
-
+    '''Metodo che controlla la riproduzione musicale a seguito dell'interfacciamento dell'utente (pulsante NEXT)'''
     def go_next(self):
         if self.primo_play:
             if self.search:
@@ -113,6 +119,6 @@ class controller_mostra_tutto(QtWidgets.QWidget, Ui_Player):
                 self.check_next = True
                 self.go_play()
 
-
+    '''Metodo che controlla la riproduzione musicale a seguito dell'interfacciamento dell'utente (slider del volume)'''
     def changeValue(self,value):
         self.listen.vol_adjust(value)

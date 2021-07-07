@@ -74,13 +74,13 @@ class Newuser(QtWidgets.QWidget, Ui_NewUser):
             conn.commit()
             cursor.close()
             conn.close()
-            self.pop_message(text="Added to Database ! ")
+            self.pop_message(text="Ora sei un membro di PyLemon!")
 
         else:
             """
             Logic to see if users Enter all Feilds Correctly 
             """
-            self.pop_message(text="Please Enter All Feilds ")
+            self.pop_message(text="Campi mancanti o incorretti.")
 
 
     def confronta_stringhe(self, tipo, nome, cognome, telefono, username, password):

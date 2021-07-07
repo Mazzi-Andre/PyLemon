@@ -50,7 +50,7 @@ class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_bran
         contatore = 0
         id = G.json_contatore["contatore_id"]
         J.carica_brano_su_JSON(nome, artista, album, id, contatore)
-        self.pop_message(text="Brano caricato con successo.")
+        self.pop_message(text="Brano caricato con successo")
         if self.verifica_album == True:
             self.switch_window.emit()
 
@@ -59,8 +59,7 @@ class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_bran
             parent=self,
             caption='Select a data file',
             directory=os.getcwd(),
-            filter='Data File (*.mp3)',
-            # initialFilter='Data File (*.mp3)'
+            filter='Data File (*.mp3)',# initialFilter='Data File (*.mp3)'
         )
 
     def btn_back_handler(self):
