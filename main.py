@@ -429,6 +429,7 @@ class Controller():
         self.conferma_credenziali.switch_window_1.connect(self.show_impostazioni_ascoltatore)
         self.conferma_credenziali.switch_window_2.connect(self.show_impostazioni_artista)
         self.conferma_credenziali.switch_window_3.connect(self.show_impostazioni_etichetta)
+        self.conferma_credenziali.btn_Ok.clicked.connect(self.show_logout)
         self.check_conferma_credenziali = True
         self.conferma_credenziali.show()
 
