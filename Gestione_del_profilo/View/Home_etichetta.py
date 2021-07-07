@@ -6,7 +6,7 @@ from PyQt5.QtGui import QIcon, QMovie
 
 
 
-'''-------------------Finestra Home etichetta--------------------'''
+'''-------------------Classe view Home etichetta--------------------'''
 
 class home_etichetta(object):
     def setupUi(self, Form):
@@ -43,7 +43,7 @@ class home_etichetta(object):
 
 
 
-        """------------Btn mostra tutte-----------"""
+        """------------Bottone mostra tutte-----------"""
 
         self.btn_mostraTutte = QtWidgets.QPushButton(Form)
         self.btn_mostraTutte.setGeometry(QtCore.QRect(665, 130, 90, 61))
@@ -59,7 +59,7 @@ class home_etichetta(object):
 
 
 
-        """-------------Btn search------------"""
+        """-------------Bottone search------------"""
 
         self.btn_search = QtWidgets.QPushButton(Form)
         self.btn_search.setGeometry(QtCore.QRect(170, 130, 70, 61))
@@ -99,7 +99,7 @@ class home_etichetta(object):
         self.line_4.setObjectName("line_4")
 
 
-        '''-----------Btn pubblica----------'''
+        '''-----------Bottone pubblica----------'''
 
         self.btn_Pubblica = QtWidgets.QPushButton(Form)
         self.btn_Pubblica.setGeometry(QtCore.QRect(770, 350, 91, 21))
@@ -113,7 +113,7 @@ class home_etichetta(object):
         self.btn_Pubblica.setObjectName("pushButton_2")
 
 
-        '''------------Btn impostazioni------------'''
+        '''------------Bottone impostazioni------------'''
 
         self.btn_Impostazioni = QtWidgets.QPushButton(Form)
         self.btn_Impostazioni.setGeometry(QtCore.QRect(770, 300, 91, 21))
@@ -127,7 +127,7 @@ class home_etichetta(object):
         self.btn_Impostazioni.setObjectName("pushButton_3")
 
 
-        '''------------Btn log out------------'''
+        '''------------Bottone log out------------'''
 
         self.btn_Logout = QtWidgets.QPushButton(Form)
         self.btn_Logout.setGeometry(QtCore.QRect(770, 400, 91, 21))
@@ -162,7 +162,7 @@ class home_etichetta(object):
         self.listView_2.setObjectName("listView_2")
 
 
-        '''------------Table Top 5------------'''
+        '''------------Top 5------------'''
 
         self.table = QtWidgets.QTableWidget(Form)
         self.table.setGeometry(QtCore.QRect(20, 290, 191, 211))
@@ -216,7 +216,7 @@ class home_etichetta(object):
         self.table.verticalHeader().setHighlightSections(True)
 
 
-        '''-----------Btn limone (Easter egg)---------'''
+        '''-----------Bottone limone (Easter egg)---------'''
         self.btn_limone = QtWidgets.QPushButton(Form)
         self.btn_limone.setGeometry(QtCore.QRect(780, 435, 70, 65))
         font = QtGui.QFont()

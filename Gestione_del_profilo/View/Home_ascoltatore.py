@@ -6,7 +6,7 @@ from PyQt5.QtGui import QIcon, QMovie
 
 
 
-'''-------------------Finestra Home ascoltatore---------------------'''
+'''-------------------Classe view Home ascoltatore---------------------'''
 
 class home_ascoltatore(object):
     def setupUi(self, Form):
@@ -26,7 +26,8 @@ class home_ascoltatore(object):
 
 
 
-        """------------Btn mostra tutte-----------"""
+        """------------Bottone mostra tutte-----------"""
+
         self.btn_mostraTutte = QtWidgets.QPushButton(Form)
         self.btn_mostraTutte.setGeometry(QtCore.QRect(490, 125, 80, 70))
         self.btn_mostraTutte.setStyleSheet("*{border: 1px solid rgb(40, 39, 39);"
@@ -41,7 +42,7 @@ class home_ascoltatore(object):
 
 
 
-        """-------------Btn search------------"""
+        """-------------Bottone search------------"""
 
         self.btn_search = QtWidgets.QPushButton(Form)
         self.btn_search.setGeometry(QtCore.QRect(70, 130, 70, 61))
@@ -108,7 +109,7 @@ class home_ascoltatore(object):
 
 
 
-        '''------------Table Top 5------------'''
+        '''------------Top 5------------'''
 
         self.table = QtWidgets.QTableWidget(Form)
         self.table.setGeometry(QtCore.QRect(20, 280, 191, 211))
@@ -163,7 +164,7 @@ class home_ascoltatore(object):
 
 
 
-        '''------------Btn impostazioni------------'''
+        '''------------Bottone impostazioni------------'''
 
         self.btn_Impostazioni = QtWidgets.QPushButton(Form)
         self.btn_Impostazioni.setGeometry(QtCore.QRect(520, 330, 91, 21))
@@ -178,7 +179,7 @@ class home_ascoltatore(object):
 
 
 
-        '''------------Btn log out------------'''
+        '''------------Bottone log out------------'''
 
         self.btn_Logout = QtWidgets.QPushButton(Form)
         self.btn_Logout.setGeometry(QtCore.QRect(520, 380, 91, 21))
@@ -193,7 +194,7 @@ class home_ascoltatore(object):
 
 
 
-        '''-----------Btn limone (Easter egg)---------'''
+        '''-----------Bottone limone (Easter egg)---------'''
 
         self.btn_limone = QtWidgets.QPushButton(Form)
         self.btn_limone.setGeometry(QtCore.QRect(530, 430, 70, 65))

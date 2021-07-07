@@ -4,7 +4,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QSize, Qt
 from PyQt5.QtGui import QIcon, QMovie
 
-'''-------------------Finestra Home artista--------------------'''
+'''-------------------Classe view Home artista--------------------'''
 
 
 class home_artista(object):
@@ -21,7 +21,7 @@ class home_artista(object):
                                  "font: 30pt \".AppleSystemUIFont\";")
         self.label.setObjectName("label")
 
-        """-----------Btn mostra tutte----------"""
+        """-----------Bottone mostra tutte----------"""
         self.btn_mostraTutte = QtWidgets.QPushButton(Form)
         self.btn_mostraTutte.setGeometry(QtCore.QRect(665, 130, 90, 61))
         self.btn_mostraTutte.setStyleSheet("*{border: 1px solid rgb(40, 39, 39);"
@@ -34,7 +34,7 @@ class home_artista(object):
         self.btn_mostraTutte.setIcon(QIcon('Show_all_icon.png'))
         self.btn_mostraTutte.setIconSize(QtCore.QSize(60, 60))
 
-        """-----------Btn search---------"""
+        """-----------Bottone search---------"""
         self.btn_search = QtWidgets.QPushButton(Form)
         self.btn_search.setGeometry(QtCore.QRect(170, 130, 70, 61))
         self.btn_search.setStyleSheet("*{border: 1px solid rgb(40, 39, 39);"
@@ -149,7 +149,7 @@ class home_artista(object):
         self.line_11.setObjectName("line_11")
 
 
-        '''-----------Table Top 5-----------'''
+        '''-----------Top 5-----------'''
 
         self.table_top = QtWidgets.QTableWidget(Form)
         self.table_top.setGeometry(QtCore.QRect(20, 290, 191, 211))
@@ -270,7 +270,7 @@ class home_artista(object):
         self.listView_3.setObjectName("listView_3")
 
 
-        '''------------Btn impostazioni-----------'''
+        '''------------Bottone impostazioni-----------'''
 
         self.btn_Impostazioni = QtWidgets.QPushButton(Form)
         self.btn_Impostazioni.setGeometry(QtCore.QRect(780, 300, 91, 21))
@@ -284,7 +284,7 @@ class home_artista(object):
         self.btn_Impostazioni.setObjectName("pushButton_3")
 
 
-        '''-----------Btn log out-----------'''
+        '''-----------Bottone log out-----------'''
 
         self.btn_Logout = QtWidgets.QPushButton(Form)
         self.btn_Logout.setGeometry(QtCore.QRect(780, 400, 91, 21))
@@ -298,7 +298,7 @@ class home_artista(object):
         self.btn_Logout.setObjectName("pushButton_4")
 
 
-        '''-----------Btn pubblica----------'''
+        '''-----------Bottone pubblica----------'''
 
         self.btn_Pubblica = QtWidgets.QPushButton(Form)
         self.btn_Pubblica.setGeometry(QtCore.QRect(780, 350, 91, 21))
@@ -312,7 +312,7 @@ class home_artista(object):
         self.btn_Pubblica.setObjectName("pushButton_2")
 
 
-        '''-----------Btn limone (Easter egg)---------'''
+        '''-----------Bottone limone (Easter egg)---------'''
 
         self.btn_limone = QtWidgets.QPushButton(Form)
         self.btn_limone.setGeometry(QtCore.QRect(790, 440, 70, 65))
