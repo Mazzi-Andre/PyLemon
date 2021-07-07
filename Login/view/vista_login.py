@@ -16,13 +16,6 @@ class Ui_Outsecure(object):
             "background-color: rgb(40, 39, 39);\n"
             "")
 
-        """serve solamente per una linea in mezzo, bocciata"""
-        # self.line = QtWidgets.QFrame(Outsecure)
-        # self.line.setGeometry(QtCore.QRect(10, 80, 591, 20))
-        # self.line.setFrameShape(QtWidgets.QFrame.HLine)
-        # self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
-        # self.line.setObjectName("line")
-
         """Label del titolo"""
         self.l_title = QtWidgets.QLabel(Outsecure)
         self.l_title.setGeometry(QtCore.QRect(220, 30, 140, 71))
@@ -48,11 +41,6 @@ class Ui_Outsecure(object):
                                        "*:hover{background: rgb(221, 215, 25);}")
         self.btn_newuser.setObjectName("btn_newuser")
 
-        """ funzione del copyright """
-        # self.l_copyright = QtWidgets.QLabel(Outsecure)
-        # self.l_copyright.setGeometry(QtCore.QRect(150, 310, 261, 21))
-        # self.l_copyright.setStyleSheet("color: rgb(252, 0, 28);")
-        # self.l_copyright.setObjectName("l_copyright")
 
         self.txt_username = QtWidgets.QLineEdit(Outsecure)
         self.txt_username.setGeometry(QtCore.QRect(130, 100, 275, 31))
@@ -78,9 +66,8 @@ class Ui_Outsecure(object):
         Outsecure.setWindowTitle(_translate("Outsecure", ""))
         self.l_title.setText(_translate("Outsecure",
                                         "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600; font-style:italic;\">PyLemon</span></p></body></html>"))
-        #self.l_title.setText(_translate("Outsecure", "PyLemon"))
+
         self.btn_Submit.setText(_translate("Outsecure", "Accedi"))
         self.btn_newuser.setText(_translate("Outsecure", "Nuovo utente"))
-        # self.l_copyright.setText(_translate("Outsecure", "This software belongs to OutSecure ")) # serve per la scritta del copyright
         self.txt_username.setPlaceholderText(_translate("Outsecure", "Username"))
         self.txt_password.setPlaceholderText(_translate("Outsecure", "Password"))

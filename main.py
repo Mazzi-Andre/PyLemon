@@ -31,6 +31,7 @@ class Ui_Discovery(object):
 
     """" clesse riguardante l'applicazione """
 
+
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(682, 443)
@@ -476,7 +477,7 @@ class Controller():
     """Controlle Logout"""
 
     def show_logout(self):
-        self.pop_message(text="Ciao!")
+        self.pop_message(text="Arrivederci      ")
 
         if self.check_verifica_etichetta is True:
             self.check_verifica_etichetta = False

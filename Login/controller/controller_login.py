@@ -5,6 +5,7 @@ from PyQt5 import QtWidgets, QtCore
 from Login.view.vista_login import Ui_Outsecure
 from Data_Utente.control.Data_control import DataPick
 
+''' Classe controller utilizzata per la verifica al login del programma '''
 
 class Login(QtWidgets.QWidget, Ui_Outsecure, DataPick):
     switch_window = QtCore.pyqtSignal()
@@ -23,16 +24,22 @@ class Login(QtWidgets.QWidget, Ui_Outsecure, DataPick):
 
         self.credenziali=[]
 
+    ''' Messaggio pop-up a comparsa'''
+
     def pop_message(self, text=""):
         msg = QtWidgets.QMessageBox()
         msg.setText("{}".format(text))
         msg.exec_()
 
-    ''' da sistemare che non funziona '''
+    ''' Funzione di salvataggio nome e password all'interno di un pickle '''
+
     def loading(self):
         username = self.txt_username.text()
         password = self.txt_password.text()
         self.pick.put_data(username, password)
+
+    ''' Funzione booleana per la verifica di esistenza dell'account scelto tramite 
+        l'inserimento di nome e password '''
 
     def bool_check_username(self):
         if len(self.txt_password.text()) <= 1:
@@ -58,16 +65,16 @@ class Login(QtWidgets.QWidget, Ui_Outsecure, DataPick):
                 self.pop_message(text="Utente non trovato ")
                 return False
 
+    ''' Funzione utilizzata per l'apertura della home appartenente al tipo di 
+        account, che utilizza la funzione "bool_check_username" per la verifica
+        dell'esistenza delle credenzialòi '''
+
     def btn_submit_handler(self):
         val = self.bool_check_username()
-        costante = 0
         if (val):
             self.pop_message(text="Benvenuto ")
-
-            #self.pick.put_data(self.credenziali[0], self.credenziali[1])
-            self.pop_message(text=self.pick.return_credenziali()) #posizione 4 è artista
             costante = self.pick.controlla_login()
-            self.pop_message(text=costante)
+
             if costante == 1:
                 self.switch_window1.emit()
             if costante == 2:
@@ -79,8 +86,7 @@ class Login(QtWidgets.QWidget, Ui_Outsecure, DataPick):
         else:
             self.pop_message("Username o password invalidi ")
 
+    ''' Funzione per l'apertura della finestra del nuovo utente '''
+
     def btn_newuser_handler(self):
         self.switch_window.emit()
-
-    '''def return_credenziali(self):
-        return self.credenziali'''
