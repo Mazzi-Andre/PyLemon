@@ -5,30 +5,31 @@ from Gestione_Ascolto.Ascolto.Controller.ControlloreAscolto import ControlloreAs
 from Gestione_Ascolto.Ascolto.Model.Ascolto import Ascolto
 
 
-'''Classe relativa alla vista grafica del Player, quindi dei dati presenti nella piattaforma'''
+'''-----------Classe relativa alla vista grafica del Player, quindi dei dati presenti nella piattaforma----------'''
 class Ui_Player(object):
     def setupUi(self, Player):
         self.listen = Ascolto()
         self.controller = ControlloreAscolto()
         self.search = False
+
+
+        '''-------------Creazione della finestra-----------'''
         Player.setObjectName("Player")
         Player.resize(501, 475)
         Player.setAutoFillBackground(False)
         Player.setStyleSheet("background-color: rgb(40, 39, 39);\n""\n""")
+
+
+        '''----------------Tabella canzoni riproducibili---------------'''
         self.table = QtWidgets.QTableWidget(Player)
         self.table.setGeometry(QtCore.QRect(0, 0, 501, 351))
         self.table.setMinimumSize(QtCore.QSize(3, 0))
         self.table.setMouseTracking(False)
-
-        #self.table.setStyleSheet("background-color: rgb(207, 207, 207);\n""")
-        self.table.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"   #border per i bordi
+        self.table.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
                                  "background-color: rgb(51, 51, 51);"
                                  "border-radius: 5px;\n"
                                  "font: 10pt \"Arial\";"
                                  "color: 'white';}")
-
-
-
         self.table.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.table.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.table.setLineWidth(0)
@@ -69,6 +70,9 @@ class Ui_Player(object):
         self.table.verticalHeader().setVisible(False)
         self.table.verticalHeader().setHighlightSections(True)
 
+
+        '''-----------------Tasto play-------------------'''
+
         self.play = QtWidgets.QPushButton(Player)
         self.play.setGeometry(QtCore.QRect(10, 365, 85, 45))
         font = QtGui.QFont()
@@ -82,6 +86,8 @@ class Ui_Player(object):
         self.play.setObjectName("play")
         self.play.setIcon(QIcon('play.png'))
 
+
+        '''----------------Tasto pausa---------------'''
 
         self.pause = QtWidgets.QPushButton(Player)
         self.pause.setGeometry(QtCore.QRect(110, 365, 85, 45))
@@ -97,6 +103,9 @@ class Ui_Player(object):
         self.pause.setIcon(QIcon('pause.png'))
 
 
+
+        '''----------------Tasto stop---------------'''
+
         self.stop = QtWidgets.QPushButton(Player)
         self.stop.setGeometry(QtCore.QRect(210, 365, 85, 45))
         font = QtGui.QFont()
@@ -111,6 +120,8 @@ class Ui_Player(object):
         self.stop.setIcon(QIcon('stop.png'))
 
 
+        '''----------------Tasto canzone precedente---------------'''
+
         self.prev = QtWidgets.QPushButton(Player)
         self.prev.setGeometry(QtCore.QRect(310, 365, 85, 45))
         font = QtGui.QFont()
@@ -123,6 +134,8 @@ class Ui_Player(object):
         self.prev.setText("")
         self.prev.setObjectName("prev")
 
+
+        '''-----------------Tasto canzone successiva---------------'''
 
         self.next = QtWidgets.QPushButton(Player)
         self.next.setGeometry(QtCore.QRect(410, 365, 85, 45))
@@ -139,14 +152,17 @@ class Ui_Player(object):
         self.next.setIcon(QIcon('next.png'))
 
 
+        '''----------------Slider del volume---------------'''
+
         self.horizontalSlider = QtWidgets.QSlider(Player)
         self.horizontalSlider.setGeometry(QtCore.QRect(80, 443, 90, 25))
         self.horizontalSlider.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSlider.setObjectName("horizontalSlider")
-        #self.horizontalSlider.setStyleSheet("QSlider::handle:horizontal {background-color: white;}")
         self.horizontalSlider.setRange(0,10)
         self.horizontalSlider.setValue(2)
 
+
+        '''--------------Icona volume-------------'''
 
         self.icon_volume = QtWidgets.QPushButton(Player)
         self.icon_volume.setGeometry(QtCore.QRect(13, 440, 65, 26))

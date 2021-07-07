@@ -305,7 +305,7 @@ class Controller():
                 self.Caricamento_Brano_etichetta.show()
         else:
             self.Caricamento_Brano_etichetta.show()
-        self.Caricamento_Brano_etichetta.switch_window_2.connect(self.show_pubblicazione_inizio)
+            self.Caricamento_Brano_etichetta.switch_window_2.connect(self.show_pubblicazione_inizio)
         self.pubblicazione_inizio.close()
 
 
