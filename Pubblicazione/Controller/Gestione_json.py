@@ -64,6 +64,18 @@ class Gestione_json():
 
 
 
+    def elimina_object(self, nome_artista, titolo_brano):
+        for i in self.json_data:
+            if nome_artista==i["Artista"] and titolo_brano==i["Titolo"]:
+                self.json_data.remove(i)
+                break
+
+        with open("info_brani.json", "w") as write_file:
+            json.dump(self.json_data, write_file)
+
+
+
+
     '''Metodo che ritorna l'attributo json_data'''
     def get_jsonobject(self):
         return self.json_data

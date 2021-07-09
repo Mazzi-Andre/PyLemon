@@ -16,6 +16,8 @@ from Gestione_del_profilo.Controller.Controller_easter_egg import controller_eas
 from Gestione_del_profilo.Controller.Controller_edit_artista import controller_edit_artista
 from Gestione_del_profilo.Controller.Controller_edit_ascoltatore import controller_edit_ascoltatore
 from Gestione_del_profilo.Controller.Controller_impostazioni import controller_impostazioni
+from Gestione_del_profilo.Controller.Controller_impostazioni_ascoltatore import controller_impostazioni_ascoltatore
+from Gestione_del_profilo.Controller.controller_conferma_eliminazione import controller_conferma_eliminazione
 from Gestione_del_profilo.Controller.controller_etichetta import controller_etichetta
 from Login.controller.controller_login import Login
 from Pubblicazione.Controller.Controller_Caricamento_Brano_Etichetta import Controller_Caricamento_Brano_Etichetta
@@ -25,6 +27,7 @@ from Pubblicazione.Controller.Controller_Caricamento_Brano_Artista import Contro
 from Pubblicazione.Controller.Controller_Richiesta_nBrani import Controller_Richiesta_nBrani
 from Pubblicazione.Controller.Gestione_json import Gestione_json
 from Top5.Controller.ControllerTop5 import TopFive
+from Gestione_del_profilo.Controller.Controller_rimozione_brani import controller_rimozioni_brani
 
 
 class Ui_Discovery(object):
@@ -323,7 +326,7 @@ class Controller():
 
     """Controller impostazioni ascoltatore"""
     def show_impostazioni_ascoltatore(self):
-        self.impostazioni_ascoltatore = controller_impostazioni()
+        self.impostazioni_ascoltatore = controller_impostazioni_ascoltatore()
         self.impostazioni_ascoltatore.switch_window_1.connect(self.show_conferma_edit)
         self.impostazioni_ascoltatore.switch_window.connect(self.show_conferma_credenziali)
 
@@ -433,7 +436,18 @@ class Controller():
         self.conferma_edit.show()
 
     def show_rimozione_brani(self):
-        print("r")
+        self.controlla_eliminazione = controller_conferma_eliminazione()
+        self.controlla_eliminazione.switch_window_1.connect(self.show_impostazioni_artista)
+        self.controlla_eliminazione.switch_window_2.connect(self.show_scelta_rimozione_brano)
+        self.controlla_eliminazione.show()
+
+    def show_scelta_rimozione_brano(self):
+        self.rimuovi = controller_rimozioni_brani()
+        self.rimuovi.show()
+
+
+
+
 
 
     """Controller Player e ricerca canzoni"""
