@@ -130,10 +130,3 @@ class rimozione_brani(object):
         font = QtGui.QFont("Arial", 10, font1)
         item.setFont(font)
         self.table.setColumnWidth(0, 441)
-
-'''app = QApplication([])
-window = QWidget()
-form = rimozione_brani()
-form.setupUi(window)
-window.show()
-app.exec()'''
