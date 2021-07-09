@@ -73,7 +73,6 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player):
     '''Metodo che controlla la riproduzione musicale a seguito dell'interfacciamento dell'utente (pulsante PLAY)'''
     def go_play(self):
         if self.check_prev and self.riga_locale == self.table.currentRow():
-            print(self.riga)
             titolo_prev = self.table.item(self.riga, 0).text()
             album_prev = self.table.item(self.riga, 1).text()
             path = self.controller.getPath(titolo_prev, album_prev)
@@ -111,7 +110,7 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player):
     def go_prev(self):
         if self.primo_play:
             if self.search:
-                if self.riga != self.righe_search:
+                if self.righe_search > 0:
                     self.riga = self.riga - 1
 
                     if self.riga < 0:
@@ -131,7 +130,7 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player):
     def go_next(self):
         if self.primo_play:
             if self.search:
-                if self.riga != self.righe_search:
+                if self.righe_search > 0:
                     self.riga = self.riga + 1
                     if self.riga > self.righe_search:
                         self.riga = 0

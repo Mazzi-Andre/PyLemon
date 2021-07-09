@@ -1,7 +1,6 @@
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
-from Data_Utente.control.Data_control import DataPick
 from Gestione_del_profilo.View.PyLemon_easter_egg import Easter_egg
 
 

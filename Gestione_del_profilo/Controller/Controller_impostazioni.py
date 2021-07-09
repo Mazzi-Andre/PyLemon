@@ -7,12 +7,14 @@ from Gestione_del_profilo.View.Impostazioni import impostazioni
 class controller_impostazioni(QtWidgets.QWidget,impostazioni):
     switch_window = QtCore.pyqtSignal()
     switch_window_1 = QtCore.pyqtSignal()
+    switch_window_2 = QtCore.pyqtSignal()
 
     def __init__(self):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
         self.btn_EliminaAccount.clicked.connect(self.btn_elimina_profilo_handler)
         self.btn_EditProfilo.clicked.connect(self.btn_edit_profilo_handler)
+        self.btn_rimuovi_brano.clicked.connect(self.btn_rimuovi_brano_handler)
 
 
 
@@ -31,3 +33,6 @@ class controller_impostazioni(QtWidgets.QWidget,impostazioni):
 
     def btn_edit_profilo_handler(self):
         self.switch_window_1.emit()
+
+    def btn_rimuovi_brano_handler(self):
+        self.switch_window_2.emit()

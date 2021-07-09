@@ -42,7 +42,7 @@ class impostazioni(object):
         '''-----------------Bottone elimina account-------------------'''
 
         self.btn_EliminaAccount = QtWidgets.QPushButton(Form)
-        self.btn_EliminaAccount.setGeometry(QtCore.QRect(70, 190, 150, 31))
+        self.btn_EliminaAccount.setGeometry(QtCore.QRect(70, 240, 150, 31))
         self.btn_EliminaAccount.setMouseTracking(True)
         self.btn_EliminaAccount.setTabletTracking(True)
         self.btn_EliminaAccount.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
@@ -55,7 +55,7 @@ class impostazioni(object):
         '''-----------------Bottone edit account----------------'''
 
         self.btn_EditProfilo = QtWidgets.QPushButton(Form)
-        self.btn_EditProfilo.setGeometry(QtCore.QRect(80, 240, 130, 31))
+        self.btn_EditProfilo.setGeometry(QtCore.QRect(70, 190, 150, 31))
         self.btn_EditProfilo.setMouseTracking(True)
         self.btn_EditProfilo.setTabletTracking(True)
         self.btn_EditProfilo.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
@@ -63,6 +63,18 @@ class impostazioni(object):
                                            "color: 'white';}" +
                                            "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_EditProfilo.setObjectName("pushButton_3")
+
+        self.btn_rimuovi_brano = QtWidgets.QPushButton(Form)
+        self.btn_rimuovi_brano.setGeometry(QtCore.QRect(80, 140, 130, 31))
+        self.btn_rimuovi_brano.setMouseTracking(True)
+        self.btn_rimuovi_brano.setTabletTracking(True)
+        self.btn_rimuovi_brano.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
+                                           "border-radius: 10px;\n"
+                                           "color: 'white';}" +
+                                           "*:hover{background: rgb(221, 215, 25);\n}")
+        self.btn_rimuovi_brano.setObjectName("pushButton_3")
+
+
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -76,6 +88,7 @@ class impostazioni(object):
 
         self.btn_EliminaAccount.setText(_translate("Form", "Elimina LemonAccount"))
         self.btn_EditProfilo.setText(_translate("Form", "Edit LemonAccount"))
+        self.btn_rimuovi_brano.setText(_translate("Form", "Rimuovi brano"))
 
 
     def Dati(self):

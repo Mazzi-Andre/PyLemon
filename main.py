@@ -360,6 +360,7 @@ class Controller():
         self.impostazioni_artista = controller_impostazioni()
         self.impostazioni_artista.switch_window_1.connect(self.show_conferma_edit)
         self.impostazioni_artista.switch_window.connect(self.show_conferma_credenziali)
+        self.impostazioni_artista.switch_window_2.connect(self.show_rimozione_brani)
 
         if self.check_edit_artista is True:
             self.EditArtista.close()
@@ -430,6 +431,9 @@ class Controller():
         self.conferma_edit.switch_window_5.connect(self.show_edit_artista)
         self.check_conferma_edit = True
         self.conferma_edit.show()
+
+    def show_rimozione_brani(self):
+        print("r")
 
 
     """Controller Player e ricerca canzoni"""
