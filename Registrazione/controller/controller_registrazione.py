@@ -16,16 +16,19 @@ class Newuser(QtWidgets.QWidget, Ui_NewUser):
 
 
     """ messaggio pop up per l'aggiunta al database """
+
     def pop_message(self, text=""):
         msg = QtWidgets.QMessageBox()
         msg.setText("{}".format(text))
         msg.exec_()
 
     """ funzione per richiamare la funzione del database """
+
     def btn_submit_handler(self):
         self.create_db_newuser()
 
     """ funzione per tornare alla schermata di login """
+
     def back_handler(self):
         self.switch_window.emit()
 
@@ -76,11 +79,9 @@ class Newuser(QtWidgets.QWidget, Ui_NewUser):
             self.pop_message(text="Ora sei un membro di PyLemon!")
 
         else:
-            """
-            Logic to see if users Enter all Feilds Correctly 
-            """
             self.pop_message(text="Campi mancanti o incorretti.")
 
+    """ Funzione per la verifica del corretto inserimento dei valori per la creazione di un nuovo account"""
 
     def confronta_stringhe(self, tipo, nome, cognome, telefono, username, password):
         if len(password) > 1:

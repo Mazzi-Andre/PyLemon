@@ -138,6 +138,10 @@ class Controller():
         self.check_pubblicazione_brano_artista = False
         self.check_richiesta_nBrani = False
         self.check_pubblicazione_brano_etichetta = False
+
+        self.check_easter_egg = False
+        self.check_rimozione_brani = False
+        self.check_scelta_rimozione_brano = False
         self.Richiesta_nBrani = Controller_Richiesta_nBrani()
         self.conta_brani_artista = 0
         self.conta_brani_etichetta = 0
@@ -161,6 +165,7 @@ class Controller():
         if self.check_newuser_page is True:
             self.newuser.close()
             self.check_newuser_page = False
+
         self.check_login_page = True
         self.login.show()
 
@@ -171,6 +176,7 @@ class Controller():
         if self.check_login_page is True:
             self.login.close()
             self.check_login_page = False
+
         self.check_newuser_page = True
         self.newuser.show()
 
@@ -195,6 +201,7 @@ class Controller():
         if self.check_login_page is True:
             self.login.close()
             self.check_login_page = False
+
         self.check_home_ascoltatore = True
         self.ascoltatore.show()
 
@@ -211,6 +218,7 @@ class Controller():
         if self.check_login_page is True:
             self.login.close()
             self.check_login_page = False
+
         self.check_home_artista = True
         self.artista.show()
 
@@ -230,6 +238,7 @@ class Controller():
         if self.check_login_page is True:
             self.login.close()
             self.check_login_page = False
+
         self.check_home_etichetta= True
         self.etichetta.show()
 
@@ -238,7 +247,9 @@ class Controller():
 
     def show_easter_egg(self):
         self.easter = controller_easter_egg()
+        self.check_easter_egg = True
         self.easter.show()
+
 
 
 
@@ -341,6 +352,7 @@ class Controller():
         if self.check_conferma_edit is True:
             self.conferma_edit.close()
             self.check_conferma_edit = False
+
         self.check_impostazioni_ascoltatore = True
         self.impostazioni_ascoltatore.show()
 
@@ -403,6 +415,7 @@ class Controller():
         if self.check_conferma_credenziali is True:
             self.conferma_credenziali.close()
             self.check_conferma_credenziali = False
+
         self.check_impostazioni_etichetta = True
         self.impostazioni_etichetta.show()
 
@@ -419,6 +432,7 @@ class Controller():
         self.conferma_credenziali.switch_window_1.connect(self.show_impostazioni_ascoltatore)
         self.conferma_credenziali.switch_window_2.connect(self.show_impostazioni_artista)
         self.conferma_credenziali.switch_window_3.connect(self.show_impostazioni_etichetta)
+
         self.conferma_credenziali.btn_Ok.clicked.connect(self.show_logout)
         self.check_conferma_credenziali = True
         self.conferma_credenziali.show()
@@ -429,9 +443,10 @@ class Controller():
         self.conferma_edit.switch_window_1.connect(self.show_impostazioni_ascoltatore)
         self.conferma_edit.switch_window_2.connect(self.show_impostazioni_artista)
         self.conferma_edit.switch_window_3.connect(self.show_impostazioni_etichetta)
-
         self.conferma_edit.switch_window_4.connect(self.show_edit_ascoltatore)
         self.conferma_edit.switch_window_5.connect(self.show_edit_artista)
+
+        self.conferma_edit.btn_Ok.clicked.connect(self.show_logout)
         self.check_conferma_edit = True
         self.conferma_edit.show()
 
@@ -439,10 +454,12 @@ class Controller():
         self.controlla_eliminazione = controller_conferma_eliminazione()
         self.controlla_eliminazione.switch_window_1.connect(self.show_impostazioni_artista)
         self.controlla_eliminazione.switch_window_2.connect(self.show_scelta_rimozione_brano)
+        self.check_rimozione_brani = True
         self.controlla_eliminazione.show()
 
     def show_scelta_rimozione_brano(self):
         self.rimuovi = controller_rimozioni_brani()
+        self.check_scelta_rimozione_brano = True
         self.rimuovi.show()
 
 
@@ -546,6 +563,18 @@ class Controller():
         if self.check_mostra_search is True:
             self.search.close()
             self.check_mostra_search= False
+
+        if self.check_easter_egg is True:
+            self.easter.close()
+            self.check_easter_egg = False
+
+        if self.check_rimozione_brani is True:
+            self.controlla_eliminazione.close()
+            self.check_rimozione_brani = False
+
+        if self.check_scelta_rimozione_brano is True:
+            self.rimuovi.close()
+            self.check_scelta_rimozione_brano = False
 
         if self.check_login_page is False:
             self.show_login_page()
