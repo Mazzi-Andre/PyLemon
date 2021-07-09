@@ -5,6 +5,9 @@ from Gestione_Ascolto.Contenuti.View.VistaContenuti_e_player import Ui_Player
 from Pubblicazione.Controller.Gestione_json import Gestione_json
 
 
+
+
+
 ''' Classe di controllo attività: MOSTRA TUTTO.
     L'utente dopo essersi interfacciato con il pulsante show all, vedrà mostrate le informazioni musicali disponibili nella piattaforma.'''
 class controller_mostra_tutto(QtWidgets.QWidget, Ui_Player):
@@ -14,6 +17,7 @@ class controller_mostra_tutto(QtWidgets.QWidget, Ui_Player):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
         self.mostra_tutto()
+
 
         self.play.clicked.connect(self.go_play)
         self.pause.clicked.connect(self.go_pause)

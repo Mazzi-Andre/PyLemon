@@ -7,22 +7,20 @@ from Data_Utente.control.Data_control import DataPick
 
 ''' Classe controller utilizzata per la verifica al login del programma '''
 
-class Login(QtWidgets.QWidget, Ui_Outsecure, DataPick):
+class Login(QtWidgets.QWidget, Ui_Outsecure):
     switch_window = QtCore.pyqtSignal()
     switch_window1 = QtCore.pyqtSignal()
     switch_window2 = QtCore.pyqtSignal()
-    switch_window3= QtCore.pyqtSignal()
+    switch_window3 = QtCore.pyqtSignal()
 
 
     def __init__(self):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
-        self.pick= DataPick()
+        self.pick = DataPick()
 
         self.btn_newuser.clicked.connect(self.btn_newuser_handler)
         self.btn_Submit.clicked.connect(self.btn_submit_handler)
-
-        self.credenziali=[]
 
     ''' Messaggio pop-up a comparsa'''
 
@@ -72,7 +70,7 @@ class Login(QtWidgets.QWidget, Ui_Outsecure, DataPick):
     def btn_submit_handler(self):
         val = self.bool_check_username()
         if (val):
-            self.pop_message(text="Benvenuto ")
+            self.pop_message(text="Benvenuto")
             costante = self.pick.controlla_login()
 
             if costante == 1:

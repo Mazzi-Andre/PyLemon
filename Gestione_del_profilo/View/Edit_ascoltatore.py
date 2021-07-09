@@ -81,10 +81,3 @@ class edit_ascoltatore(object):
         self.btn_Artista.setText(_translate("Form", "Artista"))
         self.btn_Etichetta.setText(_translate("Form", "Etichetta"))
         self.btn_Back.setText(_translate("Form", "Indietro"))
-
-'''app = QApplication([])
-window = QWidget()
-form = edit_ascoltatore()
-form.setupUi(window)
-window.show()
-app.exec()'''

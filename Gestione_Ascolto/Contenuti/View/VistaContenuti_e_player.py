@@ -11,8 +11,6 @@ class Ui_Player(object):
         self.listen = Ascolto()
         self.controller = ControlloreAscolto()
         self.search = False
-
-
         '''-------------Creazione della finestra-----------'''
         Player.setObjectName("Player")
         Player.resize(501, 475)

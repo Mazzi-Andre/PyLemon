@@ -103,9 +103,3 @@ class conferma_credenziali(object):
         self.txt_username.setPlaceholderText(_translate("Form", ""))
         self.txt_password.setPlaceholderText(_translate("Form", ""))
 
-'''app = QApplication([])
-window = QWidget()
-form = conferma_credenziali()
-form.setupUi(window)
-window.show()
-app.exec()'''

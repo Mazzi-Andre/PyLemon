@@ -17,8 +17,8 @@ class TopFive():
                 self.Top5.remove(self.Top5[i])
                 i = i + 1
 
-        self.Top5.remove(self.Top5[len(self.Top5)-1]) # ultima posizione rimossa fuor da while perchè qua dentro non veniva rimossa anche
-        return self.Top5                              # se la condizione del while era i<=len(self.Top5)-1
+        self.Top5.remove(self.Top5[len(self.Top5)-1])
+        return self.Top5
 
 
 

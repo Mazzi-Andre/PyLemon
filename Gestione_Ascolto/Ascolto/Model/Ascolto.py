@@ -39,6 +39,6 @@ class Ascolto():
         self.check_pause = True
 
 
-    '''Metodo che regola il volume della riproduzione musicale gni qual volta l'utente cambi la posizione dello slider'''
+    '''Metodo che regola il volume della riproduzione musicale ogni qual volta l'utente cambi la posizione dello slider'''
     def vol_adjust(self,valore):
         mixer.music.set_volume(float(valore/10))

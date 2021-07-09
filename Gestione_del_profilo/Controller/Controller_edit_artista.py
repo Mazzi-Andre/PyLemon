@@ -5,7 +5,7 @@ from Data_Utente.control.Data_control import DataPick
 from Gestione_del_profilo.View.Edit_artista import edit_artista
 
 
-class controller_edit_artista(QtWidgets.QWidget, DataPick, edit_artista):
+class controller_edit_artista(QtWidgets.QWidget,edit_artista):
     switch_window_1 = QtCore.pyqtSignal()
 
     def __init__(self):
@@ -29,14 +29,14 @@ class controller_edit_artista(QtWidgets.QWidget, DataPick, edit_artista):
     """SWITCH FINESTRE"""
 
     def btn_ascoltatore_handler(self):
-        self.tipo = 'Ascoltatore'
-        self.pick.update_account(self.tipo)
+        tipo = 'Ascoltatore'
+        self.pick.update_account(tipo)
         self.pop_message(text="Cambiamento effettuato. \nIl programma si chiuderà per la modifica.")
         self.controller_edit_artista.closeEvent()
 
     def btn_etichetta_handler(self):
-        self.tipo = 'Etichetta'
-        self.pick.update_account(self.tipo)
+        tipo = 'Etichetta'
+        self.pick.update_account(tipo)
         self.pop_message(text="Cambiamento effettuato. \nIl programma si chiuderà per la modifica.")
         self.controller_edit_artista.closeEvent()
 

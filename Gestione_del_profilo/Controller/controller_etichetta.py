@@ -3,12 +3,11 @@ import pickle
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
-from Data_Utente.control.Data_control import DataPick
 from Gestione_del_profilo.View.Home_etichetta import home_etichetta
 
 
 
-class controller_etichetta(QtWidgets.QWidget, DataPick, home_etichetta):
+class controller_etichetta(QtWidgets.QWidget, home_etichetta):
     switch_window_1 = QtCore.pyqtSignal()
     switch_window_2 = QtCore.pyqtSignal()
     switch_window_3 = QtCore.pyqtSignal()
@@ -19,7 +18,6 @@ class controller_etichetta(QtWidgets.QWidget, DataPick, home_etichetta):
     def __init__(self, list):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
-        self.pick = DataPick()
         self.list_top5 = list
         self.btn_Logout.clicked.connect(self.btn_LogOut_handler)
         self.btn_Impostazioni.clicked.connect(self.btn_Impostazioni_handler)
@@ -59,11 +57,11 @@ class controller_etichetta(QtWidgets.QWidget, DataPick, home_etichetta):
         self.switch_window_k.emit()
 
     def put_data(self):
-        self.nome = self.txt_nome.text()
-        self.lista = []
-        self.lista.append(self.nome)
+        nome = self.txt_nome.text()
+        lista = []
+        lista.append(nome)
         with open('Canzone.pkl', 'wb') as Dpi:
-            pickle.dump(self.lista, Dpi)
+            pickle.dump(lista, Dpi)
 
     def top5(self):
         self.table.setRowCount(len(self.list_top5))

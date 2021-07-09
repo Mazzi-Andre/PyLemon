@@ -83,11 +83,3 @@ class impostazioni(object):
         self.myData = self.pick.return_credenziali()
         self.tipo = self.myData[4]
         return self.tipo
-
-
-'''app = QApplication([])
-window = QWidget()
-form = impostazioni()
-form.setupUi(window)
-window.show()
-app.exec()'''

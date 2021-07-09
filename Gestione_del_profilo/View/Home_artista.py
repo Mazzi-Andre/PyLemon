@@ -260,14 +260,14 @@ class home_artista(object):
 
         '''-----------ListView Playlist----------'''
 
-        self.listView_3 = QtWidgets.QListView(Form)
-        self.listView_3.setGeometry(QtCore.QRect(520, 290, 231, 211))
-        self.listView_3.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
+        self.listView = QtWidgets.QListView(Form)
+        self.listView.setGeometry(QtCore.QRect(520, 290, 231, 211))
+        self.listView.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
                                       "background-color: rgb(51, 51, 51);"
                                       "border-radius: 5px;\n"
                                       "font: 10pt \"Arial\";"
                                       "color: 'white';}")
-        self.listView_3.setObjectName("listView_3")
+        self.listView.setObjectName("listView_3")
 
 
         '''------------Bottone impostazioni-----------'''
@@ -388,10 +388,3 @@ class home_artista(object):
         font = QtGui.QFont("Arial", 10, font1)
         item.setFont(font)
         self.table_brani.setColumnWidth(0, 231)
-
-'''app = QApplication([])
-window = QWidget()
-form = home_artista()
-form.setupUi(window)
-window.show()
-app.exec()'''

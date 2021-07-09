@@ -1,21 +1,17 @@
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
-from Data_Utente.control.Data_control import DataPick
 from Gestione_Ascolto.Contenuti.View.VistaContenuti_e_player import Ui_Player
-from Gestione_del_profilo.View.Home_artista import home_artista
-from Gestione_del_profilo.View.Home_etichetta import home_etichetta
-from Gestione_del_profilo.View.Home_ascoltatore import home_ascoltatore
+
 
 ''' Classe di controllo attività: MOSTRA SEARCH.
     L'utente dopo essersi interfacciato con la barra di ricerca, vedrà mostrati i risultati associati'''
-class controller_mostra_search(QtWidgets.QWidget, Ui_Player, DataPick, home_ascoltatore, home_etichetta, home_artista):
+class controller_mostra_search(QtWidgets.QWidget, Ui_Player):
     switch_window_1 = QtCore.pyqtSignal()
 
     def __init__(self,canzone_ricercata):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
-        self.pick = DataPick()
         self.Mysong = canzone_ricercata
 
         self.mostra_search()

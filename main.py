@@ -151,9 +151,7 @@ class Controller():
 
     def show_login_page(self):
         self.login = Login()
-        self.data = DataPick()
         self.login.switch_window.connect(self.show_newuser_page)
-        # self.login.switch_window1.connect(self.show_discovery)
         self.login.switch_window1.connect(self.show_home_ascoltatore)
         self.login.switch_window2.connect(self.show_home_artista)
         self.login.switch_window3.connect(self.show_home_etichetta)
@@ -163,16 +161,6 @@ class Controller():
         self.check_login_page = True
         self.login.show()
 
-    '''
-    def loading(self):
-        self.load= controller_loading()
-        if self.load.controlla_login() == 1:
-            self.load.switch_window_1.connect(self.show_home_ascoltatore)
-        if self.load.controlla_login() == 2:
-            self.load.switch_window_2.connect(self.show_home_artista)
-        if self.load.controlla_login() == 3:
-            self.load.switch_window_3.connect(self.show_home_etichetta)
-            '''
 
     def show_newuser_page(self):
         self.newuser = Newuser()
@@ -192,7 +180,7 @@ class Controller():
 
     """---------------------------------------------------------------------------------------------"""
 
-    """Home PySound"""
+    """Home PyLemon"""
     def show_home_ascoltatore(self):
         Titoli_top = self.statistica_top5()
         self.ascoltatore = controller_ascoltatore(Titoli_top)
@@ -336,7 +324,6 @@ class Controller():
     """Controller impostazioni ascoltatore"""
     def show_impostazioni_ascoltatore(self):
         self.impostazioni_ascoltatore = controller_impostazioni()
-        # self.home.switch_window.connect(self.show_login_page)
         self.impostazioni_ascoltatore.switch_window_1.connect(self.show_conferma_edit)
         self.impostazioni_ascoltatore.switch_window.connect(self.show_conferma_credenziali)
 
@@ -371,7 +358,6 @@ class Controller():
 
     def show_impostazioni_artista(self):
         self.impostazioni_artista = controller_impostazioni()
-        # self.home.switch_window.connect(self.show_login_page)
         self.impostazioni_artista.switch_window_1.connect(self.show_conferma_edit)
         self.impostazioni_artista.switch_window.connect(self.show_conferma_credenziali)
 
@@ -422,7 +408,7 @@ class Controller():
 
 
 
-    """Controlle conferma eliminazione universale"""
+    """Controller conferma eliminazione universale"""
 
     def show_conferma_credenziali(self):
         self.conferma_credenziali = controller_conferma_credenziali()
@@ -446,7 +432,7 @@ class Controller():
         self.conferma_edit.show()
 
 
-    """Controlle Player e ricerca canzoni"""
+    """Controller Player e ricerca canzoni"""
 
     def show_mostra_tutto(self):
         self.player = controller_mostra_tutto()
@@ -478,7 +464,7 @@ class Controller():
     """Controlle Logout"""
 
     def show_logout(self):
-        self.pop_message(text="Arrivederci      ")
+        self.pop_message(text="Arrivederci")
 
         if self.check_verifica_etichetta is True:
             self.check_verifica_etichetta = False
@@ -561,6 +547,7 @@ class Controller():
 
 
     def statistica_mie_brani_artista(self):
+        self.data = DataPick()
         json_data = self.g.get_jsonobject()
         brani_artista = []
         nome_artista = self.data.return_credenziali()[1].title()+" "+self.data.return_credenziali()[2].title()

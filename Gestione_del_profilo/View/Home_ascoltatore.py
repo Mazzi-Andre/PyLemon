@@ -80,32 +80,32 @@ class home_ascoltatore(object):
 
         '''-----------ListView Playlist----------'''
 
-        self.listView_2 = QtWidgets.QListView(Form)
-        self.listView_2.setGeometry(QtCore.QRect(250, 280, 231, 211))
-        self.listView_2.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
+        self.listView = QtWidgets.QListView(Form)
+        self.listView.setGeometry(QtCore.QRect(250, 280, 231, 211))
+        self.listView.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
                                       "background-color: rgb(51, 51, 51);"
                                       "border-radius: 5px;\n"
                                       "font: 10pt \"Arial\";"
                                       "color: 'white';}")
-        self.listView_2.setObjectName("listView_2")
+        self.listView.setObjectName("listView_2")
 
 
 
         '''-----------Linee separazione----------'''
 
-        self.line_9 = QtWidgets.QFrame(Form)
-        self.line_9.setGeometry(QtCore.QRect(0, 260, 651, 16))
-        self.line_9.setMinimumSize(QtCore.QSize(2, 2))
-        self.line_9.setStyleSheet("color: rgb(207, 207, 207);")
-        self.line_9.setFrameShape(QtWidgets.QFrame.HLine)
-        self.line_9.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.line_9.setObjectName("line_9")
-        self.line_10 = QtWidgets.QFrame(Form)
-        self.line_10.setGeometry(QtCore.QRect(220, 270, 20, 231))
-        self.line_10.setStyleSheet("color: rgb(207, 207, 207);")
-        self.line_10.setFrameShape(QtWidgets.QFrame.VLine)
-        self.line_10.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.line_10.setObjectName("line_10")
+        self.line = QtWidgets.QFrame(Form)
+        self.line.setGeometry(QtCore.QRect(0, 260, 651, 16))
+        self.line.setMinimumSize(QtCore.QSize(2, 2))
+        self.line.setStyleSheet("color: rgb(207, 207, 207);")
+        self.line.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line.setObjectName("line_9")
+        self.line_1 = QtWidgets.QFrame(Form)
+        self.line_1.setGeometry(QtCore.QRect(220, 270, 20, 231))
+        self.line_1.setStyleSheet("color: rgb(207, 207, 207);")
+        self.line_1.setFrameShape(QtWidgets.QFrame.VLine)
+        self.line_1.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_1.setObjectName("line_10")
 
 
 

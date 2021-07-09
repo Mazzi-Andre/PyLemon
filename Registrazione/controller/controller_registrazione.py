@@ -2,7 +2,6 @@ import sqlite3
 
 from PyQt5 import QtWidgets, QtCore
 
-from Registrazione.Model.model_registrazione import ModelRegistrazione
 from Registrazione.view.vista_registrazione import Ui_NewUser
 
 

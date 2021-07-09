@@ -7,7 +7,7 @@ from Data_Utente.control.Data_control import DataPick
 from Gestione_del_profilo.View.Home_artista import home_artista
 
 
-class controller_artista(QtWidgets.QWidget, DataPick, home_artista):
+class controller_artista(QtWidgets.QWidget,home_artista):
     switch_window_1 = QtCore.pyqtSignal()
     switch_window_2 = QtCore.pyqtSignal()
     switch_window_3 = QtCore.pyqtSignal()
@@ -18,7 +18,6 @@ class controller_artista(QtWidgets.QWidget, DataPick, home_artista):
     def __init__(self, list5, list_brani):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
-        self.pick = DataPick()
         self.list_top5 = list5
         self.list_miei_brani = list_brani
 
@@ -77,8 +76,13 @@ class controller_artista(QtWidgets.QWidget, DataPick, home_artista):
 
 
     def brani_artista(self):
-        self.table_brani.setRowCount(len(self.list_miei_brani))
-        j = 0
-        for i in self.list_miei_brani:
-            self.table_brani.setItem(j, 0, QtWidgets.QTableWidgetItem(i))
-            j = j + 1
+        if self.list_miei_brani:
+            self.table_brani.setRowCount(len(self.list_miei_brani))
+            j = 0
+            for i in self.list_miei_brani:
+                self.table_brani.setItem(j, 0, QtWidgets.QTableWidgetItem(i))
+                j = j + 1
+        else :
+            self.table_brani.setRowCount(4)
+            self.table_brani.setItem(1, 0, QtWidgets.QTableWidgetItem("Ancora nessun brano"))
+            self.table_brani.item(1, 0).setTextAlignment(5)

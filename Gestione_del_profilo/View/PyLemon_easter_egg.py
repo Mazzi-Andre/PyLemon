@@ -24,38 +24,38 @@ class Easter_egg(object):
 
         '''---------------Lista nomi LemonCreatori--------------'''
 
+        self.label_2 = QtWidgets.QLabel(Form)
+        self.label_2.setGeometry(QtCore.QRect(130, 200, 141, 21))
+        self.label_2.setStyleSheet("color: rgb(207, 211, 211);")
+        self.label_2.setObjectName("label_3")
+
         self.label_3 = QtWidgets.QLabel(Form)
-        self.label_3.setGeometry(QtCore.QRect(130, 200, 141, 21))
+        self.label_3.setGeometry(QtCore.QRect(150, 230, 101, 21))
         self.label_3.setStyleSheet("color: rgb(207, 211, 211);")
-        self.label_3.setObjectName("label_3")
+        self.label_3.setObjectName("label_4")
 
         self.label_4 = QtWidgets.QLabel(Form)
-        self.label_4.setGeometry(QtCore.QRect(150, 230, 101, 21))
+        self.label_4.setGeometry(QtCore.QRect(150, 250, 121, 21))
         self.label_4.setStyleSheet("color: rgb(207, 211, 211);")
-        self.label_4.setObjectName("label_4")
+        self.label_4.setObjectName("label_5")
 
         self.label_5 = QtWidgets.QLabel(Form)
-        self.label_5.setGeometry(QtCore.QRect(150, 250, 121, 21))
+        self.label_5.setGeometry(QtCore.QRect(140, 270, 121, 21))
         self.label_5.setStyleSheet("color: rgb(207, 211, 211);")
-        self.label_5.setObjectName("label_5")
+        self.label_5.setObjectName("label_6")
 
         self.label_6 = QtWidgets.QLabel(Form)
-        self.label_6.setGeometry(QtCore.QRect(140, 270, 121, 21))
+        self.label_6.setGeometry(QtCore.QRect(140, 290, 111, 20))
         self.label_6.setStyleSheet("color: rgb(207, 211, 211);")
-        self.label_6.setObjectName("label_6")
-
-        self.label_7 = QtWidgets.QLabel(Form)
-        self.label_7.setGeometry(QtCore.QRect(140, 290, 111, 20))
-        self.label_7.setStyleSheet("color: rgb(207, 211, 211);")
-        self.label_7.setObjectName("label_7")
+        self.label_6.setObjectName("label_7")
 
 
         '''---------------LemonVersion----------------'''
 
-        self.label_8 = QtWidgets.QLabel(Form)
-        self.label_8.setGeometry(QtCore.QRect(138, 330, 150, 16))
-        self.label_8.setStyleSheet("color: rgb(207, 211, 211);")
-        self.label_8.setObjectName("label_8")
+        self.label_7 = QtWidgets.QLabel(Form)
+        self.label_7.setGeometry(QtCore.QRect(138, 330, 150, 16))
+        self.label_7.setStyleSheet("color: rgb(207, 211, 211);")
+        self.label_7.setObjectName("label_8")
 
 
         '''--------------GIF limone--------------'''
@@ -82,17 +82,10 @@ class Easter_egg(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", ""))
         self.label.setText(_translate("Form", ""))
-        self.label_3.setText(_translate("Form", "       LemonCreatori:"))
-        self.label_4.setText(_translate("Form", "    André Mazzi"))
-        self.label_5.setText(_translate("Form", "   Andrea Tassi"))
-        self.label_6.setText(_translate("Form", "    Manuel Mariotti"))
-        self.label_7.setText(_translate("Form", "    Stefano Martelli"))
-        self.label_8.setText(_translate("Form", "  LemonVersion: 1.0"))
+        self.label_2.setText(_translate("Form", "       LemonCreatori:"))
+        self.label_3.setText(_translate("Form", "    André Mazzi"))
+        self.label_4.setText(_translate("Form", "   Andrea Tassi"))
+        self.label_5.setText(_translate("Form", "    Manuel Mariotti"))
+        self.label_6.setText(_translate("Form", "    Stefano Martelli"))
+        self.label_7.setText(_translate("Form", "  LemonVersion: 1.0"))
 
-
-'''app = QApplication([])
-window = QWidget()
-form = Easter_egg()
-form.setupUi(window)
-window.show()
-app.exec()'''

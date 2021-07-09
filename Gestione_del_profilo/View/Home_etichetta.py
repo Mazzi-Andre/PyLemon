@@ -319,10 +319,3 @@ class home_etichetta(object):
         font = QtGui.QFont("Arial", 10, font1)
         item.setFont(font)
         self.table.setColumnWidth(0, 191)
-
-'''app = QApplication([])
-window = QWidget()
-form = home_etichetta()
-form.setupUi(window)
-window.show()
-app.exec()'''

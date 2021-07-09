@@ -5,7 +5,7 @@ from Data_Utente.control.Data_control import DataPick
 from Gestione_del_profilo.View.Conferma_credenziali_eliminazione import conferma_credenziali
 
 
-class controller_conferma_edit(QtWidgets.QWidget, DataPick, conferma_credenziali):
+class controller_conferma_edit(QtWidgets.QWidget,conferma_credenziali):
     switch_window_1 = QtCore.pyqtSignal()
     switch_window_2 = QtCore.pyqtSignal()
     switch_window_3 = QtCore.pyqtSignal()
@@ -18,10 +18,10 @@ class controller_conferma_edit(QtWidgets.QWidget, DataPick, conferma_credenziali
         self.setupUi(self)
         self.pick = DataPick()
 
-        self.myData = self.pick.return_credenziali()
+        myData = self.pick.return_credenziali()
 
-        self.username = self.myData[5]
-        self.password = self.myData[6]
+        self.username = myData[5]
+        self.password = myData[6]
 
         self.btn_Back.clicked.connect(self.btn_back_handler)
         self.btn_Ok.clicked.connect(self.btn_confirm_handler)
