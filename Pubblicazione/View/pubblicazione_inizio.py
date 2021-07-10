@@ -8,6 +8,8 @@ class pubblicazione_inizio(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(430, 330)
+        Form.setMinimumSize(QtCore.QSize(430, 330))
+        Form.setMaximumSize(QtCore.QSize(430, 330))
         Form.setStyleSheet("background-color: rgb(40, 39, 39);")
 
 

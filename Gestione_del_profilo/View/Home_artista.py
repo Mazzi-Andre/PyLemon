@@ -11,6 +11,8 @@ class home_artista(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(911, 515)
+        Form.setMinimumSize(QtCore.QSize(911, 515))
+        Form.setMaximumSize(QtCore.QSize(911, 515))
         Form.setStyleSheet("background-color: rgb(40, 39, 39);")
 
         '''-------------Titolo finestra------------'''

@@ -12,6 +12,8 @@ class home_ascoltatore(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(651, 508)
+        Form.setMinimumSize(QtCore.QSize(651, 508))
+        Form.setMaximumSize(QtCore.QSize(651, 508))
         Form.setStyleSheet("background-color: rgb(40, 39, 39);")
 
 

@@ -14,6 +14,8 @@ class Ui_Player(object):
         '''-------------Creazione della finestra-----------'''
         Player.setObjectName("Player")
         Player.resize(501, 475)
+        Player.setMinimumSize(QtCore.QSize(501, 475))
+        Player.setMaximumSize(QtCore.QSize(501, 475))
         Player.setAutoFillBackground(False)
         Player.setStyleSheet("background-color: rgb(40, 39, 39);\n""\n""")
 

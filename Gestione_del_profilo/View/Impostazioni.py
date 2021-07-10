@@ -11,6 +11,8 @@ class impostazioni(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(281, 311)
+        Form.setMinimumSize(QtCore.QSize(281, 311))
+        Form.setMaximumSize(QtCore.QSize(281, 311))
         Form.setStyleSheet("background-color: rgb(40, 39, 39);")
 
 

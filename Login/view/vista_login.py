@@ -9,6 +9,8 @@ class Ui_Outsecure(object):
     def setupUi(self, Outsecure):
         Outsecure.setObjectName("Outsecure")
         Outsecure.resize(530, 340)
+        Outsecure.setMinimumSize(QtCore.QSize(530, 340))
+        Outsecure.setMaximumSize(QtCore.QSize(530, 340))
         Outsecure.setMouseTracking(True)
         Outsecure.setStyleSheet(
             "border-color: rgb(255, 42, 245);\n"

@@ -9,6 +9,8 @@ class Ui_NewUser(object):
     def setupUi(self, NewUser):
         NewUser.setObjectName("NewUser")
         NewUser.resize(550,410)
+        NewUser.setMinimumSize(QtCore.QSize(550, 410))
+        NewUser.setMaximumSize(QtCore.QSize(550, 410))
         NewUser.setStyleSheet("background-color: rgb(40,39,39);")
         self.l_newuser = QtWidgets.QLabel(NewUser)
         self.l_newuser.setGeometry(QtCore.QRect(160, 10, 220, 35))
