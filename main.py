@@ -160,8 +160,6 @@ class Controller():
         self.easter.show()
 
 
-
-
     """---------------------------------------------------------------------------------------------"""
 
     """Controller pubblicazione"""
@@ -236,11 +234,6 @@ class Controller():
         self.pubblicazione_inizio.close()
 
 
-
-
-
-
-
     """---------------------------------------------------------------------------------------------"""
 
 
@@ -301,6 +294,14 @@ class Controller():
             self.conferma_edit.close()
             self.check_conferma_edit = False
 
+        if self.check_scelta_rimozione_brano is True:
+            self.rimuovi.close()
+            self.check_scelta_rimozione_brano = False
+
+        if self.check_rimozione_brani is True:
+            self.controlla_eliminazione.close()
+            self.check_rimozione_brani = False
+
         self.check_impostazioni_artista = True
         self.impostazioni_artista.show()
 
@@ -338,7 +339,6 @@ class Controller():
         self.pop_message(text="Il suo account non può subire variazioni.")
 
 
-
     """Controller conferma eliminazione universale"""
 
     def show_conferma_credenziali(self):
@@ -372,10 +372,15 @@ class Controller():
 
     def show_scelta_rimozione_brano(self):
         self.rimuovi = controller_rimozioni_brani()
+        self.rimuovi.switch_window_1.connect(self.show_impostazioni_artista)
 
         if self.check_rimozione_brani is True:
             self.controlla_eliminazione.close()
             self.check_rimozione_brani = True
+
+        if self.check_impostazioni_artista is True:
+            self.impostazioni_artista.close()
+            self.check_impostazioni_artista = True
 
         self.check_scelta_rimozione_brano = True
         self.rimuovi.show()

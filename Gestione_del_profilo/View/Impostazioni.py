@@ -36,7 +36,7 @@ class impostazioni(object):
         '''----------------Tipo di account----------------'''
 
         self.label_3 = QtWidgets.QLabel(Form)
-        self.label_3.setGeometry(QtCore.QRect(50, 120, 250, 16))
+        self.label_3.setGeometry(QtCore.QRect(50, 110, 250, 16))
         self.label_3.setStyleSheet("color: rgb(207, 211, 211);")
         self.label_3.setObjectName("label_3")
 
@@ -44,7 +44,7 @@ class impostazioni(object):
         '''-----------------Bottone elimina account-------------------'''
 
         self.btn_EliminaAccount = QtWidgets.QPushButton(Form)
-        self.btn_EliminaAccount.setGeometry(QtCore.QRect(70, 240, 150, 31))
+        self.btn_EliminaAccount.setGeometry(QtCore.QRect(70, 245, 150, 31))
         self.btn_EliminaAccount.setMouseTracking(True)
         self.btn_EliminaAccount.setTabletTracking(True)
         self.btn_EliminaAccount.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
@@ -57,7 +57,7 @@ class impostazioni(object):
         '''-----------------Bottone edit account----------------'''
 
         self.btn_EditProfilo = QtWidgets.QPushButton(Form)
-        self.btn_EditProfilo.setGeometry(QtCore.QRect(70, 190, 150, 31))
+        self.btn_EditProfilo.setGeometry(QtCore.QRect(70, 195, 150, 31))
         self.btn_EditProfilo.setMouseTracking(True)
         self.btn_EditProfilo.setTabletTracking(True)
         self.btn_EditProfilo.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
@@ -66,8 +66,11 @@ class impostazioni(object):
                                            "*:hover{background: rgb(221, 215, 25);\n}")
         self.btn_EditProfilo.setObjectName("pushButton_3")
 
+
+        '''----------------Bottone rimozione brano-----------------'''
+
         self.btn_rimuovi_brano = QtWidgets.QPushButton(Form)
-        self.btn_rimuovi_brano.setGeometry(QtCore.QRect(80, 140, 130, 31))
+        self.btn_rimuovi_brano.setGeometry(QtCore.QRect(80, 145, 130, 31))
         self.btn_rimuovi_brano.setMouseTracking(True)
         self.btn_rimuovi_brano.setTabletTracking(True)
         self.btn_rimuovi_brano.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"

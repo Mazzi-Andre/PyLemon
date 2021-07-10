@@ -1,7 +1,7 @@
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
-
+from Data_Utente.control.Data_control import DataPick
 from Gestione_del_profilo.View.Impostazioni import impostazioni
 
 class controller_impostazioni(QtWidgets.QWidget,impostazioni):
@@ -12,6 +12,7 @@ class controller_impostazioni(QtWidgets.QWidget,impostazioni):
     def __init__(self):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
+        self.pick = DataPick()
         self.btn_EliminaAccount.clicked.connect(self.btn_elimina_profilo_handler)
         self.btn_EditProfilo.clicked.connect(self.btn_edit_profilo_handler)
         self.btn_rimuovi_brano.clicked.connect(self.btn_rimuovi_brano_handler)
@@ -35,4 +36,8 @@ class controller_impostazioni(QtWidgets.QWidget,impostazioni):
         self.switch_window_1.emit()
 
     def btn_rimuovi_brano_handler(self):
-        self.switch_window_2.emit()
+        tipo = self.pick.controlla_login()
+        if tipo == 2:
+            self.switch_window_2.emit()
+        else:
+            self.pop_message(text="Disponibile a breve ")
