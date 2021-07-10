@@ -37,7 +37,7 @@ class controller_rimozioni_brani(QtWidgets.QWidget,rimozione_brani):
             for i in brani_artista:
                 self.table.setItem(j, 0, QtWidgets.QTableWidgetItem(i))
                 j = j + 1
-        else :
+        else:
             self.table.setRowCount(4)
             self.table.setItem(1, 0, QtWidgets.QTableWidgetItem("Ancora nessun brano"))
 

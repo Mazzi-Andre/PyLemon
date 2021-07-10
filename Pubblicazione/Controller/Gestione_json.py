@@ -6,6 +6,7 @@ class Gestione_json():
 
     '''Nel costruttore si esegue la lettura del file memorizzandola nell'attributo json_data'''
     def __init__(self):
+
         with open('info_brani.json', 'r') as j:
             self.json_data = json.load(j)
 
@@ -67,11 +68,22 @@ class Gestione_json():
     def elimina_object(self, nome_artista, titolo_brano):
         for i in self.json_data:
             if nome_artista==i["Artista"] and titolo_brano==i["Titolo"]:
+                if i == self.json_data[len(self.json_data)-1]:
+                    self.decrementa_conta_id()
                 self.json_data.remove(i)
                 break
 
         with open("info_brani.json", "w") as write_file:
             json.dump(self.json_data, write_file)
+
+    def decrementa_conta_id(self):
+        json_conta_id = []
+        with open("ContatoreBrani.json", "w") as write_file:
+            json.dump(json_conta_id, write_file)
+        json_conta_id["contatore_id"] += 1
+        with open("info_brani.json", "w") as write_file:
+            json.dump(json_conta_id, write_file)
+
 
 
 

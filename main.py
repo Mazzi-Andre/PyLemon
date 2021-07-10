@@ -95,12 +95,6 @@ class Controller():
         self.check_newuser_page = True
         self.newuser.show()
 
-    """
-    def show_discovery(self):
-        self.discovery = Discovery()
-        self.discovery.switch_window.connect(self.show_login_page)
-        self.login.close()
-        self.discovery.show()"""
 
     """---------------------------------------------------------------------------------------------"""
 
