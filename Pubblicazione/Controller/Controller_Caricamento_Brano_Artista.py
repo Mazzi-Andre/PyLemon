@@ -26,7 +26,7 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
 
         self.verifica_album = verifica_album
         self.nome_album = nome_album
-
+        self.path=""
         self.btn_scegli_file.clicked.connect(self.btn_scegli_file_handler)
         self.btn_pubblica.clicked.connect(self.btn_pubblica_handler)
         self.btn_Back.clicked.connect(self.btn_back_handler)
@@ -36,8 +36,10 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
         msg.setText("{}".format(text))
         msg.exec_()
 
+
+
     def btn_pubblica_handler(self):
-        #if not self.path == "":
+        if not self.path == '':
             path= str(self.path)
             ciao = path.split(", ")
             newfile1 = ciao[0].replace("(" , "")
@@ -54,10 +56,10 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
             contatore = 0
             id = G.json_contatore["contatore_id"]
             J.carica_brano_su_JSON(nome,artista,album,id,contatore)
-            self.pop_message(text="Brano caricato con successo.")
+            self.pop_message(text="Brano caricato con successo, per vedere gli aggiornamenti rieffettuare l'accesso")
             if self.verifica_album == True:
                 self.switch_window.emit()
-        #else: self.pop_message(text="Indicare il file mp3 da caricare")
+        else: self.pop_message(text="Indicare il file mp3 da caricare")
 
 
 
