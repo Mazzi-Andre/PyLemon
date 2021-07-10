@@ -372,11 +372,17 @@ class Controller():
         self.controlla_eliminazione = controller_conferma_eliminazione()
         self.controlla_eliminazione.switch_window_1.connect(self.show_impostazioni_artista)
         self.controlla_eliminazione.switch_window_2.connect(self.show_scelta_rimozione_brano)
+
         self.check_rimozione_brani = True
         self.controlla_eliminazione.show()
 
     def show_scelta_rimozione_brano(self):
         self.rimuovi = controller_rimozioni_brani()
+
+        if self.check_rimozione_brani is True:
+            self.controlla_eliminazione.close()
+            self.check_rimozione_brani = True
+
         self.check_scelta_rimozione_brano = True
         self.rimuovi.show()
 
