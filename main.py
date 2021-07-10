@@ -365,7 +365,6 @@ class Controller():
         self.conferma_edit.switch_window_4.connect(self.show_edit_ascoltatore)
         self.conferma_edit.switch_window_5.connect(self.show_edit_artista)
 
-        self.conferma_edit.btn_Ok.clicked.connect(self.show_logout)
         self.check_conferma_edit = True
         self.conferma_edit.show()
 

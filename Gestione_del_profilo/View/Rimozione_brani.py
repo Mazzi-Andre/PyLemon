@@ -16,6 +16,7 @@ class rimozione_brani(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(521, 491)
+
         Form.setStyleSheet("background-color: rgb(40, 39, 39);")
 
 
