@@ -166,8 +166,6 @@ class Controller():
         self.easter.show()
 
 
-
-
     """---------------------------------------------------------------------------------------------"""
 
     """Controller pubblicazione"""
@@ -240,11 +238,6 @@ class Controller():
             self.check_pubblicazione_album = True
         self.Richiesta_nBrani.switch_window_2.connect(self.show_pubblicazione_inizio)
         self.pubblicazione_inizio.close()
-
-
-
-
-
 
 
     """---------------------------------------------------------------------------------------------"""
@@ -350,7 +343,6 @@ class Controller():
 
     def show_edit_etichetta(self):
         self.pop_message(text="Il suo account non può subire variazioni.")
-
 
 
     """Controller conferma eliminazione universale"""
