@@ -70,16 +70,18 @@ class Gestione_json():
     def elimina_object(self, nome_artista, titolo_brano):
         for i in self.json_data:
             if nome_artista==i["Artista"] and titolo_brano==i["Titolo"]:
-                if i == self.json_data[len(self.json_data)-1]:
-                    self.decrementa_conta_id()
                 mp3 = Gestione_mp3()
                 id = self.ricerca_id(i["Titolo"], i["Album"])
                 mp3.Elimina_mp3(id)
+                if i is self.json_data[len(self.json_data)-1]:
+                    self.decrementa_conta_id()
+
                 self.json_data.remove(i)
+                with open("info_brani.json", "w") as write_file:
+                    json.dump(self.json_data, write_file)
                 break
 
-        with open("info_brani.json", "w") as write_file:
-            json.dump(self.json_data, write_file)
+
 
 
     def decrementa_conta_id(self):

@@ -17,6 +17,7 @@ class controller_mostra_tutto(QtWidgets.QWidget, Ui_Player):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
         self.mostra_tutto()
+        self.chiusura_win = False
 
 
         self.play.clicked.connect(self.go_play)
@@ -29,7 +30,9 @@ class controller_mostra_tutto(QtWidgets.QWidget, Ui_Player):
     '''Overriding del metodo di QtWidgets.QWidget associato alla finestra di visualizzazione risultati.
       Alla sua chiusura viene stoppata la riproduzione musicale qualora fosse attiva'''
     def closeEvent(self, event):
+        self.chiusura_win = True
         self.go_stop()
+
 
     '''Metodo che andrà a riempire gli elementi della tabella utilizzata per la visualizzaione delle informazioni musicali.
        Si avranno informazioni relative a titoli di brani, titoli di album e a nomi di artisti.'''
@@ -87,7 +90,7 @@ class controller_mostra_tutto(QtWidgets.QWidget, Ui_Player):
 
     '''Metodo che controlla lo stop del flusso musicale a seguito dell'interfacciamento dell'utente (pulsante STOP)'''
     def go_stop(self):
-        self.listen.stop()
+        self.listen.stop(self.chiusura_win)
 
     '''Metodo che controlla la riproduzione musicale a seguito dell'interfacciamento dell'utente (pulsante PREV)'''
     def go_prev(self):

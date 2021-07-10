@@ -34,9 +34,15 @@ class Ascolto():
         self.check_pause = False
 
     '''Metodo che stoppa il flusso musicale'''
-    def stop(self):
-        mixer.music.stop()
-        self.check_pause = True
+    def stop(self, bool_finestra):
+        if bool_finestra:
+            mixer.music.stop()
+            self.check_pause = True
+            mixer.quit()
+
+        else:
+            mixer.music.stop()
+            self.check_pause = True
 
 
     '''Metodo che regola il volume della riproduzione musicale ogni qual volta l'utente cambi la posizione dello slider'''
