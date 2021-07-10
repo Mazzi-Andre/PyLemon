@@ -1,4 +1,5 @@
 from PyQt5 import QtWidgets
+from PyQt5 import QtCore
 
 from Data_Utente.control.Data_control import DataPick
 from Pubblicazione.Controller.Gestione_json import Gestione_json
@@ -6,13 +7,14 @@ from Gestione_del_profilo.View.Rimozione_brani import rimozione_brani
 
 
 class controller_rimozioni_brani(QtWidgets.QWidget,rimozione_brani):
+    switch_window_1 = QtCore.pyqtSignal()
 
     def __init__(self):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
         self.brani_artista()
         self.btn_eliminazione.clicked.connect(self.elimina_brano)
-        #self.btn_Back.clicked.connect()
+        self.btn_Back.clicked.connect(self.btn_back_handler)
 
 
 
@@ -50,5 +52,7 @@ class controller_rimozioni_brani(QtWidgets.QWidget,rimozione_brani):
             self.pop_message(text="Eliminazione avvenuta con successo.")
             self.pop_message(text="Per vedere gli aggiornamenti rieffettuare l'accesso")
 
+    def btn_back_handler(self):
+        self.switch_window_1.emit()
 
 
