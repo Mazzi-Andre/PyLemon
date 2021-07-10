@@ -41,24 +41,26 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
     def btn_pubblica_handler(self):
         if not self.path == '':
             path= str(self.path)
-            ciao = path.split(", ")
-            newfile1 = ciao[0].replace("(" , "")
+            stringa_split = path.split(", ")
+            newfile1 = stringa_split[0].replace("(", "")
             newfile2 = newfile1.replace("'","")
             G = Gestione_mp3()
             J = Gestione_json()
             G.Carica_mp3(newfile2)
             nome = self.txt_nome_brano.text()
-            #if self.brano.artista == "":
-            artista = self.nomeartista + " " + self.cognomeartista
-            if self.verifica_album == False:
-                album = nome
-            else: album = self.nome_album
-            contatore = 0
-            id = G.json_contatore["contatore_id"]
-            J.carica_brano_su_JSON(nome,artista,album,id,contatore)
-            self.pop_message(text="Brano caricato con successo, per vedere gli aggiornamenti rieffettuare l'accesso")
-            if self.verifica_album == True:
-                self.switch_window.emit()
+            if nome:
+                artista = self.nomeartista + " " + self.cognomeartista
+                if self.verifica_album == False:
+                    album = nome
+                else: album = self.nome_album
+                contatore = 0
+                id = G.json_contatore["contatore_id"]
+                J.carica_brano_su_JSON(nome,artista,album,id,contatore)
+                self.pop_message(text="Brano caricato con successo.\n"
+                                      "Per vedere gli aggiornamenti ne I TUOI BRANI rieffettuare l'accesso")
+                if self.verifica_album == True:
+                    self.switch_window.emit()
+            else: self.pop_message(text="Immetti un titolo")
         else: self.pop_message(text="Indicare il file mp3 da caricare")
 
 

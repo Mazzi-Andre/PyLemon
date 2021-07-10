@@ -36,24 +36,26 @@ class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_bran
     def btn_pubblica_handler(self):
         if not self.path == '':
             path = str(self.path)
-            ciao = path.split(", ")
-            newfile1 = ciao[0].replace("(", "")
+            str_split = path.split(", ")
+            newfile1 = str_split[0].replace("(", "")
             newfile2 = newfile1.replace("'", "")
             G = Gestione_mp3()
             J = Gestione_json()
             G.Carica_mp3(newfile2)
             nome = self.lineEdit.text()
             artista = self.lineEdit_2.text()
-            if self.verifica_album == False:
-                album = nome
-            else:
-                album = self.nome_album
-            contatore = 0
-            id = G.json_contatore["contatore_id"]
-            J.carica_brano_su_JSON(nome, artista, album, id, contatore)
-            self.pop_message(text="Brano caricato con successo, per vedere gli aggiornamenti rieffettuare l'accesso")
-            if self.verifica_album == True:
-                self.switch_window.emit()
+            if nome and artista:
+                if self.verifica_album == False:
+                    album = nome
+                else:
+                    album = self.nome_album
+                contatore = 0
+                id = G.json_contatore["contatore_id"]
+                J.carica_brano_su_JSON(nome, artista, album, id, contatore)
+                self.pop_message(text="Brano caricato con successo")
+                if self.verifica_album == True:
+                    self.switch_window.emit()
+            else: self.pop_message(text="Inserisci i campi mancanti")
         else: self.pop_message(text="Indicare il file mp3 da caricare")
 
 
