@@ -3,8 +3,6 @@ import sys
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
-
-# ---------- We dont Touch --------------------
 from Data_Utente.control.Data_control import DataPick
 from Gestione_Ascolto.Contenuti.View.controller_mostra_search import controller_mostra_search
 from Gestione_Ascolto.Contenuti.View.controller_mostra_tutto import controller_mostra_tutto
@@ -21,95 +19,13 @@ from Gestione_del_profilo.Controller.controller_conferma_eliminazione import con
 from Gestione_del_profilo.Controller.controller_etichetta import controller_etichetta
 from Login.controller.controller_login import Login
 from Pubblicazione.Controller.Controller_Caricamento_Brano_Etichetta import Controller_Caricamento_Brano_Etichetta
-
 from Pubblicazione.Controller.Controller_pubblicazione_inizio import controller_pubblicazione_inizio
 from Pubblicazione.Controller.Controller_Caricamento_Brano_Artista import Controller_Caricamento_Brano_Artista
 from Pubblicazione.Controller.Controller_Richiesta_nBrani import Controller_Richiesta_nBrani
 from Pubblicazione.Controller.Gestione_json import Gestione_json
 from Top5.Controller.ControllerTop5 import TopFive
 from Gestione_del_profilo.Controller.Controller_rimozione_brani import controller_rimozioni_brani
-
-
-class Ui_Discovery(object):
-
-    """" clesse riguardante l'applicazione """
-
-
-    def setupUi(self, Form):
-        Form.setObjectName("Form")
-        Form.resize(682, 443)
-        Form.setStyleSheet("background-color: rgb(11, 11, 11);")
-        self.tableWidget = QtWidgets.QTableWidget(Form)
-        self.tableWidget.setGeometry(QtCore.QRect(140, 70, 441, 251))
-        self.tableWidget.setStyleSheet("background-color: rgb(189, 193, 193);\n" #sfondo
-                                       "color: rgb(27, 28, 28);")
-        self.tableWidget.setRowCount(10)
-        self.tableWidget.setColumnCount(4)
-        self.tableWidget.setObjectName("tableWidget")
-        self.btn_submit = QtWidgets.QPushButton(Form)
-        self.btn_submit.setGeometry(QtCore.QRect(270, 340, 181, 31))
-        self.btn_submit.setStyleSheet("color: rgb(250, 255, 255);\n"
-                                      "background-color: rgb(73, 199, 41);\n"
-                                      "border-style:outset;\n"
-                                      "border-radius:10px;\n"
-                                      "font: 14pt \"Arial\";")
-        self.btn_submit.setObjectName("btn_submit")
-        self.l_title = QtWidgets.QLabel(Form)
-        self.l_title.setGeometry(QtCore.QRect(220, 20, 251, 21))
-        self.l_title.setStyleSheet("\n"
-                                   "color:White;\n"
-                                   "font: 18pt \".SF NS Text\";")
-        self.l_title.setObjectName("l_title")
-        self.btn_back = QtWidgets.QPushButton(Form)
-        self.btn_back.setGeometry(QtCore.QRect(270, 390, 181, 31))
-        self.btn_back.setStyleSheet("color: rgb(250, 255, 255);\n"
-                                    "background-color: rgb(73, 199, 41);\n"
-                                    "border-style:outset;\n"
-                                    "border-radius:10px;\n"
-                                    "font: 14pt \"Arial\";")
-        self.btn_back.setObjectName("btn_back")
-
-        self.retranslateUi(Form)
-        QtCore.QMetaObject.connectSlotsByName(Form)
-        self.btn_submit.clicked.connect(self.load_data)
-
-    def retranslateUi(self, Form):
-        _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
-        self.btn_submit.setText(_translate("Form", "Submit"))
-        self.l_title.setText(_translate("Form", "Automated Host Discovery "))
-        self.btn_back.setText(_translate("Form", "Back"))
-
-
-# ----------------------------------------------
 from Registrazione.controller.controller_registrazione import Newuser
-
-
-class Discovery(QtWidgets.QWidget, Ui_Discovery):
-    switch_window = QtCore.pyqtSignal()
-
-    def __init__(self):
-        QtWidgets.QWidget.__init__(self)
-        self.setupUi(self)
-        self.btn_submit.clicked.connect(self.btn_submit_handler)
-        self.btn_back.clicked.connect(self.btn_back_handler)
-
-
-
-    def load_data(self):
-
-        self.tableWidget.setItem(0, 0, QtWidgets.QTableWidgetItem(str("Sr No")))
-        self.tableWidget.setItem(0, 1, QtWidgets.QTableWidgetItem(str(" Ip Address")))
-        self.tableWidget.setItem(0, 2, QtWidgets.QTableWidgetItem(str("Mac Address")))
-        self.tableWidget.setItem(0, 3, QtWidgets.QTableWidgetItem(str("Vendor")))
-
-    def btn_submit_handler(self):
-        self.load_data()
-
-    def btn_back_handler(self):
-        self.switch_window.emit()
-
-
 
 
 
@@ -138,7 +54,6 @@ class Controller():
         self.check_pubblicazione_brano_artista = False
         self.check_richiesta_nBrani = False
         self.check_pubblicazione_brano_etichetta = False
-
         self.check_easter_egg = False
         self.check_rimozione_brani = False
         self.check_scelta_rimozione_brano = False
@@ -359,6 +274,9 @@ class Controller():
     def show_edit_ascoltatore(self):
         self.EditAscoltatore = controller_edit_ascoltatore()
         self.EditAscoltatore.switch_window_1.connect(self.show_impostazioni_ascoltatore)
+        self.EditAscoltatore.btn_Artista.clicked.connect(self.show_logout)
+        self.EditAscoltatore.btn_Etichetta.clicked.connect(self.show_logout)
+
         self.impostazioni_ascoltatore.close()
 
         if self.check_conferma_edit is True:
@@ -395,6 +313,8 @@ class Controller():
     def show_edit_artista(self):
         self.EditArtista = controller_edit_artista()
         self.EditArtista.switch_window_1.connect(self.show_impostazioni_artista)
+        self.EditArtista.btn_Ascoltatore.clicked.connect(self.show_logout)
+        self.EditArtista.btn_Etichetta.clicked.connect(self.show_logout)
         self.impostazioni_artista.close()
 
         if self.check_conferma_edit is True:
@@ -436,7 +356,6 @@ class Controller():
         self.conferma_credenziali.btn_Ok.clicked.connect(self.show_logout)
         self.check_conferma_credenziali = True
         self.conferma_credenziali.show()
-
 
     def show_conferma_edit(self):
         self.conferma_edit = controller_conferma_edit()
