@@ -51,6 +51,5 @@ class controller_conferma_eliminazione(QtWidgets.QWidget,conferma_credenziali):
                 pass
 
 
-
     def btn_back_handler(self):
         self.switch_window_1.emit()

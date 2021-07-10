@@ -14,8 +14,8 @@ class controller_rimozioni_brani(QtWidgets.QWidget,rimozione_brani):
         self.setupUi(self)
         self.brani_artista()
         self.btn_eliminazione.clicked.connect(self.elimina_brano)
+        self.btn_eliminazione.clicked.connect(self.btn_back_handler)
         self.btn_Back.clicked.connect(self.btn_back_handler)
-
 
 
     def pop_message(self, text=""):
