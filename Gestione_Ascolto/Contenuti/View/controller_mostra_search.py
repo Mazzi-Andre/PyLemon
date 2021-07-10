@@ -2,7 +2,7 @@ from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
 from Gestione_Ascolto.Contenuti.View.VistaContenuti_e_player import Ui_Player
-
+from Pubblicazione.Controller.Gestione_json import Gestione_json
 
 ''' Classe di controllo attività: MOSTRA SEARCH.
     L'utente dopo essersi interfacciato con la barra di ricerca, vedrà mostrati i risultati associati'''
@@ -76,6 +76,8 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player):
             titolo_prev = self.table.item(self.riga, 0).text()
             album_prev = self.table.item(self.riga, 1).text()
             path = self.controller.getPath(titolo_prev, album_prev)
+            g = Gestione_json()
+            g.incremento_conta(titolo_prev, album_prev)
             self.listen.path_riproduzione = path
             self.listen.play(path, float(self.horizontalSlider.value() / 10))
 
@@ -83,6 +85,8 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player):
             titolo_next = self.table.item(self.riga, 0).text()
             album_next = self.table.item(self.riga, 1).text()
             path = self.controller.getPath(titolo_next, album_next)
+            g = Gestione_json()
+            g.incremento_conta(titolo_next, album_next)
             self.listen.path_riproduzione = path
             self.listen.play(path, float(self.horizontalSlider.value() / 10))
 
@@ -93,6 +97,8 @@ class controller_mostra_search(QtWidgets.QWidget, Ui_Player):
                 if selezione_titolo == i["Titolo"]:
                     album_corrispondente = self.table.item(self.riga, 1).text()
                     path = self.controller.getPath(selezione_titolo, album_corrispondente)
+                    g = Gestione_json()
+                    g.incremento_conta(selezione_titolo, album_corrispondente)
                     self.listen.path_riproduzione = path
                     self.primo_play = True
                     self.listen.play(path, float(self.horizontalSlider.value() / 10))
