@@ -1,5 +1,7 @@
 import json
 
+from Pubblicazione.Controller.Gestione_mp3 import Gestione_mp3
+
 '''Classe responsabile della gestione del file info_brani.json'''
 class Gestione_json():
 
@@ -70,19 +72,24 @@ class Gestione_json():
             if nome_artista==i["Artista"] and titolo_brano==i["Titolo"]:
                 if i == self.json_data[len(self.json_data)-1]:
                     self.decrementa_conta_id()
+                mp3 = Gestione_mp3()
+                id = self.ricerca_id(i["Titolo"], i["Album"])
+                mp3.Elimina_mp3(id)
                 self.json_data.remove(i)
                 break
 
         with open("info_brani.json", "w") as write_file:
             json.dump(self.json_data, write_file)
 
+
     def decrementa_conta_id(self):
-        json_conta_id = []
+        with open('ContatoreBrani.json', 'r') as j:
+            self.json_conta_id = json.load(j)
+
+        self.json_conta_id["contatore_id"] = self.json_conta_id["contatore_id"] - 1
         with open("ContatoreBrani.json", "w") as write_file:
-            json.dump(json_conta_id, write_file)
-        json_conta_id["contatore_id"] += 1
-        with open("info_brani.json", "w") as write_file:
-            json.dump(json_conta_id, write_file)
+            json.dump(self.json_conta_id, write_file)
+
 
 
 

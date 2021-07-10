@@ -38,12 +38,7 @@ class Gestione_mp3():
 
 
     def Elimina_mp3(self, id):
-        U = self.json['contatore']
-        contatoreid = U.get["valore"]
-        Object = {"contatore": {"valore": contatoreid}}
-        with open("../../ContatoreBrani.json", "w") as write_file:
-            json.dump(Object, write_file)
-        os.remove('C:/Users/Stefano/Desktop/Progetti Python/Progetto Esame/CartellaBrani/'+id+'.mp3')
+        os.remove('Data/mp3/'+str(id)+'.mp3')
 
 
 
