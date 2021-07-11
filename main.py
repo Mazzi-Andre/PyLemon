@@ -193,11 +193,11 @@ class Controller():
         else: self.nome_album = None
         self.Caricamento_Brano_Artista = Controller_Caricamento_Brano_Artista(self.check_pubblicazione_album, self.nome_album)
         self.Caricamento_Brano_Artista.switch_window.connect(self.show_pubblicazione_brano_artista)
-        print(self.check_pubblicazione_album)
         if self.check_pubblicazione_album is True:
             if self.conta_brani_artista <= self.nBrani:
                 self.Caricamento_Brano_Artista.show()
         else: self.Caricamento_Brano_Artista.show()
+
         self.Caricamento_Brano_Artista.switch_window_2.connect(self.show_pubblicazione_inizio)
         self.pubblicazione_inizio.close()
 
@@ -519,6 +519,7 @@ class Controller():
             posi = list.__getitem__(i)
             Titoli_top5.append(self.g.getTitolo_da_Id(posi[0]))
             i = i + 1
+        print(Titoli_top5)
         return Titoli_top5
 
 

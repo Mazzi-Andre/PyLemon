@@ -1,4 +1,3 @@
-import json
 import os
 
 from PyQt5 import QtCore
@@ -10,7 +9,6 @@ from Data_Utente.control.Data_control import DataPick
 
 from Pubblicazione.Controller.Gestione_json import Gestione_json
 from Pubblicazione.Controller.Gestione_mp3 import Gestione_mp3
-from Pubblicazione.Controller.Controller_Richiesta_nBrani import Controller_Richiesta_nBrani
 
 class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano):
     switch_window = QtCore.pyqtSignal()
@@ -19,10 +17,10 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
     def __init__(self,verifica_album, nome_album):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
-        self.pick = DataPick()
-        self.myData = self.pick.return_credenziali()
-        self.nomeartista = self.myData[1]
-        self.cognomeartista = self.myData[2]
+        pick = DataPick()
+        myData = pick.return_credenziali()
+        self.nomeartista = myData[1]
+        self.cognomeartista = myData[2]
 
         self.verifica_album = verifica_album
         self.nome_album = nome_album
@@ -72,18 +70,7 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
             caption='Select a data file',
             directory=os.getcwd(),
             filter='Data File (*.mp3)',
-            #initialFilter='Data File (*.mp3)'
         )
 
     def btn_back_handler(self):
         self.switch_window_2.emit()
-
-
-
-
-
-
-
-
-
-

@@ -48,8 +48,6 @@ class controller_rimozioni_brani(QtWidgets.QWidget,rimozione_brani):
         if self.table.selectedItems():
             g = Gestione_json()
             g.elimina_object(self.nome_artista, self.table.currentItem().text())
-            self.pop_message(text="Eliminazione avvenuta con successo.")
-            self.pop_message(text="Per vedere gli aggiornamenti rieffettuare l'accesso")
 
     def btn_back_handler(self):
         self.switch_window_1.emit()

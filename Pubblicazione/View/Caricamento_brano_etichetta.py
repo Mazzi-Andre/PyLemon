@@ -115,10 +115,3 @@ class Caricamento_brano_etichetta(object):
         self.btn_Back.setText(_translate("Form", "Indietro"))
         self.label_3.setText(_translate("Form", "Nome brano:"))
         self.label_4.setText(_translate("Form", "Nome artista:"))
-
-'''app = QApplication([])
-window = QWidget()
-form = Caricamento_brano_etichetta()
-form.setupUi(window)
-window.show()
-app.exec()'''

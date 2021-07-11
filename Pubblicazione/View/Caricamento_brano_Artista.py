@@ -99,11 +99,3 @@ class Caricamento_brano(object):
         self.btn_scegli_file.setText(_translate("Form", "Scegli file"))
         self.btn_pubblica.setText(_translate("Form", "Pubblica"))
         self.btn_Back.setText(_translate("Form", "Indietro"))
-
-
-'''app = QApplication([])
-window = QWidget()
-form = Caricamento_brano()
-form.setupUi(window)
-window.show()
-app.exec()'''

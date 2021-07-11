@@ -102,10 +102,3 @@ class Ui_Form(object):
         self.label_4.setText(_translate("Form", "Nome album:"))
         self.label_2.setText(_translate("Form", "Pubblicazione album"))
         self.btn_Back.setText(_translate("Form", "Indietro"))
-
-'''app = QApplication([])
-window = QWidget()
-form = Ui_Form()
-form.setupUi(window)
-window.show()
-app.exec()'''

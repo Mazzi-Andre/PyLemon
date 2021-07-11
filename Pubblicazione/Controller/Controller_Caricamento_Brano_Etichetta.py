@@ -1,11 +1,9 @@
-import json
 import os
 
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication, QWidget, QComboBox, QPushButton, QFileDialog, QVBoxLayout
 from Pubblicazione.View.Caricamento_brano_etichetta import Caricamento_brano_etichetta
-from Data_Utente.control.Data_control import DataPick
 from Pubblicazione.Controller.Gestione_json import Gestione_json
 from Pubblicazione.Controller.Gestione_mp3 import Gestione_mp3
 
@@ -17,8 +15,6 @@ class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_bran
     def __init__(self,verifica_album,nome_album):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
-        self.pick = DataPick()
-        self.myData = self.pick.return_credenziali()
 
         self.verifica_album = verifica_album
         self.nome_album = nome_album
@@ -64,7 +60,7 @@ class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_bran
             parent=self,
             caption='Select a data file',
             directory=os.getcwd(),
-            filter='Data File (*.mp3)',# initialFilter='Data File (*.mp3)'
+            filter='Data File (*.mp3)',
         )
 
     def btn_back_handler(self):
