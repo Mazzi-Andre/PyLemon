@@ -68,11 +68,13 @@ class controller_artista(QtWidgets.QWidget,home_artista):
             pickle.dump(self.lista, Dpi)
 
     def top5(self):
-        self.table_top.setRowCount(len(self.list_top5))
+        self.table_top.setRowCount(5)
         j=0
         for i in self.list_top5:
             self.table_top.setItem(j, 0, QtWidgets.QTableWidgetItem(i))
             j = j+1
+            if j==5:
+                break
 
 
     def brani_artista(self):

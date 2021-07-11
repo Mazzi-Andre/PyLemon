@@ -512,14 +512,14 @@ class Controller():
         self.g = Gestione_json()
         json_data = self.g.get_jsonobject()
         controller_top = TopFive()
-        list = controller_top.json_to_list(json_data)
+        sort_conta = controller_top.sort_lista_contatori(json_data)
         Titoli_top5 = []
-        i = 0
-        while i <= len(list) - 1:
-            posi = list.__getitem__(i)
-            Titoli_top5.append(self.g.getTitolo_da_Id(posi[0]))
-            i = i + 1
-        print(Titoli_top5)
+        for i in sort_conta:
+            for j in json_data:
+                if i==j["contatore"]:
+                    Titoli_top5.append(j["Titolo"])
+                    break
+
         return Titoli_top5
 
 
