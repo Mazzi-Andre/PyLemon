@@ -25,6 +25,9 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
         self.nomeartista = myData[1]
         self.cognomeartista = myData[2]
 
+        self.Gestione_mp3 = Gestione_mp3()
+
+
         self.verifica_album = verifica_album
         self.nome_album = nome_album
         self.path=""
@@ -40,29 +43,33 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
 
 
     def btn_pubblica_handler(self):
-        if not self.path == '':
-            path= str(self.path)
-            stringa_split = path.split(", ")
-            newfile1 = stringa_split[0].replace("(", "")
-            newfile2 = newfile1.replace("'","")
-            G = Gestione_mp3()
-            J = Gestione_json()
-            G.Carica_mp3(newfile2)
-            nome = self.txt_nome_brano.text()
-            if nome:
-                artista = self.nomeartista + " " + self.cognomeartista
-                if self.verifica_album == False:
-                    album = nome
-                else: album = self.nome_album
-                contatore = 0
-                id = G.json_contatore["contatore_id"]
-                J.carica_brano_su_JSON(nome,artista,album,id,contatore)
-                self.pop_message(text="Brano caricato con successo.\n"
-                                      "Per vedere gli aggiornamenti ne I TUOI BRANI rieffettuare l'accesso")
-                if self.verifica_album == True:
-                    self.switch_window.emit()
-            else: self.pop_message(text="Immetti un titolo")
-        else: self.pop_message(text="Indicare il file mp3 da caricare")
+        try:
+            if not self.path == '':
+                path= str(self.path)
+                stringa_split = path.split(", ")
+                newfile1 = stringa_split[0].replace("(", "")
+                newfile2 = newfile1.replace("'","")
+                G = Gestione_mp3()
+                J = Gestione_json()
+                G.Carica_mp3(newfile2)
+                nome = self.txt_nome_brano.text()
+                if nome:
+                    artista = self.nomeartista + " " + self.cognomeartista
+                    if self.verifica_album == False:
+                        album = nome
+                    else: album = self.nome_album
+                    contatore = 0
+                    id = G.json_contatore["contatore_id"]
+                    J.carica_brano_su_JSON(nome,artista,album,id,contatore)
+                    self.pop_message(text="Brano caricato con successo.\n"
+                                            "Per vedere gli aggiornamenti ne I TUOI BRANI rieffettuare l'accesso")
+                    if self.verifica_album == True:
+                        self.switch_window.emit()
+                else: self.pop_message(text="Immetti un titolo")
+            else: self.pop_message(text="Indicare il file mp3 da caricare")
+        except:
+            self.pop_message(
+                text="Il file non esiste o errore sul nome del file.\n TIP: Prova a non utilizzare parentesi tonde, quadrate e graffe, gli slash e le virgolette")
 
 
 
