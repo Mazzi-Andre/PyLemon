@@ -15,6 +15,7 @@ from Pubblicazione.Controller.Controller_Richiesta_nBrani import Controller_Rich
 class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano):
     switch_window = QtCore.pyqtSignal()
     switch_window_2 = QtCore.pyqtSignal()
+    switch_window_3 = QtCore.pyqtSignal()
 
     def __init__(self,verifica_album, nome_album):
         QtWidgets.QWidget.__init__(self)
@@ -29,6 +30,7 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
         self.path=""
         self.btn_scegli_file.clicked.connect(self.btn_scegli_file_handler)
         self.btn_pubblica.clicked.connect(self.btn_pubblica_handler)
+        self.btn_pubblica.clicked.connect(self.btn_back_pubblica)
         self.btn_Back.clicked.connect(self.btn_back_handler)
 
     def pop_message(self, text=""):
@@ -75,6 +77,10 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
 
     def btn_back_handler(self):
         self.switch_window_2.emit()
+
+    def btn_back_pubblica(self):
+        self.switch_window_3.emit()
+
 
 
 

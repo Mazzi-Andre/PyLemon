@@ -205,6 +205,11 @@ class Controller():
         self.check_pubblicazione_album = self.Richiesta_nBrani.verifica_album
         self.check_pubblicazione_brano_artista1 = True
         self.check_pubblicazione_brano_artista = True
+
+        if self.check_pubblicazione_inizio1 is True:
+            self.pubblicazione_inizio.close()
+            self.check_pubblicazione_inizio1 = False
+
         if self.check_pubblicazione_album:
             self.conta_brani_artista = self.conta_brani_artista + 1
             self.nome_album = self.Richiesta_nBrani.nBrani
@@ -212,7 +217,7 @@ class Controller():
         else: self.nome_album = None
         self.Caricamento_Brano_Artista = Controller_Caricamento_Brano_Artista(self.check_pubblicazione_album, self.nome_album)
         self.Caricamento_Brano_Artista.switch_window.connect(self.show_pubblicazione_brano_artista)
-        print(self.check_pubblicazione_album)
+
         if self.check_pubblicazione_album is True:
             if self.conta_brani_artista <= int(self.nBrani):
                 self.Caricamento_Brano_Artista.show()
