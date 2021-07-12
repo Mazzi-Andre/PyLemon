@@ -36,9 +36,10 @@ class Ascolto():
     '''Metodo che stoppa il flusso musicale'''
     def stop(self, bool_finestra):
         if bool_finestra:
-            mixer.music.stop()
-            self.check_pause = True
-            mixer.quit()
+            if mixer.music.get_busy():
+                mixer.music.stop()
+                self.check_pause = True
+                mixer.quit()
 
         else:
             mixer.music.stop()

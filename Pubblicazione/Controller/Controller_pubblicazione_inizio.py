@@ -1,5 +1,3 @@
-import json
-
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
@@ -28,19 +26,12 @@ class controller_pubblicazione_inizio(QtWidgets.QWidget, pubblicazione_inizio):
     """SWITCH FINESTRE"""
 
     def btn_brano_handler(self):
-        self.pubb_brano = True
-        with open('ContatoreBrani.json', 'r') as j:
-            self.json_contatore = json.load(j)
         self.switch_window_1.emit()
 
     def btn_album_handler(self):
         self.switch_window_2.emit()
 
-    def closeEvent(self, event):
-        with open('ContatoreBrani.json', 'r') as j:
-            self.json_contatore_verifica = json.load(j)
-        if self.pubb_brano and (self.json_contatore["contatore_id"] < self.json_contatore_verifica["contatore_id"]):
-            self.pop_message(text="Per vedere gli aggiornamenti ne I TUOI BRANI riaccedere.")
+
 
 
 

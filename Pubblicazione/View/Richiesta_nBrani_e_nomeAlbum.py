@@ -37,12 +37,12 @@ class Ui_Form(object):
         self.label_4.setStyleSheet("color: rgb(207, 211, 211);")
         self.label_4.setObjectName("label_4")
 
-        self.txt_nome_album = QtWidgets.QLineEdit(Form)
-        self.txt_nome_album.setGeometry(QtCore.QRect(300, 210, 51, 21))
-        self.txt_nome_album.setStyleSheet("background-color: rgb(207, 207, 207);\n"
+        self.numero_brani = QtWidgets.QLineEdit(Form)
+        self.numero_brani.setGeometry(QtCore.QRect(300, 210, 51, 21))
+        self.numero_brani.setStyleSheet("background-color: rgb(207, 207, 207);\n"
                                           "color: rgb(55, 55, 55);\n"
                                           "border-radius: 5px;")
-        self.txt_nome_album.setObjectName("txt_nome_album")
+        self.numero_brani.setObjectName("txt_nome_album")
 
 
 
@@ -54,12 +54,12 @@ class Ui_Form(object):
         self.label_3.setStyleSheet("color: rgb(207, 211, 211);")
         self.label_3.setObjectName("label_3")
 
-        self.txt_nBrani = QtWidgets.QLineEdit(Form)
-        self.txt_nBrani.setGeometry(QtCore.QRect(110, 140, 191, 31))
-        self.txt_nBrani.setStyleSheet("background-color: rgb(207, 207, 207);\n"
+        self.nome_album = QtWidgets.QLineEdit(Form)
+        self.nome_album.setGeometry(QtCore.QRect(110, 140, 191, 31))
+        self.nome_album.setStyleSheet("background-color: rgb(207, 207, 207);\n"
                                       "color: rgb(55, 55, 55);\n"
                                       "border-radius: 5px;")
-        self.txt_nBrani.setObjectName("txt_nBrani")
+        self.nome_album.setObjectName("txt_nBrani")
 
 
         '''--------------Bottone Ok-------------'''
@@ -102,10 +102,3 @@ class Ui_Form(object):
         self.label_4.setText(_translate("Form", "Nome album:"))
         self.label_2.setText(_translate("Form", "Pubblicazione album"))
         self.btn_Back.setText(_translate("Form", "Indietro"))
-
-'''app = QApplication([])
-window = QWidget()
-form = Ui_Form()
-form.setupUi(window)
-window.show()
-app.exec()'''

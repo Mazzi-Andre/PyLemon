@@ -1,6 +1,7 @@
 import os
 import shutil
 import json
+from PyQt5 import QtWidgets
 
 
 class Gestione_mp3():
@@ -8,6 +9,12 @@ class Gestione_mp3():
 
         with open('ContatoreBrani.json', 'r') as j:
             self.json_contatore = json.load(j)
+
+
+    def pop_message(self, text=""):
+        msg = QtWidgets.QMessageBox()
+        msg.setText("{}".format(text))
+        msg.exec_()
 
 
     def Carica_mp3(self, percorsofile):
@@ -31,14 +38,20 @@ class Gestione_mp3():
         else:
             print("il file non esiste")
 
-        #contatoreid += 1
-        #Object = {"contatore":{"valore": contatoreid}}
-        #with open("ContatoreBrani.json", "w") as write_file:
-            #json.dump(Object, write_file)
-
 
     def Elimina_mp3(self, id):
-        os.remove('Data/mp3/'+str(id)+'.mp3')
+
+        try:
+
+            os.remove('Data/mp3/'+str(id)+'.mp3')
+            self.pop_message(text="Eliminazione avvenuta con successo.")
+            self.pop_message(text="Per vedere gli aggiornamenti rieffettuare l'accesso")
+            return True
+
+        except:
+            self.pop_message(text="Errore nella rimozione.\n"
+                                      "Prova ad effettuare il logout e a riaccedere.")
+            return False
 
 
 

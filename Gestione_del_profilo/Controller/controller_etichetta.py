@@ -64,8 +64,10 @@ class controller_etichetta(QtWidgets.QWidget, home_etichetta):
             pickle.dump(lista, Dpi)
 
     def top5(self):
-        self.table.setRowCount(len(self.list_top5))
-        j=0
+        self.table.setRowCount(5)
+        j = 0
         for i in self.list_top5:
             self.table.setItem(j, 0, QtWidgets.QTableWidgetItem(i))
-            j = j+1
+            j = j + 1
+            if j == 5:
+                break

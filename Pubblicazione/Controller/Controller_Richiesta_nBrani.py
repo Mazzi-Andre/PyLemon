@@ -13,36 +13,39 @@ class Controller_Richiesta_nBrani(QtWidgets.QWidget, Ui_Form):
         self.btn_ok.clicked.connect(self.btn_ok_handler)
         self.btn_Back.clicked.connect(self.btn_back_handler)
 
+
+    def pop_message(self, text=""):
+        msg = QtWidgets.QMessageBox()
+        msg.setText("{}".format(text))
+        msg.exec_()
+
+
     def closeEvent(self, event):
         if self.verifica_album:
             self.verifica_album = False
 
     def btn_ok_handler(self):
         self.verifica_album = True
-        self.inizializzazione()
-        self.switch_window.emit()
+        if self.inizializzazione():
+            self.switch_window.emit()
 
     def inizializzazione(self):
         self.verifica_album = True
-        self.nome_album =  self.txt_nome_album.text()
-        self.nBrani = self.txt_nBrani.text()
+        self.album_name = self.nome_album.text()
+        self.nBrani = self.numero_brani.text()
+        if not self.nBrani.find('.') == 0:
+            try:
+                if self.nome_album and int(self.nBrani) > 1:
+                    self.nBrani = int(self.nBrani)
+                    return True
+            except: self.pop_message(text="Dati mancanti o incorretti")
+
+        else :
+            self.pop_message(text="Immetti un numero intero di brani")
+            return False
+
 
     def btn_back_handler(self):
         if self.verifica_album:
             self.verifica_album = False
         self.switch_window_2.emit()
-
-
-
-    #def get_nBrani(self):
-        #return self.nBrani
-
-    #def get_nome_album(self):
-        #return self.nome_album
-
-
-
-
-
-
-

@@ -1,5 +1,7 @@
 import pickle
 import sys
+
+import pygame
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
@@ -212,17 +214,19 @@ class Controller():
 
         if self.check_pubblicazione_album:
             self.conta_brani_artista = self.conta_brani_artista + 1
-            self.nome_album = self.Richiesta_nBrani.nBrani
-            self.nBrani = self.Richiesta_nBrani.nome_album
+            self.nome_album = self.Richiesta_nBrani.album_name
+            self.nBrani = self.Richiesta_nBrani.nBrani
         else: self.nome_album = None
         self.Caricamento_Brano_Artista = Controller_Caricamento_Brano_Artista(self.check_pubblicazione_album, self.nome_album)
         self.Caricamento_Brano_Artista.switch_window.connect(self.show_pubblicazione_brano_artista)
-
+        print(self.check_pubblicazione_album)
         if self.check_pubblicazione_album is True:
-            if self.conta_brani_artista <= int(self.nBrani):
+            if self.conta_brani_artista <= self.nBrani:
                 self.Caricamento_Brano_Artista.show()
         else: self.Caricamento_Brano_Artista.show()
+
         self.Caricamento_Brano_Artista.switch_window_2.connect(self.show_pubblicazione_inizio)
+        self.pubblicazione_inizio.close()
 
 
 
@@ -232,16 +236,18 @@ class Controller():
         self.check_pubblicazione_brano_etichetta = True
         if self.check_pubblicazione_album:
             self.conta_brani_etichetta = self.conta_brani_etichetta + 1
-            self.nome_album_etichetta = self.Richiesta_nBrani.nBrani
-            self.nBrani_etichetta = self.Richiesta_nBrani.nome_album
+            self.nome_album_etichetta = self.Richiesta_nBrani.album_name
+            self.nBrani_etichetta = self.Richiesta_nBrani.nBrani
+
         else: self.nome_album_etichetta = None
         self.Caricamento_Brano_etichetta = Controller_Caricamento_Brano_Etichetta(self.check_pubblicazione_album, self.nome_album_etichetta)
         self.Caricamento_Brano_etichetta.switch_window.connect(self.show_pubblicazione_brano_etichetta)
         if self.check_pubblicazione_album is True:
-            if self.conta_brani_etichetta <= int(self.nBrani_etichetta):
+            if self.conta_brani_etichetta <= self.nBrani_etichetta:
                 self.Caricamento_Brano_etichetta.show()
         else: self.Caricamento_Brano_etichetta.show()
         self.Caricamento_Brano_etichetta.switch_window_2.connect(self.show_pubblicazione_inizio)
+        self.pubblicazione_inizio.close()
 
 
 
@@ -508,6 +514,7 @@ class Controller():
             self.check_mostra_tutto = False
 
         if self.check_mostra_search is True:
+            pygame.mixer.init()
             self.search.close()
             self.check_mostra_search= False
 
@@ -530,13 +537,14 @@ class Controller():
         self.g = Gestione_json()
         json_data = self.g.get_jsonobject()
         controller_top = TopFive()
-        list = controller_top.json_to_list(json_data)
+        sort_conta = controller_top.sort_lista_contatori(json_data)
         Titoli_top5 = []
-        i = 0
-        while i <= len(list) - 1:
-            posi = list.__getitem__(i)
-            Titoli_top5.append(self.g.getTitolo_da_Id(posi[0]))
-            i = i + 1
+        for i in sort_conta:
+            for j in json_data:
+                if i==j["contatore"]:
+                    Titoli_top5.append(j["Titolo"])
+                    break
+
         return Titoli_top5
 
 
