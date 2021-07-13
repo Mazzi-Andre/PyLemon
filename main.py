@@ -189,10 +189,6 @@ class Controller():
                 self.Caricamento_Brano_Artista.close()
                 self.check_pubblicazione_brano_artista = False
 
-        if self.check_richiesta_nBrani1 is True:
-            self.Richiesta_nBrani.close()
-            self.check_richiesta_nBrani1= False
-
         if self.check_pubblicazione_brano_etichetta1 is True:
             if self.check_pubblicazione_album is True:
                 if self.conta_brani_etichetta == self.nBrani_etichetta:
@@ -201,6 +197,10 @@ class Controller():
             else:
                 self.Caricamento_Brano_etichetta.close()
                 self.check_pubblicazione_brano_etichetta1 = False
+
+        if self.check_richiesta_nBrani1 is True:
+            self.Richiesta_nBrani.close()
+            self.check_richiesta_nBrani1= False
 
 
 
@@ -551,6 +551,22 @@ class Controller():
         if self.check_scelta_rimozione_brano is True:
             self.rimuovi.close()
             self.check_scelta_rimozione_brano = False
+
+        if self.check_richiesta_nBrani1 is True:
+            self.Richiesta_nBrani.close()
+            self.check_richiesta_nBrani1= False
+
+        if self.check_pubblicazione_brano_artista is True:
+            self.Caricamento_Brano_Artista.close()
+            self.check_pubblicazione_brano_artista = False
+
+        if self.check_pubblicazione_brano_etichetta1 is True:
+            self.Caricamento_Brano_etichetta.close()
+            self.check_pubblicazione_brano_etichetta1 = False
+
+        if self.check_pubblicazione_inizio1 is True:
+            self.pubblicazione_inizio.close()
+            self.check_pubblicazione_inizio1 = False
 
         if self.check_login_page is False:
             self.show_login_page()
