@@ -52,25 +52,27 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
                 stringa_split = path.split(", ")
                 nomefile = stringa_split[0].replace("(", "")
                 nomefile2 = nomefile.replace("'","")
-                self.Gestione_mp3.Carica_mp3(nomefile2)
-                nome = self.txt_nome_brano.text()
-                if nome:
-                    artista = self.nomeartista + " " + self.cognomeartista
-                    if self.verifica_album == False:
-                        album = nome
-                    else: album = self.nome_album
-                    contatore = 0
-                    id = self.Gestione_mp3.json_contatore["contatore_id"]
-                    self.Gestione_Json.carica_brano_su_JSON(nome,artista,album,id,contatore)
-                    self.pop_message(text="Brano caricato con successo.\n"
+                verifica_pubb_mp3 = self.Gestione_mp3.Carica_mp3(nomefile2)
+                if verifica_pubb_mp3:
+                    nome = self.txt_nome_brano.text()
+                    if nome:
+                        artista = self.nomeartista + " " + self.cognomeartista
+                        if self.verifica_album == False:
+                            album = nome
+                        else: album = self.nome_album
+                        contatore = 0
+                        id = self.Gestione_mp3.json_contatore["contatore_id"]
+                        self.Gestione_Json.carica_brano_su_JSON(nome,artista,album,id,contatore)
+                        self.pop_message(text="Brano caricato con successo.\n"
                                             "Per vedere gli aggiornamenti ne I TUOI BRANI rieffettuare l'accesso")
-                    if self.verifica_album == True:
-                        self.switch_window.emit()
-                else: self.pop_message(text="Immetti un titolo")
+                        if self.verifica_album == True:
+                            self.switch_window.emit()
+                    else: self.pop_message(text="Immetti un titolo")
+                else : self.pop_message(
+                text="Errore sul nome del file.\nTIP: Prova a rinominare il file non utilizzando parentesi tonde, quadrate e graffe, gli slash e le virgolette.")
             else: self.pop_message(text="Indicare il file mp3 da caricare")
         except:
-            self.pop_message(
-                text="Il file non esiste o errore sul nome del file.\n TIP: Prova a non utilizzare parentesi tonde, quadrate e graffe, gli slash e le virgolette")
+            self.pop_message(text="Il file non esiste")
 
 
 
