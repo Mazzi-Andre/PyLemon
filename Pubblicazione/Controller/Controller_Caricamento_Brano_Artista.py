@@ -69,7 +69,8 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
                             self.switch_window.emit()
                     else: self.pop_message(text="Immetti un titolo")
                 else : self.pop_message(
-                text="Errore sul nome del file.\nTIP: Prova a rinominare il file non utilizzando parentesi tonde, quadrate e graffe, gli slash e le virgolette.")
+                text="Errore sul nome del file.\n"
+                     "TIP: Prova a rinominare il file non utilizzando parentesi tonde, quadrate e graffe, gli slash e le virgolette.")
             else: self.pop_message(text="Indicare il file mp3 da caricare")
         except:
             self.pop_message(text="Il file non esiste")
