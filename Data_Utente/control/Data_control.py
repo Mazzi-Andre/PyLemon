@@ -58,6 +58,7 @@ class DataPick(object):
 
     def controlla_login(self):
         MyData = self.return_credenziali()
+
         tipo_utente = MyData[4]
 
         if tipo_utente == "ascoltatore" or tipo_utente == "Ascoltatore":

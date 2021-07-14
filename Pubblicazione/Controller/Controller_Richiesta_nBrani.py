@@ -8,11 +8,12 @@ class Controller_Richiesta_nBrani(QtWidgets.QWidget, Ui_Form):
     switch_window_2 = QtCore.pyqtSignal()
 
     '''Nel Costruttore vado a collegare le funzioni ai rispettivi pulsanti'''
-    def __init__(self,):
+    def __init__(self):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
 
         self.verifica_album = False
+        self.controllo_btn_ok = False
 
         self.btn_ok.clicked.connect(self.btn_ok_handler)
         self.btn_Back.clicked.connect(self.btn_back_handler)
@@ -25,12 +26,12 @@ class Controller_Richiesta_nBrani(QtWidgets.QWidget, Ui_Form):
 
     '''Funzione che parte quando si va a chiudere la finestra senza l'utilizzo del stato Indietro'''
     def closeEvent(self, event):
-        if self.verifica_album:
+        if not self.controllo_btn_ok:
             self.verifica_album = False
 
     '''Funzione collegata al pulsante btn_ok e permette di far visualizzare un'altra finestra'''
     def btn_ok_handler(self):
-        self.verifica_album = True
+        self.controllo_btn_ok = True
         if self.inizializzazione():
             self.switch_window.emit()
 

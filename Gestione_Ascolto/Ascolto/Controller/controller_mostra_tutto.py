@@ -19,7 +19,6 @@ class controller_mostra_tutto(QtWidgets.QWidget, Ui_Player):
         self.mostra_tutto()
         self.chiusura_win = False
 
-
         self.play.clicked.connect(self.go_play)
         self.pause.clicked.connect(self.go_pause)
         self.stop.clicked.connect(self.go_stop)

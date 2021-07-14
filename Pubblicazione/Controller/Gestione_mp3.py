@@ -26,7 +26,6 @@ class Gestione_mp3():
             oldfile1 = str(percorsofile)
             oldfile2 = oldfile1.split("/")
             nomefile= str(oldfile2[len(oldfile2)-1])
-            print(nomefile)
             id=int(contatoreid)
             id = id+1
             newnomefile = str(id) + ".mp3"
