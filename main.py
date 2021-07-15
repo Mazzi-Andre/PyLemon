@@ -235,10 +235,11 @@ class Controller():
             self.check_pubblicazione_brano_artista = True
             self.Caricamento_Brano_Artista.show()
 
-            if self.appoggio is True:
-                print("u")
+            if self.Caricamento_Brano_Artista.verifica_pubblica is True:
                 self.Caricamento_Brano_Artista.btn_pubblica.clicked.connect(self.show_pubblicazione_inizio)
                 self.appoggio=self.Caricamento_Brano_Artista.btn_pubblica_handler()
+            else:
+                self.Caricamento_Brano_Artista.variabile_pub_control()
 
 
         if self.Richiesta_nBrani.verifica_album is True:

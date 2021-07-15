@@ -20,6 +20,7 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
     def __init__(self,verifica_album, nome_album):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
+        self.var_pubblicazione= False
 
         pick = DataPick()
         myData = pick.return_credenziali()
@@ -96,6 +97,9 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
     def btn_back_pubblica(self):
             self.switch_window_3.emit()
 
+
+    def variabile_pub_control(self):
+        self.verifica_pubblica = self.btn_pubblica_handler()
 
 
 
