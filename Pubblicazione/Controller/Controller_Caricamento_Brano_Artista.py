@@ -12,7 +12,7 @@ from Pubblicazione.Controller.Gestione_mp3 import Gestione_mp3
 
 ''' Classe di controllo per le funzionalità dell caricamento di un brano per un'artista. '''
 class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano):
-    switch_window = QtCore.pyqtSignal()
+    #switch_window = QtCore.pyqtSignal()
     switch_window_2 = QtCore.pyqtSignal()
     switch_window_3 = QtCore.pyqtSignal()
 
@@ -32,6 +32,8 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
         self.verifica_album = verifica_album
         self.nome_album = nome_album
         self.path=""
+
+        self.verifica_pubblica = False
 
         self.btn_scegli_file.clicked.connect(self.btn_scegli_file_handler)
         self.btn_pubblica.clicked.connect(self.btn_pubblica_handler)
@@ -65,18 +67,16 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
                 self.Gestione_Json.carica_brano_su_JSON(nome,artista,album,id,contatore)
                 self.pop_message(text="Brano caricato con successo.\n"
                                                 "Per vedere gli aggiornamenti ne I TUOI BRANI rieffettuare l'accesso")
-                if self.verifica_album == True:
-                    self.switch_window.emit()
                 return True
 
             else:
                 self.pop_message(text="Immetti un titolo")
                 return False
+
         except:
             self.pop_message(text="Errore nel caricamento del brano.\n"
                                       "TIP: Prova a rinominare il file non utilizzando parentesi tonde, quadrate e graffe, gli slash e le virgolette.")
             return False
-
 
 
     '''Funzione che permette di visualizzare un File Dialog e prende il path del file, collegata al pulsante btn_scegli_file'''
@@ -94,7 +94,7 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
 
     '''Funzione secondaria collegata al pulsante btn_pubblica e permette di far visualizzare un'altra finestra'''
     def btn_back_pubblica(self):
-        self.switch_window_3.emit()
+            self.switch_window_3.emit()
 
 
 

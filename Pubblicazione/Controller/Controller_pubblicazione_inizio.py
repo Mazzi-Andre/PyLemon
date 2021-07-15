@@ -12,7 +12,6 @@ class controller_pubblicazione_inizio(QtWidgets.QWidget, pubblicazione_inizio):
     def __init__(self):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
-        self.pubb_brano = False
 
         self.btn_brano.clicked.connect(self.btn_brano_handler)
         self.btn_album.clicked.connect(self.btn_album_handler)

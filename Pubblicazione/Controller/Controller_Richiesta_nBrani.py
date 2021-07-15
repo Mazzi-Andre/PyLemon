@@ -31,26 +31,29 @@ class Controller_Richiesta_nBrani(QtWidgets.QWidget, Ui_Form):
 
     '''Funzione collegata al pulsante btn_ok e permette di far visualizzare un'altra finestra'''
     def btn_ok_handler(self):
-        self.controllo_btn_ok = True
         if self.inizializzazione():
             self.switch_window.emit()
 
     '''Funzione che inizializza le variabili inserite dell'utente'''
     def inizializzazione(self):
-        self.verifica_album = True
         self.album_name = self.nome_album.text()
         self.nBrani = self.numero_brani.text()
-        if not self.nBrani.find('.') == 0:
-            try:
-                if self.nome_album and int(self.nBrani) > 1:
-                    self.nBrani = int(self.nBrani)
-                    return True
-            except: self.pop_message(text="Dati mancanti o incorretti")
+        self.controllo_btn_ok = True
+        self.verifica_album = True
+        try:
+            if not self.nBrani.find('.') == 0:
+                    if int(self.nBrani) > 1:
+                        if self.nome_album:
+                            self.nBrani = int(self.nBrani)
+                            return True
+                        else:
+                            raise
+                    else: raise
 
-        else :
-            self.pop_message(text="Immetti un numero intero di brani")
+            else : raise
+        except:
+            self.pop_message(text="Dati mancanti o incorretti")
             return False
-
     '''Funzione collegata al pulsante btn_back e permette di far visualizzare un'altra finestra'''
     def btn_back_handler(self):
         if self.verifica_album:

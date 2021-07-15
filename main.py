@@ -173,8 +173,12 @@ class Controller():
     """Controller pubblicazione"""
     def show_pubblicazione_inizio(self):
         self.pubblicazione_inizio = controller_pubblicazione_inizio()
+        self.Richiesta_nBrani = Controller_Richiesta_nBrani()
+
         self.check_pubblicazione_inizio1 = True
+
         self.pubblicazione_inizio.show()
+
         if self.check_verifica_etichetta:
             self.pubblicazione_inizio.switch_window_1.connect(self.show_pubblicazione_brano_etichetta)
         else: self.pubblicazione_inizio.switch_window_1.connect(self.show_pubblicazione_brano_artista)
@@ -182,13 +186,13 @@ class Controller():
 
 
         if self.check_pubblicazione_brano_artista is True:
-            if self.Richiesta_nBrani.verifica_album is True:
-                if self.conta_brani_artista == int(self.nBrani):
-                    self.Caricamento_Brano_Artista.close()
-                    self.check_pubblicazione_brano_artista = False
-            else:
-                self.Caricamento_Brano_Artista.close()
-                self.check_pubblicazione_brano_artista = False
+            self.Caricamento_Brano_Artista.close()
+            self.check_pubblicazione_brano_artista = False
+
+        if self.Richiesta_nBrani.verifica_album is True:
+            if self.conta_brani_artista == int(self.nBrani):
+                self.Richiesta_nBrani.verifica_album =False
+
 
         if self.check_pubblicazione_brano_etichetta1 is True:
             if self.Richiesta_nBrani.verifica_album is True:
@@ -214,26 +218,35 @@ class Controller():
         if self.check_richiesta_nBrani1 is True:
             self.Richiesta_nBrani.close()
             self.check_richiesta_nBrani1 = False
-        if self.Richiesta_nBrani.verifica_album:
+        if self.Richiesta_nBrani.verifica_album is True:
             self.conta_brani_artista = self.conta_brani_artista + 1
             self.nome_album = self.Richiesta_nBrani.album_name
             self.nBrani = self.Richiesta_nBrani.nBrani
         else: self.nome_album = None
 
         self.Caricamento_Brano_Artista = Controller_Caricamento_Brano_Artista(self.Richiesta_nBrani.verifica_album, self.nome_album)
-        self.Caricamento_Brano_Artista.switch_window.connect(self.show_pubblicazione_brano_artista)
-        if self.Richiesta_nBrani.verifica_album is True:
-            if self.conta_brani_artista <= self.nBrani:
-                self.check_pubblicazione_brano_artista = True
-                if self.conta_brani_artista == self.nBrani:
-                    if self.Caricamento_Brano_Artista.btn_pubblica_handler:
-                        self.Caricamento_Brano_Artista.btn_pubblica.clicked.connect(self.show_pubblicazione_inizio)
-                self.Caricamento_Brano_Artista.show()
-        else:
+        #self.Caricamento_Brano_Artista.switch_window.connect(self.show_pubblicazione_brano_artista)
+
+
+        #print(self.Richiesta_nBrani.verifica_album)
+        #print(self.Caricamento_Brano_Artista.btn_pubblica_handler())
+
+        if self.Richiesta_nBrani.verifica_album is False:
             self.check_pubblicazione_brano_artista = True
-            if self.Caricamento_Brano_Artista.btn_pubblica_handler:
-                self.Caricamento_Brano_Artista.btn_pubblica.clicked.connect(self.show_pubblicazione_inizio)
             self.Caricamento_Brano_Artista.show()
+
+            if self.appoggio is True:
+                print("u")
+                self.Caricamento_Brano_Artista.btn_pubblica.clicked.connect(self.show_pubblicazione_inizio)
+                self.appoggio=self.Caricamento_Brano_Artista.btn_pubblica_handler()
+
+
+        if self.Richiesta_nBrani.verifica_album is True:
+            if self.conta_brani_artista == int(self.nBrani):
+                    self.Caricamento_Brano_Artista.btn_pubblica.clicked.connect(self.show_pubblicazione_inizio)
+            else:
+                self.Caricamento_Brano_Artista.btn_pubblica.clicked.connect(self.show_pubblicazione_brano_artista)
+
 
         if self.Richiesta_nBrani.verifica_album is True:
             self.Caricamento_Brano_Artista.switch_window_2.connect(self.show_pubblicazione_album)
@@ -293,6 +306,8 @@ class Controller():
         self.Richiesta_nBrani.switch_window_2.connect(self.show_pubblicazione_inizio)
         if self.check_pubblicazione_brano_artista is True:
             self.Caricamento_Brano_Artista.close()
+            self.check_pubblicazione_brano_artista = False
+
 
 
     """---------------------------------------------------------------------------------------------"""
