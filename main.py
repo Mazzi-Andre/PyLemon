@@ -223,19 +223,18 @@ class Controller():
             self.Richiesta_nBrani.close()
             self.check_richiesta_nBrani1 = False
 
-        with open('nAlbum.pkl', 'rb') as Dpi:
+        with open('C:\Progetti_Python\PySound\pkl\Album.pkl', 'rb') as Dpi:
             MyData = pickle.load(Dpi)
-        print(MyData[0] + 'ciao')
+        print(MyData[0] + ' ' + MyData[1])
 
-
-        if MyData[0] == 0:
+        if int(MyData[0]) == 0:
             self.verifica_album = False
         else: self.verifica_album = True
 
 
-        if  MyData[0] > 1:
+        if  int(MyData[0]) > 1:
             self.conta_brani_artista = self.conta_brani_artista + 1
-            self.nome_album = self.Richiesta_nBrani.album_name
+            self.nome_album = MyData[1]
         else: self.nome_album = None
 
 
@@ -247,14 +246,15 @@ class Controller():
         self.Caricamento_Brano_Artista.switch_window_1.connect(self.show_pubblicazione_inizio)
         self.Caricamento_Brano_Artista.switch_window_3.connect(self.show_pubblicazione_brano_artista)
 
-        if not self.Richiesta_nBrani.nBrani == 0:
-            if self.conta_brani_artista == int(self.nBrani):
-                    self.Caricamento_Brano_Artista.controllo_fine_album = True
+        if not MyData[0] == 0:
+            if self.conta_brani_artista == int(MyData[0]):
+                self.Richiesta_nBrani.put_data_brani('0','0')
+                self.Caricamento_Brano_Artista.controllo_fine_album = True
             else:
                 self.Caricamento_Brano_Artista.controllo_fine_album = False
 
 
-        if not self.Richiesta_nBrani.nBrani == 0:
+        if not MyData[0] == 0:
             self.Caricamento_Brano_Artista.switch_window_2.connect(self.show_pubblicazione_album)
         else: self.Caricamento_Brano_Artista.switch_window_2.connect(self.show_pubblicazione_inizio)
 

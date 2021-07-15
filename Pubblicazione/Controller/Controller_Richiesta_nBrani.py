@@ -41,7 +41,7 @@ class Controller_Richiesta_nBrani(QtWidgets.QWidget, Ui_Form):
     def inizializzazione(self):
         self.album_name = self.nome_album.text()
         self.nBrani = self.numero_brani.text()
-        self.put_data_brani(self.nBrani)
+        self.put_data_brani(self.nBrani,self.album_name)
         self.controllo_btn_ok = True
         self.verifica_album = True
         try:
@@ -66,10 +66,11 @@ class Controller_Richiesta_nBrani(QtWidgets.QWidget, Ui_Form):
             self.verifica_album = False
         self.switch_window_2.emit()
 
-    def put_data_brani(self, nome):
+    def put_data_brani(self, numero, album):
         lista = []
-        lista.append(nome)
-        with open('nAlbum.pkl', 'wb') as Dpi:
+        lista.append(numero)
+        lista.append(album)
+        with open('C:\Progetti_Python\PySound\pkl\Album.pkl', 'wb') as Dpi:
             pickle.dump(lista, Dpi)
 
 
