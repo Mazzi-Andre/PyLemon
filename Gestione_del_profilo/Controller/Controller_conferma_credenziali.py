@@ -23,9 +23,6 @@ class controller_conferma_credenziali(QtWidgets.QWidget,conferma_credenziali):
         self.btn_Back.clicked.connect(self.btn_back_handler)
         self.btn_Ok.clicked.connect(self.btn_ok_handler)
 
-
-
-
     """POP UP FINESTRA"""
 
     def pop_message(self, text=""):

@@ -1,3 +1,5 @@
+import pickle
+
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 from Pubblicazione.View.Richiesta_nBrani_e_nomeAlbum import Ui_Form
@@ -14,6 +16,7 @@ class Controller_Richiesta_nBrani(QtWidgets.QWidget, Ui_Form):
 
         self.verifica_album = False
         self.controllo_btn_ok = False
+        self.nBrani = 0
 
         self.btn_ok.clicked.connect(self.btn_ok_handler)
         self.btn_Back.clicked.connect(self.btn_back_handler)
@@ -38,6 +41,7 @@ class Controller_Richiesta_nBrani(QtWidgets.QWidget, Ui_Form):
     def inizializzazione(self):
         self.album_name = self.nome_album.text()
         self.nBrani = self.numero_brani.text()
+        self.put_data_brani(self.nBrani)
         self.controllo_btn_ok = True
         self.verifica_album = True
         try:
@@ -54,8 +58,18 @@ class Controller_Richiesta_nBrani(QtWidgets.QWidget, Ui_Form):
         except:
             self.pop_message(text="Dati mancanti o incorretti")
             return False
+
+
     '''Funzione collegata al pulsante btn_back e permette di far visualizzare un'altra finestra'''
     def btn_back_handler(self):
         if self.verifica_album:
             self.verifica_album = False
         self.switch_window_2.emit()
+
+    def put_data_brani(self, nome):
+        lista = []
+        lista.append(nome)
+        with open('nAlbum.pkl', 'wb') as Dpi:
+            pickle.dump(lista, Dpi)
+
+

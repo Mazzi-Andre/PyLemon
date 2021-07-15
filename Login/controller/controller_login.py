@@ -54,8 +54,6 @@ class Login(QtWidgets.QWidget, Ui_Outsecure):
                 for x in val:
                     if username in x[0] and password in x[1]:
                         self.loading()
-                        #self.credenziali= x
-                        #self.pick.put_data(self.credenziali[0], self.credenziali[1])
                         return True
                     else:
                         pass

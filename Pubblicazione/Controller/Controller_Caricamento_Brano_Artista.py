@@ -12,7 +12,7 @@ from Pubblicazione.Controller.Gestione_mp3 import Gestione_mp3
 
 ''' Classe di controllo per le funzionalità dell caricamento di un brano per un'artista. '''
 class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano):
-    #switch_window = QtCore.pyqtSignal()
+    switch_window_1 = QtCore.pyqtSignal()
     switch_window_2 = QtCore.pyqtSignal()
     switch_window_3 = QtCore.pyqtSignal()
 
@@ -34,7 +34,7 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
         self.nome_album = nome_album
         self.path=""
 
-        self.verifica_pubblica = False
+        self.controllo_fine_album = False
 
         self.btn_scegli_file.clicked.connect(self.btn_scegli_file_handler)
         self.btn_pubblica.clicked.connect(self.btn_pubblica_handler)
@@ -49,35 +49,54 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
 
     '''Funzione per pubblicare un brano collegato al pulsante btn_pubblica'''
     def btn_pubblica_handler(self):
+        if self.Controllo_pubblicazione() is True:
+            self.Gestione_Json.carica_brano_su_JSON(self.nome, self.artista, self.album, self.id, self.contatore)
+            self.Gestione_mp3.Carica_mp3(self.nomefile2)
+            self.Controllo_emit()
+        else:
+            print('da correggere')
+
+
+    def Controllo_pubblicazione(self):
         try:
             path= str(self.path)
             stringa_split = path.split(", ")
             nomefile = stringa_split[0].replace("(", "")
-            nomefile2 = nomefile.replace("'","")
-            nome = self.txt_nome_brano.text()
-            if nome:
-                artista = self.nomeartista + " " + self.cognomeartista
+            self.nomefile2 = nomefile.replace("'","")
+
+            self.nome = self.txt_nome_brano.text()
+            if self.nome:
+                self.artista = self.nomeartista + " " + self.cognomeartista
                 if self.verifica_album == False:
-                    album = nome
-                else: album = self.nome_album
-                contatore = 0
-                id = self.Gestione_mp3.json_contatore["contatore_id"]
-                verifica_pubb_mp3 = self.Gestione_mp3.Carica_mp3(nomefile2)
-                if not verifica_pubb_mp3:
-                    raise (self.pop_message(text= "File non selezionato"))
-                self.Gestione_Json.carica_brano_su_JSON(nome,artista,album,id,contatore)
+                    self.album = self.nome
+                else:
+                    self.album = self.nome_album
+
+                self.contatore = 0
+                self.id = self.Gestione_mp3.json_contatore["contatore_id"]
+
+                if path == '':
+                    raise
                 self.pop_message(text="Brano caricato con successo.\n"
-                                                "Per vedere gli aggiornamenti ne I TUOI BRANI rieffettuare l'accesso")
+                                      "Per vedere gli aggiornamenti ne I TUOI BRANI rieffettuare l'accesso")
                 return True
 
             else:
                 self.pop_message(text="Immetti un titolo")
                 return False
-
         except:
-            self.pop_message(text="Errore nel caricamento del brano.\n"
-                                      "TIP: Prova a rinominare il file non utilizzando parentesi tonde, quadrate e graffe, gli slash e le virgolette.")
+            self.pop_message(text="Errore nel file o file inesistente.\n"
+                                  " Prova a non utilizzare parentesi tonde,quadre,graffe e virgolette")
             return False
+
+    def Controllo_emit(self):
+        if self.verifica_album is False:
+            self.switch_window_1.emit()
+
+        if self.verifica_album is True:
+            if self.controllo_fine_album is True:
+                self.switch_window_1.emit()
+            else: self.switch_window_3.emit()
 
 
     '''Funzione che permette di visualizzare un File Dialog e prende il path del file, collegata al pulsante btn_scegli_file'''
@@ -93,13 +112,6 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
     def btn_back_handler(self):
         self.switch_window_2.emit()
 
-    '''Funzione secondaria collegata al pulsante btn_pubblica e permette di far visualizzare un'altra finestra'''
-    def btn_back_pubblica(self):
-            self.switch_window_3.emit()
-
-
-    def variabile_pub_control(self):
-        self.verifica_pubblica = self.btn_pubblica_handler()
 
 
 
