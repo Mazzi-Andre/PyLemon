@@ -30,7 +30,7 @@ class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_bran
         msg.exec_()
 
     '''Funzione per pubblicare un brano collegato al pulsante btn_pubblica'''
-    def btn_pubblica_handler(self):
+    '''def btn_pubblica_handler(self):
         try:
             if not self.path == '':
                 path = str(self.path)
@@ -58,6 +58,49 @@ class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_bran
         except:
             self.pop_message(
                 text="Il file non esiste o errore sul nome del file.\n TIP: Prova a non utilizzare parentesi tonde, quadrate e graffe, gli slash e le virgolette")
+        '''
+
+    def btn_pubblica_handler(self):
+        if self.Controllo_pubblicazione() is True:
+            self.Gestione_Json.carica_brano_su_JSON(self.nome, self.artista, self.album, self.id, self.contatore)
+            self.Gestione_mp3.Carica_mp3(self.nomefile2)
+            self.Controllo_emit()
+
+
+    def Controllo_pubblicazione(self):
+        try:
+            path= str(self.path)
+            stringa_split = path.split(", ")
+            nomefile = stringa_split[0].replace("(", "")
+            self.nomefile2 = nomefile.replace("'","")
+
+            self.nome = self.txt_nome_brano.text()
+            if self.nome:
+                self.artista = self.nomeartista + " " + self.cognomeartista
+                if self.verifica_album == False:
+                    self.album = self.nome
+                else:
+                    self.album = self.nome_album
+
+                self.contatore = 0
+                self.id = self.Gestione_mp3.json_contatore["contatore_id"]+1
+                if path == '':
+                    raise Exception
+
+                else:
+                    if self.verifica_album:
+                        self.pop_message(text="Brano caricato con successo")
+                    else: self.pop_message(text="Brano caricato con successo.\n"
+                                          "Per vedere gli aggiornamenti ne I TUOI BRANI rieffettuare l'accesso")
+                    return True
+
+            else:
+                self.pop_message(text="Immetti un titolo")
+                return False
+        except Exception:
+            self.pop_message(text="Errore nel file da caricare.\n"
+                                  "Il nome del file non deve contenere parentesi tonde,quadre,graffe e le virgolette")
+            return False
 
     '''Funzione che permette di visualizzare un File Dialog e prende il path del file, collegata al pulsante btn_scegli_file'''
     def btn_scegli_file_handler(self):
