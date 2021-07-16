@@ -5,8 +5,7 @@ import pygame
 from PyQt5 import QtWidgets
 
 from Login.Model_.Data_control import DataPick
-from Gestione_Ascolto.Controller.controller_mostra_search import controller_mostra_search
-from Gestione_Ascolto.Controller.controller_mostra_tutto import controller_mostra_tutto
+from Gestione_Ascolto.Controller.controller_ascolto import controller_mostra_search, controller_mostra_tutto
 from Gestione_del_profilo.Controller.Controller_artista import controller_artista
 from Gestione_del_profilo.Controller.Controller_ascoltatore import controller_ascoltatore
 from Gestione_del_profilo.Controller.Controller_conferma_credenziali import controller_conferma_credenziali
