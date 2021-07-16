@@ -3,7 +3,7 @@ import sqlite3
 from PyQt5 import QtWidgets, QtCore
 
 from Login.view.vista_login import Ui_Outsecure
-from Login.Model_.Data_control import DataPick
+from Login.Model.login import DataPick
 
 ''' Classe controller utilizzata per la verifica al login del programma '''
 
