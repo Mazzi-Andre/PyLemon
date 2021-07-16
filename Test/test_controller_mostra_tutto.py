@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from Gestione_Ascolto.Ascolto.Model.Ascolto import Ascolto
+from Gestione_Ascolto.Model.Ascolto import Ascolto
 from Pubblicazione.Controller.Gestione_json import Gestione_json
 
 

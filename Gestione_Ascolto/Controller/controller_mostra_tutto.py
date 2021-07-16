@@ -1,7 +1,7 @@
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
-from Gestione_Ascolto.Contenuti.View.VistaContenuti_e_player import Ui_Player
+from Gestione_Ascolto.View.VistaContenuti_e_player import Ui_Player
 from Pubblicazione.Controller.Gestione_json import Gestione_json
 
 

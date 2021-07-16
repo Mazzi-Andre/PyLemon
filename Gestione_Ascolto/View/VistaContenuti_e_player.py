@@ -1,8 +1,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import QIcon
 
-from Gestione_Ascolto.Ascolto.Controller.ControlloreAscolto import ControlloreAscolto
-from Gestione_Ascolto.Ascolto.Model.Ascolto import Ascolto
+from Gestione_Ascolto.Controller.ControlloreAscolto import ControlloreAscolto
+from Gestione_Ascolto.Model.Ascolto import Ascolto
 
 
 '''-----------Classe relativa alla vista grafica del Player, quindi dei dati presenti nella piattaforma----------'''
