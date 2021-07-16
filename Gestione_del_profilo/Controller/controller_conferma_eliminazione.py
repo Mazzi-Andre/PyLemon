@@ -1,7 +1,7 @@
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
-from Gestione_del_profilo.Model1.Data_control import DataPick
+from Gestione_del_profilo.Model.Gestione_profilo import DataPick
 from Gestione_del_profilo.View.Conferma_credenziali_eliminazione import conferma_credenziali
 
 
