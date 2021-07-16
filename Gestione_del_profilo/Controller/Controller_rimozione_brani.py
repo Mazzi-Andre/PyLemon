@@ -1,7 +1,7 @@
 from PyQt5 import QtWidgets
 from PyQt5 import QtCore
 
-from Gestione_del_profilo.Model_.Data_control import DataPick
+from Gestione_del_profilo.Model1.Data_control import DataPick
 from Pubblicazione.Controller.Gestione_json import Gestione_json
 from Gestione_del_profilo.View.Rimozione_brani import rimozione_brani
 
