@@ -223,23 +223,17 @@ class Controller():
             self.Richiesta_nBrani.close()
             self.check_richiesta_nBrani1 = False
 
-        with open('C:\Progetti_Python\PySound\Data\pkl\Album.pkl', 'rb') as Dpi:
+        with open('Data\Database\Album.pkl', 'rb') as Dpi:
             MyData = pickle.load(Dpi)
-        print(MyData[0] + ' ' + MyData[1])
 
         if int(MyData[0]) == 0:
             self.verifica_album = False
         else: self.verifica_album = True
 
-
         if  int(MyData[0]) > 1:
             self.conta_brani_artista = self.conta_brani_artista + 1
             self.nome_album = MyData[1]
         else: self.nome_album = None
-
-
-
-
 
         self.Caricamento_Brano_Artista = Controller_Caricamento_Brano_Artista(self.verifica_album, self.nome_album)
 
@@ -483,7 +477,7 @@ class Controller():
 
     def show_mostra_search(self):
         var_search = False
-        with open('Canzone.pkl', 'rb') as Dpi:
+        with open('Data\Database\Canzone.pkl', 'rb') as Dpi:
             MyData = pickle.load(Dpi)
 
         if MyData[0]:

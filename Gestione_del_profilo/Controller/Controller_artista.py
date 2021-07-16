@@ -64,7 +64,7 @@ class controller_artista(QtWidgets.QWidget,home_artista):
         self.nome = self.txt_nome.text()
         self.lista = []
         self.lista.append(self.nome)
-        with open('Canzone.pkl', 'wb') as Dpi:
+        with open('Data\Database\Canzone.pkl', 'wb') as Dpi:
             pickle.dump(self.lista, Dpi)
 
     def top5(self):

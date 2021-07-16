@@ -47,7 +47,7 @@ class Newuser(QtWidgets.QWidget, Ui_NewUser):
 
         if bol is True:
 
-            conn = sqlite3.connect('Data.db')
+            conn = sqlite3.connect('Data\Database\Data.db')
             cursor = conn.cursor()
 
             cursor.execute("""
