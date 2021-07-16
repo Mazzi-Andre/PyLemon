@@ -2,8 +2,8 @@ from PyQt5 import QtWidgets
 from PyQt5 import QtCore
 
 from Gestione_del_profilo.Model.Gestione_profilo import DataPick
-from Pubblicazione.Model.pubblicazione import Gestione_json
 from Gestione_del_profilo.View.Rimozione_brani import rimozione_brani
+from Pubblicazione.Model.pubblicazione_gestione import Gestione_json
 
 
 class controller_rimozioni_brani(QtWidgets.QWidget,rimozione_brani):
