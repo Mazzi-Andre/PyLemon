@@ -1,4 +1,5 @@
 import os
+import pickle
 
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
@@ -71,12 +72,13 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
 
                 self.contatore = 0
                 self.id = self.Gestione_mp3.json_contatore["contatore_id"]+1
-                print(path)
                 if path == '':
                     raise Exception
 
                 else:
-                    self.pop_message(text="Brano caricato con successo.\n"
+                    if self.verifica_album:
+                        self.pop_message(text="Brano caricato con successo")
+                    else: self.pop_message(text="Brano caricato con successo.\n"
                                           "Per vedere gli aggiornamenti ne I TUOI BRANI rieffettuare l'accesso")
                     return True
 
@@ -84,8 +86,8 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
                 self.pop_message(text="Immetti un titolo")
                 return False
         except Exception:
-            self.pop_message(text="Errore nel file o file inesistente.\n"
-                                  " Prova a non utilizzare parentesi tonde,quadre,graffe e virgolette")
+            self.pop_message(text="Errore nel file da caricare.\n"
+                                  "Il nome del file non deve contenere parentesi tonde,quadre,graffe e le virgolette")
             return False
 
     def Controllo_emit(self):
@@ -110,6 +112,8 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
     '''Funzione collegata al pulsante btn_back e permette di far visualizzare un'altra finestra'''
     def btn_back_handler(self):
         self.switch_window_2.emit()
+
+
 
 
 

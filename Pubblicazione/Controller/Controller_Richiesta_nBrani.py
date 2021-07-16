@@ -39,9 +39,9 @@ class Controller_Richiesta_nBrani(QtWidgets.QWidget, Ui_Form):
 
     '''Funzione che inizializza le variabili inserite dell'utente'''
     def inizializzazione(self):
-        self.put_data_brani('0','0')
         self.album_name = self.nome_album.text()
         self.nBrani = self.numero_brani.text()
+
         self.put_data_brani(self.nBrani,self.album_name)
         self.controllo_btn_ok = True
         self.verifica_album = True

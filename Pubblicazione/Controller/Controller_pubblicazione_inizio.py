@@ -1,3 +1,5 @@
+import pickle
+
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
@@ -12,6 +14,7 @@ class controller_pubblicazione_inizio(QtWidgets.QWidget, pubblicazione_inizio):
     def __init__(self):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
+        self.controllo_pkl_brano()
 
         self.btn_brano.clicked.connect(self.btn_brano_handler)
         self.btn_album.clicked.connect(self.btn_album_handler)
@@ -31,6 +34,13 @@ class controller_pubblicazione_inizio(QtWidgets.QWidget, pubblicazione_inizio):
     '''Funzione collegata al pulsante btn_album e permette di far visualizzare un'altra finestra'''
     def btn_album_handler(self):
         self.switch_window_2.emit()
+
+    def controllo_pkl_brano(self):
+        lista = []
+        lista.append('0')
+        lista.append('0')
+        with open('Data\Database\Album.pkl', 'wb') as Dpi:
+            pickle.dump(lista, Dpi)
 
 
 
