@@ -2,10 +2,9 @@ import pickle
 import sys
 
 import pygame
-from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
-from Data_Utente.control.Data_control import DataPick
+from Login.Model_.Data_control import DataPick
 from Gestione_Ascolto.Ascolto.Controller.controller_mostra_search import controller_mostra_search
 from Gestione_Ascolto.Ascolto.Controller.controller_mostra_tutto import controller_mostra_tutto
 from Gestione_del_profilo.Controller.Controller_artista import controller_artista
@@ -207,8 +206,6 @@ class Controller():
 
         self.check_pubblicazione_inizio1 = True
         self.pubblicazione_inizio.show()
-
-
 
 
     def show_pubblicazione_brano_artista(self):

@@ -3,7 +3,6 @@ import pickle
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
-from Data_Utente.control.Data_control import DataPick
 from Gestione_del_profilo.View.Home_artista import home_artista
 
 

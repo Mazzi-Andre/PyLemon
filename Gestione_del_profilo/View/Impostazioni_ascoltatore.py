@@ -1,6 +1,6 @@
 from PyQt5 import QtCore, QtWidgets
 
-from Data_Utente.control.Data_control import DataPick
+from Login.Model_.Data_control import DataPick
 
 
 '''-------------------Classe view impostazioni--------------------'''

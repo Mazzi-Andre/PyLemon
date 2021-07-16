@@ -1,7 +1,7 @@
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
-from Data_Utente.control.Data_control import DataPick
+from Login.Model_.Data_control import DataPick
 from Gestione_del_profilo.View.Edit_artista import edit_artista
 
 

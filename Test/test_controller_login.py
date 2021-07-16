@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from Data_Utente.control.Data_control import DataPick
+from Login.Model_.Data_control import DataPick
 
 
 class TestLogin(TestCase):
