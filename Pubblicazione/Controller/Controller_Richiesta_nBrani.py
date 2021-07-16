@@ -70,7 +70,7 @@ class Controller_Richiesta_nBrani(QtWidgets.QWidget, Ui_Form):
         lista = []
         lista.append(numero)
         lista.append(album)
-        with open('C:\Progetti_Python\PySound\pkl\Album.pkl', 'wb') as Dpi:
+        with open('C:\Progetti_Python\PySound\Data\pkl\Album.pkl', 'wb') as Dpi:
             pickle.dump(lista, Dpi)
 
 

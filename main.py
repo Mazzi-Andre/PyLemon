@@ -223,7 +223,7 @@ class Controller():
             self.Richiesta_nBrani.close()
             self.check_richiesta_nBrani1 = False
 
-        with open('C:\Progetti_Python\PySound\pkl\Album.pkl', 'rb') as Dpi:
+        with open('C:\Progetti_Python\PySound\Data\pkl\Album.pkl', 'rb') as Dpi:
             MyData = pickle.load(Dpi)
         print(MyData[0] + ' ' + MyData[1])
 
