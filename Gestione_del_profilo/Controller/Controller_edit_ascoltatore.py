@@ -1,8 +1,7 @@
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
-from Login.Model_.Data_control import DataPick
-
+from Gestione_del_profilo.Model_.Data_control import DataPick
 from Gestione_del_profilo.View.Edit_ascoltatore import edit_ascoltatore
 
 class controller_edit_ascoltatore(QtWidgets.QWidget,edit_ascoltatore):
