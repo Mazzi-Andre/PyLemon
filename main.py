@@ -20,9 +20,9 @@ from Gestione_del_profilo.Controller.controller_etichetta import controller_etic
 from Login.Model.login import DataPick
 from Login.controller.controller_login import Login
 from Pubblicazione.Controller.Controller_Caricamento_Brano_Etichetta import Controller_Caricamento_Brano_Etichetta
+from Pubblicazione.Controller.Controller_Richiesta_nBrani import Controller_Richiesta_nBrani
 from Pubblicazione.Controller.Controller_pubblicazione_inizio import controller_pubblicazione_inizio
 from Pubblicazione.Controller.Controller_Caricamento_Brano_Artista import Controller_Caricamento_Brano_Artista
-from Pubblicazione.Controller.Controller_Richiesta_nBrani import Controller_Richiesta_nBrani
 from Pubblicazione.Model.pubblicazione_gestione import Gestione_json
 from Top5.Controller.ControllerTop5 import TopFive
 from Gestione_del_profilo.Controller.Controller_rimozione_brani import controller_rimozioni_brani
@@ -222,6 +222,7 @@ class Controller():
 
         with open('Data\Database\Album.pkl', 'rb') as Dpi:
             MyData = pickle.load(Dpi)
+            print(MyData[0] +' '+ MyData[1])
 
         if int(MyData[0]) == 0:
             self.verifica_album = False
@@ -237,7 +238,7 @@ class Controller():
         self.Caricamento_Brano_Artista.switch_window_1.connect(self.show_pubblicazione_inizio)
         self.Caricamento_Brano_Artista.switch_window_3.connect(self.show_pubblicazione_brano_artista)
 
-        if not MyData[0] == 0:
+        if  int(MyData[0]) > 0:
             if self.conta_brani_artista == int(MyData[0]):
                 self.Richiesta_nBrani.put_data_brani('0','0')
                 self.Caricamento_Brano_Artista.controllo_fine_album = True
@@ -245,7 +246,7 @@ class Controller():
                 self.Caricamento_Brano_Artista.controllo_fine_album = False
 
 
-        if not MyData[0] == 0:
+        if int(MyData[0]) > 0:
             self.Caricamento_Brano_Artista.switch_window_2.connect(self.show_pubblicazione_album)
         else: self.Caricamento_Brano_Artista.switch_window_2.connect(self.show_pubblicazione_inizio)
 

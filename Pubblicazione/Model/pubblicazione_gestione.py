@@ -123,21 +123,25 @@ class Gestione_json():
                 mp3 = Gestione_mp3()
                 id = self.ricerca_id(i["Titolo"], i["Album"])
                 if mp3.Elimina_mp3(id):
-                    #if i is self.json_data[len(self.json_data)-1]:
-                        #self.decrementa_conta_id()
+                    if i is self.json_data[len(self.json_data)-1]:
+                        self.decrementa_conta_id()
                     self.json_data.remove(i)
                     with open("info_brani.json", "w") as write_file:
                         json.dump(self.json_data, write_file)
                     break
+    '''---Decrememta il contatore delle canzoni se il brano da eliminare è situato 
+        in ultima posizione del "json_data"---'''
 
-#    def decrementa_conta_id(self):
-#        with open('ContatoreBrani.json', 'r') as j:
-#            self.json_conta_id = json.load(j)
-#
-#        self.json_conta_id["contatore_id"] = self.json_conta_id["contatore_id"] - 1
-#        with open("ContatoreBrani.json", "w") as write_file:
-#            json.dump(self.json_conta_id, write_file)
+    def decrementa_conta_id(self):
+        with open('ContatoreBrani.json', 'r') as j:
+            self.json_conta_id = json.load(j)
+
+        self.json_conta_id["contatore_id"] = self.json_conta_id["contatore_id"] - 1
+        with open("ContatoreBrani.json", "w") as write_file:
+            json.dump(self.json_conta_id, write_file)
+
 
     '''Metodo che ritorna l'attributo json_data'''
+
     def get_jsonobject(self):
         return self.json_data

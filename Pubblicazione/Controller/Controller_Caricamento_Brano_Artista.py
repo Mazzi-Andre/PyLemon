@@ -52,8 +52,6 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
             self.Gestione_Json.carica_brano_su_JSON(self.nome, self.artista, self.album, self.id, self.contatore)
             self.Gestione_mp3.Carica_mp3(self.nomefile2)
             self.Controllo_emit()
-        else:
-            print('da correggere')
 
 
     def Controllo_pubblicazione(self):
@@ -72,18 +70,20 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
                     self.album = self.nome_album
 
                 self.contatore = 0
-                self.id = self.Gestione_mp3.json_contatore["contatore_id"]
-
+                self.id = self.Gestione_mp3.json_contatore["contatore_id"]+1
+                print(path)
                 if path == '':
-                    raise
-                self.pop_message(text="Brano caricato con successo.\n"
-                                      "Per vedere gli aggiornamenti ne I TUOI BRANI rieffettuare l'accesso")
-                return True
+                    raise Exception
+
+                else:
+                    self.pop_message(text="Brano caricato con successo.\n"
+                                          "Per vedere gli aggiornamenti ne I TUOI BRANI rieffettuare l'accesso")
+                    return True
 
             else:
                 self.pop_message(text="Immetti un titolo")
                 return False
-        except:
+        except Exception:
             self.pop_message(text="Errore nel file o file inesistente.\n"
                                   " Prova a non utilizzare parentesi tonde,quadre,graffe e virgolette")
             return False
