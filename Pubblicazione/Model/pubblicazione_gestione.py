@@ -59,7 +59,7 @@ class Gestione_json():
     '''Nel costruttore si esegue la lettura del file memorizzandola nell'attributo json_data'''
     def __init__(self):
 
-        with open('../../../../Users/39345/Downloads/info_brani.json', 'r') as j:
+        with open('info_brani.json', 'r') as j:
             self.json_data = json.load(j)
 
 
@@ -70,12 +70,12 @@ class Gestione_json():
         if self.json_data != None:
 
             self.json_data.append(oggettobrano)
-            with open("../../../../Users/39345/Downloads/info_brani.json", "w") as write_file:
+            with open("info_brani.json", "w") as write_file:
                 json.dump(self.json_data, write_file)
 
         else:
             self.json_data = oggettobrano
-            with open("../../../../Users/39345/Downloads/info_brani.json", "w") as write_file:
+            with open("info_brani.json", "w") as write_file:
                 json.dump(self.json_data, write_file)
 
 
@@ -101,7 +101,7 @@ class Gestione_json():
                 data[posi-1] = i
                 break
 
-        with open("../../../../Users/39345/Downloads/info_brani.json", "w") as write_file:
+        with open("info_brani.json", "w") as write_file:
             json.dump(data, write_file)
 
 
@@ -126,7 +126,7 @@ class Gestione_json():
                     if i is self.json_data[len(self.json_data)-1]:
                         self.decrementa_conta_id()
                     self.json_data.remove(i)
-                    with open("../../../../Users/39345/Downloads/info_brani.json", "w") as write_file:
+                    with open("info_brani.json", "w") as write_file:
                         json.dump(self.json_data, write_file)
                     break
     '''---Decrememta il contatore delle canzoni se il brano da eliminare è situato 
