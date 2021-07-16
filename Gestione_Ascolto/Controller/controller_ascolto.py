@@ -2,7 +2,7 @@ from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
 from Gestione_Ascolto.View.VistaContenuti_e_player import Ui_Player
-from Pubblicazione.Model.pubblicazione import Gestione_json
+from Pubblicazione.Model.pubblicazione_gestione import Gestione_json
 
 ''' Classe di controllo attività: MOSTRA SEARCH.
     L'utente dopo essersi interfacciato con la barra di ricerca, vedrà mostrati i risultati associati'''

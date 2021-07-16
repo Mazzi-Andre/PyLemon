@@ -4,8 +4,8 @@ from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QFileDialog
 
+from Pubblicazione.Model.pubblicazione_Dati_utente import DataPick
 from Pubblicazione.View.Caricamento_brano_Artista import Caricamento_brano
-from Login.Model_.Data_control import DataPick
 
 from Pubblicazione.Model.pubblicazione_gestione import Gestione_mp3, Gestione_json
 

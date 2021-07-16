@@ -1,7 +1,7 @@
 import pygame
 from pygame import mixer
 
-from Pubblicazione.Model.pubblicazione import Gestione_json
+from Pubblicazione.Model.pubblicazione_gestione import Gestione_json
 
 '''classe relativa alla riproduzione musicale'''
 class Ascolto():
