@@ -1,7 +1,7 @@
 from unittest import TestCase
 
 from Gestione_Ascolto.Model.Ascolto import Ascolto
-from Pubblicazione.Controller.Gestione_json import Gestione_json
+from Pubblicazione.Model.pubblicazione import Gestione_json
 
 
 class Testcontroller_mostra_tutto(TestCase):

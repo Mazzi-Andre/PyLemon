@@ -7,8 +7,7 @@ from PyQt5.QtWidgets import QFileDialog
 from Pubblicazione.View.Caricamento_brano_Artista import Caricamento_brano
 from Login.Model_.Data_control import DataPick
 
-from Pubblicazione.Controller.Gestione_json import Gestione_json
-from Pubblicazione.Controller.Gestione_mp3 import Gestione_mp3
+from Pubblicazione.Model.pubblicazione_gestione import Gestione_mp3, Gestione_json
 
 ''' Classe di controllo per le funzionalità dell caricamento di un brano per un'artista. '''
 class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano):

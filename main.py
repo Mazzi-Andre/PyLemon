@@ -4,7 +4,7 @@ import sys
 import pygame
 from PyQt5 import QtWidgets
 
-from Login.Model_.Data_control import DataPick
+
 from Gestione_Ascolto.Controller.controller_ascolto import controller_mostra_search, controller_mostra_tutto
 from Gestione_del_profilo.Controller.Controller_artista import controller_artista
 from Gestione_del_profilo.Controller.Controller_ascoltatore import controller_ascoltatore
@@ -17,12 +17,13 @@ from Gestione_del_profilo.Controller.Controller_impostazioni import controller_i
 from Gestione_del_profilo.Controller.Controller_impostazioni_ascoltatore import controller_impostazioni_ascoltatore
 from Gestione_del_profilo.Controller.controller_conferma_eliminazione import controller_conferma_eliminazione
 from Gestione_del_profilo.Controller.controller_etichetta import controller_etichetta
+from Login.Model.login import DataPick
 from Login.controller.controller_login import Login
 from Pubblicazione.Controller.Controller_Caricamento_Brano_Etichetta import Controller_Caricamento_Brano_Etichetta
 from Pubblicazione.Controller.Controller_pubblicazione_inizio import controller_pubblicazione_inizio
 from Pubblicazione.Controller.Controller_Caricamento_Brano_Artista import Controller_Caricamento_Brano_Artista
 from Pubblicazione.Controller.Controller_Richiesta_nBrani import Controller_Richiesta_nBrani
-from Pubblicazione.Controller.Gestione_json import Gestione_json
+from Pubblicazione.Model.pubblicazione import Gestione_json
 from Top5.Controller.ControllerTop5 import TopFive
 from Gestione_del_profilo.Controller.Controller_rimozione_brani import controller_rimozioni_brani
 from Registrazione.controller.controller_registrazione import Newuser

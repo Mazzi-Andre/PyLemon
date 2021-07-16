@@ -2,10 +2,9 @@ import os
 
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QApplication, QWidget, QComboBox, QPushButton, QFileDialog, QVBoxLayout
+from PyQt5.QtWidgets import QFileDialog
 from Pubblicazione.View.Caricamento_brano_etichetta import Caricamento_brano_etichetta
-from Pubblicazione.Controller.Gestione_json import Gestione_json
-from Pubblicazione.Controller.Gestione_mp3 import Gestione_mp3
+from Pubblicazione.Model.pubblicazione_gestione import Gestione_mp3, Gestione_json
 
 ''' Classe di controllo per le funzionalità dell caricamento di un brano per un'etichetta discografica'''
 class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_brano_etichetta):
