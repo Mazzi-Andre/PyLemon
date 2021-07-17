@@ -235,7 +235,7 @@ class Controller():
 
         self.Caricamento_Brano_Artista = Controller_Caricamento_Brano_Artista(self.verifica_album, self.nome_album)
 
-        self.Caricamento_Brano_Artista.switch_window_1.connect(self.show_pubblicazione_inizio)
+        self.Caricamento_Brano_Artista.switch_window_1.connect(self.show_home_artista)
         self.Caricamento_Brano_Artista.switch_window_3.connect(self.show_pubblicazione_brano_artista)
 
         if  int(MyData[0]) > 0:
