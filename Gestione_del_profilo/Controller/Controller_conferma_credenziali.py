@@ -5,6 +5,8 @@ from Gestione_del_profilo.Model.Gestione_profilo import DataPick
 from Gestione_del_profilo.View.Conferma_credenziali_eliminazione import conferma_credenziali
 
 
+'''------------Classe controller view conferma credenziali---------'''
+
 class controller_conferma_credenziali(QtWidgets.QWidget,conferma_credenziali):
     switch_window_1 = QtCore.pyqtSignal()
     switch_window_2 = QtCore.pyqtSignal()
@@ -23,14 +25,16 @@ class controller_conferma_credenziali(QtWidgets.QWidget,conferma_credenziali):
         self.btn_Back.clicked.connect(self.btn_back_handler)
         self.btn_Ok.clicked.connect(self.btn_ok_handler)
 
-    """POP UP FINESTRA"""
+
+    """----------POP UP FINESTRA---------"""
 
     def pop_message(self, text=""):
         msg = QtWidgets.QMessageBox()
         msg.setText("{}".format(text))
         msg.exec_()
 
-    """SWITCH FINESTRE"""
+
+    '''-----------Metodo confronto credenziali inserite dall'utente----------'''
 
     def confronto_credenziali(self):
         username = self.txt_username.text()
@@ -41,6 +45,9 @@ class controller_conferma_credenziali(QtWidgets.QWidget,conferma_credenziali):
         else:
             return False
 
+
+    '''------------Metodo bottone ok conferma eliminazione account----------'''
+
     def btn_ok_handler(self):
             if self.confronto_credenziali() == True:
                 self.pick.delete_account(self.username, self.password)
@@ -50,6 +57,7 @@ class controller_conferma_credenziali(QtWidgets.QWidget,conferma_credenziali):
                 pass
 
 
+    """---------SWITCH FINESTRE----------"""
 
     def btn_back_handler(self):
 

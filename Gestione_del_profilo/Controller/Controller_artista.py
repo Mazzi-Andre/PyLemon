@@ -6,6 +6,8 @@ from PyQt5 import QtWidgets
 from Gestione_del_profilo.View.Home_artista import home_artista
 
 
+'''------------Classe controller view artista---------'''
+
 class controller_artista(QtWidgets.QWidget,home_artista):
     switch_window_1 = QtCore.pyqtSignal()
     switch_window_2 = QtCore.pyqtSignal()
@@ -32,14 +34,14 @@ class controller_artista(QtWidgets.QWidget,home_artista):
         self.brani_artista()
 
 
-    """POP UP FINESTRA"""
+    """--------POP UP FINESTRA-------"""
 
     def pop_message(self, text=""):
         msg = QtWidgets.QMessageBox()
         msg.setText("{}".format(text))
         msg.exec_()
 
-    """SWITCH FINESTRE"""
+    """--------SWITCH FINESTRE-------"""
 
     def btn_Impostazioni_handler(self):
         self.switch_window_1.emit()
@@ -66,6 +68,10 @@ class controller_artista(QtWidgets.QWidget,home_artista):
         with open('Data\Database\Canzone.pkl', 'wb') as Dpi:
             pickle.dump(self.lista, Dpi)
 
+
+
+    '''----------Metodo gestione top 5 nella view artista----------'''
+
     def top5(self):
         self.table_top.setRowCount(5)
         j=0
@@ -75,6 +81,9 @@ class controller_artista(QtWidgets.QWidget,home_artista):
             if j==5:
                 break
 
+
+
+    '''----------Metodo gestione miei brani nella view artista----------'''
 
     def brani_artista(self):
         if self.list_miei_brani:
