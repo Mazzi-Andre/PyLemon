@@ -287,7 +287,7 @@ class Controller():
         else: self.nome_album_etichetta = None'''
 
         self.Caricamento_Brano_etichetta = Controller_Caricamento_Brano_Etichetta(self.verifica_album, self.nome_album_etichetta)
-        self.Caricamento_Brano_etichetta.switch_window_1.connect(self.show_pubblicazione_inizio)
+        self.Caricamento_Brano_etichetta.switch_window_1.connect(self.show_home_etichetta)
         self.Caricamento_Brano_etichetta.switch_window_3.connect(self.show_pubblicazione_brano_etichetta)
 
         if  int(MyData[0]) > 0:
