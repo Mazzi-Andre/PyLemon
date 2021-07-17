@@ -44,36 +44,6 @@ class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_bran
         msg.exec_()
 
     '''Funzione per pubblicare un brano collegato al pulsante btn_pubblica'''
-    '''def btn_pubblica_handler(self):
-        try:
-            if not self.path == '':
-                path = str(self.path)
-                str_split = path.split(", ")
-                newfile1 = str_split[0].replace("(", "")
-                newfile2 = newfile1.replace("'", "")
-                G = Gestione_mp3()
-                J = Gestione_json()
-                G.Carica_mp3(newfile2)
-                nome = self.lineEdit.text()
-                artista = self.lineEdit_2.text()
-                if nome and artista:
-                    if self.verifica_album == False:
-                        album = nome
-                    else:
-                        album = self.nome_album
-                    contatore = 0
-                    id = G.json_contatore["contatore_id"]
-                    J.carica_brano_su_JSON(nome, artista, album, id, contatore)
-                    self.pop_message(text="Brano caricato con successo")
-                    if self.verifica_album == True:
-                        self.switch_window.emit()
-                else: self.pop_message(text="Inserisci i campi mancanti")
-            else: self.pop_message(text="Indicare il file mp3 da caricare")
-        except:
-            self.pop_message(
-                text="Il file non esiste o errore sul nome del file.\n TIP: Prova a non utilizzare parentesi tonde, quadrate e graffe, gli slash e le virgolette")
-        '''
-
     def btn_pubblica_handler(self):
         if self.Controllo_pubblicazione() is True:
             self.Gestione_Json.carica_brano_su_JSON(self.nome, self.etichetta, self.album, self.id, self.contatore)
@@ -109,7 +79,7 @@ class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_bran
                     return True
 
             else:
-                self.pop_message(text="Immetti un titolo")
+                self.pop_message(text="Immetti nome canzone e/o artista")
                 return False
         except Exception:
             self.pop_message(text="Errore nel file da caricare.\n"
