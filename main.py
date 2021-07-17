@@ -220,7 +220,7 @@ class Controller():
             self.Richiesta_nBrani.close()
             self.check_richiesta_nBrani1 = False
 
-        with open('Data\Database\Album.pkl', 'rb') as Dpi:
+        with open('Data/Database/Album.pkl', 'rb') as Dpi:
             MyData = pickle.load(Dpi)
             print(MyData[0] +' '+ MyData[1])
 
@@ -266,7 +266,7 @@ class Controller():
             self.pubblicazione_inizio.close()
             self.check_pubblicazione_inizio1 = False
 
-        with open('Data\Database\Album.pkl', 'rb') as Dpi:
+        with open('Data/Database/Album.pkl', 'rb') as Dpi:
             MyData = pickle.load(Dpi)
             print(MyData[0] +' '+ MyData[1])
 
@@ -279,12 +279,6 @@ class Controller():
             self.conta_brani_etichetta = self.conta_brani_etichetta + 1
             self.nome_album_etichetta = MyData[1]
         else: self.nome_album_etichetta = None
-
-        '''if self.Richiesta_nBrani.verifica_album:
-            self.conta_brani_etichetta = self.conta_brani_etichetta + 1
-            self.nome_album_etichetta = self.Richiesta_nBrani.album_name
-            self.nBrani_etichetta = self.Richiesta_nBrani.nBrani
-        else: self.nome_album_etichetta = None'''
 
         self.Caricamento_Brano_etichetta = Controller_Caricamento_Brano_Etichetta(self.verifica_album, self.nome_album_etichetta)
         self.Caricamento_Brano_etichetta.switch_window_1.connect(self.show_home_etichetta)
@@ -302,16 +296,6 @@ class Controller():
             self.Caricamento_Brano_etichetta.switch_window_2.connect(self.show_pubblicazione_album)
         else: self.Caricamento_Brano_etichetta.switch_window_2.connect(self.show_pubblicazione_inizio)
 
-
-        '''if self.Richiesta_nBrani.verifica_album is True:
-            if self.conta_brani_etichetta <= self.nBrani_etichetta:
-                self.check_pubblicazione_brano_etichetta1 = True
-                if self.conta_brani_etichetta == self.nBrani_etichetta:
-                    self.Caricamento_Brano_etichetta.btn_Pubblica.clicked.connect(self.show_pubblicazione_inizio)
-                self.Caricamento_Brano_etichetta.show()
-        else:
-            self.check_pubblicazione_brano_etichetta1 = True
-            self.Caricamento_Brano_etichetta.btn_Pubblica.clicked.connect(self.show_pubblicazione_inizio)'''
         self.check_pubblicazione_brano_etichetta1= True
         self.Caricamento_Brano_etichetta.show()
 
@@ -508,7 +492,7 @@ class Controller():
 
     def show_mostra_search(self):
         var_search = False
-        with open('Data\Database\Canzone.pkl', 'rb') as Dpi:
+        with open('Data/Database/Canzone.pkl', 'rb') as Dpi:
             MyData = pickle.load(Dpi)
 
         if MyData[0]:
