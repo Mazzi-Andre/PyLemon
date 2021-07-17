@@ -4,6 +4,9 @@ from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
 
+'''----------Classe controller view ascoltatore---------'''
+
+
 from Gestione_del_profilo.View.Home_ascoltatore import home_ascoltatore
 
 
@@ -29,13 +32,13 @@ class controller_ascoltatore(QtWidgets.QWidget, home_ascoltatore):
 
 
 
-    """POP UP FINESTRA"""
+    """---------POP UP FINESTRA----------"""
     def pop_message(self, text=""):
         msg = QtWidgets.QMessageBox()
         msg.setText("{}".format(text))
         msg.exec_()
 
-    """SWITCH FINESTRE"""
+    """----------SWITCH FINESTRE---------"""
 
     def btn_Impostazioni_handler(self):
         self.switch_window_1.emit()
@@ -52,6 +55,9 @@ class controller_ascoltatore(QtWidgets.QWidget, home_ascoltatore):
     def btn_LogOut_handler(self):
         self.switch_window_k.emit()
 
+
+    '''-----------Metodo la gestione del nome inserito nella barra search-----------'''
+
     def put_data(self):
         nome = self.txt_nome.text()
         lista = []
@@ -59,6 +65,8 @@ class controller_ascoltatore(QtWidgets.QWidget, home_ascoltatore):
         with open('Data\Database\Canzone.pkl', 'wb') as Dpi:
             pickle.dump(lista, Dpi)
 
+
+    '''----------Metodo gestione top 5 nella view ascoltatore----------'''
 
     def top5(self):
         self.table.setRowCount(5)
@@ -69,14 +77,6 @@ class controller_ascoltatore(QtWidgets.QWidget, home_ascoltatore):
             if j == 5:
                 break
 
-    """DA FINIRE"""
-
-    """def bool_search_check(self):
-        if len(self.lineEdit.text()) <= 1:
-            self.pop_message(text='Inserire un titolo valido')
-        else:
-            if classeManu.funz is False
-                self.pop_message(text='Canzone non trovata')"""
 
 
 

@@ -5,6 +5,8 @@ from Gestione_del_profilo.Model.Gestione_profilo import DataPick
 from Gestione_del_profilo.View.Conferma_credenziali_eliminazione import conferma_credenziali
 
 
+'''----------Classe controller view conferma edit--------'''
+
 class controller_conferma_edit(QtWidgets.QWidget,conferma_credenziali):
     switch_window_1 = QtCore.pyqtSignal()
     switch_window_2 = QtCore.pyqtSignal()
