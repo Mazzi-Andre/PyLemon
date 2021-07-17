@@ -220,7 +220,7 @@ class Controller():
             self.Richiesta_nBrani.close()
             self.check_richiesta_nBrani1 = False
 
-        with open('Data\Database\Album.pkl', 'rb') as Dpi:
+        with open('Data/Database/Album.pkl', 'rb') as Dpi:
             MyData = pickle.load(Dpi)
             print(MyData[0] +' '+ MyData[1])
 
@@ -266,7 +266,7 @@ class Controller():
             self.pubblicazione_inizio.close()
             self.check_pubblicazione_inizio1 = False
 
-        with open('Data\Database\Album.pkl', 'rb') as Dpi:
+        with open('Data/Database/Album.pkl', 'rb') as Dpi:
             MyData = pickle.load(Dpi)
             print(MyData[0] +' '+ MyData[1])
 
