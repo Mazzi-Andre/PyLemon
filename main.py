@@ -273,6 +273,7 @@ class Controller():
         if int(MyData[0]) == 0:
             self.verifica_album = False
         else: self.verifica_album = True
+        print(self.verifica_album)
 
         if  int(MyData[0]) > 1:
             self.conta_brani_etichetta = self.conta_brani_etichetta + 1
@@ -285,7 +286,7 @@ class Controller():
             self.nBrani_etichetta = self.Richiesta_nBrani.nBrani
         else: self.nome_album_etichetta = None'''
 
-        self.Caricamento_Brano_etichetta = Controller_Caricamento_Brano_Etichetta(self.Richiesta_nBrani.verifica_album, self.nome_album_etichetta)
+        self.Caricamento_Brano_etichetta = Controller_Caricamento_Brano_Etichetta(self.verifica_album, self.nome_album_etichetta)
         self.Caricamento_Brano_etichetta.switch_window_1.connect(self.show_pubblicazione_inizio)
         self.Caricamento_Brano_etichetta.switch_window_3.connect(self.show_pubblicazione_brano_etichetta)
 
