@@ -60,7 +60,7 @@ class controller_etichetta(QtWidgets.QWidget, home_etichetta):
         nome = self.txt_nome.text()
         lista = []
         lista.append(nome)
-        with open('Data\Database\Canzone.pkl', 'wb') as Dpi:
+        with open('Data/Database/Canzone.pkl', 'wb') as Dpi:
             pickle.dump(lista, Dpi)
 
     def top5(self):

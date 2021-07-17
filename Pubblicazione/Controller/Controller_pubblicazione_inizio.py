@@ -39,7 +39,7 @@ class controller_pubblicazione_inizio(QtWidgets.QWidget, pubblicazione_inizio):
         lista = []
         lista.append('0')
         lista.append('0')
-        with open('Data\Database\Album.pkl', 'wb') as Dpi:
+        with open('Data/Database/Album.pkl', 'wb') as Dpi:
             pickle.dump(lista, Dpi)
 
 

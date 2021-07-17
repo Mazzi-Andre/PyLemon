@@ -10,13 +10,13 @@ class DataPick(object):
         self.lista=[]
         self.lista.append(self.nome)
         self.lista.append(self.password)
-        with open('Data\Database\Data.pkl', 'wb') as Dpi:
+        with open('Data/Database/Data.pkl', 'wb') as Dpi:
             pickle.dump(self.lista, Dpi)
 
 
     """---Funzione di lettura Data.pkl che restituisce nome e password---"""
     def get_data(self):
-        with open('Data\Database\Data.pkl', 'rb') as Dpi:
+        with open('Data/Database/Data.pkl', 'rb') as Dpi:
             MyData = pickle.load(Dpi)
         return MyData
 
@@ -26,7 +26,7 @@ class DataPick(object):
         MyData = self.get_data()
         nome = MyData[0]
         pas = MyData[1]
-        conn = sqlite3.connect('Data\Database\Data.db')
+        conn = sqlite3.connect('Data/Database/Data.db')
         cursor = conn.cursor()
         self.lista= []
 
@@ -38,7 +38,7 @@ class DataPick(object):
 
     """---Funzione della rimozione dell'account utente--- """
     def delete_account(self, nome, pas):
-        conn = sqlite3.connect('Data\Database\Data.db')
+        conn = sqlite3.connect('Data/Database/Data.db')
         cursor = conn.cursor()
 
         with conn:
@@ -50,7 +50,7 @@ class DataPick(object):
         MyData = self.return_credenziali()
         nome = MyData[5]
         pas = MyData[6]
-        conn = sqlite3.connect('Data\Database\Data.db')
+        conn = sqlite3.connect('Data/Database/Data.db')
         cursor = conn.cursor()
 
         with conn:

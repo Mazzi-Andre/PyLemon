@@ -267,9 +267,3 @@ class home_ascoltatore(object):
         item.setFont(font)
         self.table.setColumnWidth(0, 191)
 
-'''app = QApplication([])
-window = QWidget()
-form = home_ascoltatore()
-form.setupUi(window)
-window.show()
-app.exec()'''
