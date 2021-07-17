@@ -12,6 +12,7 @@ from Pubblicazione.Model.pubblicazione_gestione import Gestione_mp3, Gestione_js
 class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_brano_etichetta):
     switch_window_1 = QtCore.pyqtSignal()
     switch_window_2 = QtCore.pyqtSignal()
+    switch_window_3 = QtCore.pyqtSignal()
 
     ''' Nel costruttore andiamo a definire delle variabili utili a seguire e collegare i pulsanti della view con delle fuzioni definite sotto'''
     def __init__(self,verifica_album,nome_album):

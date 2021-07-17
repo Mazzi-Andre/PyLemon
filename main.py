@@ -276,8 +276,8 @@ class Controller():
 
         if  int(MyData[0]) > 1:
             self.conta_brani_etichetta = self.conta_brani_etichetta + 1
-            self.nome_album = MyData[1]
-        else: self.nome_album = None
+            self.nome_album_etichetta = MyData[1]
+        else: self.nome_album_etichetta = None
 
         '''if self.Richiesta_nBrani.verifica_album:
             self.conta_brani_etichetta = self.conta_brani_etichetta + 1
@@ -286,8 +286,8 @@ class Controller():
         else: self.nome_album_etichetta = None'''
 
         self.Caricamento_Brano_etichetta = Controller_Caricamento_Brano_Etichetta(self.Richiesta_nBrani.verifica_album, self.nome_album_etichetta)
-        self.Caricamento_Brano_etichetta.switch_window_1.connect(self.show_pubblicazione_brano_etichetta)
-        self.Caricamento_Brano_etichetta.switch_window_2.connect(self.show_pubblicazione_inizio)
+        self.Caricamento_Brano_etichetta.switch_window_1.connect(self.show_pubblicazione_inizio)
+        self.Caricamento_Brano_etichetta.switch_window_3.connect(self.show_pubblicazione_brano_etichetta)
 
         if  int(MyData[0]) > 0:
             if self.conta_brani_etichetta == int(MyData[0]):
@@ -311,6 +311,7 @@ class Controller():
         else:
             self.check_pubblicazione_brano_etichetta1 = True
             self.Caricamento_Brano_etichetta.btn_Pubblica.clicked.connect(self.show_pubblicazione_inizio)'''
+        self.check_pubblicazione_brano_etichetta1= True
         self.Caricamento_Brano_etichetta.show()
 
 
@@ -324,6 +325,10 @@ class Controller():
         if self.check_pubblicazione_inizio1 is True:
             self.pubblicazione_inizio.close()
             self.check_pubblicazione_inizio1 = False
+
+        if self.check_pubblicazione_brano_etichetta1 is True:
+            self.Caricamento_Brano_etichetta.close()
+            self.check_pubblicazione_brano_etichetta1 = True
 
         if self.check_verifica_etichetta:
             self.Richiesta_nBrani.switch_window.connect(self.show_pubblicazione_brano_etichetta)
