@@ -199,7 +199,7 @@ class home_ascoltatore(object):
         '''-----------Bottone limone (Easter egg)---------'''
 
         self.btn_limone = QtWidgets.QPushButton(Form)
-        self.btn_limone.setGeometry(QtCore.QRect(530, 430, 70, 65))
+        self.btn_limone.setGeometry(QtCore.QRect(530, 420, 70, 75))
         font = QtGui.QFont()
         self.btn_limone.setFont(font)
         self.btn_limone.setStyleSheet("*{border: 0.5px solid rgb(40, 39, 39);"
@@ -209,7 +209,7 @@ class home_ascoltatore(object):
         self.btn_limone.setText("")
         self.btn_limone.setObjectName("btn_limone")
         self.btn_limone.setIcon(QIcon('Limone.png'))
-        self.btn_limone.setIconSize(QtCore.QSize(100, 100))
+        self.btn_limone.setIconSize(QtCore.QSize(120, 120))
 
 
 
