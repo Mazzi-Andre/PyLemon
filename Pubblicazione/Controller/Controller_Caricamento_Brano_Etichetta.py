@@ -10,7 +10,7 @@ from Pubblicazione.Model.pubblicazione_gestione import Gestione_mp3, Gestione_js
 
 ''' Classe di controllo per le funzionalità dell caricamento di un brano per un'etichetta discografica'''
 class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_brano_etichetta):
-    switch_window = QtCore.pyqtSignal()
+    switch_window_1 = QtCore.pyqtSignal()
     switch_window_2 = QtCore.pyqtSignal()
 
     ''' Nel costruttore andiamo a definire delle variabili utili a seguire e collegare i pulsanti della view con delle fuzioni definite sotto'''
@@ -87,9 +87,9 @@ class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_bran
             nomefile = stringa_split[0].replace("(", "")
             self.nomefile2 = nomefile.replace("'","")
 
-            self.nome = self.txt_nome_brano.text()
+            self.nome = self.lineEdit.text()
             if self.nome:
-                self.etichetta = self.nome_etichetta + " " + self.cognome_etichetta
+                self.etichetta = self.lineEdit_2.text()
                 if self.verifica_album == False:
                     self.album = self.nome
                 else:

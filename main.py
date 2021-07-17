@@ -241,10 +241,10 @@ class Controller():
         if  int(MyData[0]) > 0:
             if self.conta_brani_artista == int(MyData[0]):
                 self.Richiesta_nBrani.put_data_brani('0','0')
+                self.conta_brani_artista = 0
                 self.Caricamento_Brano_Artista.controllo_fine_album = True
             else:
                 self.Caricamento_Brano_Artista.controllo_fine_album = False
-
 
         if int(MyData[0]) > 0:
             self.Caricamento_Brano_Artista.switch_window_2.connect(self.show_pubblicazione_album)
@@ -273,23 +273,36 @@ class Controller():
         if int(MyData[0]) == 0:
             self.verifica_album = False
         else: self.verifica_album = True
-        print(self.verifica_album)
 
         if  int(MyData[0]) > 1:
-            self.conta_brani_artista = self.conta_brani_artista + 1
+            self.conta_brani_etichetta = self.conta_brani_etichetta + 1
             self.nome_album = MyData[1]
         else: self.nome_album = None
 
-        if self.Richiesta_nBrani.verifica_album:
+        '''if self.Richiesta_nBrani.verifica_album:
             self.conta_brani_etichetta = self.conta_brani_etichetta + 1
             self.nome_album_etichetta = self.Richiesta_nBrani.album_name
             self.nBrani_etichetta = self.Richiesta_nBrani.nBrani
-        else: self.nome_album_etichetta = None
+        else: self.nome_album_etichetta = None'''
 
         self.Caricamento_Brano_etichetta = Controller_Caricamento_Brano_Etichetta(self.Richiesta_nBrani.verifica_album, self.nome_album_etichetta)
-        self.Caricamento_Brano_etichetta.switch_window.connect(self.show_pubblicazione_brano_etichetta)
+        self.Caricamento_Brano_etichetta.switch_window_1.connect(self.show_pubblicazione_brano_etichetta)
+        self.Caricamento_Brano_etichetta.switch_window_2.connect(self.show_pubblicazione_inizio)
 
-        if self.Richiesta_nBrani.verifica_album is True:
+        if  int(MyData[0]) > 0:
+            if self.conta_brani_etichetta == int(MyData[0]):
+                self.Richiesta_nBrani.put_data_brani('0','0')
+                self.conta_brani_etichetta = 0
+                self.Caricamento_Brano_etichetta.controllo_fine_album = True
+            else:
+                self.Caricamento_Brano_etichetta.controllo_fine_album = False
+
+        if int(MyData[0]) > 0:
+            self.Caricamento_Brano_etichetta.switch_window_2.connect(self.show_pubblicazione_album)
+        else: self.Caricamento_Brano_etichetta.switch_window_2.connect(self.show_pubblicazione_inizio)
+
+
+        '''if self.Richiesta_nBrani.verifica_album is True:
             if self.conta_brani_etichetta <= self.nBrani_etichetta:
                 self.check_pubblicazione_brano_etichetta1 = True
                 if self.conta_brani_etichetta == self.nBrani_etichetta:
@@ -297,10 +310,10 @@ class Controller():
                 self.Caricamento_Brano_etichetta.show()
         else:
             self.check_pubblicazione_brano_etichetta1 = True
-            self.Caricamento_Brano_etichetta.btn_Pubblica.clicked.connect(self.show_pubblicazione_inizio)
-            self.Caricamento_Brano_etichetta.show()
+            self.Caricamento_Brano_etichetta.btn_Pubblica.clicked.connect(self.show_pubblicazione_inizio)'''
+        self.Caricamento_Brano_etichetta.show()
 
-        self.Caricamento_Brano_etichetta.switch_window_2.connect(self.show_pubblicazione_inizio)
+
 
 
 

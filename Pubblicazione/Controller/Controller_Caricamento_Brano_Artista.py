@@ -69,9 +69,9 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
                     self.album = self.nome
                 else:
                     self.album = self.nome_album
-
                 self.contatore = 0
                 self.id = self.Gestione_mp3.json_contatore["contatore_id"]+1
+
                 if path == '':
                     raise Exception
 
