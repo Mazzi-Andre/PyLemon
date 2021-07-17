@@ -89,8 +89,8 @@ class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_bran
             self.nomefile2 = nomefile.replace("'","")
 
             self.nome = self.lineEdit.text()
-            if self.nome:
-                self.etichetta = self.lineEdit_2.text()
+            self.etichetta = self.lineEdit_2.text()
+            if self.nome and self.etichetta:
                 if self.verifica_album == False:
                     self.album = self.nome
                 else:
