@@ -18,9 +18,9 @@ class impostazioni(object):
         '''-------------Titolo finestra------------'''
 
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(80, 30, 150, 41))
+        self.label.setGeometry(QtCore.QRect(75, 30, 150, 41))
         self.label.setStyleSheet("color: rgb(221, 215, 25);\n"
-                                 "font: 30pt \".AppleSystemUIFont\";")
+                                 "font: 20pt \".AppleSystemUIFont\";")
         self.label.setObjectName("label")
 
 

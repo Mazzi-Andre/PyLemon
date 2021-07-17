@@ -68,6 +68,30 @@ class Ui_Player(object):
         self.table.verticalHeader().setVisible(False)
         self.table.verticalHeader().setHighlightSections(True)
 
+        self.label_1 = QtWidgets.QLabel(Player)
+        self.label_1.setGeometry(QtCore.QRect(0, 0, 169, 27))
+        self.label_1.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
+                                   "background-color: rgb(51, 51, 51);"
+                                   "color: 'white';}")
+        self.label_1.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_1.setObjectName("label_1")
+
+        self.label_2 = QtWidgets.QLabel(Player)
+        self.label_2.setGeometry(QtCore.QRect(169, 0, 169, 27))
+        self.label_2.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
+                                   "background-color: rgb(51, 51, 51);"
+                                   "color: 'white';}")
+        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_2.setObjectName("label_2")
+
+        self.label_3 = QtWidgets.QLabel(Player)
+        self.label_3.setGeometry(QtCore.QRect(338, 0, 141, 27))
+        self.label_3.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
+                                   "background-color: rgb(51, 51, 51);"
+                                   "color: 'white';}")
+        self.label_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_3.setObjectName("label_3")
+
 
         '''-----------------Tasto play-------------------'''
 
@@ -192,5 +216,8 @@ class Ui_Player(object):
         self.table.setColumnWidth(1, 167) ;
         self.table.setColumnWidth(2, 167)
         self.icon_volume.setText(_translate("Player", ""))
+        self.label_1.setText(_translate("Player", "Titolo"))
+        self.label_2.setText(_translate("Player", "Album"))
+        self.label_3.setText(_translate("Player", "Artista"))
 
 

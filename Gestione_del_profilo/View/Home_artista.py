@@ -18,7 +18,7 @@ class home_artista(object):
         '''-------------Titolo finestra------------'''
 
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(345, 30, 381, 41))
+        self.label.setGeometry(QtCore.QRect(280, 30, 381, 56))
         self.label.setStyleSheet("color: rgb(221, 215, 25);\n"
                                  "font: 30pt \".AppleSystemUIFont\";")
         self.label.setObjectName("label")
@@ -204,6 +204,15 @@ class home_artista(object):
         self.table_top.verticalHeader().setVisible(False)
         self.table_top.verticalHeader().setHighlightSections(True)
 
+        self.label_2 = QtWidgets.QLabel(Form)
+        self.label_2.setGeometry(QtCore.QRect(20, 290, 169, 30))
+        self.label_2.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
+                                   "background-color: rgb(51, 51, 51);"
+                                   "border-radius: 5px;\n"
+                                   "color: 'white';}")
+        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_2.setObjectName("label_2")
+
 
         '''-----------Lista tuoi brani----------'''
 
@@ -258,6 +267,15 @@ class home_artista(object):
         self.table_brani.verticalHeader().setVisible(False)
         self.table_brani.verticalHeader().setHighlightSections(True)
 
+        self.label_3 = QtWidgets.QLabel(Form)
+        self.label_3.setGeometry(QtCore.QRect(250, 290, 231, 30))
+        self.label_3.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
+                                   "background-color: rgb(51, 51, 51);"
+                                   "border-radius: 5px;\n"
+                                   "color: 'white';}")
+        self.label_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_3.setObjectName("label_3")
+
 
 
         '''-----------ListView Playlist----------'''
@@ -280,7 +298,7 @@ class home_artista(object):
         self.btn_Impostazioni.setTabletTracking(True)
         self.btn_Impostazioni.setStyleSheet("*{border: 2px solid rgb(18, 110, 60);"
                                             "border-radius: 10px;\n"
-                                            "font: 10pt \"Arial\";"
+                                            "font: 7pt \"Arial\";"
                                             "color: 'white';}" +
                                             "*:hover{background: rgb(18, 110, 60);\n}")
         self.btn_Impostazioni.setObjectName("pushButton_3")
@@ -294,7 +312,7 @@ class home_artista(object):
         self.btn_Logout.setTabletTracking(True)
         self.btn_Logout.setStyleSheet("*{border: 2px solid rgb(18, 110, 60);"
                                       "border-radius: 10px;\n"
-                                      "font: 10pt \"Arial\";"
+                                      "font: 7pt \"Arial\";"
                                       "color: 'white';}" +
                                       "*:hover{background: rgb(18, 110, 60);\n}")
         self.btn_Logout.setObjectName("pushButton_4")
@@ -308,7 +326,7 @@ class home_artista(object):
         self.btn_Pubblica.setTabletTracking(True)
         self.btn_Pubblica.setStyleSheet("*{border: 2px solid rgb(18, 110, 60);"
                                         "border-radius: 10px;\n"
-                                        "font: 10pt \"Arial\";"
+                                        "font: 7pt \"Arial\";"
                                         "color: 'white';}" +
                                         "*:hover{background: rgb(18, 110, 60);\n}")
         self.btn_Pubblica.setObjectName("pushButton_2")
@@ -317,7 +335,7 @@ class home_artista(object):
         '''-----------Bottone limone (Easter egg)---------'''
 
         self.btn_limone = QtWidgets.QPushButton(Form)
-        self.btn_limone.setGeometry(QtCore.QRect(790, 440, 70, 65))
+        self.btn_limone.setGeometry(QtCore.QRect(790, 435, 70, 77))
         font = QtGui.QFont()
         self.btn_limone.setFont(font)
         self.btn_limone.setStyleSheet("*{border: 0.5px solid rgb(40, 39, 39);"
@@ -327,7 +345,7 @@ class home_artista(object):
         self.btn_limone.setText("")
         self.btn_limone.setObjectName("btn_limone")
         self.btn_limone.setIcon(QIcon('Limone.png'))
-        self.btn_limone.setIconSize(QtCore.QSize(100, 100))
+        self.btn_limone.setIconSize(QtCore.QSize(120, 120))
 
 
         '''------------Scritta "Playlist"-------------'''
@@ -335,7 +353,7 @@ class home_artista(object):
         self.label_coming.setGeometry(QtCore.QRect(609, 305, 100, 30))
         self.label_coming.setStyleSheet("background-color: rgb(51, 51, 51);"
                                         "color: rgb(255, 252, 252);\n"
-                                        "font: 15pt \".AppleSystemUIFont\";")
+                                        "font: 10pt \".AppleSystemUIFont\";")
         self.label_coming.setObjectName("label_coming")
 
 
@@ -377,11 +395,13 @@ class home_artista(object):
         self.label_coming.setText(_translate("Form", "Playlist"))
 
         item = self.table_top.horizontalHeaderItem(0)
-        item.setText(_translate("Form", "TOP 5 "))
+        item.setText(_translate("Form", ""))
         font1 = QtGui.QFont().bold()
         font = QtGui.QFont("Arial", 10, font1)
         item.setFont(font)
         self.table_top.setColumnWidth(0, 191)
+        self.label_2.setText(_translate("Form", "  TOP 5"))
+
 
 
         item = self.table_brani.horizontalHeaderItem(0)
@@ -390,3 +410,4 @@ class home_artista(object):
         font = QtGui.QFont("Arial", 10, font1)
         item.setFont(font)
         self.table_brani.setColumnWidth(0, 231)
+        self.label_3.setText(_translate("Form", "  I TUOI BRANI"))

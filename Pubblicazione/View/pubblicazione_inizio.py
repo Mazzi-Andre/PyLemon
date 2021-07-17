@@ -16,9 +16,9 @@ class pubblicazione_inizio(object):
         '''-------------Titolo finestra------------'''
 
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(155, 50, 130, 34))
+        self.label.setGeometry(QtCore.QRect(130, 40, 170, 55))
         self.label.setStyleSheet("color: rgb(221, 215, 25);\n"
-                                 "font: 30pt \".SF NS Text\";")
+                                 "font: 25pt \".SF NS Text\";")
         self.label.setObjectName("label")
 
 

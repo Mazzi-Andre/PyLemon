@@ -16,16 +16,16 @@ class Ui_Form(object):
         '''-------------Titolo finestra-----------'''
 
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(145, 20, 130, 41))
+        self.label.setGeometry(QtCore.QRect(125, 20, 170, 55))
         self.label.setStyleSheet("color: rgb(221, 215, 25);\n"
-                                 "font: 30pt \".AppleSystemUIFont\";")
+                                 "font: 25pt \".AppleSystemUIFont\";")
         self.label.setObjectName("label")
 
 
         '''-------------Sottotitolo--------------'''
 
         self.label_2 = QtWidgets.QLabel(Form)
-        self.label_2.setGeometry(QtCore.QRect(142, 60, 131, 16))
+        self.label_2.setGeometry(QtCore.QRect(145, 70, 131, 16))
         self.label_2.setStyleSheet("color: rgb(207, 211, 211);")
         self.label_2.setObjectName("label_2")
 
