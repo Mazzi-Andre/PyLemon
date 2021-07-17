@@ -3,7 +3,7 @@ import sqlite3
 
 class DataPick(object):
 
-
+    """---Funzione dell'inserimento nome e password nel file Data.pkl---"""
     def put_data(self, nome, password):
         self.nome= nome
         self.password = password
@@ -13,6 +13,7 @@ class DataPick(object):
         with open('Data\Database\Data.pkl', 'wb') as Dpi:
             pickle.dump(self.lista, Dpi)
 
+    """---Funzione di lettura Data.pkl che restituisce nome e password---"""
     def get_data(self):
         with open('Data\Database\Data.pkl', 'rb') as Dpi:
             MyData = pickle.load(Dpi)
@@ -35,7 +36,7 @@ class DataPick(object):
         return self.lista
 
 
-    """ DA TESTARE IL FUNZIONAMENTO """
+    """---Funzione della rimozione dell'account utente--- """
     def delete_account(self, nome, pas):
         conn = sqlite3.connect('Data\Database\Data.db')
         cursor = conn.cursor()
@@ -44,7 +45,8 @@ class DataPick(object):
             cursor.execute("""DELETE from credentials WHERE username = :first AND password = :last""",
                            {'first': nome, 'last': pas})
 
-    """ DA TESTARE IL FUNZIONAMENTO """
+
+    """---Funzione per il cambiamento di tipologia utente---"""
     def update_account(self, newtipo):
         MyData = self.return_credenziali()
         nome = MyData[5]
@@ -56,6 +58,8 @@ class DataPick(object):
             cursor.execute("""UPDATE credentials  SET tipo = :tipo WHERE username = :first AND password = :last""",
                            {'first': nome, 'last': pas, 'tipo': newtipo})
 
+
+    """---Funzione per il controllo della tipologia utente---"""
     def controlla_login(self):
         MyData = self.return_credenziali()
 
