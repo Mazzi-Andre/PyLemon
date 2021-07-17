@@ -23,9 +23,15 @@ class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_bran
         self.nome_etichetta = myData[1]
         self.cognome_etichetta = myData[2]
 
+        self.Gestione_mp3 = Gestione_mp3()
+        self.Gestione_Json = Gestione_json()
+
         self.verifica_album = verifica_album
         self.nome_album = nome_album
         self.path = ""
+
+        self.controllo_fine_album = False
+
         self.btn_Scegli_file.clicked.connect(self.btn_scegli_file_handler)
         self.btn_Pubblica.clicked.connect(self.btn_pubblica_handler)
         self.btn_Back.clicked.connect(self.btn_back_handler)

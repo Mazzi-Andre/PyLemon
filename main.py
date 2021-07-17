@@ -266,6 +266,20 @@ class Controller():
             self.pubblicazione_inizio.close()
             self.check_pubblicazione_inizio1 = False
 
+        with open('Data\Database\Album.pkl', 'rb') as Dpi:
+            MyData = pickle.load(Dpi)
+            print(MyData[0] +' '+ MyData[1])
+
+        if int(MyData[0]) == 0:
+            self.verifica_album = False
+        else: self.verifica_album = True
+        print(self.verifica_album)
+
+        if  int(MyData[0]) > 1:
+            self.conta_brani_artista = self.conta_brani_artista + 1
+            self.nome_album = MyData[1]
+        else: self.nome_album = None
+
         if self.Richiesta_nBrani.verifica_album:
             self.conta_brani_etichetta = self.conta_brani_etichetta + 1
             self.nome_album_etichetta = self.Richiesta_nBrani.album_name
@@ -298,12 +312,12 @@ class Controller():
             self.pubblicazione_inizio.close()
             self.check_pubblicazione_inizio1 = False
 
-
         if self.check_verifica_etichetta:
             self.Richiesta_nBrani.switch_window.connect(self.show_pubblicazione_brano_etichetta)
         else:
             self.Richiesta_nBrani.switch_window.connect(self.show_pubblicazione_brano_artista)
         self.Richiesta_nBrani.switch_window_2.connect(self.show_pubblicazione_inizio)
+
         if self.check_pubblicazione_brano_artista is True:
             self.Caricamento_Brano_Artista.close()
             self.check_pubblicazione_brano_artista = False
@@ -501,6 +515,7 @@ class Controller():
         self.pop_message(text="Arrivederci")
 
         if self.check_verifica_etichetta is True:
+            self.etichetta.close()
             self.check_verifica_etichetta = False
 
         if self.check_login_page is True:
