@@ -3,6 +3,8 @@ import os
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QFileDialog
+
+from Pubblicazione.Model.pubblicazione_Dati_utente import DataPick
 from Pubblicazione.View.Caricamento_brano_etichetta import Caricamento_brano_etichetta
 from Pubblicazione.Model.pubblicazione_gestione import Gestione_mp3, Gestione_json
 
@@ -15,6 +17,11 @@ class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_bran
     def __init__(self,verifica_album,nome_album):
         QtWidgets.QWidget.__init__(self)
         self.setupUi(self)
+
+        pick = DataPick()
+        myData = pick.return_credenziali()
+        self.nome_etichetta = myData[1]
+        self.cognome_etichetta = myData[2]
 
         self.verifica_album = verifica_album
         self.nome_album = nome_album
@@ -62,7 +69,7 @@ class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_bran
 
     def btn_pubblica_handler(self):
         if self.Controllo_pubblicazione() is True:
-            self.Gestione_Json.carica_brano_su_JSON(self.nome, self.artista, self.album, self.id, self.contatore)
+            self.Gestione_Json.carica_brano_su_JSON(self.nome, self.etichetta, self.album, self.id, self.contatore)
             self.Gestione_mp3.Carica_mp3(self.nomefile2)
             self.Controllo_emit()
 
@@ -76,7 +83,7 @@ class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_bran
 
             self.nome = self.txt_nome_brano.text()
             if self.nome:
-                self.artista = self.nomeartista + " " + self.cognomeartista
+                self.etichetta = self.nome_etichetta + " " + self.cognome_etichetta
                 if self.verifica_album == False:
                     self.album = self.nome
                 else:
@@ -101,6 +108,15 @@ class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_bran
             self.pop_message(text="Errore nel file da caricare.\n"
                                   "Il nome del file non deve contenere parentesi tonde,quadre,graffe e le virgolette")
             return False
+
+    def Controllo_emit(self):
+        if self.verifica_album is False:
+            self.switch_window_1.emit()
+
+        if self.verifica_album is True:
+            if self.controllo_fine_album is True:
+                self.switch_window_1.emit()
+            else: self.switch_window_3.emit()
 
     '''Funzione che permette di visualizzare un File Dialog e prende il path del file, collegata al pulsante btn_scegli_file'''
     def btn_scegli_file_handler(self):
