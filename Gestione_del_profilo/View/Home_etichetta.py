@@ -20,7 +20,7 @@ class home_etichetta(object):
         '''---------Titolo finestra--------'''
 
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(335, 10, 380, 81))
+        self.label.setGeometry(QtCore.QRect(255, 10, 430, 90))
         self.label.setStyleSheet("color: rgb(221, 215, 25);\n"
                                  "font: 30pt \".AppleSystemUIFont\";")
         self.label.setObjectName("label")
@@ -109,7 +109,7 @@ class home_etichetta(object):
         self.btn_Pubblica.setTabletTracking(True)
         self.btn_Pubblica.setStyleSheet("*{border: 2px solid rgb(18, 110, 60);" 
                                         "border-radius: 10px;\n"
-                                        "font: 10pt \"Arial\";"
+                                        "font: 7pt \"Arial\";"
                                         "color: 'white';}" +
                                         "*:hover{background: rgb(18, 110, 60);\n}")
         self.btn_Pubblica.setObjectName("pushButton_2")
@@ -123,7 +123,7 @@ class home_etichetta(object):
         self.btn_Impostazioni.setTabletTracking(True)
         self.btn_Impostazioni.setStyleSheet("*{border: 2px solid rgb(18, 110, 60);"
                                         "border-radius: 10px;\n"
-                                        "font: 10pt \"Arial\";"
+                                        "font: 7pt \"Arial\";"
                                         "color: 'white';}" +
                                         "*:hover{background: rgb(18, 110, 60);\n}")
         self.btn_Impostazioni.setObjectName("pushButton_3")
@@ -137,7 +137,7 @@ class home_etichetta(object):
         self.btn_Logout.setTabletTracking(True)
         self.btn_Logout.setStyleSheet("*{border: 2px solid rgb(18, 110, 60);"
                                         "border-radius: 10px;\n"
-                                        "font: 10pt \"Arial\";"
+                                        "font: 7pt \"Arial\";"
                                         "color: 'white';}" +
                                         "*:hover{background: rgb(18, 110, 60);\n}")
         self.btn_Logout.setObjectName("pushButton_4")
@@ -218,9 +218,19 @@ class home_etichetta(object):
         self.table.verticalHeader().setHighlightSections(True)
 
 
+        self.label_2 = QtWidgets.QLabel(Form)
+        self.label_2.setGeometry(QtCore.QRect(20, 290, 169, 30))
+        self.label_2.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
+                                   "background-color: rgb(51, 51, 51);"
+                                   "border-radius: 5px;\n"
+                                   "color: 'white';}")
+        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_2.setObjectName("label_3")
+
+
         '''-----------Bottone limone (Easter egg)---------'''
         self.btn_limone = QtWidgets.QPushButton(Form)
-        self.btn_limone.setGeometry(QtCore.QRect(780, 435, 70, 65))
+        self.btn_limone.setGeometry(QtCore.QRect(780, 435, 70, 77))
         font = QtGui.QFont()
         self.btn_limone.setFont(font)
         self.btn_limone.setStyleSheet("*{border: 0.5px solid rgb(40, 39, 39);"
@@ -230,7 +240,7 @@ class home_etichetta(object):
         self.btn_limone.setText("")
         self.btn_limone.setObjectName("btn_limone")
         self.btn_limone.setIcon(QIcon('Limone.png'))
-        self.btn_limone.setIconSize(QtCore.QSize(100, 100))
+        self.btn_limone.setIconSize(QtCore.QSize(120, 120))
 
 
 
@@ -241,7 +251,7 @@ class home_etichetta(object):
         self.label_coming_playlist.setGeometry(QtCore.QRect(585, 305, 100, 30))
         self.label_coming_playlist.setStyleSheet("background-color: rgb(51, 51, 51);"
                                         "color: rgb(255, 252, 252);\n"
-                                        "font: 15pt \".AppleSystemUIFont\";")
+                                        "font: 10pt \".AppleSystemUIFont\";")
         self.label_coming_playlist.setObjectName("label_coming")
 
 
@@ -249,10 +259,10 @@ class home_etichetta(object):
 
         '''------------Scritta "Tuoi artisti"-------------'''
         self.label_coming_miei_artisti = QtWidgets.QLabel(Form)
-        self.label_coming_miei_artisti.setGeometry(QtCore.QRect(308, 305, 100, 30))
+        self.label_coming_miei_artisti.setGeometry(QtCore.QRect(305, 305, 100, 30))
         self.label_coming_miei_artisti.setStyleSheet("background-color: rgb(51, 51, 51);"
                                         "color: rgb(255, 252, 252);\n"
-                                        "font: 15pt \".AppleSystemUIFont\";")
+                                        "font: 10pt \".AppleSystemUIFont\";")
         self.label_coming_miei_artisti.setObjectName("label_coming")
 
 
@@ -314,6 +324,7 @@ class home_etichetta(object):
         self.btn_limone.setText(_translate("Form", ""))
         self.label_coming_playlist.setText(_translate("Form", "Playlist"))
         self.label_coming_miei_artisti.setText(_translate("Form", "I tuoi artisti"))
+        self.label_2.setText(_translate("Form", "  TOP 5"))
 
         item = self.table.horizontalHeaderItem(0)
         item.setText(_translate("Form", "TOP 5 "))
