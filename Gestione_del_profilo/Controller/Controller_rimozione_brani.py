@@ -16,7 +16,7 @@ class controller_rimozioni_brani(QtWidgets.QWidget,rimozione_brani):
         self.setupUi(self)
         self.brani_artista()
         self.btn_eliminazione.clicked.connect(self.elimina_brano)
-        self.btn_eliminazione.clicked.connect(self.btn_back_handler)
+        #self.btn_eliminazione.clicked.connect(self.btn_back_handler)
         self.btn_Back.clicked.connect(self.btn_back_handler)
 
 
@@ -57,11 +57,12 @@ class controller_rimozioni_brani(QtWidgets.QWidget,rimozione_brani):
         if self.table.selectedItems():
             g = Gestione_json()
             g.elimina_object(self.nome_artista, self.table.currentItem().text())
+            self.switch_window_1.emit()
+        else :
+            self.pop_message(text="Seleziona un brano da rimuovere.")
 
 
     '''--------Switch finestre--------'''
 
     def btn_back_handler(self):
         self.switch_window_1.emit()
-
-
