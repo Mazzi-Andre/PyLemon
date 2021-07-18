@@ -48,7 +48,7 @@ class Controller_Richiesta_nBrani(QtWidgets.QWidget, Ui_Form):
         try:
             if not self.nBrani.find('.') == 0:
                     if int(self.nBrani) > 1:
-                        if self.nome_album:
+                        if self.album_name != '':
                             self.nBrani = int(self.nBrani)
                             return True
                         else:
