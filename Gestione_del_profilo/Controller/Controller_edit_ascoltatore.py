@@ -4,6 +4,9 @@ from PyQt5 import QtWidgets
 from Gestione_del_profilo.Model.Gestione_profilo import DataPick
 from Gestione_del_profilo.View.Edit_ascoltatore import edit_ascoltatore
 
+
+'''------------Classe controller view edit ascoltatore------------'''
+
 class controller_edit_ascoltatore(QtWidgets.QWidget,edit_ascoltatore):
     switch_window_1 = QtCore.pyqtSignal()
 
@@ -19,14 +22,15 @@ class controller_edit_ascoltatore(QtWidgets.QWidget,edit_ascoltatore):
 
 
 
-    """POP UP FINESTRA"""
+    """-----------POP UP FINESTRA----------"""
 
     def pop_message(self, text=""):
         msg = QtWidgets.QMessageBox()
         msg.setText("{}".format(text))
         msg.exec_()
 
-    """SWITCH FINESTRE"""
+
+    """------------SWITCH FINESTRE----------"""
 
     def btn_artista_handler(self):
         tipo = 'Artista'

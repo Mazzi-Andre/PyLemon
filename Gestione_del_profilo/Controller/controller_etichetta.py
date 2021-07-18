@@ -6,6 +6,7 @@ from PyQt5 import QtWidgets
 from Gestione_del_profilo.View.Home_etichetta import home_etichetta
 
 
+'''-------------Classe controller view home etichetta--------------'''
 
 class controller_etichetta(QtWidgets.QWidget, home_etichetta):
     switch_window_1 = QtCore.pyqtSignal()
@@ -29,14 +30,16 @@ class controller_etichetta(QtWidgets.QWidget, home_etichetta):
 
         self.top5()
 
-    """POP UP FINESTRA"""
+
+    """----------POP UP FINESTRA---------"""
 
     def pop_message(self, text=""):
         msg = QtWidgets.QMessageBox()
         msg.setText("{}".format(text))
         msg.exec_()
 
-    """SWITCH FINESTRE"""
+
+    """---------SWITCH FINESTRE----------"""
 
     def btn_Impostazioni_handler(self):
         self.switch_window_1.emit()
@@ -56,12 +59,18 @@ class controller_etichetta(QtWidgets.QWidget, home_etichetta):
     def btn_LogOut_handler(self):
         self.switch_window_k.emit()
 
+
+    '''-----------Metodo la gestione del nome inserito nella barra search-----------'''
+
     def put_data(self):
         nome = self.txt_nome.text()
         lista = []
         lista.append(nome)
         with open('Data/Database/Canzone.pkl', 'wb') as Dpi:
             pickle.dump(lista, Dpi)
+
+
+    '''----------Metodo gestione top 5 nella view etichetta----------'''
 
     def top5(self):
         self.table.setRowCount(5)

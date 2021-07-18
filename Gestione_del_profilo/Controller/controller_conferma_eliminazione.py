@@ -5,6 +5,8 @@ from Gestione_del_profilo.Model.Gestione_profilo import DataPick
 from Gestione_del_profilo.View.Conferma_credenziali_eliminazione import conferma_credenziali
 
 
+'''-------------Classe controller per la confronta credenziali prima di rimuovere il brano------------'''
+
 class controller_conferma_eliminazione(QtWidgets.QWidget,conferma_credenziali):
     switch_window_1 = QtCore.pyqtSignal()
     switch_window_2 = QtCore.pyqtSignal()
@@ -25,14 +27,15 @@ class controller_conferma_eliminazione(QtWidgets.QWidget,conferma_credenziali):
 
 
 
-    """POP UP FINESTRA"""
+    """-----------POP UP FINESTRA----------"""
 
     def pop_message(self, text=""):
         msg = QtWidgets.QMessageBox()
         msg.setText("{}".format(text))
         msg.exec_()
 
-    """SWITCH FINESTRE"""
+
+    """----------SWITCH FINESTRE------------"""
 
     def confronto_credenziali(self):
         username = self.txt_username.text()
@@ -50,6 +53,8 @@ class controller_conferma_eliminazione(QtWidgets.QWidget,conferma_credenziali):
                 self.pop_message(text="Username o password errati.")
                 pass
 
+
+    '''-----------Switch finestre------------'''
 
     def btn_back_handler(self):
         self.switch_window_1.emit()

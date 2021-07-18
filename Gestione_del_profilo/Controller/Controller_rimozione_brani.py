@@ -6,6 +6,8 @@ from Gestione_del_profilo.View.Rimozione_brani import rimozione_brani
 from Pubblicazione.Model.pubblicazione_gestione import Gestione_json
 
 
+'''------------Classe controller per la rimozione dei brani-----------'''
+
 class controller_rimozioni_brani(QtWidgets.QWidget,rimozione_brani):
     switch_window_1 = QtCore.pyqtSignal()
 
@@ -18,11 +20,16 @@ class controller_rimozioni_brani(QtWidgets.QWidget,rimozione_brani):
         self.btn_Back.clicked.connect(self.btn_back_handler)
 
 
+    '''---------Pop up message----------'''
+
     def pop_message(self, text=""):
         msg = QtWidgets.QMessageBox()
         msg.setText("{}".format(text))
         msg.exec_()
 
+
+
+    '''-------------Metodo per settare nella table la lista dei brani da poter eliminare-----------'''
 
     def brani_artista(self):
         data = DataPick()
@@ -44,10 +51,15 @@ class controller_rimozioni_brani(QtWidgets.QWidget,rimozione_brani):
             self.table.setItem(1, 0, QtWidgets.QTableWidgetItem("Ancora nessun brano"))
 
 
+    '''----------Metodo per la rimozione del brano--------'''
+
     def elimina_brano(self):
         if self.table.selectedItems():
             g = Gestione_json()
             g.elimina_object(self.nome_artista, self.table.currentItem().text())
+
+
+    '''--------Switch finestre--------'''
 
     def btn_back_handler(self):
         self.switch_window_1.emit()

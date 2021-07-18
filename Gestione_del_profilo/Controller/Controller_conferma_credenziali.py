@@ -5,7 +5,7 @@ from Gestione_del_profilo.Model.Gestione_profilo import DataPick
 from Gestione_del_profilo.View.Conferma_credenziali_eliminazione import conferma_credenziali
 
 
-'''------------Classe controller view conferma credenziali---------'''
+'''------------Classe controller view conferma credenziali per l'eliminazione dell'account---------'''
 
 class controller_conferma_credenziali(QtWidgets.QWidget,conferma_credenziali):
     switch_window_1 = QtCore.pyqtSignal()

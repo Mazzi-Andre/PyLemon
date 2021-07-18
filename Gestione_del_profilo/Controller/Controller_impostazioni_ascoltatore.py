@@ -1,8 +1,10 @@
 from PyQt5 import QtCore
 from PyQt5 import QtWidgets
 
-
 from Gestione_del_profilo.View.Impostazioni_ascoltatore import impostazioni_ascoltatore
+
+
+'''----------classe controller view impostazioni ascoltatore----------'''
 
 class controller_impostazioni_ascoltatore(QtWidgets.QWidget,impostazioni_ascoltatore):
     switch_window = QtCore.pyqtSignal()
@@ -16,7 +18,7 @@ class controller_impostazioni_ascoltatore(QtWidgets.QWidget,impostazioni_ascolta
 
 
 
-    """POP UP FINESTRA"""
+    """----------POP UP FINESTRA---------"""
 
     def pop_message(self, text=""):
         msg = QtWidgets.QMessageBox()
@@ -24,7 +26,7 @@ class controller_impostazioni_ascoltatore(QtWidgets.QWidget,impostazioni_ascolta
         msg.exec_()
 
 
-    """SWITCH FINESTRE"""
+    """-----------SWITCH FINESTRE------------"""
 
     def btn_elimina_profilo_handler(self):
         self.switch_window.emit()

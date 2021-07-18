@@ -74,8 +74,7 @@ class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_bran
                 else:
                     if self.verifica_album:
                         self.pop_message(text="Brano caricato con successo")
-                    else: self.pop_message(text="Brano caricato con successo.\n"
-                                          "Per vedere gli aggiornamenti ne I TUOI BRANI rieffettuare l'accesso")
+                    else: self.pop_message(text="Brano caricato con successo")
                     return True
 
             else:

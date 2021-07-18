@@ -30,14 +30,15 @@ class controller_conferma_edit(QtWidgets.QWidget,conferma_credenziali):
 
 
 
-    """POP UP FINESTRA"""
+    """--------POP UP FINESTRA--------"""
 
     def pop_message(self, text=""):
         msg = QtWidgets.QMessageBox()
         msg.setText("{}".format(text))
         msg.exec_()
 
-    """SWITCH FINESTRE"""
+
+    '''---------Metodo confronto credenziali per andare ad editare l'account---------'''
 
     def confronto_credenziali(self):
         username = self.txt_username.text()
@@ -49,7 +50,7 @@ class controller_conferma_edit(QtWidgets.QWidget,conferma_credenziali):
             return False
 
 
-
+    '''----------Metodo per il ritorno della tipologia di account----------'''
 
     def btn_confirm_handler(self):
         val = self.confronto_credenziali()
@@ -69,7 +70,7 @@ class controller_conferma_edit(QtWidgets.QWidget,conferma_credenziali):
 
 
 
-
+    """--------SWITCH FINESTRE--------"""
 
     def btn_back_handler(self):
 
