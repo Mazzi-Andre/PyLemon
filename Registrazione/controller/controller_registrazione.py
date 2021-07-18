@@ -45,41 +45,44 @@ class Newuser(QtWidgets.QWidget, Ui_NewUser):
         bol = self.confronta_stringhe(txt_tipo_v, txt_firstname_v, txt_lastname_v, txt_phone_v, txt_username_v,
                                       txt_password_v)
 
-        if bol is True:
+        if self.bool_account_esistente(txt_username_v, txt_password_v) is True:
+            if bol is True:
 
-            conn = sqlite3.connect('Data/Database/Data.db')
-            cursor = conn.cursor()
+                conn = sqlite3.connect('Data/Database/Data.db')
+                cursor = conn.cursor()
 
-            cursor.execute("""
-                                CREATE TABLE IF NOT EXISTS credentials 
-                                (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-                                fname TEXT, 
-                                lname TEXT, 
-                                Phone TEXT, 
-                                tipo TEXT,
-                                username TEXT, 
-                                password TEXT)""")
+                cursor.execute("""
+                                    CREATE TABLE IF NOT EXISTS credentials 
+                                    (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                                    fname TEXT, 
+                                    lname TEXT, 
+                                    Phone TEXT, 
+                                    tipo TEXT,
+                                    username TEXT, 
+                                    password TEXT)""")
 
-            cursor.execute(""" INSERT INTO credentials 
-                                (fname,
-                                lname,
-                                Phone,
-                                tipo,
-                                username, 
-                                password)
+                cursor.execute(""" INSERT INTO credentials 
+                                    (fname,
+                                    lname,
+                                    Phone,
+                                    tipo,
+                                    username, 
+                                    password)
+    
+                                VALUES 
+                                (?,?,?,?,?,?)
+                                """,
+                               (txt_firstname_v, txt_lastname_v, txt_phone_v, txt_tipo_v, txt_username_v, txt_password_v))
 
-                            VALUES 
-                            (?,?,?,?,?,?)
-                            """,
-                           (txt_firstname_v, txt_lastname_v, txt_phone_v, txt_tipo_v, txt_username_v, txt_password_v))
+                conn.commit()
+                cursor.close()
+                conn.close()
+                self.pop_message(text="Ora sei un membro di PyLemon!")
 
-            conn.commit()
-            cursor.close()
-            conn.close()
-            self.pop_message(text="Ora sei un membro di PyLemon!")
-
+            else:
+                self.pop_message(text="Campi mancanti o incorretti.")
         else:
-            self.pop_message(text="Campi mancanti o incorretti.")
+            self.pop_message(text="Credenziali account esistenti")
 
     """ Funzione per la verifica del corretto inserimento dei valori per la creazione di un nuovo account"""
 
@@ -91,3 +94,20 @@ class Newuser(QtWidgets.QWidget, Ui_NewUser):
                         if len(cognome) > 1:
                             if len(nome) > 1:
                                 return True
+
+    def bool_account_esistente(self, nome, password):
+        username = nome
+        password = password
+        conn = sqlite3.connect('Data/Database/Data.db')
+        cursor = conn.cursor()
+        cursor.execute("SELECT username,password FROM credentials")
+        val = cursor.fetchall()
+        if len(val) >= 1:
+
+            for x in val:
+                if username in x[0] and password in x[1]:
+                    return False
+                else:
+                    pass
+        else:
+            return True
