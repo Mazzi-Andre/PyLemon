@@ -1,0 +1,13 @@
+PyQt3D==5.15.4
+PyQt5==5.15.4
+PyQt5-sip==12.9.0
+PyQt6==6.1.0
+PyQt6-3D==6.1.0
+PyQt6-Charts==6.1.0
+PyQt6-DataVisualization==6.1.0
+PyQt6-NetworkAuth==6.1.0
+PyQt6-sip==13.1.0
+PyQtChart==5.15.4
+PyQtDataVisualization==5.15.4
+PyQtNetworkAuth==5.15.4
+PyQtPurchasing==5.15.4
