@@ -54,11 +54,13 @@ class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_bran
     def Controllo_pubblicazione(self):
         try:
             path= str(self.path)
-            print(path)
             stringa_split = path.split(", ")
             nomefile = stringa_split[0].replace("(", "")
-            print(nomefile)
             self.nomefile2 = nomefile.replace("'","")
+            if stringa_split[0].find('(', 3) != -1:
+                raise Exception
+            if stringa_split[0].find("'", 3) != -1:
+                raise Exception
 
             self.nome = self.lineEdit.text()
             self.etichetta = self.lineEdit_2.text()

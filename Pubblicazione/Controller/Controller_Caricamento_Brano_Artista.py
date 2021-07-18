@@ -61,6 +61,10 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
             stringa_split = path.split(", ")
             nomefile = stringa_split[0].replace("(", "")
             self.nomefile2 = nomefile.replace("'","")
+            if stringa_split[0].find('(', 3) != -1:
+                raise Exception
+            if stringa_split[0].find("'", 3) != -1:
+                raise Exception
 
             self.nome = self.txt_nome_brano.text()
             if self.nome:
