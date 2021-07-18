@@ -109,5 +109,6 @@ class Newuser(QtWidgets.QWidget, Ui_NewUser):
                     return False
                 else:
                     pass
+            return True
         else:
             return True
