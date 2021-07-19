@@ -20,7 +20,7 @@ from Gestione_del_profilo.Controller.controller_etichetta import controller_etic
 from Login.Model.login import DataPick
 from Login.controller.controller_login import Login
 from Pubblicazione.Controller.Controller_Caricamento_Brano_Etichetta import Controller_Caricamento_Brano_Etichetta
-from Pubblicazione.Controller.Controller_Richiesta_nBrani import Controller_Richiesta_nBrani
+from Pubblicazione.Controller.Controller_caricamento_album import Controller_caricamento_album
 from Pubblicazione.Controller.Controller_pubblicazione_inizio import controller_pubblicazione_inizio
 from Pubblicazione.Controller.Controller_Caricamento_Brano_Artista import Controller_Caricamento_Brano_artista_Artista
 from Pubblicazione.Model.pubblicazione_gestione import Gestione_json
@@ -188,7 +188,7 @@ class Controller():
     """Controller pubblicazione"""
     def show_pubblicazione_inizio(self):
         self.pubblicazione_inizio = controller_pubblicazione_inizio()
-        self.Richiesta_nBrani = Controller_Richiesta_nBrani()
+        self.Richiesta_nBrani = Controller_caricamento_album()
 
         if self.check_verifica_etichetta:
             self.pubblicazione_inizio.switch_window_1.connect(self.show_pubblicazione_brano_etichetta)
@@ -224,7 +224,7 @@ class Controller():
 
 
     def show_pubblicazione_brano_artista(self):
-        self.Richiesta_nBrani = Controller_Richiesta_nBrani()
+        self.Richiesta_nBrani = Controller_caricamento_album()
 
 
         if self.check_pubblicazione_inizio1 is True:
@@ -270,7 +270,7 @@ class Controller():
 
 
     def show_pubblicazione_brano_etichetta(self):
-        self.Richiesta_nBrani = Controller_Richiesta_nBrani()
+        self.Richiesta_nBrani = Controller_caricamento_album()
 
         if self.check_richiesta_nBrani1 is True:
             self.Richiesta_nBrani.close()
@@ -313,7 +313,7 @@ class Controller():
 
 
     def show_pubblicazione_album(self):
-        self.Richiesta_nBrani = Controller_Richiesta_nBrani()
+        self.Richiesta_nBrani = Controller_caricamento_album()
 
         if self.check_pubblicazione_inizio1 is True:
             self.pubblicazione_inizio.close()

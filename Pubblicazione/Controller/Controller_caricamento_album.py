@@ -5,7 +5,7 @@ from PyQt5 import QtWidgets
 from Pubblicazione.View.Richiesta_nBrani_e_nomeAlbum import caricamento_album
 
 '''Funzione che controlla la view per la richiesta dei brani e il nome dell'album'''
-class Controller_Richiesta_nBrani(QtWidgets.QWidget, caricamento_album):
+class Controller_caricamento_album(QtWidgets.QWidget, caricamento_album):
     switch_window = QtCore.pyqtSignal()
     switch_window_2 = QtCore.pyqtSignal()
 
