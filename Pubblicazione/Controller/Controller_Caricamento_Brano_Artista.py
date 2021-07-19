@@ -56,17 +56,15 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
 
 
     def Controllo_pubblicazione(self):
+
         try:
             path= str(self.path)
             stringa_split = path.split(", ")
+            self.controllo_parentesi(stringa_split[0])
             nomefile = stringa_split[0].replace("(", "")
             self.nomefile2 = nomefile.replace("'","")
-            if stringa_split[0].find('(', 3) != -1:
-                raise Exception
-            if stringa_split[0].find("'", 3) != -1:
-                raise Exception
-
             self.nome = self.txt_nome_brano.text()
+
             if self.nome:
                 self.artista = self.nomeartista + " " + self.cognomeartista
                 if self.verifica_album == False:
@@ -101,6 +99,17 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
             if self.controllo_fine_album is True:
                 self.switch_window_1.emit()
             else: self.switch_window_3.emit()
+
+    def controllo_parentesi(self, var):
+        variabile = str(var)
+        if variabile.find('(', 3) != -1:
+            raise Exception
+        if variabile.find("'", 3) != len(variabile)-1:
+            raise Exception
+
+
+
+
 
 
     '''Funzione che permette di visualizzare un File Dialog e prende il path del file, collegata al pulsante btn_scegli_file'''
