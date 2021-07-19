@@ -239,7 +239,7 @@ class home_etichetta(object):
                                       "color: 'white';}")
         self.btn_limone.setText("")
         self.btn_limone.setObjectName("btn_limone")
-        self.btn_limone.setIcon(QIcon('Limone.png'))
+        self.btn_limone.setIcon(QIcon('Data/photo/Limone.png'))
         self.btn_limone.setIconSize(QtCore.QSize(120, 120))
 
 
