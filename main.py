@@ -136,6 +136,14 @@ class Controller():
             self.login.close()
             self.check_login_page = False
 
+        if self.check_pubblicazione_brano_artista is True:
+            self.Caricamento_Brano_Artista.close()
+            self.check_pubblicazione_brano_artista = False
+
+        if self.check_pubblicazione_brano_etichetta1 is True:
+            self.Caricamento_Brano_etichetta.close()
+            self.check_pubblicazione_brano_etichetta1 = False
+
         self.check_home_artista = True
         self.artista.show()
 
@@ -147,11 +155,18 @@ class Controller():
         self.etichetta.switch_window_1.connect(self.show_impostazioni_etichetta)
         self.etichetta.switch_window_4.connect(self.show_mostra_search)
         self.etichetta.switch_window_5.connect(self.show_easter_egg)
+        self.etichetta.switch_window_k.connect(self.show_logout)
 
         self.check_verifica_etichetta = True
 
-        self.login.close()
-        self.etichetta.switch_window_k.connect(self.show_logout)
+        if self.check_pubblicazione_brano_artista is True:
+            self.Caricamento_Brano_Artista.close()
+            self.check_pubblicazione_brano_artista = False
+
+        if self.check_pubblicazione_brano_etichetta1 is True:
+            self.Caricamento_Brano_etichetta.close()
+            self.check_pubblicazione_brano_etichetta1 = False
+
         if self.check_login_page is True:
             self.login.close()
             self.check_login_page = False
