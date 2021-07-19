@@ -22,7 +22,7 @@ from Login.controller.controller_login import Login
 from Pubblicazione.Controller.Controller_Caricamento_Brano_Etichetta import Controller_Caricamento_Brano_Etichetta
 from Pubblicazione.Controller.Controller_Richiesta_nBrani import Controller_Richiesta_nBrani
 from Pubblicazione.Controller.Controller_pubblicazione_inizio import controller_pubblicazione_inizio
-from Pubblicazione.Controller.Controller_Caricamento_Brano_Artista import Controller_Caricamento_Brano_Artista
+from Pubblicazione.Controller.Controller_Caricamento_Brano_Artista import Controller_Caricamento_Brano_artista_Artista
 from Pubblicazione.Model.pubblicazione_gestione import Gestione_json
 from Top5.Controller.ControllerTop5 import TopFive
 from Gestione_del_profilo.Controller.Controller_rimozione_brani import controller_rimozioni_brani
@@ -247,7 +247,7 @@ class Controller():
             self.nome_album = MyData[1]
         else: self.nome_album = None
 
-        self.Caricamento_Brano_Artista = Controller_Caricamento_Brano_Artista(self.verifica_album, self.nome_album)
+        self.Caricamento_Brano_Artista = Controller_Caricamento_Brano_artista_Artista(self.verifica_album, self.nome_album)
 
         self.Caricamento_Brano_Artista.switch_window_1.connect(self.show_home_artista)
         self.Caricamento_Brano_Artista.switch_window_3.connect(self.show_pubblicazione_brano_artista)

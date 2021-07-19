@@ -6,12 +6,12 @@ from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QFileDialog
 
 from Pubblicazione.Model.pubblicazione_Dati_utente import DataPick
-from Pubblicazione.View.Caricamento_brano_Artista import Caricamento_brano
+from Pubblicazione.View.Caricamento_brano_Artista import Caricamento_brano_artista
 
 from Pubblicazione.Model.pubblicazione_gestione import Gestione_mp3, Gestione_json
 
 ''' Classe di controllo per le funzionalità dell caricamento di un brano per un'artista. '''
-class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano):
+class Controller_Caricamento_Brano_artista_Artista(QtWidgets.QWidget, Caricamento_brano_artista):
     switch_window_1 = QtCore.pyqtSignal()
     switch_window_2 = QtCore.pyqtSignal()
     switch_window_3 = QtCore.pyqtSignal()

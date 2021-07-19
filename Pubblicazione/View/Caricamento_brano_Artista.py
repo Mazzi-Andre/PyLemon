@@ -4,7 +4,7 @@ from PyQt5 import QtCore, QtWidgets
 
 '''---------------Classe view caricamento brano artista-------------'''
 
-class Caricamento_brano(object):
+class Caricamento_brano_artista(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(469, 367)
