@@ -17,9 +17,9 @@ class edit_ascoltatore(object):
         '''-------------Titolo finestra------------'''
 
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(80, 20, 150, 41))
+        self.label.setGeometry(QtCore.QRect(75, 20, 150, 41))
         self.label.setStyleSheet("color: rgb(221, 215, 25);\n"
-                                 "font: 30pt \".AppleSystemUIFont\";")
+                                 "font: 20pt \".AppleSystemUIFont\";")
         self.label.setObjectName("label")
 
 

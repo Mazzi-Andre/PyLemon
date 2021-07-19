@@ -21,7 +21,7 @@ class Ui_Outsecure(object):
         """----------Label del titolo----------"""
 
         self.l_title = QtWidgets.QLabel(Outsecure)
-        self.l_title.setGeometry(QtCore.QRect(195, 20, 140, 71))
+        self.l_title.setGeometry(QtCore.QRect(150, 20, 300, 71))
         self.l_title.setStyleSheet("color: rgb(221, 215, 25);\n"
                                    "font: 30pt \".SF NS Text\";")
         self.l_title.setObjectName("l_title")

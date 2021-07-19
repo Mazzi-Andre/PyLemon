@@ -21,7 +21,7 @@ class home_ascoltatore(object):
         '''---------Titolo finestra--------'''
 
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(180, 20, 381, 41))
+        self.label.setGeometry(QtCore.QRect(105, 20, 470, 56))
         self.label.setStyleSheet("color: rgb(221, 215, 25);\n"
                                  "font: 30pt \".AppleSystemUIFont\";")
         self.label.setObjectName("label")
@@ -113,6 +113,7 @@ class home_ascoltatore(object):
 
         '''------------Top 5------------'''
 
+
         self.table = QtWidgets.QTableWidget(Form)
         self.table.setGeometry(QtCore.QRect(20, 280, 191, 211))
         self.table.setMinimumSize(QtCore.QSize(3, 0))
@@ -120,7 +121,6 @@ class home_ascoltatore(object):
         self.table.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"   
                                  "background-color: rgb(51, 51, 51);"
                                  "border-radius: 5px;\n"
-                                 "font: 10pt \"Arial\";"
                                  "color: 'white';}")
         self.table.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.table.setFrameShadow(QtWidgets.QFrame.Sunken)
@@ -166,6 +166,17 @@ class home_ascoltatore(object):
 
 
 
+        self.label_2 = QtWidgets.QLabel(Form)
+        self.label_2.setGeometry(QtCore.QRect(20, 280, 169, 30))
+        self.label_2.setStyleSheet("*{border: 0.5px solid rgb(221, 215, 25);"
+                                   "background-color: rgb(51, 51, 51);"
+                                   "border-radius: 5px;\n"
+                                   "color: 'white';}")
+        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_2.setObjectName("label_2")
+
+
+
         '''------------Bottone impostazioni------------'''
 
         self.btn_Impostazioni = QtWidgets.QPushButton(Form)
@@ -174,7 +185,7 @@ class home_ascoltatore(object):
         self.btn_Impostazioni.setTabletTracking(True)
         self.btn_Impostazioni.setStyleSheet("*{border: 2px solid rgb(18, 110, 60);"
                                         "border-radius: 10px;\n"
-                                        "font: 10pt \"Arial\";"
+                                        "font: 7pt \"Arial\";"
                                         "color: 'white';}" +
                                         "*:hover{background: rgb(18, 110, 60);\n}")
         self.btn_Impostazioni.setObjectName("pushButton_3")
@@ -189,7 +200,7 @@ class home_ascoltatore(object):
         self.btn_Logout.setTabletTracking(True)
         self.btn_Logout.setStyleSheet("*{border: 2px solid rgb(18, 110, 60);"
                                         "border-radius: 10px;\n"
-                                        "font: 10pt \"Arial\";"
+                                        "font: 7pt \"Arial\";"
                                         "color: 'white';}" +
                                         "*:hover{background: rgb(18, 110, 60);\n}")
         self.btn_Logout.setObjectName("pushButton_4")
@@ -199,7 +210,7 @@ class home_ascoltatore(object):
         '''-----------Bottone limone (Easter egg)---------'''
 
         self.btn_limone = QtWidgets.QPushButton(Form)
-        self.btn_limone.setGeometry(QtCore.QRect(530, 420, 70, 75))
+        self.btn_limone.setGeometry(QtCore.QRect(530, 423, 70, 77))
         font = QtGui.QFont()
         self.btn_limone.setFont(font)
         self.btn_limone.setStyleSheet("*{border: 0.5px solid rgb(40, 39, 39);"
@@ -219,7 +230,7 @@ class home_ascoltatore(object):
         self.label_coming.setGeometry(QtCore.QRect(338, 305, 100, 30))
         self.label_coming.setStyleSheet("background-color: rgb(51, 51, 51);"
                                          "color: rgb(255, 252, 252);\n"
-                                         "font: 15pt \".AppleSystemUIFont\";")
+                                         "font: 10pt \".AppleSystemUIFont\";")
         self.label_coming.setObjectName("label_coming")
 
 
@@ -258,6 +269,7 @@ class home_ascoltatore(object):
         self.btn_search.setText(_translate("Form", ""))
         self.btn_limone.setText(_translate("Form", ""))
         self.label_coming.setText(_translate("Form", "Playlist"))
+        self.label_2.setText(_translate("Form", "   TOP 5"))
 
         self.txt_nome.setPlaceholderText(_translate("Form", " Search..."))
         item = self.table.horizontalHeaderItem(0)

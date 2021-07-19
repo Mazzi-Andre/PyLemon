@@ -16,16 +16,16 @@ class conferma_credenziali(object):
         '''------------Titolo finestra-------------'''
 
         self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(100, 30, 130, 41))
+        self.label.setGeometry(QtCore.QRect(95, 30, 130, 41))
         self.label.setStyleSheet("color: rgb(221, 215, 25);\n"
-                                 "font: 30pt \".AppleSystemUIFont\";")
+                                 "font: 20pt \".AppleSystemUIFont\";")
         self.label.setObjectName("label")
 
 
         '''-----------Sottotitolo-----------'''
 
         self.label_2 = QtWidgets.QLabel(Form)
-        self.label_2.setGeometry(QtCore.QRect(47, 70, 240, 20))
+        self.label_2.setGeometry(QtCore.QRect(50, 70, 240, 20))
         self.label_2.setStyleSheet("color: rgb(207, 211, 211);")
         self.label_2.setObjectName("label_2")
 
