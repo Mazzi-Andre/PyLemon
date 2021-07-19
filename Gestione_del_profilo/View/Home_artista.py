@@ -353,7 +353,7 @@ class home_artista(object):
         self.gif_coming.setMaximumSize(QtCore.QSize(150, 150))
 
         self.gif_coming.setObjectName("gif")
-        self.movie = QMovie("comingsoon.gif")
+        self.movie = QMovie("Data/gif/comingsoon.gif")
         self.movie.setScaledSize(QSize().scaled(100, 100, Qt.KeepAspectRatio))
         self.gif_coming.setMovie(self.movie)
         self.movie.start()

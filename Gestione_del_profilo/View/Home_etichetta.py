@@ -272,7 +272,7 @@ class home_etichetta(object):
         self.gif_coming_1.setMaximumSize(QtCore.QSize(150, 150))
 
         self.gif_coming_1.setObjectName("gif")
-        self.movie_1 = QMovie("comingsoon.gif")
+        self.movie_1 = QMovie("Data/gif/comingsoon.gif")
         self.movie_1.setScaledSize(QSize().scaled(100, 100, Qt.KeepAspectRatio))
         self.gif_coming_1.setMovie(self.movie_1)
         self.movie_1.start()
@@ -290,7 +290,7 @@ class home_etichetta(object):
         self.gif_coming_2.setMaximumSize(QtCore.QSize(150, 150))
 
         self.gif_coming_2.setObjectName("gif")
-        self.movie_2 = QMovie("comingsoon.gif")
+        self.movie_2 = QMovie("Data/gif/comingsoon.gif")
         self.movie_2.setScaledSize(QSize().scaled(100, 100, Qt.KeepAspectRatio))
         self.gif_coming_2.setMovie(self.movie_2)
         self.movie_2.start()
