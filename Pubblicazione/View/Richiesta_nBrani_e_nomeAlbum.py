@@ -4,7 +4,7 @@ from PyQt5 import QtCore, QtWidgets
 
 '''-----------------Classe view richiesta numero di brani in album----------------'''
 
-class Ui_Form(object):
+class caricamento_album(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(411, 329)

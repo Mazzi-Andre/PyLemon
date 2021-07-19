@@ -2,7 +2,7 @@ from PyQt5 import QtWidgets, QtCore
 
 
 
-class Ui_Outsecure(object):
+class vista_login(object):
 
     """ Classe della view Login  """
 

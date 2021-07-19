@@ -2,12 +2,12 @@ import sqlite3
 
 from PyQt5 import QtWidgets, QtCore
 
-from Login.view.vista_login import Ui_Outsecure
+from Login.view.vista_login import vista_login
 from Login.Model.login import DataPick
 
 ''' Classe controller utilizzata per la verifica al login del programma '''
 
-class Login(QtWidgets.QWidget, Ui_Outsecure):
+class Login(QtWidgets.QWidget, vista_login):
     switch_window = QtCore.pyqtSignal()
     switch_window1 = QtCore.pyqtSignal()
     switch_window2 = QtCore.pyqtSignal()
