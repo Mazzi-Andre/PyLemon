@@ -10,7 +10,7 @@ class Gestione_mp3():
     def __init__(self):
         self.verifica_nome_mp3 = True
 
-        with open('ContatoreBrani.json', 'r') as j:
+        with open('Data/Json/ContatoreBrani.json', 'r') as j:
             self.json_contatore = json.load(j)
 
     '''Pop Up Finestra'''
@@ -32,7 +32,7 @@ class Gestione_mp3():
             shutil.copy(percorsofile, 'Data/mp3')
             shutil.move('Data/mp3/' + nomefile, 'Data/mp3/' + newnomefile)
             self.json_contatore["contatore_id"] = id
-            with open("ContatoreBrani.json", "w") as write_file:
+            with open("Data/Json/ContatoreBrani.json", "w") as write_file:
                 json.dump(self.json_contatore, write_file)
             return True
         else : return False
@@ -59,7 +59,7 @@ class Gestione_json():
     '''Nel costruttore si esegue la lettura del file memorizzandola nell'attributo json_data'''
     def __init__(self):
 
-        with open('info_brani.json', 'r') as j:
+        with open('Data/Json/info_brani.json', 'r') as j:
             self.json_data = json.load(j)
 
 
@@ -70,12 +70,12 @@ class Gestione_json():
         if self.json_data != None:
 
             self.json_data.append(oggettobrano)
-            with open("info_brani.json", "w") as write_file:
+            with open("Data/Json/info_brani.json", "w") as write_file:
                 json.dump(self.json_data, write_file)
 
         else:
             self.json_data = oggettobrano
-            with open("info_brani.json", "w") as write_file:
+            with open("Data/Json/info_brani.json", "w") as write_file:
                 json.dump(self.json_data, write_file)
 
 
@@ -101,7 +101,7 @@ class Gestione_json():
                 data[posi-1] = i
                 break
 
-        with open("info_brani.json", "w") as write_file:
+        with open("Data/Json/info_brani.json", "w") as write_file:
             json.dump(data, write_file)
 
 
@@ -126,18 +126,18 @@ class Gestione_json():
                     if i is self.json_data[len(self.json_data)-1]:
                         self.decrementa_conta_id()
                     self.json_data.remove(i)
-                    with open("info_brani.json", "w") as write_file:
+                    with open("Data/Json/info_brani.json", "w") as write_file:
                         json.dump(self.json_data, write_file)
                     break
     '''---Decrememta il contatore delle canzoni se il brano da eliminare è situato 
         in ultima posizione del "json_data"---'''
 
     def decrementa_conta_id(self):
-        with open('ContatoreBrani.json', 'r') as j:
+        with open('Data/Json/ContatoreBrani.json', 'r') as j:
             self.json_conta_id = json.load(j)
 
         self.json_conta_id["contatore_id"] = self.json_conta_id["contatore_id"] - 1
-        with open("ContatoreBrani.json", "w") as write_file:
+        with open("Data/Json/ContatoreBrani.json", "w") as write_file:
             json.dump(self.json_conta_id, write_file)
 
 
