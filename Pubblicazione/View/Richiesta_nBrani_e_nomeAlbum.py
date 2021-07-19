@@ -97,7 +97,7 @@ class Ui_Form(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", ""))
         self.label.setText(_translate("Form", "PyLemon"))
-        self.label_3.setText(_translate("Form", "Inserisci il numero di brani nell\'album:"))
+        self.label_3.setText(_translate("Form", "Inserisci il numero di brani dell\'album:"))
         self.btn_ok.setText(_translate("Form", "Ok"))
         self.label_4.setText(_translate("Form", "Nome album:"))
         self.label_2.setText(_translate("Form", "Pubblicazione album"))
