@@ -222,7 +222,6 @@ class Controller():
 
         with open('Data/Database/Album.pkl', 'rb') as Dpi:
             MyData = pickle.load(Dpi)
-            print(MyData[0] +' '+ MyData[1])
 
         if int(MyData[0]) == 0:
             self.verifica_album = False
@@ -268,12 +267,10 @@ class Controller():
 
         with open('Data/Database/Album.pkl', 'rb') as Dpi:
             MyData = pickle.load(Dpi)
-            print(MyData[0] +' '+ MyData[1])
 
         if int(MyData[0]) == 0:
             self.verifica_album = False
         else: self.verifica_album = True
-        print(self.verifica_album)
 
         if  int(MyData[0]) > 1:
             self.conta_brani_etichetta = self.conta_brani_etichetta + 1
