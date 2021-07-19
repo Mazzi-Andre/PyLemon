@@ -70,7 +70,7 @@ class Easter_egg(object):
         self.gif_label.setMaximumSize(QtCore.QSize(300, 200))
 
         self.gif_label.setObjectName("gif")
-        self.movie = QMovie("Limone-gif-unscreen.gif")
+        self.movie = QMovie("Data/gif/Limone-gif-unscreen.gif")
         self.movie.setScaledSize(QSize().scaled(400, 250, Qt.KeepAspectRatio))
         self.gif_label.setMovie(self.movie)
         self.movie.start()

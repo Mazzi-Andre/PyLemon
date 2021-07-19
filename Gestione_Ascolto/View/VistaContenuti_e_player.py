@@ -82,7 +82,7 @@ class Ui_Player(object):
         self.play.setIconSize(QtCore.QSize(65, 65))
         self.play.setText("")
         self.play.setObjectName("play")
-        self.play.setIcon(QIcon('play.png'))
+        self.play.setIcon(QIcon('Data/photo/play.png'))
 
 
         '''----------------Tasto pausa---------------'''
@@ -98,7 +98,7 @@ class Ui_Player(object):
         self.pause.setIconSize(QtCore.QSize(40, 40))
         self.pause.setText("")
         self.pause.setObjectName("pause")
-        self.pause.setIcon(QIcon('pause.png'))
+        self.pause.setIcon(QIcon('Data/photo/pause.png'))
 
 
 
@@ -115,7 +115,7 @@ class Ui_Player(object):
         self.stop.setIconSize(QtCore.QSize(85, 85))
         self.stop.setText("")
         self.stop.setObjectName("stop")
-        self.stop.setIcon(QIcon('stop.png'))
+        self.stop.setIcon(QIcon('Data/photo/stop.png'))
 
 
         '''----------------Tasto canzone precedente---------------'''
@@ -131,6 +131,7 @@ class Ui_Player(object):
         self.prev.setIconSize(QtCore.QSize(52, 52))
         self.prev.setText("")
         self.prev.setObjectName("prev")
+        self.prev.setIcon(QIcon('Data/photo/prev.png'))
 
 
         '''-----------------Tasto canzone successiva---------------'''
@@ -139,7 +140,6 @@ class Ui_Player(object):
         self.next.setGeometry(QtCore.QRect(410, 365, 85, 45))
         font = QtGui.QFont()
         font.setFamily("Arial")
-        self.prev.setIcon(QIcon('prev.png'))
         self.next.setFont(font)
         self.next.setStyleSheet("border-radius: 10px;\n"
                                 "color: 'white';}" +
@@ -147,7 +147,7 @@ class Ui_Player(object):
         self.next.setIconSize(QtCore.QSize(52, 52))
         self.next.setText("")
         self.next.setObjectName("next")
-        self.next.setIcon(QIcon('next.png'))
+        self.next.setIcon(QIcon('Data/photo/next.png'))
 
 
         '''----------------Slider del volume---------------'''
@@ -171,7 +171,7 @@ class Ui_Player(object):
                                       "color: 'white';}")
         self.icon_volume.setText("")
         self.icon_volume.setObjectName("icon_volume")
-        self.icon_volume.setIcon(QIcon('volume.png'))
+        self.icon_volume.setIcon(QIcon('Data/photo/volume.png'))
         self.icon_volume.setIconSize(QtCore.QSize(25, 25))
 
 

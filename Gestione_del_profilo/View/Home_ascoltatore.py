@@ -39,7 +39,7 @@ class home_ascoltatore(object):
 
         self.btn_mostraTutte.setText("")
         self.btn_mostraTutte.setObjectName("pushButton")
-        self.btn_mostraTutte.setIcon(QIcon('Show_all_icon.png'))
+        self.btn_mostraTutte.setIcon(QIcon('Data/photo/Show_all_icon.png'))
         self.btn_mostraTutte.setIconSize(QtCore.QSize(60, 60))
 
 
@@ -54,7 +54,7 @@ class home_ascoltatore(object):
                                        "*:hover{background: rgb(130, 130, 130);\n}")
         self.btn_search.setText("")
         self.btn_search.setObjectName("pushButton_4")
-        self.btn_search.setIcon(QIcon('Lente.png'))
+        self.btn_search.setIcon(QIcon('Data/photo/Lente.png'))
         self.btn_search.setIconSize(QtCore.QSize(120, 120))
 
 
@@ -208,7 +208,7 @@ class home_ascoltatore(object):
                                        "color: 'white';}")
         self.btn_limone.setText("")
         self.btn_limone.setObjectName("btn_limone")
-        self.btn_limone.setIcon(QIcon('Limone.png'))
+        self.btn_limone.setIcon(QIcon('Data/photo/Limone.png'))
         self.btn_limone.setIconSize(QtCore.QSize(120, 120))
 
 
