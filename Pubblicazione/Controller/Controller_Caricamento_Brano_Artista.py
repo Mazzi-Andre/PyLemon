@@ -108,10 +108,6 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
             raise Exception
 
 
-
-
-
-
     '''Funzione che permette di visualizzare un File Dialog e prende il path del file, collegata al pulsante btn_scegli_file'''
     def btn_scegli_file_handler(self):
         self.path = QFileDialog.getOpenFileName(

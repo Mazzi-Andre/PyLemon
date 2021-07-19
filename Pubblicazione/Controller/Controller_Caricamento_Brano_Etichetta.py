@@ -55,15 +55,13 @@ class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_bran
         try:
             path= str(self.path)
             stringa_split = path.split(", ")
+            self.controllo_parentesi(stringa_split[0])
             nomefile = stringa_split[0].replace("(", "")
             self.nomefile2 = nomefile.replace("'","")
-            if stringa_split[0].find('(', 3) != -1:
-                raise Exception
-            if stringa_split[0].find("'", 3) != -1:
-                raise Exception
 
             self.nome = self.lineEdit.text()
             self.etichetta = self.lineEdit_2.text()
+
             if self.nome and self.etichetta:
                 if self.verifica_album == False:
                     self.album = self.nome
@@ -97,6 +95,13 @@ class Controller_Caricamento_Brano_Etichetta(QtWidgets.QWidget, Caricamento_bran
             if self.controllo_fine_album is True:
                 self.switch_window_1.emit()
             else: self.switch_window_3.emit()
+
+    def controllo_parentesi(self, var):
+        variabile = str(var)
+        if variabile.find('(', 3) != -1:
+            raise Exception
+        if variabile.find("'", 3) != len(variabile)-1:
+            raise Exception
 
     '''Funzione che permette di visualizzare un File Dialog e prende il path del file, collegata al pulsante btn_scegli_file'''
     def btn_scegli_file_handler(self):
