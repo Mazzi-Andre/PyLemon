@@ -95,6 +95,8 @@ class Newuser(QtWidgets.QWidget, Ui_NewUser):
                             if len(nome) > 1:
                                 return True
 
+
+    '''---Funzione per il controllo dell'esistenza di un account con le stesse credenziali di accesso---'''
     def bool_account_esistente(self, nome, password):
         username = nome
         password = password
