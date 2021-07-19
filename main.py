@@ -297,10 +297,6 @@ class Controller():
         self.Caricamento_Brano_etichetta.show()
 
 
-
-
-
-
     def show_pubblicazione_album(self):
         self.Richiesta_nBrani = Controller_Richiesta_nBrani()
 

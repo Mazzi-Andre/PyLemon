@@ -67,6 +67,7 @@ class Controller_Richiesta_nBrani(QtWidgets.QWidget, Ui_Form):
             self.verifica_album = False
         self.switch_window_2.emit()
 
+    '''---Funzione di inserimento numero di canzoni e nome album nel file .pkl---'''
     def put_data_brani(self, numero, album):
         lista = []
         lista.append(numero)

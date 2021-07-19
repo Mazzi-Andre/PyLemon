@@ -35,6 +35,7 @@ class controller_pubblicazione_inizio(QtWidgets.QWidget, pubblicazione_inizio):
     def btn_album_handler(self):
         self.switch_window_2.emit()
 
+    '''---Funzione di inizializzazione file .pkl dell'album---'''
     def controllo_pkl_brano(self):
         lista = []
         lista.append('0')

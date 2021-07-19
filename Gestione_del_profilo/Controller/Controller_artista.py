@@ -61,13 +61,14 @@ class controller_artista(QtWidgets.QWidget,home_artista):
     def btn_LogOut_handler(self):
         self.switch_window_k.emit()
 
+
+    '''-----------Metodo la gestione del nome inserito nella barra search-----------'''
     def put_data(self):
         self.nome = self.txt_nome.text()
         self.lista = []
         self.lista.append(self.nome)
         with open('Data/Database/Canzone.pkl', 'wb') as Dpi:
             pickle.dump(self.lista, Dpi)
-
 
 
     '''----------Metodo gestione top 5 nella view artista----------'''

@@ -54,7 +54,7 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
             self.Gestione_mp3.Carica_mp3(self.nomefile2)
             self.Controllo_emit()
 
-
+    '''---Funzione di controlo bool per il corretto inserimento della canzone in formato .MP3 e del titolo---'''
     def Controllo_pubblicazione(self):
 
         try:
@@ -91,6 +91,7 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
                                   "Il nome del file non deve contenere parentesi tonde,quadre,graffe e le virgolette")
             return False
 
+    '''---Funzione per la gestione dello switch windows in presenza di album o brano---'''
     def Controllo_emit(self):
         if self.verifica_album is False:
             self.switch_window_1.emit()
@@ -100,6 +101,7 @@ class Controller_Caricamento_Brano_Artista(QtWidgets.QWidget, Caricamento_brano)
                 self.switch_window_1.emit()
             else: self.switch_window_3.emit()
 
+    '''---Funzione per la gestione della presenza di caratteri proibiti nel nome del file .MP3---'''
     def controllo_parentesi(self, var):
         variabile = str(var)
         if variabile.find('(', 3) != -1:
