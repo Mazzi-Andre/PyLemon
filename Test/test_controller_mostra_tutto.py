@@ -1,13 +1,13 @@
 from unittest import TestCase
 
 from Gestione_Ascolto.Model.Ascolto import Ascolto
-from Pubblicazione.Model.pubblicazione import Gestione_json
+from Pubblicazione.Model.pubblicazione_gestione import Gestione_json
 
 
 class Testcontroller_mostra_tutto(TestCase):
     def test_mostra_tutto(self):
         self.gestione_json = Gestione_json()
-        self.assertIsNotNone(self.gestione_json.get_jsonobject())
+        self.assertIsNotNone(self.gestione_json.get_jsonobject)
 
 
     def test_go_play(self):

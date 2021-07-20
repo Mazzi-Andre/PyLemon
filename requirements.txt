@@ -11,3 +11,4 @@ PyQtChart==5.15.4
 PyQtDataVisualization==5.15.4
 PyQtNetworkAuth==5.15.4
 PyQtPurchasing==5.15.4
+pygame~=2.0.1
