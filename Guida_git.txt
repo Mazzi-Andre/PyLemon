@@ -1,9 +1,0 @@
-Prima di iniziare a lavorare:
-
-1) Fetch (aggiorna i branch del remoto)
-2) Creare branch dal remoto (se servno aggiornamenti degli altri)
-3) Se 2)----> merge con branch locale "ultimo" tuo
-4) Conviene lavorare su branch di copia di 3) (se problemi, ho sempre branch a cui posso ritornare)
-4) Ad ogni modifica importante-----> "Commit"
-5) A fine lavoro---> "Push" con nomina "main_nomeNostro"
-
